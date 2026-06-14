@@ -1,0 +1,44 @@
+[
+  {
+    "id": "armor_leather",
+    "Name": "Armor, leather",
+    "Cost": "30 gp",
+    "properties": "AC 11 + DEX mod",
+    "Gear Slots": 0
+  },
+  {
+    "id": "armor_chainmail",
+    "Name": "Armor, chainmail",
+    "Cost": "80 gp",
+    "properties": "AC 13 + DEX mod; DISADV swim and stealth; 2 slots",
+    "Gear Slots": 0
+  },
+  {
+    "id": "armor_plate",
+    "Name": "Armor, plate",
+    "Cost": "150 gp",
+    "properties": "AC 15; no swim or stealth; 3 slots",
+    "Gear Slots": 0
+  },
+  {
+    "id": "armor_mithral",
+    "Name": "Armor, mithral",
+    "Cost": "x5",
+    "properties": "Metal only; -1 slot; normal stealth/swim",
+    "Gear Slots": 0
+  },
+  {
+    "id": "saddle",
+    "Name": "Saddle",
+    "Cost": "30 gp",
+    "properties": "Rider ADV on checks to stay mounted;\n1 free for mount to carry",
+    "Gear Slots": 0
+  },
+  {
+    "id": "wagon",
+    "Name": "Wagon",
+    "Cost": "120 gp",
+    "properties": "No rider on mount; move at half speed; +15 gear slots; limit 1 per mount",
+    "Gear Slots": 0
+  }
+]

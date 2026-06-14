@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "shadowdark-character-sheet",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["character-sheet-app/app.py"],
+      "port": 5000
+    }
+  ]
+}

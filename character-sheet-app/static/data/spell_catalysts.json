@@ -1,0 +1,266 @@
+[
+  {
+    "id": "catalyst_001",
+    "Catalyst": "Γλυκάνισος (10)",
+    "Spell Name": "Acid Arrow",
+    "Gear Slots": 1,
+    "GP": "15 gp",
+    "Description": "Άνθος από ανθοφόρο φυτό που χρησιμοποιείται ως μπαχαρικό. Αν κρατηθεί κατά τη ρίψη Acid Arrow, καταναλώνεται και δίνει +2 ζημιά."
+  },
+  {
+    "id": "catalyst_002",
+    "Catalyst": "Βάλσαμο (10)",
+    "Spell Name": "Alarm",
+    "Gear Slots": 1,
+    "GP": "3 sp",
+    "Description": "Κομμάτι αρωματικής ρητίνης από δέντρα. Αν κρατηθεί κατά τη ρίψη Alarm, καταναλώνεται και αυξάνει τη διάρκεια σε 1d3+2 ημέρες."
+  },
+  {
+    "id": "catalyst_003",
+    "Catalyst": "Μελισσόχορτο (10)",
+    "Spell Name": "Alter Self",
+    "Gear Slots": 1,
+    "GP": "8 g p",
+    "Description": "Κλαδί από αρωματικό θάμνο. Αν κρατηθεί κατά τη ρίψη Alter Self, καταναλώνεται και διπλασιάζει τη διάρκεια σε 10 γύρους."
+  },
+  {
+    "id": "catalyst_004",
+    "Catalyst": "Βετόνικα (10)",
+    "Spell Name": "Augury",
+    "Gear Slots": 1,
+    "GP": "12 gp",
+    "Description": "Άνθος φαρμακευτικού φυτού. Αν κρατηθεί κατά τη ρίψη Augury, καταναλώνεται και επιτρέπει διευκρινιστική ερώτηση."
+  },
+  {
+    "id": "catalyst_005",
+    "Catalyst": "Μαύρη σταφίδα (10)",
+    "Spell Name": "Bless",
+    "Gear Slots": 1,
+    "GP": "10 gp",
+    "Description": "Ανθεκτικό μούρο. Αν κρατηθεί κατά τη ρίψη Bless, καταναλώνεται και δίνει πλεονέκτημα στο αποτέλεσμα τύχης."
+  },
+  {
+    "id": "catalyst_006",
+    "Catalyst": "Βόραγο (10)",
+    "Spell Name": "Blind/Deafen",
+    "Gear Slots": 1,
+    "GP": "7 gp",
+    "Description": "Σπόρος που δίνει λάδι. Αν κρατηθεί κατά τη ρίψη Blind/Deafen, καταναλώνεται και αυξάνει την εμβέλεια σε Μακρινή."
+  },
+  {
+    "id": "catalyst_007",
+    "Catalyst": "Χαμομήλι (10)",
+    "Spell Name": "Burning Hands",
+    "Gear Slots": 1,
+    "GP": "14 gp",
+    "Description": "Αποξηραμένα πέταλα. Αν κρατηθεί κατά τη ρίψη Burning Hands, καταναλώνεται και δίνει +2 ζημιά."
+  },
+  {
+    "id": "catalyst_008",
+    "Catalyst": "Κέρβελο (10)",
+    "Spell Name": "Charm Person",
+    "Gear Slots": 1,
+    "GP": "10 gp",
+    "Description": "Βότανο μαγειρικής. Αν κρατηθεί κατά τη ρίψη Charm Person, καταναλώνεται και προσθέτει 2d6 ημέρες διάρκειας."
+  },
+  {
+    "id": "catalyst_009",
+    "Catalyst": "Κιχώριο (10)",
+    "Spell Name": "Cleansing Weapon",
+    "Gear Slots": 1,
+    "GP": "8 gp",
+    "Description": "Ρίζα για τσάι. Αν κρατηθεί κατά τη ρίψη Cleansing Weapon, καταναλώνεται και δίνει +1 ζημιά (+4 κατά Νεκροζώντανων)."
+  },
+  {
+    "id": "catalyst_010",
+    "Catalyst": "Σύμφυτο (10)",
+    "Spell Name": "Cure Wounds",
+    "Gear Slots": 1,
+    "GP": "5 sp",
+    "Description": "Φαρμακευτικό άνθος. Αν κρατηθεί κατά τη ρίψη Cure Wounds, καταναλώνεται και θεραπεύει +1d4 HP."
+  },
+  {
+    "id": "catalyst_011",
+    "Catalyst": "Κομμάτι χαλκού (10)",
+    "Spell Name": "Detect Magic",
+    "Gear Slots": 1,
+    "GP": "8 sp",
+    "Description": "Μικρό μεταλλικό τεμάχιο. Αν κρατηθεί κατά τη ρίψη Detect Magic, καταναλώνεται και αυξάνει την εμβέλεια."
+  },
+  {
+    "id": "catalyst_012",
+    "Catalyst": "Κόλιανδρος (10)",
+    "Spell Name": "Detect Thoughts",
+    "Gear Slots": 1,
+    "GP": "20 gp",
+    "Description": "Σπόρος μπαχαρικού. Αν κρατηθεί κατά τη ρίψη Detect Thoughts, καταναλώνεται και δίνει μειονέκτημα στον στόχο."
+  },
+  {
+    "id": "catalyst_013",
+    "Catalyst": "Άνηθος (10)",
+    "Spell Name": "Feather Fall",
+    "Gear Slots": 1,
+    "GP": "4 sp",
+    "Description": "Σπόρος βοτάνου. Αν κρατηθεί κατά τη ρίψη Feather Fall, καταναλώνεται και επιτρέπει έλεγχο καθόδου."
+  },
+  {
+    "id": "catalyst_014",
+    "Catalyst": "Μάραθος (10)",
+    "Spell Name": "Fixed Object",
+    "Gear Slots": 1,
+    "GP": "6 gp",
+    "Description": "Αρωματικό βότανο. Αν κρατηθεί κατά τη ρίψη Fixed Object, καταναλώνεται και αυξάνει διάρκεια σε 10 γύρους."
+  },
+  {
+    "id": "catalyst_015",
+    "Catalyst": "Λινάρι (10)",
+    "Spell Name": "Floating Disk",
+    "Gear Slots": 1,
+    "GP": "6 sp",
+    "Description": "Σπόρος για λάδι. Αν κρατηθεί κατά τη ρίψη Floating Disc, καταναλώνεται και αυξάνει χωρητικότητα σε 25 θέσεις εξοπλισμού."
+  },
+  {
+    "id": "catalyst_016",
+    "Catalyst": "Γυάλινη σφαίρα (10)",
+    "Spell Name": "Hold Person",
+    "Gear Slots": 1,
+    "GP": "12 gp",
+    "Description": "Υπόλειμμα υαλουργίας. Αν κρατηθεί κατά τη ρίψη Hold Person, καταναλώνεται και αυξάνει την εμβέλεια."
+  },
+  {
+    "id": "catalyst_017",
+    "Catalyst": "Χρένο (10)",
+    "Spell Name": "Hold Portal",
+    "Gear Slots": 1,
+    "GP": "8 sp",
+    "Description": "Πικάντικη ρίζα. Αν κρατηθεί κατά τη ρίψη Hold Portal, καταναλώνεται και δίνει μειονέκτημα στο σπάσιμο."
+  },
+  {
+    "id": "catalyst_018",
+    "Catalyst": "Λεβάντα (10)",
+    "Spell Name": "Holy Weapon",
+    "Gear Slots": 1,
+    "GP": "4 sp",
+    "Description": "Αρωματικό άνθος. Αν κρατηθεί κατά τη ρίψη Holy Weapon, καταναλώνεται και αυξάνει μπόνους σε +2."
+  },
+  {
+    "id": "catalyst_019",
+    "Catalyst": "Λεμονόχορτο (10)",
+    "Spell Name": "Invisibility",
+    "Gear Slots": 1,
+    "GP": "24 gp",
+    "Description": "Φυτό γρασιδιού. Αν κρατηθεί κατά τη ρίψη Invisibility, καταναλώνεται και αυξάνει διάρκεια σε 20 γύρους."
+  },
+  {
+    "id": "catalyst_020",
+    "Catalyst": "Μακίς (10)",
+    "Spell Name": "Knock",
+    "Gear Slots": 1,
+    "GP": "16 gp",
+    "Description": "Περίβλημα μοσχοκάρυδου. Αν κρατηθεί κατά τη ρίψη Knock, καταναλώνεται και προκαλεί 1d4 ηχητική ζημιά γύρω."
+  },
+  {
+    "id": "catalyst_021",
+    "Catalyst": "Μέντα (10)",
+    "Spell Name": "Levitate",
+    "Gear Slots": 1,
+    "GP": "18 gp",
+    "Description": "Φύλλα βοτάνου. Αν κρατηθεί κατά τη ρίψη Levitate, καταναλώνεται και επιτρέπει οριζόντια κίνηση."
+  },
+  {
+    "id": "catalyst_022",
+    "Catalyst": "Ακόνιτο (10)",
+    "Spell Name": "Light",
+    "Gear Slots": 1,
+    "GP": "1 sp",
+    "Description": "Δηλητηριώδες άνθος. Αν κρατηθεί κατά τη ρίψη Light, καταναλώνεται και αυξάνει την εμβέλεια φωτός."
+  },
+  {
+    "id": "catalyst_023",
+    "Catalyst": "Αψιθιά (10)",
+    "Spell Name": "Mage Armor",
+    "Gear Slots": 1,
+    "GP": "6 sp",
+    "Description": "Φαρμακευτικό βότανο. Αν κρατηθεί κατά τη ρίψη Mage Armor, καταναλώνεται και δίνει +1 AC και πλεονέκτημα σε κρίσιμα."
+  },
+  {
+    "id": "catalyst_024",
+    "Catalyst": "Ελιά (10)",
+    "Spell Name": "Magic Missile",
+    "Gear Slots": 1,
+    "GP": "5 sp",
+    "Description": "Καρπός για λάδι. Αν κρατηθεί κατά τη ρίψη Magic Missile, καταναλώνεται και ρίχνει στόχο κάτω αν αποτύχει DEX."
+  },
+  {
+    "id": "catalyst_025",
+    "Catalyst": "Σπόρος κολοκύθας (10)",
+    "Spell Name": "Mirror /mage",
+    "Gear Slots": 1,
+    "GP": "15 gp",
+    "Description": "Σπόρος κολοκύθας. Αν κρατηθεί κατά τη ρίψη Mirror Image, καταναλώνεται και δίνει ένα επιπλέον αντίγραφο."
+  },
+  {
+    "id": "catalyst_026",
+    "Catalyst": "Κόκκινη σταφίδα (10)",
+    "Spell Name": "Misty Step",
+    "Gear Slots": 1,
+    "GP": "20 gp",
+    "Description": "Όξινο μούρο. Αν κρατηθεί κατά τη ρίψη Misty Step, καταναλώνεται και αυξάνει εμβέλεια."
+  },
+  {
+    "id": "catalyst_027",
+    "Catalyst": "Δεντρολίβανο (10)",
+    "Spell Name": "Protection from Evil",
+    "Gear Slots": 1,
+    "GP": "5 sp",
+    "Description": "Αρωματικό φυτό. Αν κρατηθεί κατά τη ρίψη Protection from Evil, καταναλώνεται και διώχνει χαοτικά όντα."
+  },
+  {
+    "id": "catalyst_028",
+    "Catalyst": "Φασκόμηλο (10)",
+    "Spell Name": "Shield of Faith",
+    "Gear Slots": 1,
+    "GP": "3 sp",
+    "Description": "Ανθισμένο φυτό. Αν κρατηθεί κατά τη ρίψη Shield of Faith, καταναλώνεται και αυξάνει διάρκεια σε 12 γύρους."
+  },
+  {
+    "id": "catalyst_029",
+    "Catalyst": "Σανδαλόξυλο (10)",
+    "Spell Name": "Silence",
+    "Gear Slots": 1,
+    "GP": "12 gp",
+    "Description": "Αρωματικό ξύλο. Αν κρατηθεί κατά τη ρίψη Silence, καταναλώνεται και ζαλίζει άλογα όντα."
+  },
+  {
+    "id": "catalyst_030",
+    "Catalyst": "Sicklepod (10)",
+    "Spell Name": "Sleep",
+    "Gear Slots": 1,
+    "GP": "2 sp",
+    "Description": "Άγριο όσπριο. Αν κρατηθεί κατά τη ρίψη Sleep, καταναλώνεται και επηρεάζει +1 στόχο."
+  },
+  {
+    "id": "catalyst_031",
+    "Catalyst": "Γαϊδουράγκαθο (10)",
+    "Spell Name": "Smite",
+    "Gear Slots": 1,
+    "GP": "20 gp",
+    "Description": "Ανθισμένο φυτό. Αν κρατηθεί κατά τη ρίψη Smite, επιτρέπει δεύτερο στόχο."
+  },
+  {
+    "id": "catalyst_032",
+    "Catalyst": "Θυμάρι (10)",
+    "Spell Name": "Web",
+    "Gear Slots": 1,
+    "GP": "15 gp",
+    "Description": "Ανθεκτικό βότανο. Αν κρατηθεί κατά τη ρίψη Web, καταναλώνεται και δίνει μειονέκτημα σε διαφυγή."
+  },
+  {
+    "id": "catalyst_033",
+    "Catalyst": "Αψίνθιο (10)",
+    "Spell Name": "Zone of Truth",
+    "Gear Slots": 1,
+    "GP": "18 gp",
+    "Description": "Βότανο με αντισηπτικές ιδιότητες. Αν κρατηθεί κατά τη ρίψη Zone of Truth, καταναλώνεται και αυξάνει εμβέλεια."
+  }
+]

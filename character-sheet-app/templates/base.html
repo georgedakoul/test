@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Shadowdark RPG{% endblock %}</title>
+<script>
+  /* No-flash theme: set palette + mode before first paint */
+  (function(){var V=['charcoal','blue','green','crimson'];
+   var t=localStorage.getItem('sdTheme'); if(V.indexOf(t)<0)t='charcoal';
+   var m=localStorage.getItem('sdMode')==='dark'?'dark':'light';
+   var r=document.documentElement; r.setAttribute('data-theme',t); r.setAttribute('data-mode',m);})();
+</script>
+<link rel="stylesheet" href="/static/css/companion.css">
+<link rel="stylesheet" href="/static/css/themes.css">
+{% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- ── SITE NAV ────────────────────────────────────────────────────────── -->
+<nav class="site-nav">
+  <a class="site-logo" href="/">Shadowdark</a>
+
+  <div class="nav-links">
+    <!-- PLAY -->
+    <div class="nav-item has-dropdown" data-dropdown="play">
+      <button class="nav-link">Play</button>
+      <div class="nav-dropdown" id="dd-play">
+        <a href="/characters" class="dd-link">My Characters</a>
+        <a href="/characters?new=1" class="dd-link">Create Character</a>
+        <a href="/vtt" class="dd-link">Maps VTT</a>
+      </div>
+    </div>
+
+    <!-- RULES -->
+    <div class="nav-item has-dropdown" data-dropdown="rules">
+      <button class="nav-link">Rules</button>
+      <div class="nav-dropdown dd-wide" id="dd-rules">
+        <a href="/rules-glossary" class="dd-link">Rules Glossary</a>
+        <a href="/classes" class="dd-link">Classes</a>
+        <a href="/backgrounds" class="dd-link">Backgrounds</a>
+        <a href="/species" class="dd-link">Species</a>
+        <a href="/spells" class="dd-link">Spells</a>
+        <a href="/equipment" class="dd-link">Equipment</a>
+        <a href="/magic-items" class="dd-link">Magic Items</a>
+        <a href="/monsters" class="dd-link">Monsters</a>
+        <a href="/gods" class="dd-link">Gods &amp; Patrons</a>
+      </div>
+    </div>
+
+    <!-- LIBRARY -->
+    <a class="nav-link" href="/library">Library</a>
+
+    <!-- GAME MASTER (only shown to GMs; populated by base.js after /api/auth/me) -->
+    <div class="nav-item has-dropdown" data-dropdown="gm" id="nav-gm" hidden>
+      <button class="nav-link">Game Master</button>
+      <div class="nav-dropdown" id="dd-gm">
+        <a href="/gm/add"     class="dd-link">Add</a>
+        <a href="/gm-screen"  class="dd-link">Game Master Screen</a>
+        <a href="/admin/users" class="dd-link">Users</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- THEME + USER CONTROLS -->
+  <div class="nav-theme">
+    <!-- Desktop controls (hidden on phone) -->
+    <div class="nav-theme-desktop">
+      <div class="user-chip" id="user-chip" hidden>
+        <span class="user-chip-name" id="user-chip-name"></span>
+        <button class="user-chip-signout" id="user-chip-signout" type="button" title="Sign out">⎋</button>
+      </div>
+      <button class="account-btn" id="account-btn" type="button" title="Sign in / Create account" hidden>👤</button>
+      <button class="theme-mode-btn" id="theme-mode-btn" type="button" title="Toggle light/dark">🌙</button>
+      <select class="theme-select" id="theme-select" title="Color theme">
+        <option value="charcoal">Charcoal</option>
+        <option value="blue">Arcane Blue</option>
+        <option value="green">Forest Green</option>
+        <option value="crimson">Crimson Royal</option>
+      </select>
+    </div>
+
+    <!-- Settings gear (opens popover with theme + account at any width) -->
+    <button class="nav-gear" id="nav-chip" type="button" aria-haspopup="true" aria-expanded="false" title="Settings">⚙</button>
+    <div class="nav-popover" id="nav-popover" hidden>
+      <button class="np-row np-row-mode" id="np-mode-btn" type="button">
+        <span class="np-icon" id="np-mode-icon">🌙</span>
+        <span class="np-label" id="np-mode-label">Switch to dark</span>
+      </button>
+      <div class="np-row np-row-theme">
+        <span class="np-label">Theme</span>
+        <div class="np-swatches">
+          <button class="np-dot" data-theme="charcoal" type="button" title="Charcoal"></button>
+          <button class="np-dot" data-theme="blue" type="button" title="Arcane Blue"></button>
+          <button class="np-dot" data-theme="green" type="button" title="Forest Green"></button>
+          <button class="np-dot" data-theme="crimson" type="button" title="Crimson Royal"></button>
+        </div>
+      </div>
+      <button class="np-row np-row-account" id="np-acct-btn" type="button">
+        <span class="np-icon">👤</span>
+        <span class="np-label" id="np-acct-label">Sign in</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── AUTH MODAL (sign in / sign up) ─────────────────────────────── -->
+<div id="auth-overlay" class="auth-overlay" hidden>
+  <form id="auth-form" class="auth-card" autocomplete="on">
+    <button type="button" class="auth-close" id="auth-close" title="Close">✕</button>
+    <h2 class="auth-title" id="auth-title">Sign in</h2>
+    <label class="auth-label">Username
+      <input type="text" id="auth-username" autocomplete="username" required>
+    </label>
+    <label class="auth-label">Password
+      <input type="password" id="auth-password" autocomplete="current-password" required>
+    </label>
+    <label class="auth-label" id="auth-verify-row" hidden>Verify password
+      <input type="password" id="auth-verify" autocomplete="new-password">
+    </label>
+    <div class="auth-error" id="auth-error" hidden></div>
+    <button type="submit" class="auth-submit" id="auth-submit">Sign in</button>
+    <div class="auth-switch" id="auth-switch"></div>
+  </form>
+</div>
+
+{% block body %}{% endblock %}
+
+<!-- ── Dropdown JS ──────────────────────────────────────────────────────── -->
+<script>
+(function() {
+  const items = document.querySelectorAll('.nav-item.has-dropdown');
+  let openDD = null;
+  let hoverTimeout = null;
+
+  function openDropdown(item) {
+    closeAll();
+    item.classList.add('open');
+    openDD = item;
+  }
+  function closeAll() {
+    items.forEach(i => i.classList.remove('open'));
+    openDD = null;
+  }
+
+  // Desktop: hover
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimeout);
+      openDropdown(item);
+    });
+    item.addEventListener('mouseleave', () => {
+      hoverTimeout = setTimeout(closeAll, 200);
+    });
+  });
+
+  // Mobile: tap to toggle
+  items.forEach(item => {
+    item.querySelector('.nav-link').addEventListener('click', e => {
+      e.preventDefault();
+      if (item.classList.contains('open')) closeAll();
+      else openDropdown(item);
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (openDD && !e.target.closest('.nav-item.has-dropdown')) closeAll();
+  });
+})();
+</script>
+
+<script src="/static/js/theme.js"></script>
+<script src="/static/js/auth.js"></script>
+<script src="/static/js/nav-mobile.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "item",
+    "language": "Common",
+    "type": "common",
+    "speakers": "Most humanoids"
+  },
+  {
+    "id": "item_2",
+    "language": "Dwarvish",
+    "type": "common",
+    "speakers": "Dwarves"
+  },
+  {
+    "id": "item_3",
+    "language": "Elvish",
+    "type": "common",
+    "speakers": "Elves"
+  },
+  {
+    "id": "item_4",
+    "language": "Giant",
+    "type": "common",
+    "speakers": "Giants, ogres, trolls"
+  },
+  {
+    "id": "item_5",
+    "language": "Goblin",
+    "type": "common",
+    "speakers": "Bugbears, goblins, hobgoblins"
+  },
+  {
+    "id": "item_6",
+    "language": "Merran",
+    "type": "common",
+    "speakers": "Merfolk, sahuagin, sirens"
+  },
+  {
+    "id": "item_7",
+    "language": "Orcish",
+    "type": "common",
+    "speakers": "Orcs"
+  },
+  {
+    "id": "item_8",
+    "language": "Reptilian",
+    "type": "common",
+    "speakers": "Lizardfolk, viperians"
+  },
+  {
+    "id": "item_9",
+    "language": "Sylvan",
+    "type": "common",
+    "speakers": "Centaurs, dryads, faeries"
+  },
+  {
+    "id": "item_10",
+    "language": "Thanian",
+    "type": "common",
+    "speakers": "Minotaurs, beastmen, manticores"
+  },
+  {
+    "id": "item_11",
+    "language": "Celestial",
+    "type": "rare",
+    "speakers": "Angels"
+  },
+  {
+    "id": "item_12",
+    "language": "Diabolic",
+    "type": "rare",
+    "speakers": "Demons, devils"
+  },
+  {
+    "id": "item_13",
+    "language": "Draconic",
+    "type": "rare",
+    "speakers": "Dragons"
+  },
+  {
+    "id": "item_14",
+    "language": "Primordial",
+    "type": "rare",
+    "speakers": "Elder things, elementals"
+  }
+]

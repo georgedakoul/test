@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block title %}Magic Items — Shadowdark RPG{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Magic Items</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="mi-search" placeholder="Search magic items...">
+    <button class="filter-btn active" data-type="all">All</button>
+    <button class="filter-btn" data-type="Weapons">Weapons</button>
+    <button class="filter-btn" data-type="Armor & Shields">Armor & Shields</button>
+    <button class="filter-btn" data-type="Wearable">Wearable</button>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn" data-type="Arcane">Arcane</button>
+    <button class="filter-btn" data-type="Consumable">Consumable</button>
+  </div>
+  <table class="list-table">
+    <thead>
+      <tr>
+        <th data-sort="name">Name <span class="sort-arrow"></span></th>
+        <th data-sort="type">Type <span class="sort-arrow"></span></th>
+        <th data-sort="bonus">Bonus <span class="sort-arrow"></span></th>
+        <th data-sort="slots">Slots <span class="sort-arrow"></span></th>
+      </tr>
+    </thead>
+    <tbody id="mi-body"></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const body   = document.getElementById('mi-body');
+  const search = document.getElementById('mi-search');
+  let allData  = [];
+  let sortCol  = 'name', sortAsc = true;
+  let filterType = 'all';
+
+  // Map specific item types to filter categories
+  const categoryMap = {
+    // Weapons
+    'sword':'Weapons','longsword':'Weapons','shortsword':'Weapons','greatsword':'Weapons',
+    'scimitar':'Weapons','dagger':'Weapons','mace':'Weapons','warhammer':'Weapons',
+    'greataxe':'Weapons','spear':'Weapons','javelin':'Weapons','bow':'Weapons',
+    'staff':'Weapons',
+    // Armor & Shields
+    'armor':'Armor & Shields','shield':'Armor & Shields',
+    // Wearable
+    'amulet':'Wearable','boots':'Wearable','bracers':'Wearable','brooch':'Wearable',
+    'circlet':'Wearable','cloak':'Wearable','gauntlets':'Wearable','gloves':'Wearable',
+    'hat':'Wearable','helm':'Wearable','necklace':'Wearable','ring':'Wearable',
+    'robe':'Wearable',
+    // Consumable
+    'potion':'Consumable','gem':'Consumable','pearl':'Consumable',
+    // Arcane
+    'wand':'Arcane','rod':'Arcane','book':'Arcane','horn':'Arcane','pipe':'Arcane',
+    'pipes':'Arcane','figurine':'Arcane','bag':'Arcane','knowledge':'Arcane',
+    'wondrous item':'Arcane'
+  };
+
+  function getCategory(type) {
+    return categoryMap[(type||'').toLowerCase()] || 'Arcane';
+  }
+
+  fetch('/api/data/magic_items').then(r=>r.json()).then(data => {
+    allData = data.map(m => {
+      const rawType = m['Type'] || m.type || '';
+      return {
+        name:        m['Name'] || m.name || '',
+        type:        rawType,
+        category:    getCategory(rawType),
+        benefit:     m['Benefit'] || m.benefit || '',
+        bonus:       m['Bonus'] || m.bonus || '',
+        curse:       m['Curse'] || m.curse || '',
+        description: m['Description'] || m.description || '',
+        slots:       m['Gear Slots'] || m.slots || '',
+        personality: m['Personality'] || m.personality || ''
+      };
+    });
+    render();
+  });
+
+  function render() {
+    const q = (search.value || '').toLowerCase();
+    let list = allData.filter(item => {
+      if (filterType !== 'all') {
+        if (item.category !== filterType) return false;
+      }
+      if (q) {
+        const hay = [item.name, item.type, item.benefit, item.description].filter(Boolean).join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    list.sort((a,b) => {
+      let av = a[sortCol]||'', bv = b[sortCol]||'';
+      av = av.toString().toLowerCase(); bv = bv.toString().toLowerCase();
+      return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+
+    body.innerHTML = list.map((item,i) => `
+      <tr class="mi-row" data-idx="${i}">
+        <td>${item.name||''}</td>
+        <td class="muted">${item.type||''}</td>
+        <td class="muted">${item.bonus||''}</td>
+        <td class="muted">${item.slots||''}</td>
+      </tr>
+      <tr class="row-detail" data-detail="${i}">
+        <td colspan="4">${[item.benefit, item.description, item.curse ? '<strong>Curse:</strong> '+item.curse : ''].filter(Boolean).join('<br>')|| 'No description.'}</td>
+      </tr>
+    `).join('');
+
+    body.querySelectorAll('.mi-row').forEach(row => {
+      row.addEventListener('click', () => {
+        body.querySelector(`[data-detail="${row.dataset.idx}"]`).classList.toggle('open');
+      });
+    });
+  }
+
+  search.addEventListener('input', render);
+
+  document.querySelectorAll('[data-type]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterType = btn.dataset.type;
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = true; }
+      render();
+    });
+  });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,165 @@
+/* Reference Drawer — extracted from style.css so non-character-sheet pages
+   can use the exact same slide-out reference without pulling in the full
+   character-sheet stylesheet. style.css still has its own copy for the
+   character sheet itself; this file is the canonical one. */
+
+.drawer-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  z-index: 1000; display: none; backdrop-filter: blur(2px);
+}
+.drawer-overlay.open { display: block; }
+
+.reference-drawer {
+  position: fixed; top: 0; right: -700px;
+  width: min(700px, 100vw); height: 100vh;
+  overscroll-behavior: contain;
+  background: var(--bg-panel); border-left: 1px solid var(--border-mid);
+  z-index: 1001; display: flex; flex-direction: column;
+  transition: right .25s ease;
+  box-shadow: -8px 0 32px rgba(0,0,0,.6);
+  color: var(--text-primary);
+}
+.reference-drawer.open { right: 0; }
+
+.drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .75rem 1rem; border-bottom: 1px solid var(--border-dim);
+  background: var(--bg-panel-alt);
+}
+.drawer-title {
+  font-family: var(--font-h); font-size: .95rem; font-weight: 700;
+  color: var(--text-primary); letter-spacing: .08em;
+}
+.drawer-close {
+  background: none; border: none; color: var(--text-muted);
+  font-size: 1.1rem; width: 3rem; height: 3rem; border-radius: 3px;
+  cursor: pointer;
+}
+.drawer-close:hover { color: var(--text-primary); background: var(--bg-hover); }
+
+.drawer-tabs {
+  display: flex; flex-wrap: wrap; gap: .3rem;
+  padding: .6rem .75rem;
+  border-bottom: 1px solid var(--border-dim);
+}
+.dtab {
+  background: transparent; border: 1px solid var(--border-subtle);
+  color: var(--text-muted); font-size: .75rem;
+  padding: .25rem .6rem; border-radius: 3px;
+  font-family: var(--font-h); letter-spacing: .06em;
+  cursor: pointer;
+}
+.dtab:hover  { border-color: var(--border-strong); color: var(--text-secondary); }
+.dtab.active { background: rgba(180,180,180,.12); border-color: var(--border-strong); color: var(--text-primary); }
+
+.drawer-search-bar {
+  padding: .5rem .75rem; border-bottom: 1px solid var(--border-dim);
+  display: flex; gap: .5rem; align-items: center; flex-wrap: wrap;
+}
+.drawer-search-bar input {
+  flex: 1; min-width: 0;
+  padding: .35rem .7rem;
+  background: var(--bg-input); border: 1px solid var(--border-subtle);
+  border-radius: 3px; font-size: .9rem; color: var(--text-primary);
+}
+.drawer-search-bar input:focus { border-color: var(--border-strong); outline: none; }
+
+.ref-class-filter {
+  flex: 0 0 auto; white-space: nowrap;
+  background: var(--bg-panel-alt); border: 1px solid var(--border-mid);
+  color: var(--text-secondary); font-family: var(--font-b); font-size: .8rem;
+  padding: .35rem .8rem; border-radius: 3px; cursor: pointer;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.ref-class-filter:hover {
+  background: color-mix(in srgb, var(--bronze) 14%, var(--bg-panel-alt));
+  border-color: var(--bronze); color: var(--text-primary);
+}
+.ref-class-filter.active,
+.ref-class-filter.active:hover {
+  background: var(--bronze-dark); border-color: var(--bronze);
+  color: #E9DCC0; font-weight: 600;
+}
+.ref-class-filter[hidden] { display: none; }
+
+.ref-filter-bar {
+  display: flex; flex-wrap: wrap; gap: .35rem .4rem;
+  padding: .5rem .75rem;
+  border-bottom: 1px solid var(--border-dim);
+}
+.ref-filter-bar[hidden] { display: none; }
+.ref-filter-bar .filter-btn { font-size: .8rem; padding: .3rem .7rem; }
+.ref-filter-label {
+  align-self: center; color: var(--text-muted); font-size: .8rem;
+  margin-right: .15rem;
+}
+.ref-align-filters { padding-top: .35rem; }
+
+.drawer-content {
+  flex: 1; overflow-y: auto; padding: .75rem;
+  overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+}
+
+.ref-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.ref-table th {
+  text-align: left; padding: .35rem .5rem;
+  font-family: var(--font-h); font-size: .68rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--bg-panel-alt);
+  position: sticky; top: 0;
+}
+.ref-table th.ref-sortable { cursor: pointer; user-select: none; transition: color .12s, background .12s; }
+.ref-table th.ref-sortable:hover  { color: var(--bronze); background: color-mix(in srgb, var(--bronze) 10%, var(--bg-panel-alt)); }
+.ref-table th.ref-sortable.active { color: var(--bronze); }
+.ref-table th .ref-sort-arrow { display: inline-block; min-width: .9em; font-size: .85em; margin-left: .25em; color: var(--bronze); }
+.ref-table td {
+  padding: .3rem .5rem; border-bottom: 1px solid var(--border-dim);
+  color: var(--text-secondary); vertical-align: top;
+}
+.ref-table tr:hover td { background: var(--bg-hover); color: var(--text-primary); }
+.ref-table td.col-name { color: var(--text-primary); font-weight: 600; }
+.ref-col-add { width: 1px; padding: .2rem .25rem !important; white-space: nowrap; }
+.ref-add-btn {
+  background: transparent; border: 1px solid var(--border-mid);
+  color: var(--text-secondary); font-size: .72rem;
+  padding: .15rem .35rem; border-radius: 3px; white-space: nowrap;
+  cursor: pointer;
+}
+.ref-add-btn:hover { background: rgba(180,180,180,.1); color: var(--text-primary); }
+
+.ref-table tr.ref-row { cursor: pointer; }
+.ref-table tr.row-detail { display: none; background: transparent; }
+.ref-table tr.row-detail.open { display: table-row; }
+.ref-table tr.row-detail td { padding: .55rem .65rem; border-bottom: 1px solid var(--border-dim); }
+
+.ref-detail-card {
+  background: var(--bg-panel-alt);
+  border: 1px solid var(--border-dim);
+  border-left: 3px solid var(--bronze);
+  border-radius: 6px;
+  padding: .8rem 1rem;
+  line-height: 1.55;
+}
+.ref-detail-name {
+  font-family: var(--font-h); font-size: 1rem;
+  color: var(--bronze); margin-bottom: .45rem;
+}
+.ref-detail-meta {
+  display: flex; flex-wrap: wrap; gap: .25rem .85rem;
+  margin-bottom: .55rem; font-size: .82rem;
+  color: var(--text-secondary);
+}
+.ref-detail-meta .sc-label { color: var(--bronze); font-weight: 700; margin-right: .25rem; }
+.ref-detail-desc { color: var(--text-primary); font-size: .88rem; white-space: pre-line; }
+
+@media (max-width: 600px) {
+  .ref-hide-mobile { display: none !important; }
+  .ref-table th, .ref-table td { padding: .25rem .3rem; font-size: .75rem; }
+  .ref-table th { font-size: .6rem; }
+  .ref-detail-card { padding: .65rem .75rem; }
+  .ref-detail-name { font-size: .92rem; }
+  .ref-detail-desc { font-size: .82rem; }
+  .reference-drawer { width: 100vw; }
+}

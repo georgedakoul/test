@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}GM Screen — Shadowdark RPG{% endblock %}
+{% block head %}<link rel="stylesheet" href="/static/css/gm.css">{% endblock %}
+{% block body %}
+<div class="page-wrap">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem;">
+    <h1 class="page-title" style="margin:0;">Game Master Screen</h1>
+    <button class="gm-btn primary" id="gm-board-new">+ New board</button>
+  </div>
+  <p style="color:var(--text-secondary);margin-bottom:1rem;">
+    Your private prep canvas. Drag and drop cards — rules, monsters, notes,
+    images. Each board scopes one game or session.
+  </p>
+  <ul class="gm-board-list" id="gm-board-list"></ul>
+</div>
+
+<!-- Name prompt modal (replaces native prompt() which double-fires on touch devices) -->
+<div class="gm-modal-backdrop" id="gm-name-modal" hidden>
+  <div class="gm-modal small">
+    <h3 class="gm-modal-title" id="gm-name-title">Board name</h3>
+    <input type="text" id="gm-name-input" class="gm-input" style="width:100%;margin-bottom:.85rem;">
+    <div class="gm-modal-actions">
+      <button class="gm-btn primary" id="gm-name-ok">OK</button>
+      <button class="gm-btn" id="gm-name-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function fmtDate(s) { if (!s) return '—'; try { return new Date(s.replace(' ','T')+'Z').toLocaleString(); } catch(e){return s;} }
+
+  // Single-use name modal: replaces native prompt() (which double-fires on
+  // touch devices). Returns a Promise<string|null>.
+  let _nameBusy = false;
+  function askName(title, initial) {
+    return new Promise(resolve => {
+      if (_nameBusy) { resolve(null); return; }
+      _nameBusy = true;
+      const modal = $('gm-name-modal');
+      const input = $('gm-name-input');
+      $('gm-name-title').textContent = title;
+      input.value = initial || '';
+      modal.hidden = false;
+      setTimeout(() => { input.focus(); input.select(); }, 30);
+      function cleanup(val) {
+        modal.hidden = true; _nameBusy = false;
+        $('gm-name-ok').onclick = null;
+        $('gm-name-cancel').onclick = null;
+        input.onkeydown = null;
+        resolve(val);
+      }
+      $('gm-name-ok').onclick = () => cleanup((input.value || '').trim() || null);
+      $('gm-name-cancel').onclick = () => cleanup(null);
+      input.onkeydown = (e) => {
+        if (e.key === 'Enter')  { e.preventDefault(); cleanup((input.value||'').trim() || null); }
+        if (e.key === 'Escape') { e.preventDefault(); cleanup(null); }
+      };
+    });
+  }
+
+  async function load() {
+    const list = await (await fetch('/api/gm/boards')).json();
+    const ul = $('gm-board-list');
+    if (!list.length) {
+      ul.innerHTML = '<li class="gm-board-empty">No boards yet. Click <strong>+ New board</strong> to create one.</li>';
+      return;
+    }
+    ul.innerHTML = list.map(b => `
+      <li class="gm-board-card" data-id="${b.id}">
+        <a href="/gm-screen/${b.id}" class="gm-board-title">${esc(b.name)}</a>
+        <span class="gm-board-meta">Opened: ${fmtDate(b.last_opened_at) || '—'}</span>
+        <span class="gm-board-actions">
+          <button class="gm-btn small" data-act="rename">Rename</button>
+          <button class="gm-btn small danger" data-act="delete">Delete</button>
+        </span>
+      </li>`).join('');
+    ul.querySelectorAll('[data-act]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const card = btn.closest('.gm-board-card');
+        const id = parseInt(card.dataset.id);
+        const cur = card.querySelector('.gm-board-title').textContent;
+        if (btn.dataset.act === 'rename') {
+          const name = await askName('Rename board', cur);
+          if (!name) return;
+          await fetch(`/api/gm/boards/${id}`, { method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name }) });
+          load();
+        } else if (btn.dataset.act === 'delete') {
+          if (!confirm(`Delete "${cur}" and all its cards? This cannot be undone.`)) return;
+          await fetch(`/api/gm/boards/${id}`, { method:'DELETE' });
+          load();
+        }
+      });
+    });
+  }
+
+  // Click handlers — defensive: ignore if a click handler is already in flight
+  // (prevents double-fire from touchend+click on some mobile browsers).
+  let _newInFlight = false;
+  $('gm-board-new').addEventListener('click', async () => {
+    if (_newInFlight) return;
+    _newInFlight = true;
+    try {
+      const name = await askName('Name your new board', 'New Board');
+      if (!name) return;
+      const r = await fetch('/api/gm/boards', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name }) });
+      const b = await r.json();
+      window.location.href = '/gm-screen/' + b.id;
+    } finally { _newInFlight = false; }
+  });
+  load();
+})();
+</script>
+{% endblock %}

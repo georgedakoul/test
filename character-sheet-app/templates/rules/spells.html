@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% block title %}Spells — Shadowdark RPG{% endblock %}
+
+{% block head %}
+<style>
+  .spell-card {
+    background: var(--bg-panel-alt);
+    border: 1px solid var(--border-dim);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: .25rem 0;
+    line-height: 1.6;
+  }
+  .spell-card-name {
+    font-family: var(--font-h);
+    font-size: 1.1rem;
+    color: var(--bronze);
+    margin-bottom: .5rem;
+  }
+  .spell-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem .75rem;
+    margin-bottom: .75rem;
+    font-size: .85rem;
+  }
+  .spell-card-meta span { color: var(--text-secondary); }
+  .spell-card-meta .sc-label { color: var(--bronze); font-weight: 700; }
+  .spell-card-desc {
+    color: var(--text-primary);
+    font-size: .9rem;
+    white-space: pre-line;
+  }
+  .align-filters .filter-btn.active,
+  .align-filters .filter-btn.active:hover {
+    background: var(--bronze-dark);
+    border-color: var(--bronze);
+    color: #E9DCC0;          /* parchment cream — readable on bronze-dark fill */
+    font-weight: 600;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Spells</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="spell-search" placeholder="Search spell name...">
+    <button class="filter-btn active" data-class="all">All</button>
+    <button class="filter-btn" data-class="Wizard">Wizard</button>
+    <button class="filter-btn" data-class="Priest">Priest</button>
+    <button class="filter-btn" data-class="Witch">Witch</button>
+  </div>
+  <div class="filter-bar align-filters" id="align-filters" style="display:none;">
+    <span style="color:var(--text-muted);font-size:.85rem;padding:.4rem 0;">Alignment:</span>
+    <button class="filter-btn" data-align="All">All</button>
+    <button class="filter-btn" data-align="Lawful">Lawful</button>
+    <button class="filter-btn" data-align="Neutral">Neutral</button>
+    <button class="filter-btn" data-align="Chaotic">Chaotic</button>
+  </div>
+  <table class="list-table">
+    <thead>
+      <tr>
+        <th data-sort="tier" style="width:50px;">Tier <span class="sort-arrow"></span></th>
+        <th data-sort="name">Name <span class="sort-arrow"></span></th>
+        <th data-sort="caster">Class <span class="sort-arrow"></span></th>
+        <th>Range</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody id="spell-body"></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const body   = document.getElementById('spell-body');
+  const search = document.getElementById('spell-search');
+  const alignBar = document.getElementById('align-filters');
+  let allData  = [];
+  let sortCol  = 'tier', sortAsc = true;
+  let filterClass = 'all';
+  let activeAligns = new Set(); // empty = show all
+
+  fetch('/api/data/spells').then(r=>r.json()).then(data => {
+    allData = data.map(s => ({
+      name:        s['Spell Name'] || s.name || '',
+      tier:        s['Tier'] || s.tier || '',
+      caster:      s['Caster'] || s.class || '',
+      alignment:   s['Aligment'] || s.alignment || '',
+      description: s['Description'] || s.description || '',
+      duration:    s['Duration'] || s.duration || '',
+      range:       s['Range'] || s.range || '',
+      slots:       s['Gear Slots'] || s.slots || ''
+    }));
+    render();
+  });
+
+  function render() {
+    const q = (search.value || '').toLowerCase();
+    let list = allData.filter(s => {
+      if (q && !(s.name||'').toLowerCase().includes(q)) return false;
+      // Class filter: match if caster field contains the class name
+      if (filterClass !== 'all') {
+        const casters = (s.caster||'').toLowerCase();
+        if (!casters.includes(filterClass.toLowerCase())) return false;
+      }
+      // Alignment multi-filter — strict match, each button shows only that alignment
+      if (activeAligns.size > 0) {
+        const al = (s.alignment||'').toLowerCase();
+        let match = false;
+        activeAligns.forEach(a => { if (al === a.toLowerCase()) match = true; });
+        if (!match) return false;
+      }
+      return true;
+    });
+
+    list.sort((a,b) => {
+      let av = a[sortCol], bv = b[sortCol];
+      if (sortCol === 'tier') { av = Number(av)||0; bv = Number(bv)||0; return sortAsc ? av-bv : bv-av; }
+      av = (av||'').toLowerCase(); bv = (bv||'').toLowerCase();
+      return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+
+    body.innerHTML = list.map((s,i) => `
+      <tr class="spell-row" data-idx="${i}">
+        <td>${s.tier||''}</td>
+        <td>${s.name||''}</td>
+        <td class="muted">${s.caster||''}</td>
+        <td class="muted">${s.range||''}</td>
+        <td class="muted">${s.duration||''}</td>
+      </tr>
+      <tr class="row-detail" data-detail="${i}">
+        <td colspan="5">
+          <div class="spell-card">
+            <div class="spell-card-name">${s.name}</div>
+            <div class="spell-card-meta">
+              <span><span class="sc-label">Tier</span> ${s.tier}</span>
+              <span><span class="sc-label">Class</span> ${s.caster}</span>
+              <span><span class="sc-label">Range</span> ${s.range}</span>
+              <span><span class="sc-label">Duration</span> ${s.duration}</span>
+              ${s.slots ? `<span><span class="sc-label">Slots</span> ${s.slots}</span>` : ''}
+              ${s.alignment && s.alignment !== 'all' ? `<span><span class="sc-label">Alignment</span> ${s.alignment}</span>` : ''}
+            </div>
+            <div class="spell-card-desc">${s.description||'No description.'}</div>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+
+    body.querySelectorAll('.spell-row').forEach(row => {
+      row.addEventListener('click', () => {
+        body.querySelector(`[data-detail="${row.dataset.idx}"]`).classList.toggle('open');
+      });
+    });
+  }
+
+  search.addEventListener('input', render);
+
+  // Class filter buttons (single select)
+  document.querySelectorAll('[data-class]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-class]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterClass = btn.dataset.class;
+      // Show alignment filter for spellcasters (not All)
+      alignBar.style.display = (filterClass !== 'all') ? 'flex' : 'none';
+      if (filterClass === 'all') { activeAligns.clear(); document.querySelectorAll('[data-align]').forEach(b => b.classList.remove('active')); }
+      render();
+    });
+  });
+
+  // Alignment filter buttons (multi-select toggle)
+  document.querySelectorAll('[data-align]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const al = btn.dataset.align;
+      if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        activeAligns.delete(al);
+      } else {
+        btn.classList.add('active');
+        activeAligns.add(al);
+      }
+      render();
+    });
+  });
+
+  // Sort headers
+  document.querySelectorAll('[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = true; }
+      render();
+    });
+  });
+})();
+</script>
+{% endblock %}

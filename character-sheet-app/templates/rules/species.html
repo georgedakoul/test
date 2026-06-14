@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Species — Shadowdark RPG{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Species</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="species-search" placeholder="Search species...">
+  </div>
+  <div id="species-container">
+    <div class="placeholder-msg">
+      <div class="icon">&#9733;</div>
+      <h2>Loading Species...</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const container = document.getElementById('species-container');
+  const search    = document.getElementById('species-search');
+
+  fetch('/api/data/races')
+    .then(r => r.json())
+    .then(data => {
+      if (!data.length) { container.innerHTML = '<p style="color:var(--text-muted)">No species data found.</p>'; return; }
+
+      const groups = {};
+      data.forEach(r => {
+        const src = r.source || 'Core';
+        if (!groups[src]) groups[src] = [];
+        groups[src].push(r);
+      });
+
+      function render(filter) {
+        const q = (filter || '').toLowerCase();
+        let html = '';
+        for (const [src, races] of Object.entries(groups)) {
+          const filtered = races.filter(r => !q || r.race||r.name.toLowerCase().includes(q));
+          if (!filtered.length) continue;
+          html += `<div class="source-group"><h2 class="source-heading">${src}</h2><div class="card-grid">`;
+          filtered.forEach(r => {
+            const img = r.image ? `<img class="rule-card-img" src="/static/images/species/${r.image}" alt="${r.race||r.name}">` : '';
+            const benefit = r.benefit ? `<div class="rule-card-meta">${r.benefit}</div>` : '';
+            html += `<a class="rule-card" href="/species/${encodeURIComponent(r.race||r.name)}">
+              <div class="rule-card-body">
+                <div class="rule-card-name">${r.race||r.name}</div>
+                <div class="rule-card-meta">${src}</div>
+                ${benefit}
+              </div>${img}</a>`;
+          });
+          html += '</div></div>';
+        }
+        container.innerHTML = html || '<p style="color:var(--text-muted)">No matches.</p>';
+      }
+
+      render();
+      search.addEventListener('input', () => render(search.value));
+    })
+    .catch(() => { container.innerHTML = '<p style="color:var(--text-muted)">Failed to load species.</p>'; });
+})();
+</script>
+{% endblock %}

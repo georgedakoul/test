@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% block title %}Gods & Patrons — Shadowdark RPG{% endblock %}
+
+{% block head %}
+<style>
+  .god-row { cursor: pointer; }
+  .god-row:hover { background: var(--bg-panel-alt); }
+  .god-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1rem 1.25rem;
+    line-height: 1.7;
+  }
+  .god-card-body { flex: 1; min-width: 0; }
+  .god-card-name {
+    font-family: var(--font-h);
+    font-size: 1.2rem;
+    color: var(--bronze);
+    margin-bottom: .15rem;
+  }
+  .god-card-title {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: .9rem;
+    margin-bottom: .5rem;
+  }
+  .god-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem .75rem;
+    margin-bottom: .75rem;
+    font-size: .85rem;
+  }
+  .god-card-meta span { color: var(--text-secondary); }
+  .god-card-meta .gc-label { color: var(--bronze); font-weight: 700; }
+  .god-card-desc {
+    color: var(--text-primary);
+    font-size: .9rem;
+    margin-bottom: .5rem;
+  }
+  .god-card-extras {
+    font-size: .85rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .god-card-extras strong { color: var(--bronze); }
+  .god-card-img {
+    flex-shrink: 0;
+    width: 160px;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-dim);
+  }
+  @media (max-width: 600px) {
+    .god-card { flex-direction: column; }
+    .god-card-img { width: 100%; max-height: 200px; object-fit: cover; }
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Gods & Patrons</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="god-search" placeholder="Search gods...">
+    <button class="filter-btn active" data-type="all">All</button>
+    <button class="filter-btn" data-type="Deity">Deities</button>
+    <button class="filter-btn" data-type="Patron">Patrons</button>
+  </div>
+  <div class="filter-bar" id="align-filters">
+    <span style="color:var(--text-muted);font-size:.85rem;padding:.4rem 0;">Alignment:</span>
+    <button class="filter-btn" data-align="Lawful">Lawful</button>
+    <button class="filter-btn" data-align="Neutral">Neutral</button>
+    <button class="filter-btn" data-align="Chaotic">Chaotic</button>
+  </div>
+  <div class="filter-bar" id="domain-filters" style="flex-wrap:wrap;"></div>
+  <table class="list-table">
+    <thead>
+      <tr>
+        <th data-sort="name">Name <span class="sort-arrow"></span></th>
+        <th data-sort="alignment">Alignment <span class="sort-arrow"></span></th>
+        <th data-sort="type">Type <span class="sort-arrow"></span></th>
+        <th data-sort="domain">Domain <span class="sort-arrow"></span></th>
+      </tr>
+    </thead>
+    <tbody id="god-body"></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const body      = document.getElementById('god-body');
+  const search    = document.getElementById('god-search');
+  const domainBar = document.getElementById('domain-filters');
+  let allData     = [];
+  let sortCol     = 'name', sortAsc = true;
+  let filterType  = 'all';
+  let activeAligns = new Set();
+  let activeDomains = new Set();
+
+  fetch('/api/data/gods').then(r=>r.json()).then(data => {
+    allData = data;
+
+    // Build domain filter buttons dynamically
+    const domains = [...new Set(data.map(g => g.domain).filter(Boolean))].sort();
+    if (domains.length) {
+      domainBar.innerHTML = '<span style="color:var(--text-muted);font-size:.85rem;padding:.4rem 0;">Domain:</span>';
+      domains.forEach(d => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.domain = d;
+        btn.textContent = d;
+        btn.addEventListener('click', () => {
+          if (btn.classList.contains('active')) {
+            btn.classList.remove('active');
+            activeDomains.delete(d);
+          } else {
+            btn.classList.add('active');
+            activeDomains.add(d);
+          }
+          render();
+        });
+        domainBar.appendChild(btn);
+      });
+    }
+
+    render();
+  });
+
+  function render() {
+    const q = (search.value || '').toLowerCase();
+    let list = allData.filter(g => {
+      // Type filter
+      if (filterType !== 'all' && !(g.type||'').includes(filterType)) return false;
+      // Alignment filter (multi-select)
+      if (activeAligns.size > 0 && !activeAligns.has(g.alignment)) return false;
+      // Domain filter (multi-select)
+      if (activeDomains.size > 0) {
+        const gDomains = (g.domain||'').split(',').map(d=>d.trim());
+        let match = false;
+        activeDomains.forEach(d => { if (gDomains.includes(d)) match = true; });
+        if (!match) return false;
+      }
+      // Text search
+      if (q) {
+        const hay = [g.name, g.title, g.domain, g.description,
+          (g.aka||[]).join(' '), (g.pantheons||[]).join(' '),
+          (g.servants||[]).join(' '), (g.followers||[]).join(' ')
+        ].join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    list.sort((a,b) => {
+      let av = (a[sortCol]||'').toString().toLowerCase();
+      let bv = (b[sortCol]||'').toString().toLowerCase();
+      return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+
+    body.innerHTML = list.map((g,i) => {
+      const imgTag = g.image
+        ? `<img class="god-card-img" src="/static/images/gods/${g.image}" alt="${g.name}" loading="lazy">`
+        : '';
+
+      const extras = [];
+      if (g.aka && g.aka.length) extras.push(`<strong>Also known as:</strong> ${g.aka.join(', ')}`);
+      if (g.pantheons && g.pantheons.length) extras.push(`<strong>Pantheons:</strong> ${g.pantheons.join(', ')}`);
+      if (g.servants && g.servants.length) extras.push(`<strong>Servants:</strong> ${g.servants.join(', ')}`);
+      if (g.followers && g.followers.length) extras.push(`<strong>Followers:</strong> ${g.followers.join(', ')}`);
+
+      let giftsHtml = '';
+      if (g.patron_gifts && g.patron_gifts.length) {
+        giftsHtml = `<div style="margin-top:.75rem;"><strong style="color:var(--bronze);">Patron Gifts (2d6)</strong>
+          <table class="list-table" style="margin-top:.35rem;font-size:.85rem;">
+            <thead><tr><th style="width:60px;">Roll</th><th>Effect</th></tr></thead>
+            <tbody>${g.patron_gifts.map(p => `<tr><td>${p.roll}</td><td>${p.effect}</td></tr>`).join('')}</tbody>
+          </table></div>`;
+      }
+
+      return `
+        <tr class="god-row" data-idx="${i}">
+          <td>${g.name||''}</td>
+          <td class="muted">${g.alignment||''}</td>
+          <td class="muted">${g.type||''}</td>
+          <td class="muted">${g.domain||''}</td>
+        </tr>
+        <tr class="row-detail" data-detail="${i}">
+          <td colspan="4">
+            <div class="god-card">
+              <div class="god-card-body">
+                <div class="god-card-name">${g.name}</div>
+                <div class="god-card-title">${g.title||''}</div>
+                <div class="god-card-meta">
+                  <span><span class="gc-label">Alignment</span> ${g.alignment}</span>
+                  <span><span class="gc-label">Type</span> ${g.type}</span>
+                  ${g.domain ? `<span><span class="gc-label">Domain</span> ${g.domain}</span>` : ''}
+                  <span><span class="gc-label">Source</span> ${g.source||''}</span>
+                </div>
+                <div class="god-card-desc">${g.description||''}</div>
+                ${extras.length ? `<div class="god-card-extras">${extras.join('<br>')}</div>` : ''}
+                ${giftsHtml}
+              </div>
+              ${imgTag}
+            </div>
+          </td>
+        </tr>`;
+    }).join('');
+
+    body.querySelectorAll('.god-row').forEach(row => {
+      row.addEventListener('click', () => {
+        body.querySelector(`[data-detail="${row.dataset.idx}"]`).classList.toggle('open');
+      });
+    });
+  }
+
+  search.addEventListener('input', render);
+
+  // Type filter (single select)
+  document.querySelectorAll('[data-type]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterType = btn.dataset.type;
+      render();
+    });
+  });
+
+  // Alignment filter (multi-select)
+  document.querySelectorAll('[data-align]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        activeAligns.delete(btn.dataset.align);
+      } else {
+        btn.classList.add('active');
+        activeAligns.add(btn.dataset.align);
+      }
+      render();
+    });
+  });
+
+  // Sort headers
+  document.querySelectorAll('[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = true; }
+      render();
+    });
+  });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,4520 @@
+[
+  {
+    "id": "fighter",
+    "class": "Fighter",
+    "source": "Shadowdark RPG Core",
+    "description": "Blood-soaked gladiators in dented armor, acrobatic duelists with darting swords, or far-eyed elven archers who carve their legends with steel and grit.",
+    "weapons": "All weapons",
+    "armor": "All armor and shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Hauler",
+        "description": "Add your Constitution modifier, if positive, to your gear slots."
+      },
+      {
+        "name": "Weapon Mastery",
+        "description": "Choose one type of weapon, such as longswords. You gain +1 to attack and damage with that weapon type. In addition, add half your level to these rolls (round down)."
+      },
+      {
+        "name": "Grit",
+        "description": "Choose Strength or Dexterity. You have advantage on checks of that type to overcome an opposing force, such as kicking open a stuck door (Strength) or slipping free of rusty chains (Dexterity)."
+      }
+    ]
+  },
+  {
+    "id": "priest",
+    "class": "Priest",
+    "source": "Shadowdark RPG Core",
+    "description": "Crusading templars, prophetic shamans, or mad-eyed zealots who wield the power of their gods to cleanse the unholy.",
+    "weapons": "Club, crossbow, dagger, mace, longsword, staff, warhammer",
+    "armor": "All armor and shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know Celestial, Diabolic, or Primordial."
+      },
+      {
+        "name": "Turn Undead",
+        "description": "You know the turn undead spell. It doesn't count toward your number of known spells."
+      },
+      {
+        "name": "Deity",
+        "description": "Choose a god to serve who matches your alignment. You have a holy symbol for your god (it takes up no gear slots)."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast priest spells you know. You know two tier 1 spells of your choice from the priest spell list. Each time you gain a level, you choose new priest spells to learn according to the Priest Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "thief",
+    "class": "Thief",
+    "source": "Shadowdark RPG Core",
+    "description": "Rooftop assassins, grinning con artists, or cloaked cat burglars who can pluck a gem from the claws of a sleeping demon and sell it for twice its worth.",
+    "weapons": "Club, crossbow, dagger, shortbow, shortsword",
+    "armor": "Leather armor, mithral chainmail",
+    "hit_points": "1d4 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Backstab",
+        "description": "If you hit a creature who is unaware of your attack, you deal an extra weapon die of damage. Add additional weapon dice of damage equal to half your level (round down)."
+      },
+      {
+        "name": "Thievery",
+        "description": "You are adept at thieving skills and have the necessary tools of the trade secreted on your person (they take up no gear slots). You are trained in: Climbing; Sneaking and hiding; Applying disguises; Finding and disabling traps; Picking pockets and opening locks."
+      }
+    ]
+  },
+  {
+    "id": "wizard",
+    "class": "Wizard",
+    "source": "Shadowdark RPG Core",
+    "description": "Rune-tattooed adepts, bespectacled magi, and flame-conjuring witches who dare to manipulate the fell forces of magic.",
+    "weapons": "Dagger, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know two additional common languages and two rare languages."
+      },
+      {
+        "name": "Learning Spells",
+        "description": "You can permanently learn a wizard spell from a spell scroll by studying it for a day and succeeding on a DC 15 Intelligence check. Whether you succeed or fail, you expend the spell scroll. Spells you learn in this way don't count toward your known spells."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast wizard spells you know. You know three tier 1 spells of your choice from the wizard spell list. Each time you gain a level, you choose new wizard spells to learn according to the Wizard Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "witch",
+    "class": "Witch",
+    "source": "Cursed Scroll 1",
+    "description": "Old hags, grumbling over cauldrons, shamans stained with blood and clay chanting songs, and exiled maidens with white eyes who see secrets and omens.",
+    "weapons": "Dagger, staff",
+    "armor": "Leather armor",
+    "hit_points": "1d4 per level",
+    "spellcasting": "witch",
+    "spellcasting_ability": "cha",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know Infernal, Primordial, and Sylvan."
+      },
+      {
+        "name": "Familiar",
+        "description": "You have a small animal (raven, rat, frog, etc.) that serves you loyally. It can speak Common. It may be the source of your spells — treat it as yourself when determining spell range. If your familiar dies, you can restore it by permanently sacrificing 1d4 HP."
+      },
+      {
+        "name": "Conjuration",
+        "description": "You can cast witch spells you know. You know three tier 1 spells from the witch spell list. You use Charisma to cast (DC = 10 + spell tier). On a failed check, you can't cast that spell again until you rest. On a natural 1, roll on the Diabolical Failure table."
+      }
+    ]
+  },
+  {
+    "id": "knight_of_saint_ydris",
+    "class": "Knight of Saint Ydris",
+    "source": "Cursed Scroll 1",
+    "description": "Cursed knights who tread the path of Saint Ydris, the Profane, the Possessed. They embrace darkness to fight against it, purifying evil with steel strikes and forbidden sorcery.",
+    "weapons": "All melee weapons, crossbow",
+    "armor": "All armor and shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "witch",
+    "spellcasting_ability": "cha",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 0,
+        "tier2": 0,
+        "tier3": 0
+      },
+      {
+        "level": 2,
+        "tier1": 0,
+        "tier2": 0,
+        "tier3": 0
+      },
+      {
+        "level": 3,
+        "tier1": 1,
+        "tier2": 0,
+        "tier3": 0
+      },
+      {
+        "level": 4,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know Diabolical."
+      },
+      {
+        "name": "Demonic Possession",
+        "description": "3/day, gain a +1 bonus on damage rolls for 3 rounds. Add half your level (round down) to the damage bonus."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast witch spells you know according to the Knight of Saint Ydris Spells Known table. You use Charisma (DC = 10 + spell tier). On a failed check, you can't cast that spell again until you rest. On a natural 1, roll on the Diabolical Failure table."
+      }
+    ]
+  },
+  {
+    "id": "warlock",
+    "class": "Warlock",
+    "source": "Cursed Scroll 1",
+    "description": "Howling warriors with sharp teeth, heralds of the Final Judgment preaching about Dissolution, and hooded story hunters hiding their Marks of Shune.",
+    "weapons": "Dagger, crossbow, club, longsword, mace",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know Celestial, Diabolical, Draconic, Primordial, or Sylvan."
+      },
+      {
+        "name": "Patron",
+        "description": "Choose a patron to serve (Almazzat, Kytheros, Mugdulblub, The Willow-Man, Shune, or Titania). Your patron is the source of your supernatural gifts and may grant or withhold them at any time."
+      },
+      {
+        "name": "Patron Gift",
+        "description": "At level 1, gain a random Patron Gift talent from your chosen patron's table. Whenever you gain a new talent roll, you may roll on your Patron Gift table instead of the Warlock Talents table."
+      }
+    ]
+  },
+  {
+    "id": "desert_rider",
+    "class": "Desert Rider",
+    "source": "Cursed Scroll 2",
+    "description": "Howling barbarians thundering across the sand on wild horses, elven spies wielding curved blades atop silvery camels, or bandits wrapped in colorful silks racing on sleek, desert stallions.",
+    "weapons": "Club, dagger, javelin, longsword, pike, shortbow, scimitar, spear, whip",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Charge",
+        "description": "3/day, charge into combat by moving at least near before attacking. Your melee attacks deal double damage that round."
+      },
+      {
+        "name": "Mount",
+        "description": "You have a common camel or horse with a reliable or lovely demeanor. It comes when you call and never spooks. While riding, you both gain +AC equal to half your level (round down). Your mount gains additional levels equal to half your level. You can leap on or off freely once per round. If lost, acquire a new one with a DC 15 CHA check (lower DC by 1 each attempt)."
+      }
+    ]
+  },
+  {
+    "id": "pit_fighter",
+    "class": "Pit Fighter",
+    "source": "Cursed Scroll 2",
+    "description": "Blood-soaked warriors circling each other in a roaring arena, scarred desert bandits dueling for the right to lead their gang, or brash tavern brawlers who never turn down a challenge.",
+    "weapons": "All weapons",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Flourish",
+        "description": "3/day, regain 1d6 hit points when you hit an enemy with a melee attack."
+      },
+      {
+        "name": "Implacable",
+        "description": "You have advantage on Constitution checks to resist injury, poison, or endure extreme environments."
+      },
+      {
+        "name": "Last Stand",
+        "description": "You get up from dying with 1 hit point on a natural d20 roll of 18–20."
+      },
+      {
+        "name": "Relentless",
+        "description": "3/day, when you are reduced to 0 HP, make a DC 18 Constitution check (Implacable applies). On a success, you instead go to 1 HP."
+      }
+    ]
+  },
+  {
+    "id": "ras_godai",
+    "class": "Ras-Godai",
+    "source": "Cursed Scroll 2",
+    "description": "Black-clad assassins who train from childhood inside a hidden desert monastery. They gain their sorcerous powers from a legendary black lotus flower given to them by a demon.",
+    "weapons": "Blowgun, bolas, dagger, razor chain, scimitar, shuriken, spear",
+    "armor": "Leather armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know Diabolic."
+      },
+      {
+        "name": "Assassinate",
+        "description": "When you attack a surprised target, you deal double damage against it."
+      },
+      {
+        "name": "Smoke Step",
+        "description": "3/day, teleport to a location you can see within near. This does not use your action."
+      },
+      {
+        "name": "Black Lotus",
+        "description": "You ate a petal of the fabled black lotus and survived. Roll one talent on the Black Lotus Talents table. You may reroll duplicates or keep them."
+      }
+    ]
+  },
+  {
+    "id": "basilisk_warrior",
+    "class": "Basilisk Warrior",
+    "source": "Cursed Scroll 4",
+    "description": "Blazing-eyed warriors who coat their skin in mud and stone. Their ancient combat style mimics the basilisk's regal poise and ferocious strikes.",
+    "weapons": "Boomerang, club, dagger, spear, spear-thrower",
+    "armor": "None",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Basilisk Blood",
+        "description": "You have advantage on CON checks to avoid harmful maladies, poisons, or afflictions."
+      },
+      {
+        "name": "Petrifying Gaze",
+        "description": "One creature of your level or less that meets your gaze must pass a DC 15 CON check or be petrified for 1d4 rounds (still takes damage while petrified). Usable a number of times per day equal to your CON modifier (minimum 1)."
+      },
+      {
+        "name": "Stone Skin",
+        "description": "Add 2 + half your level (round down) to your AC if you are otherwise unarmored. You have advantage on checks to hide in natural environments."
+      }
+    ]
+  },
+  {
+    "id": "ranger",
+    "class": "Ranger",
+    "source": "Cursed Scroll 4",
+    "description": "Skilled trackers, stealthy wanderers, and peerless warriors who call the wilds their home.",
+    "weapons": "Dagger, longbow, longsword, shortbow, shortsword, spear, staff",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Wayfinder",
+        "description": "You have advantage on checks associated with: Navigation; Tracking; Bushcraft; Stealth; Wild animals."
+      },
+      {
+        "name": "Herbalism",
+        "description": "Make an INT check to prepare an herbal remedy you choose. If you fail, you can't make that remedy again until you rest. Unused remedies expire in 3 rounds. Remedies by DC — 11: Salve (heals 1 HP); 12: Stimulant (can't be surprised 10 rounds); 13: Foebane (ADV on attacks vs one creature type 1d6 rounds); 14: Restorative (ends one poison or disease); 15: Curative (equivalent to a Potion of Healing)."
+      }
+    ]
+  },
+  {
+    "id": "delver",
+    "class": "Delver",
+    "source": "Cursed Scroll 5",
+    "description": "Steely-eyed explorers who delve the forgotten places of the earth. They always have the right tool or know-how to get out of a jam.",
+    "weapons": "Club, crossbow, dagger, javelin, mace, shortbow, shortsword, spear, staff",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know two additional common languages."
+      },
+      {
+        "name": "Scavenger",
+        "description": "When you expend the last of a consumable item you've carried since your last rest, roll a d6. On a 5 or 6, you regain one use of that item."
+      },
+      {
+        "name": "Trailblazer",
+        "description": "You have advantage on: Climbing; Swimming; Foraging; Understanding unknown languages; Avoiding or escaping natural terrain hazards."
+      },
+      {
+        "name": "Trusty Gear",
+        "description": "Choose one type of gear or weapon you can wield. You gain 1 + half your level (round down) on checks or attack rolls made with that gear or weapon."
+      }
+    ]
+  },
+  {
+    "id": "wyrdling",
+    "class": "Wyrdling",
+    "source": "Cursed Scroll 5",
+    "description": "Those who have been called down into the dark, have listened to the gibbering of vile abominations, and have felt the rapturous presence of The Lost walking with them in the abyss.",
+    "weapons": "Club, crossbow, dagger, pseudopod, shortbow, shortsword, spear",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know Primordial."
+      },
+      {
+        "name": "Corruption",
+        "description": "Roll one talent on the Corruption Table at character creation."
+      },
+      {
+        "name": "Hideous Biology",
+        "description": "You can hideously stretch your body to fit through inch-wide cracks. It takes 3 rounds to pass through an obstacle this way."
+      },
+      {
+        "name": "Pseudopod",
+        "description": "You can sprout a clawed, horrid pseudopod from your body. It is a melee weapon with near range, 1d6 damage, and the Finesse (F) property."
+      }
+    ]
+  },
+  {
+    "id": "bard",
+    "class": "Bard",
+    "source": "Cursed Scroll 6",
+    "description": "Bards are welcome wanderers and wise advisors; it is their task to protect and share knowledge handed down through the ages.",
+    "weapons": "Crossbow, dagger, mace, shortbow, shortsword, spear, staff",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": "cha",
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know four additional common languages and one rare language."
+      },
+      {
+        "name": "Bardic Arts",
+        "description": "You're trained in oration, performing arts, lore, and diplomacy. You have advantage on related checks."
+      },
+      {
+        "name": "Fascinate",
+        "description": "Focus. Make a DC 12 CHA check. On a success, you transfix all targets in near whose level is equal to or less than 1 + half your level (round down). If you fail (excluding focus), you can't use this again until you rest."
+      },
+      {
+        "name": "Inspire",
+        "description": "Each day, you can grant a number of luck tokens equal to your Charisma modifier (minimum 1)."
+      },
+      {
+        "name": "Magical Dabbler",
+        "description": "You can activate spell scrolls and wands using your Charisma modifier. On a critical fail, roll a wizard mishap. In place of a talent roll, you may instead find a random priest or wizard wand."
+      }
+    ]
+  },
+  {
+    "id": "duelist",
+    "class": "Duelist",
+    "source": "Cursed Scroll 6",
+    "description": "Spinning swordsmen and fast-talking fame mongers. Duelists deliver insults and injuries alike to defeat their foes in style.",
+    "weapons": "Dagger, all swords",
+    "armor": "Leather armor, mithral chainmail",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Parry",
+        "description": "Once per day, an attack of your choice that would hit you misses instead."
+      },
+      {
+        "name": "Tale Spinner",
+        "description": "Make a DC 15 CHA check. If you pass, strangers around you believe you are famous and important for the remainder of your interaction with them. The same individual cannot be fooled by this twice."
+      },
+      {
+        "name": "Taunt",
+        "description": "When an enemy misses you with an attack, you have advantage on attacks against that enemy next round."
+      }
+    ]
+  },
+  {
+    "id": "sea_wolf",
+    "class": "Sea Wolf",
+    "source": "Cursed Scroll 3",
+    "description": "Raiders of the seas who sail dragonships in search of plunder. When the war trumpet sounds, they become fierce berserkers who seek to honor their gods with a worthy death.",
+    "weapons": "Dagger, longbow, longsword, spear, hatchet, greataxe",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Sailor",
+        "description": "You have advantage on checks related to navigation and crewing vessels."
+      },
+      {
+        "name": "Ancient Gods",
+        "description": "Each day after a rest, align with one Ancient God: Odin (lawful) — regain 1d4 HP each time you kill an enemy; Freya (neutral) — once per day gain a luck token if you have none, add 1d6 when you spend it; Loki (chaotic) — advantage on checks to lie, sneak, and hide."
+      },
+      {
+        "name": "Shield Wall",
+        "description": "If wielding a shield, use your action to take a defensive stance. Your AC becomes 20 until you leave this stance."
+      }
+    ]
+  },
+  {
+    "id": "seer",
+    "class": "Seer",
+    "source": "Cursed Scroll 3",
+    "description": "Sinister oracles who unravel the whispers of the gods by reading runes, bones, and stars. Their knowledge of fate allows them to shape it.",
+    "weapons": "Dagger, staff, spear",
+    "armor": "Leather armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": "seer",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 1,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 2,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Fated",
+        "description": "Whenever you spend a luck token, add 1d6 to the roll."
+      },
+      {
+        "name": "Omen",
+        "description": "3/day, make a DC 9 WIS check. On a success, gain a luck token (max one at a time)."
+      },
+      {
+        "name": "Conjuration",
+        "description": "You can cast seer spells you know. You know one tier 1 seer spell. You use Wisdom (DC = 10 + spell tier). On a natural 1, you cannot cast that spell again until you complete a Seer's Penance."
+      }
+    ]
+  },
+  {
+    "id": "assassin_co2",
+    "class": "Assassin (CO2)",
+    "source": "Codex Officium II",
+    "description": "Dark rogues who focus on slaying creatures for profit, masters of poison and stealth.",
+    "weapons": "All weapons",
+    "armor": "Leather armor, mithral chainmail",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Execute",
+        "description": "If you attack a surprised creature or one that has not yet acted in initiative, deal an additional 1d6 damage plus d6s equal to half your level."
+      },
+      {
+        "name": "Poisoner",
+        "description": "When you defeat a monster with a poison attack, harvest one dose (requires empty phial). Add your INT modifier to your poison's DC. Custom poisons can also be crafted (coordinate with GM)."
+      },
+      {
+        "name": "Skills",
+        "description": "Advantage on checks related to Climbing, Listening, Lockpicking, Poisons, and Stealth."
+      }
+    ]
+  },
+  {
+    "id": "crusader",
+    "class": "Crusader",
+    "source": "Codex Officium II",
+    "description": "Warrior-priests devoted to their deity and cause, wielding both martial might and divine magic.",
+    "weapons": "All weapons",
+    "armor": "All armor and shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 1,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 1,
+        "tier5": 0
+      }
+    ],
+    "features": [
+      {
+        "name": "Deity",
+        "description": "Choose a god matching your alignment. You have a holy symbol (no gear slots)."
+      },
+      {
+        "name": "Faith Militant",
+        "description": "You have a +2 bonus to all saving throws."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast priest spells you know. At 1st level you know the light spell. Choose new spells per the Crusader Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "knight",
+    "class": "Knight",
+    "source": "Codex Officium II",
+    "description": "Members of the fighting nobility, sworn to fight for their liege in whatever cause they deem worthy.",
+    "weapons": "All melee weapons",
+    "armor": "All armor and shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Oath",
+        "description": "You must swear allegiance to a liege lord or lady. Your alignment matches that of your liege."
+      },
+      {
+        "name": "First Strike",
+        "description": "Advantage on the first melee attack you make in combat, and it deals extra damage equal to your STR modifier on a hit."
+      },
+      {
+        "name": "Horsemanship",
+        "description": "Advantage on all checks related to horses or mounts."
+      },
+      {
+        "name": "Hospitality",
+        "description": "You receive basic courtesies in any civilized settlement; services of 1 gp or less are free."
+      }
+    ]
+  },
+  {
+    "id": "thaumaturge",
+    "class": "Thaumaturge",
+    "source": "Codex Officium II",
+    "description": "Scholars of divine and arcane forces who bend reality in the name of their deity and academics.",
+    "weapons": "Dagger, sling, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "priest/wizard",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Faith",
+        "description": "Select a deity to serve who grants you priestly spells."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast priest or wizard spells you know per the Thaumaturge Spells Known table. Unlike a wizard, you cannot copy spells from scrolls into a spellbook."
+      }
+    ]
+  },
+  {
+    "id": "troubadour",
+    "class": "Troubadour",
+    "source": "Codex Officium II",
+    "description": "Traveling entertainers, duelists, magic-dabblers, and vagabonds.",
+    "weapons": "All ranged and one-handed melee weapons",
+    "armor": "Leather armor, mithral chainmail",
+    "hit_points": "1d6 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 1,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 1,
+        "tier5": 0
+      }
+    ],
+    "features": [
+      {
+        "name": "Inspiration",
+        "description": "Each day gain 1d4 luck tokens. Allies who can see or hear you may use them. You can hold more than one luck token at a time."
+      },
+      {
+        "name": "Skills",
+        "description": "You have a musical instrument (no gear slots). Advantage on Lore, Performance, and Sleight of Hand checks."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast wizard spells you know per the Troubadour Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "revenant",
+    "class": "Revenant",
+    "source": "Codex Officium II",
+    "description": "Wrongfully murdered, risen from the grave to seek justice. When your time is done, you will return to dust.",
+    "weapons": "All weapons",
+    "armor": "All armor and shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Undead",
+        "description": "You do not need to breathe, eat, or sleep. Immune to charm and fear. Vulnerable to effects that affect undead. Suffer a -2 penalty on reaction checks."
+      },
+      {
+        "name": "Unnatural Might",
+        "description": "Your melee attacks deal +2 damage and your unarmed attacks deal 1d6 bludgeoning damage."
+      }
+    ]
+  },
+  {
+    "id": "lycan",
+    "class": "Lycan",
+    "source": "Cursed Classes",
+    "description": "Moonlit howlers, mysterious and untamed. Lycans embody primal forces of nature.",
+    "weapons": "None (natural weapons only)",
+    "armor": "None",
+    "hit_points": "1d10 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Corruption",
+        "description": "Gain +1 when you commit an evil deed, spend a round in complete darkness, or roll Nat 1. At 10 Corruption you become a DM-controlled monster. Good deeds or a rest remove Corruption."
+      },
+      {
+        "name": "Steel Skinned",
+        "description": "Your AC is 8 + DEX modifier + CON modifier."
+      },
+      {
+        "name": "Beastly Claws",
+        "description": "As an action, make 2 unarmed attacks with your claws, each dealing 1d6 damage."
+      },
+      {
+        "name": "Super Senses",
+        "description": "As an action, gain 1 Corruption to gain advantage on any WIS or STR check."
+      },
+      {
+        "name": "Thick Skinned",
+        "description": "As an action, gain 1 Corruption to halve all damage from non-magical sources for 1d6 rounds."
+      },
+      {
+        "name": "Shifter",
+        "description": "Gain 1 Corruption to gain the effects of the Alter Self spell."
+      }
+    ]
+  },
+  {
+    "id": "vampire",
+    "class": "Vampire",
+    "source": "Cursed Classes",
+    "description": "Graceful in death. Vampires tap into the powers of undeath, reinvigorating themselves whilst punishing their enemies.",
+    "weapons": "All weapons",
+    "armor": "All armor and shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "cha",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 1,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 2,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 1,
+        "tier5": 0
+      }
+    ],
+    "features": [
+      {
+        "name": "Corruption",
+        "description": "Gain +1 when you commit an evil deed, spend a round in complete darkness, or roll Nat 1. At 10 Corruption you become a DM-controlled monster. Good deeds or a rest remove Corruption."
+      },
+      {
+        "name": "Shadow-Born",
+        "description": "Take half damage when in darkness, but double damage when exposed to sunlight."
+      },
+      {
+        "name": "Blood Sucker",
+        "description": "Make a melee attack. On success, deal 1d4 damage and regain HP equal to damage dealt. Gain 1 Corruption."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast wizard spells you know. You know one tier 1 spell. Primary spellcasting stat is Charisma. Gain 1 Corruption to cast a spell with advantage."
+      }
+    ]
+  },
+  {
+    "id": "fae",
+    "class": "Fae",
+    "source": "Cursed Classes",
+    "description": "Adorable, beautiful, and uncanny tricksters. The Fae personify nature's unpredictability and ruthlessness.",
+    "weapons": "All non-two-handed or versatile weapons",
+    "armor": "Leather armor, mithral chainmail",
+    "hit_points": "1d6 per level",
+    "spellcasting": "wizard/priest",
+    "spellcasting_ability": "cha",
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Corruption",
+        "description": "Gain +1 when you commit an evil deed, spend a round in complete darkness, or roll Nat 1. At 10 Corruption you become a DM-controlled monster. Good deeds or a rest remove Corruption."
+      },
+      {
+        "name": "Eyes Wide Open",
+        "description": "Immune to all charm and sleep spells. Advantage whenever detecting traps, secrets, or ambushes."
+      },
+      {
+        "name": "Oathbound",
+        "description": "Make a time-limited oath with any creature. If the creature breaks or fails it, they take 1d4 damage. Making an impossible-to-fulfill oath gives you 2 Corruption."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You know two tier 1 spells from the wizard or priest spell list. You can cast with Charisma or Wisdom."
+      },
+      {
+        "name": "Primal Magic",
+        "description": "You can cast any spell you have witnessed of a tier equal to half your level by gaining 3 Corruption."
+      }
+    ]
+  },
+  {
+    "id": "medium",
+    "class": "Medium",
+    "source": "Cursed Classes",
+    "description": "Veiled in ethereal allure, Mediums bridge the realms of the living and dead, communing with spirits.",
+    "weapons": "Club, crossbow, dagger, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d4 per level",
+    "spellcasting": null,
+    "spellcasting_ability": "int",
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Corruption",
+        "description": "Gain +1 when you commit an evil deed, spend a round in complete darkness, or roll Nat 1. At 10 Corruption you become a DM-controlled monster. Good deeds or a rest remove Corruption."
+      },
+      {
+        "name": "True Sight",
+        "description": "As an action, see invisible creatures and objects."
+      },
+      {
+        "name": "Manifested Will",
+        "description": "Make an INT spellcasting check to create your Manifested Will — an invisible creature with HP equal to your level + INT modifier. On failure, gain 1 Corruption. When the Will is killed or focus is lost, gain 2 Corruption."
+      },
+      {
+        "name": "Mind Crush",
+        "description": "Make an INT spellcasting check (DC 10) to deal 1d4 damage to a target you can see. On failure, gain 1 Corruption."
+      }
+    ]
+  },
+  {
+    "id": "archer",
+    "class": "Archer",
+    "source": "Player's Companion",
+    "description": "Archers have trained from a young age to repeatedly make a heavy bow pull and hit targets at a distance. They tend to avoid close combat, where they are vulnerable.",
+    "weapons": "Club, dagger, longbow, shortbow, staff",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Called Shot",
+        "description": "Aim at a specific body part on a humanoid (−2 penalty). Below waist: prevents movement 2 rounds. Arm: target drops what it carries. Head: +2 damage."
+      },
+      {
+        "name": "Draw",
+        "description": "+1 to attack and damage with a longbow or shortbow."
+      },
+      {
+        "name": "Quiver",
+        "description": "Your first two bundles of arrows don't consume gear slots."
+      },
+      {
+        "name": "Taking Cover",
+        "description": "You impose disadvantage on ranged attacks or spellcasting checks targeting you with only 25% cover."
+      }
+    ]
+  },
+  {
+    "id": "assassin_pc",
+    "class": "Assassin (PC)",
+    "source": "Player's Companion",
+    "description": "Trained to stalk and kill unsuspecting victims for pay. Practiced hunters of the most dangerous game who hit hard in combat and disappear without a trace.",
+    "weapons": "Club, crossbow, dagger, shortsword, spear",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Backstab",
+        "description": "A target unaware of your presence takes an extra damage die. Add an extra die every two levels (2nd, 4th, 6th, 8th, 10th)."
+      },
+      {
+        "name": "Shadowed",
+        "description": "Advantage on stealth checks; +2 if motionless. You can move silently at half speed."
+      },
+      {
+        "name": "Venom",
+        "description": "You carry poison (free gear slot). Spend 3 rounds applying it to a weapon. Your next attack deals +1d4 poison damage."
+      }
+    ]
+  },
+  {
+    "id": "beastmaster",
+    "class": "Beastmaster",
+    "source": "Player's Companion",
+    "description": "Adventurous wild animal tamers, adept at calming and training animals to fight alongside them. Formidable front-line combatants.",
+    "weapons": "Club, dagger, greataxe, javelin, mace, spear, staff",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Animal Kinship",
+        "description": "CHA check vs DC 12 to calm a wild animal of your level or less. CHA check vs DC 15 + 1 ration to tame it. On failure, it flees."
+      },
+      {
+        "name": "Feed Bag",
+        "description": "You can carry up to 5 rations per gear slot instead of 3."
+      },
+      {
+        "name": "Snares",
+        "description": "Carry string (free gear slot). Spend 3 rounds setting a tripwire trap (1d4 damage, DEX DC 12 to avoid)."
+      }
+    ]
+  },
+  {
+    "id": "berserker",
+    "class": "Berserker",
+    "source": "Player's Companion",
+    "description": "Body-painted barbarians that seem to go wild in combat. They seek to conquer new lands and subjugate their enemies.",
+    "weapons": "Bastard sword, club, greataxe, greatsword, javelin, spear",
+    "armor": "Shields and all armors",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Blooded",
+        "description": "If you deal 1+ melee damage to an opponent, gain +2 AC and double movement for 3 rounds. Recharges on rest."
+      },
+      {
+        "name": "Subjugation",
+        "description": "Opposed CHA check against a disarmed captured enemy to force them into your service as a shieldbearer (1 gp/day or they flee)."
+      },
+      {
+        "name": "Wildling",
+        "description": "Advantage on all checks to find food or shelter in the wilderness."
+      }
+    ]
+  },
+  {
+    "id": "brigand",
+    "class": "Brigand",
+    "source": "Player's Companion",
+    "description": "Criminals that live in the dark and dangerous shadows beyond the reach of the law. They do what they must to survive.",
+    "weapons": "Club, crossbow, dagger, javelin, mace, shortsword, spear",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Knockout",
+        "description": "Carry a sap (free gear slot). DEX check vs opponent's CON check — success renders target unconscious for 5 rounds."
+      },
+      {
+        "name": "Shadowed",
+        "description": "Advantage on stealth checks; +2 if motionless. Move silently at half speed."
+      },
+      {
+        "name": "Thievery",
+        "description": "Advantage on DEX checks to disguise, shadow, find/disable traps, pickpocket, or pick locks."
+      }
+    ]
+  },
+  {
+    "id": "buccaneer",
+    "class": "Buccaneer",
+    "source": "Player's Companion",
+    "description": "Pirates that have given up life at sea to pursue their own goals.",
+    "weapons": "Club, crossbow, dagger, mace, shortsword",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Sailing",
+        "description": "Pilot a small vessel without a check. Make all larger vessel piloting/captain checks with advantage."
+      },
+      {
+        "name": "Stunts",
+        "description": "Leap, swing, or perform combat stunts. DEX check vs difficulty — success deals +1 to +4 bonus damage based on DC. Ignore first 1d6 of falling damage."
+      },
+      {
+        "name": "Thievery",
+        "description": "Advantage on DEX checks to disguise, shadow, find/disable traps, pickpocket, or pick locks."
+      }
+    ]
+  },
+  {
+    "id": "burglar",
+    "class": "Burglar",
+    "source": "Player's Companion",
+    "description": "The infamous thief in the night who robs the innocent. Masters of sneaking past monsters to claim their treasures.",
+    "weapons": "Club, crossbow, dagger, mace, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d4 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Palm",
+        "description": "Secretly grab an object from close distance (DEX check). Onlookers make opposed WIS check to detect it."
+      },
+      {
+        "name": "Shadowed",
+        "description": "Advantage on stealth checks; +2 if motionless. Move silently at half speed."
+      },
+      {
+        "name": "Thievery",
+        "description": "Advantage on DEX checks to disguise, shadow, find/disable traps, pickpocket, or pick locks."
+      }
+    ]
+  },
+  {
+    "id": "charlatan",
+    "class": "Charlatan",
+    "source": "Player's Companion",
+    "description": "Con men who prey upon the weak minded and use their trusting nature against them.",
+    "weapons": "Club, crossbow, dagger, mace, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d4 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Charming",
+        "description": "CHA check vs DC 12 (non-hostile) or DC 18 (hostile) to fast-talk a creature into compliance. Not a compulsion — they won't act against obvious self-interest."
+      },
+      {
+        "name": "Thievery",
+        "description": "Advantage on DEX checks to disguise, shadow, find/disable traps, pickpocket, or pick locks."
+      }
+    ]
+  },
+  {
+    "id": "conjurer",
+    "class": "Conjurer",
+    "source": "Player's Companion",
+    "description": "Magic users that have focused on summoning and creation magic.",
+    "weapons": "Dagger, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Imps",
+        "description": "Create small magical imps (1 per level) to serve you. They fly at walking speed, speak one language, have 1 HP and AC 10, flee combat. You take 1 damage if an imp is slain."
+      },
+      {
+        "name": "Scroll Study",
+        "description": "Study a scroll for 1 day (INT DC 15) to learn it permanently. The scroll is consumed. Doesn't count toward your spell limit."
+      },
+      {
+        "name": "Wizard Spells",
+        "description": "You can cast wizard spells you know per the Conjurer Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "druid_pc",
+    "class": "Druid (PC)",
+    "source": "Player's Companion",
+    "description": "Divine spellcasters with a powerful connection to the natural world, adept wilderness travelers who can shapeshift if favored.",
+    "weapons": "Club, dagger, javelin, shortbow, spear, staff",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Nature Affinity",
+        "description": "Identify plants, animals, and clean water. Pass through overgrown areas leaving no trail. You know Sylvan and Merran. Immune to magic cast by fae creatures."
+      },
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells (deity required) per the Druid Spells Known table."
+      },
+      {
+        "name": "Shapeshift",
+        "description": "If you roll the Shapeshift talent, you can shapeshift once per rest into a small creature (bird, rat, etc.) or large creature (+2 AC, 2d6 damage) for 3 rounds."
+      }
+    ]
+  },
+  {
+    "id": "elementalist",
+    "class": "Elementalist",
+    "source": "Player's Companion",
+    "description": "Magic users adept at channeling elemental magic energy. Choose a form to master: Earth, Wind, Fire, Ice, Lightning, Plant, Water, or Shadow.",
+    "weapons": "Club, dagger, shortsword, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Elemental Focus",
+        "description": "Choose one elemental energy to master: Earth, Wind, Fire, Ice, Lightning, Plant, Water, or Shadow."
+      },
+      {
+        "name": "Blast",
+        "description": "As a combat action, blast an enemy for 1 damage at near range (spellcasting check). A failed or critical failed check has no consequence — it simply fizzles."
+      },
+      {
+        "name": "Elemental",
+        "description": "When at full HP, use resting downtime to create an animated elemental ally (AC 10, +1 attack, 1d4 damage, 1d4 HP). You can control one per level."
+      },
+      {
+        "name": "Wizard Spells",
+        "description": "You can cast wizard spells you know per the Elementalist Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "enchanter",
+    "class": "Enchanter",
+    "source": "Player's Companion",
+    "description": "Socially powerful and attractive magic users who use magic to overwhelm the minds of others.",
+    "weapons": "Dagger, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Mesmerizing Gaze",
+        "description": "Against an isolated humanoid in conversation with no distractions, make an opposed CHA check to mesmerize them. While mesmerized they reveal information freely (WIS DC 15 to keep a secret, ending the effect)."
+      },
+      {
+        "name": "Wizard Spells",
+        "description": "You can cast wizard spells you know per the Enchanter Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "explorer",
+    "class": "Explorer",
+    "source": "Player's Companion",
+    "description": "Experienced scouts comfortable in the wilderness, often paid to lead parties through rough or unknown terrain.",
+    "weapons": "Club, crossbow, dagger, mace, shortbow, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Alertness",
+        "description": "+2 bonus to initiative. Not surprised unless actively engaged in a task."
+      },
+      {
+        "name": "Lucky",
+        "description": "+2 bonus when rolling a death timer or using a luck token. Can hold up to 2 luck tokens. Stabilization rolls vs DC 9."
+      },
+      {
+        "name": "Pathfinding",
+        "description": "Advantage on INT checks to determine location or find the path to a known objective."
+      }
+    ]
+  },
+  {
+    "id": "gladiator",
+    "class": "Gladiator",
+    "source": "Player's Companion",
+    "description": "Warriors that fight for fame and fortune in the arena, beloved by fans and practiced at doing whatever it takes to win.",
+    "weapons": "All weapons",
+    "armor": "Shields and any armor",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Dirty Tricks",
+        "description": "Use the environment unexpectedly (e.g. kick sand). DEX check vs opponent's AC — success stuns the opponent for 2 rounds."
+      },
+      {
+        "name": "Shield Mastery",
+        "description": "+1 AC when using a shield. You can bash with your shield (attack roll: 1d4 damage, push opponent to double close distance)."
+      }
+    ]
+  },
+  {
+    "id": "mage_pc",
+    "class": "Mage (PC)",
+    "source": "Player's Companion",
+    "description": "Powerful wizards that focus on mastering a small set of favored spells.",
+    "weapons": "Dagger, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 5,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 5,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 5,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 5,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 5,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 5,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 5,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 5,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 5,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Signature Spell",
+        "description": "Choose one spell per character level as a signature spell. You cannot critically fail when casting it. It manifests in a unique personalized way others can identify."
+      },
+      {
+        "name": "Wizard Spells",
+        "description": "You can cast wizard spells you know per the Mage Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "mariner",
+    "class": "Mariner",
+    "source": "Player's Companion",
+    "description": "Practiced seafarers trained in all aspects of sailing, comfortable high in the rigging and adept at navigation.",
+    "weapons": "Club, crossbow, dagger, javelin, mace, shortbow, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Climber",
+        "description": "Automatically succeed on easy or normal climbing checks. Hard and extreme climbing checks made with advantage."
+      },
+      {
+        "name": "Dead Reckoning",
+        "description": "Advantage on INT checks to determine your location at sea or sail to a known objective. With an astrolabe, automatically succeed."
+      },
+      {
+        "name": "Sailing",
+        "description": "Pilot small vessels without a check. All larger vessel piloting/captain checks made with advantage."
+      }
+    ]
+  },
+  {
+    "id": "monk_pc",
+    "class": "Monk (PC)",
+    "source": "Player's Companion",
+    "description": "Devoted followers of a deity who have given up their normal duties to travel the world and spread the gospel.",
+    "weapons": "Club, mace, staff",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Holy Symbol",
+        "description": "You carry a holy symbol (free gear slot). Hold it in a free hand for +2 AC vs undead. Touch undead with it (normal attack) to deal 1d6 damage and cause them to flee for 5 rounds (as if turned)."
+      },
+      {
+        "name": "Turn Undead",
+        "description": "You know the Turn Undead spell (does not count toward your known spell limit)."
+      },
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells (deity required) per the Monk Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "mystic",
+    "class": "Mystic",
+    "source": "Player's Companion",
+    "description": "Divine spellcasters that can enter a meditative trance to speak directly to their deity, claiming this reveals hidden truths.",
+    "weapons": "Club, mace, staff",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d4 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Meditation",
+        "description": "When at full HP, commune with your deity during a rest. Gain +1 to spellcasting checks until your next rest."
+      },
+      {
+        "name": "Turn Undead",
+        "description": "You know the Turn Undead spell (does not count toward your known spell limit)."
+      },
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells (deity required) per the Mystic Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "necromancer",
+    "class": "Necromancer",
+    "source": "Player's Companion",
+    "description": "Wizards that have specialized in mastery of the undead, generally seen as pariahs but whose unique abilities prove useful.",
+    "weapons": "Dagger, mace, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Command Undead",
+        "description": "CHA check vs DC 10 + undead level to subjugate undead for 3 rounds (as charmed)."
+      },
+      {
+        "name": "Scroll Study",
+        "description": "Study a scroll for 1 day (INT DC 15) to learn it permanently. Consumed. Doesn't count toward spell limit."
+      },
+      {
+        "name": "Wizard Spells",
+        "description": "You can cast wizard spells you know per the Necromancer Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "noble",
+    "class": "Noble",
+    "source": "Player's Companion",
+    "description": "Minor landed gentry, typically third-born or worse with little opportunity to inherit, setting off to make their fortune as adventurers.",
+    "weapons": "All weapons",
+    "armor": "Shields and any armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know two additional languages beyond those granted by Intelligence."
+      },
+      {
+        "name": "Leadership",
+        "description": "NPC allies and aligned creatures make morale checks with advantage. Designate one ally per round to gain +1 on attack rolls and +1 initiative."
+      },
+      {
+        "name": "Nobility",
+        "description": "Mind-affecting spells and abilities (e.g. charm) are made against you at disadvantage."
+      },
+      {
+        "name": "Wealth",
+        "description": "Roll double the normal number of dice to determine your starting wealth."
+      }
+    ]
+  },
+  {
+    "id": "oracle",
+    "class": "Oracle",
+    "source": "Player's Companion",
+    "description": "Divine spellcasters with a deep spiritual bond with the avatars of their deity, able to give up partial control to gain extraordinary bonuses.",
+    "weapons": "Club, dagger, mace, spear, staff",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d4 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Possession",
+        "description": "Call upon an avatar of your deity to possess your form. You glow as a torch and gain +2 attack and +4 AC for 2d6 rounds. Recharges on rest."
+      },
+      {
+        "name": "Turn Undead",
+        "description": "You know the Turn Undead spell (does not count toward your known spell limit)."
+      },
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells (deity required) per the Oracle Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "pugilist",
+    "class": "Pugilist",
+    "source": "Player's Companion",
+    "description": "Prize fighters that travel from town to town looking to win a purse in a pit fight or earn coins as bar brawlers.",
+    "weapons": "Club, dagger",
+    "armor": "Leather armor",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Blooded",
+        "description": "If you deal 1+ melee damage, gain +2 AC and double movement for 3 rounds. Recharges on rest."
+      },
+      {
+        "name": "Brawl",
+        "description": "+1 to attack with bare fists (1d4 damage). +2 AC when wearing clothes or leather armor."
+      },
+      {
+        "name": "Dirty Tricks",
+        "description": "DEX check vs opponent's AC — success stuns the opponent for 2 rounds."
+      }
+    ]
+  },
+  {
+    "id": "ranger_pc",
+    "class": "Ranger (PC)",
+    "source": "Player's Companion",
+    "description": "Divine spellcasters that have learned to survive in the woods and fight effectively.",
+    "weapons": "All weapons",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d8 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 0,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 0,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 1,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 2,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      }
+    ],
+    "features": [
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells. Starting at 3rd level, gain known spells per the Ranger Spells Known table. You can also gain spells via talent rolls."
+      },
+      {
+        "name": "Snares",
+        "description": "Carry string (free gear slot). Spend 3 rounds setting a tripwire trap (1d4 damage, DEX DC 12 to avoid)."
+      },
+      {
+        "name": "Tracking",
+        "description": "Automatically succeed on easy or normal tracking checks. Hard and extreme tracking checks made with advantage."
+      }
+    ]
+  },
+  {
+    "id": "rogue",
+    "class": "Rogue",
+    "source": "Player's Companion",
+    "description": "Classic thieves that make their way in the world through violence.",
+    "weapons": "Club, crossbow, dagger, shortbow, shortsword, spear",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d4 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Backstab",
+        "description": "Target unaware of your presence takes an extra damage die. Add an extra die every two levels."
+      },
+      {
+        "name": "Shadowed",
+        "description": "Advantage on stealth checks; +2 if motionless. Move silently at half speed."
+      },
+      {
+        "name": "Taking Cover",
+        "description": "Impose disadvantage on ranged attacks/spellcasting checks targeting you with only 25% cover."
+      },
+      {
+        "name": "Thievery",
+        "description": "Advantage on DEX checks to disguise, shadow, find/disable traps, pickpocket, or pick locks."
+      }
+    ]
+  },
+  {
+    "id": "savage",
+    "class": "Savage",
+    "source": "Player's Companion",
+    "description": "Barbarian tribesfolk that have left their homeland in search of fame and fortune, hoping to one day return and elevate their people.",
+    "weapons": "Club, dagger, greataxe, greatsword, javelin, mace, shortbow, spear, staff",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Brawl",
+        "description": "+1 to attack with bare fists (1d4 damage). +2 AC when wearing clothes or leather armor."
+      },
+      {
+        "name": "Tracking",
+        "description": "Automatically succeed on easy or normal tracking checks. Hard and extreme with advantage."
+      },
+      {
+        "name": "Wildling",
+        "description": "Advantage on all checks to find food or shelter in the wilderness."
+      }
+    ]
+  },
+  {
+    "id": "scholar",
+    "class": "Scholar",
+    "source": "Player's Companion",
+    "description": "Powerful spellcasters that develop a vast flexible repertoire of spells through focus and hard study.",
+    "weapons": "Staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 5,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 5,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 5,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 5,
+        "tier2": 3,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 5,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 5,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 5,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 5,
+        "tier2": 5,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 5,
+        "tier2": 5,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Leadership",
+        "description": "NPC allies and aligned creatures make morale checks with advantage. Designate one ally per round to gain +1 on attack rolls and +1 initiative."
+      },
+      {
+        "name": "Scroll Study",
+        "description": "Study a scroll for 1 day (INT DC 15) to learn it permanently. Consumed. Doesn't count toward spell limit."
+      },
+      {
+        "name": "Wizard Spells",
+        "description": "You can cast wizard spells you know per the Scholar Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "scout",
+    "class": "Scout",
+    "source": "Player's Companion",
+    "description": "Military-trained experts at finding the enemy.",
+    "weapons": "All weapons",
+    "armor": "Leather armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Alertness",
+        "description": "+2 to initiative. Not surprised unless actively engaged in a task."
+      },
+      {
+        "name": "Pathfinding",
+        "description": "Advantage on INT checks to determine location or find a path to a known objective."
+      },
+      {
+        "name": "Shadowed",
+        "description": "Advantage on stealth; +2 if motionless. Move silently at half speed."
+      },
+      {
+        "name": "Tracking",
+        "description": "Automatically succeed on easy or normal tracking checks. Hard and extreme with advantage."
+      }
+    ]
+  },
+  {
+    "id": "shaman_pc",
+    "class": "Shaman (PC)",
+    "source": "Player's Companion",
+    "description": "Divine spellcasters with a bond with the spirit world, drawing upon its energy.",
+    "weapons": "Club, dagger, javelin, shortbow, spear, staff",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Spirit Walk",
+        "description": "You can enter a trance to walk the spirit world. While in this trance your body is comatose. You can communicate with spirits and gather information. You can end the trance at will."
+      },
+      {
+        "name": "Turn Undead",
+        "description": "You know the Turn Undead spell (does not count toward your known spell limit)."
+      },
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells (deity required) per the Shaman Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "soldier",
+    "class": "Soldier",
+    "source": "Player's Companion",
+    "description": "Trained military veterans that have left the service, seeking work as sellswords or fame and fortune.",
+    "weapons": "All weapons",
+    "armor": "Shields and any armor",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Formation Fighting",
+        "description": "If you have two allies within close distance, you gain advantage on all combat actions."
+      },
+      {
+        "name": "Full Kit",
+        "description": "Wearing a backpack, you gain an extra 5 gear slots."
+      },
+      {
+        "name": "Weapon Focus",
+        "description": "Choose a weapon type. +1 to attack and damage. +1 more every two levels (2nd, 4th, 6th, 8th, 10th)."
+      }
+    ]
+  },
+  {
+    "id": "sorcerer_pc",
+    "class": "Sorcerer (PC)",
+    "source": "Player's Companion",
+    "description": "Magic users adept at recovering their spellcasting ability without taking time to rest.",
+    "weapons": "Dagger, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Quick Recovery",
+        "description": "If you fail a spellcasting check, you recover the ability to cast that spell again after 10 rounds."
+      },
+      {
+        "name": "Scroll Study",
+        "description": "Study a scroll for 1 day (INT DC 15) to learn it permanently. Consumed. Doesn't count toward spell limit."
+      },
+      {
+        "name": "Wizard Spells",
+        "description": "You can cast wizard spells you know per the Sorcerer Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "spy",
+    "class": "Spy",
+    "source": "Player's Companion",
+    "description": "Secretive agents that gather information clandestinely.",
+    "weapons": "Crossbow, dagger, longsword, mace, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Charming",
+        "description": "CHA check vs DC 12 (non-hostile) or DC 18 (hostile) to fast-talk a creature. Not a compulsion — they won't act against obvious self-interest."
+      },
+      {
+        "name": "Earshot",
+        "description": "Hear effectively out to far distance if your immediate surroundings are quiet. Listen in on conversations without detection."
+      },
+      {
+        "name": "Shadowed",
+        "description": "Advantage on stealth; +2 if motionless. Move silently at half speed."
+      }
+    ]
+  },
+  {
+    "id": "squire",
+    "class": "Squire",
+    "source": "Player's Companion",
+    "description": "Young warriors pledged to the service of a noble, given combat training and older but valuable equipment.",
+    "weapons": "All weapons",
+    "armor": "Shields and any armor",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Full Kit",
+        "description": "Wearing a backpack, you gain an extra 5 gear slots."
+      },
+      {
+        "name": "Shield Mastery",
+        "description": "+1 AC when using a shield. Shield bash (attack roll): 1d4 damage, push opponent to double close distance."
+      },
+      {
+        "name": "Torchbearer",
+        "description": "Once lit, a torch takes no gear slot. Start a campfire with only two torches."
+      },
+      {
+        "name": "Tutelage",
+        "description": "Roll two extra dice for starting wealth."
+      }
+    ]
+  },
+  {
+    "id": "thug",
+    "class": "Thug",
+    "source": "Player's Companion",
+    "description": "Street criminals that have learned to get what they want through threats or violence.",
+    "weapons": "All weapons",
+    "armor": "Shields and any armor",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Intimidation",
+        "description": "In addition to your normal attack, make an opposed CHA check against one opponent of equal or lesser level. On success they are terrified into inaction and forfeit their turn."
+      },
+      {
+        "name": "Shadowed",
+        "description": "Advantage on stealth; +2 if motionless. Move silently at half speed."
+      },
+      {
+        "name": "Unstoppable",
+        "description": "Opposed STR check (you roll with advantage) to charge through an opponent's location, knocking them prone. Standing up uses their move action."
+      }
+    ]
+  },
+  {
+    "id": "urchin",
+    "class": "Urchin",
+    "source": "Player's Companion",
+    "description": "Street children that have grown into criminals due to desperation.",
+    "weapons": "Club, dagger, spear",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Dirty Tricks",
+        "description": "DEX check vs opponent's AC — success stuns them for 2 rounds."
+      },
+      {
+        "name": "Innocuous",
+        "description": "During a surprise round with any cover within near distance, you can hide and become effectively invisible. Moving to another nearby cover keeps you hidden. Effect ends if you attack."
+      },
+      {
+        "name": "Thievery",
+        "description": "Advantage on DEX checks to disguise, shadow, find/disable traps, pickpocket, or pick locks."
+      }
+    ]
+  },
+  {
+    "id": "valkyrie",
+    "class": "Valkyrie",
+    "source": "Player's Companion",
+    "description": "Divine spellcasters blessed by the gods of war, traditionally female, who fight with divine fervor.",
+    "weapons": "All weapons",
+    "armor": "Shields and any armor",
+    "hit_points": "1d8 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 0,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 0,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 1,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 2,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 2,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      }
+    ],
+    "features": [
+      {
+        "name": "Favored",
+        "description": "If you use a luck token to deliver a killing blow to an enemy, you get it back immediately."
+      },
+      {
+        "name": "Raven",
+        "description": "You attract a number of raven familiars equal to your level. They communicate telepathically and carry small messages. 1 HP, +1 attack (1d4), AC 10. Lose 1 HP when a raven dies."
+      },
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells (deity required). Starting at 3rd level, gain known spells per the Valkyrie Spells Known table. Spells can also be gained via talent rolls."
+      }
+    ]
+  },
+  {
+    "id": "witch_pc",
+    "class": "Witch (PC)",
+    "source": "Player's Companion",
+    "description": "Divine spellcasters that have learned to draw out and channel the dark energies of the fey world.",
+    "weapons": "Club, crossbow, dagger, shortsword, staff",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d4 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Brew",
+        "description": "When at full HP with an empty flask, use resting downtime to brew over a campfire. Create a healing potion (restores 1d4 HP) or poison (1d8 damage if ingested, +1d2 applied to weapon). Brews lose potency after a day."
+      },
+      {
+        "name": "Hex",
+        "description": "Designate a target in combat. They suffer disadvantage on all checks. Requires focus — you cannot take any other actions."
+      },
+      {
+        "name": "Priest Spells",
+        "description": "You can cast priest spells (deity required) per the Witch Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "barbarian",
+    "class": "Barbarian",
+    "source": "Player's Expansion 1",
+    "description": "Fierce warriors driven by primal rage, exceptional resilience, and a deep connection to the untamed wilderness.",
+    "weapons": "All melee weapons",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d10 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Durable",
+        "description": "You can use Dexterity or Constitution when calculating your Armor Class."
+      },
+      {
+        "name": "Danger Sense",
+        "description": "You have advantage on Wisdom checks."
+      },
+      {
+        "name": "Rage",
+        "description": "While raging: +1 to damage with melee weapons; immune to fear effects; advantage on STR checks to lift, jump, shove, and grapple."
+      }
+    ]
+  },
+  {
+    "id": "bard_pe1",
+    "class": "Bard (PE1)",
+    "source": "Player's Expansion 1",
+    "description": "Nomads who inspire through speech, song, music, and current affairs. Experts who share knowledge through art or literature.",
+    "weapons": "Club, crossbow, dagger, longsword, mace, shortbow, shortsword, spear, staff",
+    "armor": "Leather armor",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know additional common languages equal to your CHA modifier and one rare language."
+      },
+      {
+        "name": "Bardic Expertise",
+        "description": "Trained in speaking, art, dancing, drama, music, and negotiation. Advantage on related CHA checks."
+      },
+      {
+        "name": "Magical Expert",
+        "description": "Advantage when activating spell scrolls and wands using CHA as your spellcasting statistic."
+      },
+      {
+        "name": "Mojo",
+        "description": "DC 12 CHA check to use as an action: Bardic Inspiration (one ally gains advantage on one d20 roll); Sonic Blast (enemies in near range take 1 HP damage); Healer (restore 1 HP to creature in close range); Cure (remove disease or poison from one ally in close range). Fail = can't use again until rest."
+      },
+      {
+        "name": "Knowledgeable",
+        "description": "Expert in one academic study: Current Affairs, Folklore, History, Linguistics, Music, Magic, Nature, Religion, Science, Monsters, or Animals. Advantage on related INT checks."
+      }
+    ]
+  },
+  {
+    "id": "commander",
+    "class": "Commander",
+    "source": "Player's Expansion 1",
+    "description": "Inspiring leaders who are experts in tactics, close combat, and warfare.",
+    "weapons": "All weapons except greataxe, greatsword, and longbow",
+    "armor": "All armor and shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Commander Leader",
+        "description": "When you make a melee attack, grant one ally you can see advantage on an attack roll within near range for one round."
+      },
+      {
+        "name": "Marshal Presence",
+        "description": "You can use CHA or STR checks to persuade, inspire, negotiate, and intimidate others."
+      },
+      {
+        "name": "Battle Cry",
+        "description": "Enemies within near range have disadvantage on Morale checks."
+      }
+    ]
+  },
+  {
+    "id": "druid_pe1",
+    "class": "Druid (PE1)",
+    "source": "Player's Expansion 1",
+    "description": "Mystics attuned to nature and animal spirits who concoct magical potions from plants.",
+    "weapons": "Club, dagger, shortbow, spear, staff",
+    "armor": "Leather armor, wooden shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You can speak telepathically with animals and plants."
+      },
+      {
+        "name": "Animal Companion",
+        "description": "Select a magical animal spirit (ape, badger, bat, bear, bird, boar, cat, crocodile, fish, frog, rabbit, insect, octopus, rat, snake, spider, or wolf). It cannot attack or die unless you die. Use it to scout, track, stabilize dying creatures, or find food."
+      },
+      {
+        "name": "Brewing",
+        "description": "Attempt to make level + 2 potions (max). Spend 10 min + WIS check (DC 10 + potion tier). Fail = can't make that potion until rest. Potions expire at next sunrise. Potions only affect the drinker."
+      }
+    ]
+  },
+  {
+    "id": "monk_pe1",
+    "class": "Monk (PE1)",
+    "source": "Player's Expansion 1",
+    "description": "Disciplined combatants who channel physical and spiritual mastery into precise strikes and exceptional agility.",
+    "weapons": "All weapons except greataxe and greatsword",
+    "armor": "None",
+    "hit_points": "1d10 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Unarmoured",
+        "description": "Use DEX, CON, or WIS when calculating your AC."
+      },
+      {
+        "name": "Martial Arts",
+        "description": "Make unarmed melee strikes (hands, feet, elbows, knees, head). Attack with STR or DEX modifier. Unarmed strikes deal 1d6 damage."
+      },
+      {
+        "name": "Martial Arts Style",
+        "description": "Select one mastered fighting style: Tiger Claw (+1 damage); Crane (knock prone); Snake (blind 1 round); Praying Mantis (grapple); Dragon (+1 to attack); Monkey (enemies have disadvantage for 1 round); Drunken Master (reduce damage taken by 1)."
+      }
+    ]
+  },
+  {
+    "id": "paladin",
+    "class": "Paladin",
+    "source": "Player's Expansion 1",
+    "description": "Holy warriors bound by an oath to uphold justice, protect the innocent, and wield martial and divine power in service of their faith.",
+    "weapons": "All weapons",
+    "armor": "All armor and shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Smite",
+        "description": "You have advantage on melee weapon damage rolls against enemies."
+      },
+      {
+        "name": "Healing Touch",
+        "description": "Once per day, restore 1 HP to a creature within close range."
+      },
+      {
+        "name": "Divine Aura",
+        "description": "All friendly healing spells and effects restore 1 extra HP within near range. Use an action to remove one disease or poison effect within near range."
+      },
+      {
+        "name": "Oath",
+        "description": "Choose a deity matching your alignment. You have a holy symbol (no gear slots). Lawful: sense chaotic creatures within near range. Neutral: sense unnatural creatures. Chaotic: sense lawful creatures."
+      }
+    ]
+  },
+  {
+    "id": "ranger_pe1",
+    "class": "Ranger (PE1)",
+    "source": "Player's Expansion 1",
+    "description": "Specialized wilderness scouts trained in the techniques of guerrilla warfare.",
+    "weapons": "All weapons except greataxe and greatsword",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Wilderness Explorer",
+        "description": "Trained in two skills of your choice (advantage on checks): foraging, hunting, navigation, scouting, traps, wilderness survival, stealth, plants, or beasts. Gain an extra skill at each even level."
+      },
+      {
+        "name": "Herbal Potions",
+        "description": "Attempt to make level potions per day. DC checks: 11 Antidote (end poison); 12 Vaccine (cure disease); 13 Heroism (advantage on attacks for one combat); 14 Elixir (un-petrify creature); 15 Healing Balm (restore 1 HP or stat). Unused potions expire after one day."
+      }
+    ]
+  },
+  {
+    "id": "shaman_pe1",
+    "class": "Shaman (PE1)",
+    "source": "Player's Expansion 1",
+    "description": "Spiritual practitioners with a deep understanding of nature, body transformation, medicinal herbs, and healing practices.",
+    "weapons": "Club, dagger, longbow, shortbow, spear, staff",
+    "armor": "Leather armor, wooden shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You can speak telepathically with spirits, ghosts, and animals."
+      },
+      {
+        "name": "Shapechange",
+        "description": "Transform your body, clothes, armor, and equipment into an animal. Stats stay the same; you can cast spells in animal form. At 0 HP, you revert to ancestry form. Animals: ape, badger, bat, bear, bird, boar, cat, crocodile, fish, frog, insect, octopus, rat, snake, spider, wolf."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast priest spells you know in animal or ancestry form. You know two tier 1 spells. Each level, choose new spells per the Shaman Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "sorcerer_pe1",
+    "class": "Sorcerer (PE1)",
+    "source": "Player's Expansion 1",
+    "description": "Infernos of raw magic coursing through their blood, threatening to be wildly unpredictable.",
+    "weapons": "Club, dagger, staff",
+    "armor": "None",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "cha",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 4,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 4,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 4,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 4,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 4,
+        "tier2": 4,
+        "tier3": 4,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Wild Magic",
+        "description": "When you roll a 1 or 2 on a spellcasting check, the spell fails and you roll on the wizard mishap table."
+      },
+      {
+        "name": "Metamagic",
+        "description": "When you successfully cast a spell, choose one: Careful (exclude allies from effect); Distant (increase range one increment); Extend (increase duration by one round, unless instant)."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast wizard spells you know. You know three tier 1 spells. Use CHA modifier for spellcasting checks per the Sorcerer Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "warlock_pe1",
+    "class": "Warlock (PE1)",
+    "source": "Player's Expansion 1",
+    "description": "Spellcasters who gain magical power through a pact with a mysterious and often otherworldly patron.",
+    "weapons": "Club, crossbow, dagger, mace, longsword, shortsword, spear, staff",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Languages",
+        "description": "You know one extra language."
+      },
+      {
+        "name": "Patron Boon",
+        "description": "Choose a patron or create one with GM approval. Gain a new Patron Boon at each even character level. Boons: body transforms into a level 2 monster; read all written languages; speak with spirits/undead; transform into small animal for 1 hour; read surface thoughts within near; extra language; advantage on CHA checks; know a 1st tier wizard spell; detect magic within near; swim at near speed and breathe water; transform into a Celestial/Diabolic/Fey/Primordial."
+      },
+      {
+        "name": "Eldritch Blast",
+        "description": "Make a spellcasting check (CHA, DC 11) to fire a beam of energy (1d4 damage, far range). On failure, no rest required to retry."
+      }
+    ]
+  },
+  {
+    "id": "cursedblade",
+    "class": "Cursedblade",
+    "source": "Player's Expansion 2",
+    "description": "A cursing spellcaster who gains mystical energy from a powerful being and wields it through a weapon.",
+    "weapons": "Bastard sword, dagger, greataxe, greatsword, longsword, shortsword, spear",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Magic Weapon",
+        "description": "Use your action to imbue a weapon (CHA spellcasting check, DC 11) with +1 to attack and damage for 3 rounds. Failed check doesn't require rest to retry."
+      },
+      {
+        "name": "Eldritch Blast",
+        "description": "Fire a beam of energy (CHA spellcasting check, DC 11, 1d4 damage, far range). Failed check doesn't require rest to retry."
+      },
+      {
+        "name": "Patron Boon",
+        "description": "Choose a patron or create one. Gain a new Patron Boon at each even level."
+      }
+    ]
+  },
+  {
+    "id": "elemental_warrior",
+    "class": "Elemental Warrior",
+    "source": "Player's Expansion 2",
+    "description": "Martial artists who have mastered controlling their internal energy to release it as devastating elemental blows and blasts.",
+    "weapons": "Crossbow, dagger, longsword, mace, shortsword, shortbow, staff",
+    "armor": "None",
+    "hit_points": "1d10 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Elemental Expert",
+        "description": "Advantage on knowledge checks related to fire, electricity, water, earth, air, and spirits."
+      },
+      {
+        "name": "Unarmoured",
+        "description": "Use DEX or CON when calculating your AC."
+      },
+      {
+        "name": "Elemental Blow",
+        "description": "Make unarmed melee strikes (1d6 damage). Declare elemental damage type (normal, fire, electric, cold, or acid) when attacking."
+      },
+      {
+        "name": "Elemental Blast",
+        "description": "CHA spellcasting check (DC 11) to fire elemental blast (1d4 damage at levels 1-5, 1d6 at levels 6-10, far range)."
+      }
+    ]
+  },
+  {
+    "id": "monster_slayer",
+    "class": "Monster Slayer",
+    "source": "Player's Expansion 2",
+    "description": "Seekers of vampires, dragons, fiends, fey, and evil monsters of the dark.",
+    "weapons": "Bastard sword, club, crossbow, dagger, longbow, longsword, mace, shortbow, shortsword, spear, staff",
+    "armor": "Leather armor, chainmail, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Monster Expert",
+        "description": "You know if and what immunities a chaotic-aligned monster within near range has. Advantage on checks related to monster knowledge."
+      },
+      {
+        "name": "Stalker",
+        "description": "Expert in detecting monsters and stealth. Advantage on checks related to sensing creatures, sneaking, and hiding."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "Cast known Monster Slayer spells using WIS. Spells by level: 1-10 Protection from Evil (DC 11); 3-10 Zone of Truth (DC 12); 5-10 Magic Circle (DC 13); 7-10 Flame Strike (DC 14); 9-10 Hold Monster (DC 15)."
+      }
+    ]
+  },
+  {
+    "id": "mystical_archer",
+    "class": "Mystical Archer",
+    "source": "Player's Expansion 2",
+    "description": "Expert warriors in channeling magic into arrows fired from a bow, skilled in mystical knowledge and identification.",
+    "weapons": "Bows, dagger, shortsword, longsword",
+    "armor": "Leather armor, chainmail",
+    "hit_points": "1d4 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Detecting Magic",
+        "description": "You can cast Detect Magic (DC 11) using INT, WIS, or CHA."
+      },
+      {
+        "name": "Mystical Knowledge",
+        "description": "Advantage on checks related to magic knowledge."
+      },
+      {
+        "name": "Magical Shot",
+        "description": "Once per round, imbue an arrow with one of: Sharp Arrow (+1 damage); Accurate Arrow (+1 to hit); Seeker Arrow (no disadvantage for cover); Elemental Arrow (change damage type); Returning Arrow (returns after shot); Paralysing Arrow (target paralyzed 1 round)."
+      }
+    ]
+  },
+  {
+    "id": "psychic_infiltrator",
+    "class": "Psychic Infiltrator",
+    "source": "Player's Expansion 2",
+    "description": "Spies who strike the psyche, infiltrating the mind and body with psionic power.",
+    "weapons": "Crossbow, dagger, longbow, shortbow, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d4 per level",
+    "spellcasting": "priest",
+    "spellcasting_ability": "wis",
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Psychic Blade",
+        "description": "Action: DC 12 CON or WIS check to create an invisible psychic blade for 1 minute (+1 to attack and damage). Fail requires rest to regain blade."
+      },
+      {
+        "name": "Shadow Veil",
+        "description": "Advantage on checks related to hiding and sneaking."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "Cast known Psychic Infiltrator spells using CON or WIS. Spells: 1-10 Charm Person (DC 11); 3-10 Detect Thoughts (DC 12); 5-10 Alter Self (DC 12); 7-10 Arcane Eye (DC 14); 9-10 Teleport (DC 15)."
+      }
+    ]
+  },
+  {
+    "id": "samurai",
+    "class": "Samurai",
+    "source": "Player's Expansion 2",
+    "description": "Military soldiers trained in swordsmanship, archery, and other martial arts, with a special code of conduct.",
+    "weapons": "All swords, dagger, longbow, shortbow, spear, staff, warhammer",
+    "armor": "All armor and shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Bushido Code",
+        "description": "Immune to fear effects."
+      },
+      {
+        "name": "Aesthetic",
+        "description": "Advantage on checks related to literature and art. Can write official documents with advanced calligraphy."
+      },
+      {
+        "name": "Samurai Style",
+        "description": "Select one mastered style at level 1, a new one at every even level: Kenjutsu (+1 attack/damage with swords, +half level); Jujutsu (grapple/throw on unarmed strike); Sojutsu (+1 attack/damage with spear, knock prone); Kyujutsu (+1 attack/damage with bow, ignore cover penalty); Aikiken (+1 AC while wielding sword to parry); Bojutsu (+1 attack/damage with staff, push/trip); Iaijutsu (+1 initiative)."
+      }
+    ]
+  },
+  {
+    "id": "shadow_stalker",
+    "class": "Shadow Stalker",
+    "source": "Player's Expansion 2",
+    "description": "Experienced hunters who use the darkness, detecting and hunting creatures.",
+    "weapons": "Bastard sword, crossbow, dagger, longbow, longsword, mace, shortbow, shortsword, spear",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "wis",
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Ambusher",
+        "description": "Advantage on Initiative rolls. Expert in sneaking and hiding — advantage on related checks."
+      },
+      {
+        "name": "Iron Mind",
+        "description": "Advantage on checks that affect your mind."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "Cast known Shadow Stalker spells using WIS. Spells: 1-10 Light (DC 11); 3-10 Invisibility (DC 12); 5-10 Alter Self (DC 12); 7-10 Arcane Eye (DC 14); 9-10 Wrath (DC 14)."
+      }
+    ]
+  },
+  {
+    "id": "spellsword",
+    "class": "Spellsword",
+    "source": "Player's Expansion 2",
+    "description": "Mages that incorporate swordplay and magical dance with music.",
+    "weapons": "Dagger, longsword, shortsword",
+    "armor": "Leather armor",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Bless",
+        "description": "You know the bless spell. It doesn't count toward your known spells."
+      },
+      {
+        "name": "Performance",
+        "description": "Advantage on checks related to performance, dancing, and singing."
+      },
+      {
+        "name": "Blade Magic",
+        "description": "You can cast wizard spells you know through the blade you hold. You know two tier 1 spells per the Spellsword Spells Known table."
+      }
+    ]
+  },
+  {
+    "id": "swashbuckler",
+    "class": "Swashbuckler",
+    "source": "Player's Expansion 2",
+    "description": "Lightly armoured acrobatic fencers who are experts in the blade, acrobatics, and charm.",
+    "weapons": "Club, crossbow, dagger, longsword, mace, rapier, shortbow, shortsword, staff",
+    "armor": "Leather armor, shields",
+    "hit_points": "1d6 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Dual-Wielder",
+        "description": "Make two attacks on your turn while holding a rapier and dagger, or two daggers."
+      },
+      {
+        "name": "Rapier",
+        "description": "The rapier is a finesse melee weapon (1d6 damage, cost 8 gp)."
+      },
+      {
+        "name": "Gentile",
+        "description": "Expert in acrobatics, stealth, guile, and romance. Advantage on all DEX and CHA related checks."
+      }
+    ]
+  },
+  {
+    "id": "war_mage",
+    "class": "War Mage",
+    "source": "Player's Expansion 2",
+    "description": "Magic-users trained for war on the battlefield who wear armor.",
+    "weapons": "Crossbow, dagger, shortsword, staff",
+    "armor": "Special (Arcane Armor)",
+    "hit_points": "1d4 per level",
+    "spellcasting": "wizard",
+    "spellcasting_ability": "int",
+    "spells_known_table": [
+      {
+        "level": 1,
+        "tier1": 2,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 2,
+        "tier1": 3,
+        "tier2": 0,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 3,
+        "tier1": 3,
+        "tier2": 1,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 4,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 0,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 5,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 1,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 6,
+        "tier1": 3,
+        "tier2": 2,
+        "tier3": 2,
+        "tier4": 0,
+        "tier5": 0
+      },
+      {
+        "level": 7,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 1,
+        "tier5": 0
+      },
+      {
+        "level": 8,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 0
+      },
+      {
+        "level": 9,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 2,
+        "tier4": 2,
+        "tier5": 1
+      },
+      {
+        "level": 10,
+        "tier1": 3,
+        "tier2": 3,
+        "tier3": 3,
+        "tier4": 2,
+        "tier5": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Arcane Armor",
+        "description": "Transform leather armor into magical armor granting AC 11 + DEX modifier (only you can wear it). You can cast spells while wearing this armor."
+      },
+      {
+        "name": "Detect Magic",
+        "description": "You know the detect magic spell. Doesn't count toward your known spells."
+      },
+      {
+        "name": "Spellcasting",
+        "description": "You can cast wizard spells you know per the War Mage Spells Known table. You know two tier 1 spells."
+      }
+    ]
+  },
+  {
+    "id": "war_master",
+    "class": "War Master",
+    "source": "Player's Expansion 2",
+    "description": "Masters of weapons who can utilize multiple combat techniques during battle.",
+    "weapons": "All weapons",
+    "armor": "All armor and shields",
+    "hit_points": "1d8 per level",
+    "spellcasting": null,
+    "spellcasting_ability": null,
+    "spells_known_table": null,
+    "features": [
+      {
+        "name": "Blacksmith",
+        "description": "You can make and repair armor, weapons, and metal items. You have access to a forge, smithing tools, and materials."
+      },
+      {
+        "name": "Art of War",
+        "description": "Advantage on checks related to war, historic battles, military organizations, and combat tactics."
+      },
+      {
+        "name": "Maneuvers",
+        "description": "Declare one technique per attack: Disarm (take or knock away target's weapon); Parry (+1 AC for one round); Evade (enemy has disadvantage on attacks for one round); Precision (+1 to hit for one round); Power (+1 damage for one round); Trip (knock target prone); Push (push target to near range with shield)."
+      }
+    ]
+  }
+]

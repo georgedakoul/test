@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Classes — Shadowdark RPG{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Classes</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="class-search" placeholder="Search classes...">
+  </div>
+  <div id="classes-container">
+    <div class="placeholder-msg">
+      <div class="icon">&#9813;</div>
+      <h2>Loading Classes...</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const container = document.getElementById('classes-container');
+  const search    = document.getElementById('class-search');
+
+  fetch('/api/data/classes')
+    .then(r => r.json())
+    .then(data => {
+      if (!data.length) { container.innerHTML = '<p style="color:var(--text-muted)">No class data found.</p>'; return; }
+
+      // Group by source
+      const groups = {};
+      data.forEach(c => {
+        const src = c.source || 'Core';
+        if (!groups[src]) groups[src] = [];
+        groups[src].push(c);
+      });
+
+      function render(filter) {
+        const q = (filter || '').toLowerCase();
+        let html = '';
+        for (const [src, classes] of Object.entries(groups)) {
+          const filtered = classes.filter(c => !q || (c.class||c.name||'').toLowerCase().includes(q));
+          if (!filtered.length) continue;
+          html += `<div class="source-group"><h2 class="source-heading">${src}</h2><div class="card-grid">`;
+          filtered.forEach(c => {
+            const cname = c.class || c.name || '';
+            const img = c.image ? `<img class="rule-card-img" src="/static/images/classes/${c.image}" alt="${cname}">` : '';
+            html += `<a class="rule-card" href="/classes/${encodeURIComponent(cname)}">
+              <div class="rule-card-body">
+                <div class="rule-card-name">${cname}</div>
+                <div class="rule-card-meta">${src}</div>
+              </div>${img}</a>`;
+          });
+          html += '</div></div>';
+        }
+        container.innerHTML = html || '<p style="color:var(--text-muted)">No matches.</p>';
+      }
+
+      render();
+      search.addEventListener('input', () => render(search.value));
+    })
+    .catch(() => { container.innerHTML = '<p style="color:var(--text-muted)">Failed to load classes.</p>'; });
+})();
+</script>
+{% endblock %}

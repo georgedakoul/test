@@ -1,0 +1,694 @@
+[
+  {
+    "id": "dwarf",
+    "race": "Dwarf",
+    "source": "Shadowdark RPG Core",
+    "description": "Brave, stalwart folk as sturdy as the stone kingdoms they carve inside mountains.",
+    "languages": [
+      "Common",
+      "Dwarvish"
+    ],
+    "benefit_name": "Stout",
+    "benefit": "Start with +2 HP. Roll hit points per level with advantage."
+  },
+  {
+    "id": "elf",
+    "race": "Elf",
+    "source": "Shadowdark RPG Core",
+    "description": "Ethereal, graceful people who revere knowledge and beauty. Elves see far and live long.",
+    "languages": [
+      "Common",
+      "Elvish",
+      "Sylvan"
+    ],
+    "benefit_name": "Farsight",
+    "benefit": "You get a +1 bonus to attack rolls with ranged weapons or a +1 bonus to spellcasting checks."
+  },
+  {
+    "id": "goblin",
+    "race": "Goblin",
+    "source": "Shadowdark RPG Core",
+    "description": "Green, clever beings who thrive in dark, cramped places. As fierce as they are tiny.",
+    "languages": [
+      "Common",
+      "Goblin"
+    ],
+    "benefit_name": "Keen Senses",
+    "benefit": "You can't be surprised."
+  },
+  {
+    "id": "half_orc",
+    "race": "Half-Orc",
+    "source": "Shadowdark RPG Core",
+    "description": "Towering, tusked warriors who are as daring as humans and as relentless as orcs.",
+    "languages": [
+      "Common",
+      "Orcish"
+    ],
+    "benefit_name": "Mighty",
+    "benefit": "You have a +1 bonus to attack and damage rolls with melee weapons."
+  },
+  {
+    "id": "halfling",
+    "race": "Halfling",
+    "source": "Shadowdark RPG Core",
+    "description": "Small, cheerful country folk with mischievous streaks. They enjoy life's simple pleasures.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Stealthy",
+    "benefit": "Once per day, you can become invisible for 3 rounds."
+  },
+  {
+    "id": "human",
+    "race": "Human",
+    "source": "Shadowdark RPG Core",
+    "description": "Bold, adaptable, and diverse people who learn quickly and accomplish mighty deeds.",
+    "languages": [
+      "Common",
+      "one additional common language"
+    ],
+    "benefit_name": "Ambitious",
+    "benefit": "You gain one additional talent roll at 1st level."
+  },
+  {
+    "id": "changeling",
+    "race": "Changeling",
+    "source": "Player's Companion",
+    "description": "Humanoid descendants of dopplegangers that retain part of their shapeshifting abilities. They hide among humans for most of their lives.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Mercurial",
+    "benefit": "Can use innate illusion magic to change facial features (enough to be a perfect disguise). The changes remain in place until altered. Cannot use this ability again until resting."
+  },
+  {
+    "id": "dark_elf",
+    "race": "Dark Elf",
+    "source": "Player's Companion",
+    "description": "Dark Elves live deep underground and rarely interact with surface dwellers. They come from a violent and barbaric society.",
+    "languages": [
+      "Common",
+      "Elvish"
+    ],
+    "benefit_name": "Void Ward",
+    "benefit": "Highly resistant to magic spells, imposing disadvantage to spellcasting checks made against them."
+  },
+  {
+    "id": "deep_dwarf",
+    "race": "Deep Dwarf",
+    "source": "Player's Companion",
+    "description": "Deep Dwarves live deep underground and rarely interact with surface creatures. They are accustomed to long trips through vast caving complexes.",
+    "languages": [
+      "Dwarvish"
+    ],
+    "benefit_name": "Transporter",
+    "benefit": "Can carry an extra 3 gear slots."
+  },
+  {
+    "id": "deep_gnome",
+    "race": "Deep Gnome",
+    "source": "Player's Companion",
+    "description": "Deep Gnomes live in the dark depths underground. They can change their skin tones to become slightly camouflaged against the rocks.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Chameleon",
+    "benefit": "Gain advantage on all stealth checks."
+  },
+  {
+    "id": "dragonborn",
+    "race": "Dragonborn",
+    "source": "Player's Companion",
+    "description": "Humanoid descendants of dragons that developed their own culture. They tend to avoid others.",
+    "languages": [
+      "Reptilian"
+    ],
+    "benefit_name": "Fire Breath",
+    "benefit": "Can make a breath attack on a close target (DEX check vs opponent AC, 1d6 damage) instead of taking a combat action."
+  },
+  {
+    "id": "forest_gnome",
+    "race": "Forest Gnome",
+    "source": "Player's Companion",
+    "description": "Forest gnomes live peaceful lives in the forest among sylvan creatures and fae. They have a natural talent for illusion magic.",
+    "languages": [
+      "Common",
+      "Elvish"
+    ],
+    "benefit_name": "Glamour",
+    "benefit": "Can cast a minor illusion spell — a small motionless visual illusion no larger than their own body — that remains active for 5 rounds. Cannot use again until resting."
+  },
+  {
+    "id": "gold_dwarf",
+    "race": "Gold Dwarf",
+    "source": "Player's Companion",
+    "description": "Gold Dwarves are cunning merchants and traders, often found in wandering caravans crossing exotic lands.",
+    "languages": [
+      "Common",
+      "Dwarvish"
+    ],
+    "benefit_name": "Mercantile",
+    "benefit": "Gain a 10% discount on purchased items (including starting equipment) and a 10% bonus when selling treasure."
+  },
+  {
+    "id": "gold_elf",
+    "race": "Gold Elf",
+    "source": "Player's Companion",
+    "description": "Gold Elves are the most common Elven folk. They live in towns on the edge of forests and trade extensively with other groups.",
+    "languages": [
+      "Common",
+      "Elvish"
+    ],
+    "benefit_name": "Farsight",
+    "benefit": "Gain a +1 bonus on ranged attacks in combat and a +1 bonus on spellcasting checks."
+  },
+  {
+    "id": "gray_elf",
+    "race": "Gray Elf",
+    "source": "Player's Companion",
+    "description": "Gray Elves are arrogant and withdrawn, believing themselves to be the one true Elven ancestry.",
+    "languages": [
+      "Elvish",
+      "Sylvan"
+    ],
+    "benefit_name": "Concentration",
+    "benefit": "Cannot be interrupted during rest periods."
+  },
+  {
+    "id": "gray_orc",
+    "race": "Gray Orc",
+    "source": "Player's Companion",
+    "description": "Gray Orcs are the most common Orcish folk. They are aggressive border reavers and suffer from a poor reputation as a result.",
+    "languages": [
+      "Common",
+      "Orcish"
+    ],
+    "benefit_name": "Veterans",
+    "benefit": "Gain a +1 damage bonus with melee weapons."
+  },
+  {
+    "id": "hawkfolk",
+    "race": "Hawkfolk",
+    "source": "Player's Companion",
+    "description": "Humanoids with large feathery wings protruding from their shoulders. They are only capable of short-range flights.",
+    "languages": [
+      "Common",
+      "Sylvan"
+    ],
+    "benefit_name": "Hover",
+    "benefit": "Can float about two feet off the ground and move up to near distance. Cannot use again until resting."
+  },
+  {
+    "id": "hill_dwarf",
+    "race": "Hill Dwarf",
+    "source": "Player's Companion",
+    "description": "Hill Dwarves are the most common Dwarven folk. They live in large underground cities with their clan.",
+    "languages": [
+      "Common",
+      "Dwarvish"
+    ],
+    "benefit_name": "Stout",
+    "benefit": "Gain 2 extra hit points at character creation and advantage on hit point rolls at each level up."
+  },
+  {
+    "id": "hobgoblin",
+    "race": "Hobgoblin",
+    "source": "Player's Companion",
+    "description": "A larger and more civilized descendant of goblins. They are highly militaristic and disciplined combatants.",
+    "languages": [
+      "Common",
+      "Goblin"
+    ],
+    "benefit_name": "Trained",
+    "benefit": "Can wear any armor and use any weapon, regardless of class."
+  },
+  {
+    "id": "kobold",
+    "race": "Kobold",
+    "source": "Player's Companion",
+    "description": "Diminutive reptilian humanoids with a knack for survival. They can be found on the surface but tend to live underground.",
+    "languages": [
+      "Common",
+      "Reptilian"
+    ],
+    "benefit_name": "Resilient",
+    "benefit": "Gain a +4 bonus on death timer rolls."
+  },
+  {
+    "id": "lizardfolk",
+    "race": "Lizardfolk",
+    "source": "Player's Companion",
+    "description": "Reptilian humanoids that live in the marshes in tribal groups. They hunt by floating near the surface of the water and ambushing prey.",
+    "languages": [
+      "Common",
+      "Reptilian"
+    ],
+    "benefit_name": "Diver",
+    "benefit": "Can breathe underwater. Must return to the surface at least once per hour to replenish oxygen fully."
+  },
+  {
+    "id": "mountain_dwarf",
+    "race": "Mountain Dwarf",
+    "source": "Player's Companion",
+    "description": "Mountain Dwarves live in wild mountainous regions where others fear to tread. They have frequent wars with denizens of the deep.",
+    "languages": [
+      "Common",
+      "Dwarvish"
+    ],
+    "benefit_name": "Hardy",
+    "benefit": "Immune to all poisons, including magical ones."
+  },
+  {
+    "id": "mountain_orc",
+    "race": "Mountain Orc",
+    "source": "Player's Companion",
+    "description": "Barbarian raiders that prey upon civilized folk. They produce almost no goods of their own aside from weapons and armor.",
+    "languages": [
+      "Orcish"
+    ],
+    "benefit_name": "Strife",
+    "benefit": "Gain +2 AC against melee attacks in combat."
+  },
+  {
+    "id": "proudfoot_halfling",
+    "race": "Proudfoot Halfling",
+    "source": "Player's Companion",
+    "description": "The most common wee folk. They are happy and charming people with a positive outlook even under grim circumstances.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Stealthy",
+    "benefit": "Can turn invisible for 3 rounds. Cannot use again until resting."
+  },
+  {
+    "id": "rock_gnome",
+    "race": "Rock Gnome",
+    "source": "Player's Companion",
+    "description": "The most common of Gnomish folk. Known for their keen nose and talent for mechanical work and alchemical concoctions.",
+    "languages": [
+      "Common",
+      "Dwarvish"
+    ],
+    "benefit_name": "Light Touch",
+    "benefit": "Advantage on all checks to disarm traps. On a natural 1, you do not trigger a trap you are disarming."
+  },
+  {
+    "id": "snow_elf",
+    "race": "Snow Elf",
+    "source": "Player's Companion",
+    "description": "Snow Elves live deep in tundra forests and often serve as guides and scouts for arctic expeditions.",
+    "languages": [
+      "Elvish",
+      "Sylvan"
+    ],
+    "benefit_name": "Medical",
+    "benefit": "Make stabilization rolls with advantage (does not extend to rolls to stabilize the Snow Elf themselves)."
+  },
+  {
+    "id": "stoutheart_halfling",
+    "race": "Stoutheart Halfling",
+    "source": "Player's Companion",
+    "description": "Adventurous travelers that leave home after adolescence, only returning when they have made a small fortune.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Quick",
+    "benefit": "Gain a +3 bonus to initiative rolls."
+  },
+  {
+    "id": "wood_elf",
+    "race": "Wood Elf",
+    "source": "Player's Companion",
+    "description": "Descendants of Gold Elves who migrated deep into the forest. They are master woodsmen.",
+    "languages": [
+      "Common",
+      "Elvish"
+    ],
+    "benefit_name": "Hunters",
+    "benefit": "Make bow attacks with advantage (does not extend to crossbows)."
+  },
+  {
+    "id": "avian",
+    "race": "Avian",
+    "source": "Player's Expansion 1",
+    "description": "Feathered humanoid birds with wings, arms and a bird head with a strong beak.",
+    "languages": [
+      "Common",
+      "Primordial"
+    ],
+    "benefit_name": "Fly",
+    "benefit": "You can fly, but not while wearing armour."
+  },
+  {
+    "id": "atlantean",
+    "race": "Atlantean",
+    "source": "Player's Expansion 1",
+    "description": "An aquatic, scaly-skinned humanoid that lives in the world's oceans with webbed hands and feet.",
+    "languages": [
+      "Common",
+      "Merran"
+    ],
+    "benefit_name": "Amphibious",
+    "benefit": "You breathe air and water. Your walking and swimming speed is near range."
+  },
+  {
+    "id": "bugbear",
+    "race": "Bugbear",
+    "source": "Player's Expansion 1",
+    "description": "A large, muscular, shaggy goblinoid brute that prefers to ambush enemies.",
+    "languages": [
+      "Common",
+      "Goblin"
+    ],
+    "benefit_name": "Ambusher",
+    "benefit": "Advantage on Dexterity checks to sneak or hide. If you surprise your enemy, gain +1 to melee damage."
+  },
+  {
+    "id": "centaur",
+    "race": "Centaur",
+    "source": "Player's Expansion 1",
+    "description": "A hybrid equestrian with humanoid torso of fey origins.",
+    "languages": [
+      "Common",
+      "Sylvan"
+    ],
+    "benefit_name": "Speedy",
+    "benefit": "You move twice as fast when you move without using an action."
+  },
+  {
+    "id": "construct",
+    "race": "Construct",
+    "source": "Player's Expansion 1",
+    "description": "An artificial humanoid-shaped construct of some kind — robot, golem, or similar.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Non-biological",
+    "benefit": "You do not eat, breathe or drink. You are immune to disease and poison. You gain only half the benefits of magical healing."
+  },
+  {
+    "id": "dragonblood",
+    "race": "Dragonblood",
+    "source": "Player's Expansion 1",
+    "description": "Humanoid wingless, bipedal dragons that breathe energy or elemental forces.",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "benefit_name": "Elemental Breath",
+    "benefit": "As an action, exhale destructive energy at enemies in close range. Roll 1d20 + CON or CHA modifier, dealing 1d6 damage. Damage type is determined by your draconic ancestry (acid, cold, fire, electrical, or poison)."
+  },
+  {
+    "id": "fairy",
+    "race": "Fairy",
+    "source": "Player's Expansion 1",
+    "description": "A tiny winged fey humanoid that is naturally infused with magic.",
+    "languages": [
+      "Common",
+      "Sylvan"
+    ],
+    "benefit_name": "Fey",
+    "benefit": "You can make seeds open and flowers blossom. You can fly, but not while wearing armour."
+  },
+  {
+    "id": "fiendish",
+    "race": "Fiendish",
+    "source": "Player's Expansion 1",
+    "description": "Mortals with demonic and devilish heritage, tainted by the hellish abyss.",
+    "languages": [
+      "Common",
+      "Diabolic"
+    ],
+    "benefit_name": "Fireproof",
+    "benefit": "You are immune to damage from fire."
+  },
+  {
+    "id": "firbolg",
+    "race": "Firbolg",
+    "source": "Player's Expansion 1",
+    "description": "A magical half-giant that lives in enchanted forests. Communicates telepathically with animals and plants.",
+    "languages": [
+      "Common",
+      "Giant"
+    ],
+    "benefit_name": "Natural Magic",
+    "benefit": "You detect the presence of magic effects within near range."
+  },
+  {
+    "id": "gnome",
+    "race": "Gnome",
+    "source": "Player's Expansion 1",
+    "description": "Small folk with big eyes and pointed ears that live in the wilderness, forests and underground burrows.",
+    "languages": [
+      "Common",
+      "Sylvan"
+    ],
+    "benefit_name": "Speak with Beasts",
+    "benefit": "Through sounds, gestures and simple telepathy you can communicate with natural animals that aren't monsters."
+  },
+  {
+    "id": "minotaur",
+    "race": "Minotaur",
+    "source": "Player's Expansion 1",
+    "description": "A broad-chested humanoid with a bull head and supernatural sense of direction.",
+    "languages": [
+      "Common",
+      "Thanian"
+    ],
+    "benefit_name": "Magical Navigation",
+    "benefit": "Advantage on Wisdom checks related to navigation and tracking. Your horns make unarmed melee attacks that deal 1d4 damage."
+  },
+  {
+    "id": "ooze",
+    "race": "Ooze",
+    "source": "Player's Expansion 1",
+    "description": "An amorphous intelligent creature that changes shape with no internal organs. Communicates telepathically with any creature it can see.",
+    "languages": [],
+    "benefit_name": "Amorphous",
+    "benefit": "You can squeeze through any narrow space or small gap."
+  },
+  {
+    "id": "saurian",
+    "race": "Saurian",
+    "source": "Player's Expansion 1",
+    "description": "A reptilian humanoid that lives in wild swamps and forests.",
+    "languages": [
+      "Common",
+      "Reptilian"
+    ],
+    "benefit_name": "Tough",
+    "benefit": "You have scaly tough skin that grants +1 AC if not wearing armour."
+  },
+  {
+    "id": "troll",
+    "race": "Troll",
+    "source": "Player's Expansion 1",
+    "description": "A green and bulky, ravenous giant that regenerates wounds — even severed limbs. Always on the hunt for tasty meat.",
+    "languages": [
+      "Common",
+      "Giant"
+    ],
+    "benefit_name": "Regeneration",
+    "benefit": "If you fall to zero hit points, make a DC 12 Constitution check to have 1 hit point instead. Any burning effect prevents regeneration."
+  },
+  {
+    "id": "turtloid",
+    "race": "Turtloid",
+    "source": "Player's Expansion 1",
+    "description": "An amphibious green humanoid reptile with a shell on its back.",
+    "languages": [
+      "Common",
+      "Merran"
+    ],
+    "benefit_name": "Hardshell",
+    "benefit": "You gain a +2 bonus to AC and can't wear armour."
+  },
+  {
+    "id": "alien",
+    "race": "Alien",
+    "source": "Player's Expansion 2",
+    "description": "A humanoid from another world.",
+    "languages": [
+      "Common",
+      "one rare language"
+    ],
+    "benefit_name": "Telepath",
+    "benefit": "You communicate telepathically with any creature you can see. Read the surface thoughts of a creature you can see within near range."
+  },
+  {
+    "id": "cactoid",
+    "race": "Cactoid",
+    "source": "Player's Expansion 2",
+    "description": "A green humanoid with waxy skin covered in spines.",
+    "languages": [
+      "Common",
+      "Sylvan"
+    ],
+    "benefit_name": "Toxic",
+    "benefit": "Immune to poison. Direct contact with your spines is poisonous — DC 12 Constitution check or paralyzed for 1d4 rounds."
+  },
+  {
+    "id": "catfolk",
+    "race": "Catfolk",
+    "source": "Player's Expansion 2",
+    "description": "A humanoid with feline features.",
+    "languages": [
+      "Common",
+      "Thanian"
+    ],
+    "benefit_name": "Climber",
+    "benefit": "Expert at climbing with advantage on related checks. You climb at your full speed. When you fall, you take half damage."
+  },
+  {
+    "id": "celestial",
+    "race": "Celestial",
+    "source": "Player's Expansion 2",
+    "description": "Mortals with celestial heritage blessed by the angels and heaven.",
+    "languages": [
+      "Common",
+      "Celestial"
+    ],
+    "benefit_name": "Blessings",
+    "benefit": "As an action, you stabilize a dying creature in close range."
+  },
+  {
+    "id": "chlorophoid",
+    "race": "Chlorophoid",
+    "source": "Player's Expansion 2",
+    "description": "A tree-like lifeform with bark skin and leaves. Communicates telepathically within near range.",
+    "languages": [],
+    "benefit_name": "Regenerative Roots",
+    "benefit": "As an action, root into the ground — while rooted, can't be moved, shoved, or knocked prone. Once per day, while in sunlight or rain, you can regain 1 hit point."
+  },
+  {
+    "id": "half_siren",
+    "race": "Half-Siren",
+    "source": "Player's Expansion 2",
+    "description": "A captivating humanoid with iridescent scales and a beautiful voice.",
+    "languages": [
+      "Common",
+      "Merran"
+    ],
+    "benefit_name": "Song",
+    "benefit": "As an action, one creature of LV 4 or less that can hear you within near range must make a DC 12 Charisma check or be paralyzed for 1 round."
+  },
+  {
+    "id": "gorgon",
+    "race": "Gorgon",
+    "source": "Player's Expansion 2",
+    "description": "A reptilian humanoid with coiling snakes for hair and scaled skin.",
+    "languages": [
+      "Common",
+      "Reptilian"
+    ],
+    "benefit_name": "Petrify",
+    "benefit": "As an action, one creature of LV 2 or less that you look at within near range must make a DC 12 Constitution check or be petrified."
+  },
+  {
+    "id": "jellarian",
+    "race": "Jellarian",
+    "source": "Player's Expansion 2",
+    "description": "A humanoid with bioluminescence and the lower extremities of a jellyfish.",
+    "languages": [
+      "Common",
+      "Merran"
+    ],
+    "benefit_name": "Hover & Bioluminescent",
+    "benefit": "You always hover just off the ground. Once per day as an action, you glow brightly with heatless light illuminating out to near distance for one hour."
+  },
+  {
+    "id": "kahnjauru",
+    "race": "Kahnjauru",
+    "source": "Player's Expansion 2",
+    "description": "A humanoid with large, powerful legs.",
+    "languages": [
+      "Common",
+      "Thanian"
+    ],
+    "benefit_name": "Jump",
+    "benefit": "You can jump near range. You have advantage on checks related to jumping."
+  },
+  {
+    "id": "leprechaun",
+    "race": "Leprechaun",
+    "source": "Player's Expansion 2",
+    "description": "A small, pointy-eared sprite with a nose for treasure.",
+    "languages": [
+      "Common",
+      "Sylvan"
+    ],
+    "benefit_name": "Treasure Hunter",
+    "benefit": "You can detect treasure through barriers within double near range."
+  },
+  {
+    "id": "living_statue",
+    "race": "Living Statue",
+    "source": "Player's Expansion 2",
+    "description": "A magical humanoid made of bronze, stone, or crystal that has broken free of its creator's control.",
+    "languages": [
+      "Common",
+      "one extra language"
+    ],
+    "benefit_name": "Magical Construct",
+    "benefit": "You do not eat, breathe or drink. Hostile spellcasting checks that target you have disadvantage."
+  },
+  {
+    "id": "lycan",
+    "race": "Lycan",
+    "source": "Player's Expansion 2",
+    "description": "A supernatural lycanthrope hybrid werewolf.",
+    "languages": [
+      "Common",
+      "Thanian"
+    ],
+    "benefit_name": "Impervious",
+    "benefit": "You take half damage from non-magical sources."
+  },
+  {
+    "id": "mantian",
+    "race": "Mantian",
+    "source": "Player's Expansion 2",
+    "description": "A humanoid with insect features and four arms.",
+    "languages": [
+      "Common",
+      "one extra language"
+    ],
+    "benefit_name": "Secondary Arms",
+    "benefit": "You have two additional arms. They cannot hold a shield, wield a weapon, or cast spells."
+  },
+  {
+    "id": "shapeshifter",
+    "race": "Shapeshifter",
+    "source": "Player's Expansion 2",
+    "description": "A human that can transform into an animal.",
+    "languages": [
+      "Common",
+      "Thanian"
+    ],
+    "benefit_name": "Transform",
+    "benefit": "As an action, transform into one animal for one hour. Your stats and size stay the same. Animals: ape, badger, bat, bear, bird, boar, cat, fish, frog, octopus, rat, snake, or wolf."
+  },
+  {
+    "id": "tri_telk",
+    "race": "Tri'Telk",
+    "source": "Player's Expansion 2",
+    "description": "A supernatural humanoid with a third telekinetic eye. Communicates telepathically with any creature within near range.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Telekinesis",
+    "benefit": "You can slowly move an object within far range weighing 1 gear slot or less."
+  },
+  {
+    "id": "undead",
+    "race": "Undead",
+    "source": "Player's Expansion 2",
+    "description": "A humanoid that has risen as the undead but retains their intelligence.",
+    "languages": [
+      "Common"
+    ],
+    "benefit_name": "Fortitude",
+    "benefit": "You do not need to eat, drink, breathe or sleep. You still need 8 hours of rest to gain its benefits."
+  }
+]

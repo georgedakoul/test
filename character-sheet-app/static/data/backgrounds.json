@@ -1,0 +1,702 @@
+[
+  {
+    "id": "urchin",
+    "d": 1,
+    "background": "Urchin",
+    "description": "You grew up in the gutter, surviving by your wits. +1 to Stealth checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "wanted",
+    "d": 2,
+    "background": "Wanted",
+    "description": "You have a price on your head. You know how to move without leaving a trail. +1 to Stealth checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "cult_initiate",
+    "d": 3,
+    "background": "Cult Initiate",
+    "description": "You were raised in a secret society. You know one dark ritual and recognize cult symbols. +1 to arcane lore checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "thieves_guild",
+    "d": 4,
+    "background": "Thieves' Guild",
+    "description": "You trained with professional criminals. +1 to lockpicking and pickpocketing checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "banished",
+    "d": 5,
+    "background": "Banished",
+    "description": "You were cast out of your homeland. You know its customs and secrets, and speak its tongue fluently.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "orphaned",
+    "d": 6,
+    "background": "Orphaned",
+    "description": "You raised yourself on the streets after losing your family. You can find food and shelter in urban environments.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "wizard_s_apprentice",
+    "d": 7,
+    "background": "Wizard's Apprentice",
+    "description": "You studied under a mage before your training was cut short. +1 to arcane lore checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "jeweler",
+    "d": 8,
+    "background": "Jeweler",
+    "description": "You have an eye for valuable gems and metals. +1 to appraisal checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "herbalist",
+    "d": 9,
+    "background": "Herbalist",
+    "description": "You know the properties of plants, poisons, and healing herbs. +1 to nature lore checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "barbarian",
+    "d": 10,
+    "background": "Barbarian",
+    "description": "You come from a fierce warrior culture. +1 to intimidation checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "mercenary",
+    "d": 11,
+    "background": "Mercenary",
+    "description": "You have fought for coin across many lands. +1 to checks involving military knowledge.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "sailor",
+    "d": 12,
+    "background": "Sailor",
+    "description": "You spent years at sea. +1 to navigation and weather-reading checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "acolyte",
+    "d": 13,
+    "background": "Acolyte",
+    "description": "You served a temple and learned its rites. +1 to divine lore checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "soldier",
+    "d": 14,
+    "background": "Soldier",
+    "description": "You served in an organized military force. +1 to tactics and discipline checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "ranger",
+    "d": 15,
+    "background": "Ranger",
+    "description": "You patrolled the wilderness and know how to survive outdoors. +1 to tracking and survival checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "scout",
+    "d": 16,
+    "background": "Scout",
+    "description": "You served as a forward observer. +1 to perception and awareness checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "minstrel",
+    "d": 17,
+    "background": "Minstrel",
+    "description": "You traveled as a performer and storyteller. +1 to performance and social checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "scholar",
+    "d": 18,
+    "background": "Scholar",
+    "description": "You studied at an academy or library. +1 to history and knowledge checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "noble",
+    "d": 19,
+    "background": "Noble",
+    "description": "You were born to privilege. +1 to etiquette and social checks with the upper class.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "chirurgeon",
+    "d": 20,
+    "background": "Chirurgeon",
+    "description": "You practiced medicine and surgery. +1 to healing and anatomy checks.",
+    "source": "Shadowdark RPG Core"
+  },
+  {
+    "id": "hermit",
+    "d": 1,
+    "background": "Hermit",
+    "description": "You lived alone in the wilderness, communing with dark forces. You know forbidden lore others fear to speak.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "exiled",
+    "d": 2,
+    "background": "Exiled",
+    "description": "You were cast out for crimes real or imagined. You survive by staying unseen. +1 to disguise checks.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "born_of_wood",
+    "d": 3,
+    "background": "Born of Wood",
+    "description": "You were raised deep in an ancient forest. Animals do not flee from you and you can move silently through woodland.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "amnesiac",
+    "d": 4,
+    "background": "Amnesiac",
+    "description": "You do not know your past, but your body remembers skills you cannot explain. Once per session, declare a useful skill you possess.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "haunted",
+    "d": 5,
+    "background": "Haunted",
+    "description": "A spirit follows you and whispers warnings. Once per day, the GM must hint at an unseen danger before it strikes.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "fugitive",
+    "d": 6,
+    "background": "Fugitive",
+    "description": "You are always running from something. You know how to find safe houses and hidden routes in any settlement.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "touched_by_the_faerie",
+    "d": 7,
+    "background": "Touched by the Faerie",
+    "description": "You spent time in the fey realm and returned changed. You can sense illusions and enchantments with a successful Wis check.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "born_of_the_witch",
+    "d": 8,
+    "background": "Born of the Witch",
+    "description": "Your mother was a witch. You have an uncanny ability to resist magical effects. +1 to saves vs. spells.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "collector",
+    "d": 9,
+    "background": "Collector",
+    "description": "You obsessively gather cursed and strange objects. You can identify cursed items on sight with a successful Int check.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "redeemer",
+    "d": 10,
+    "background": "Redeemer",
+    "description": "You seek to redeem a great evil you caused or witnessed. NPCs who know your story are compelled to hear you out.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "marked",
+    "d": 11,
+    "background": "Marked",
+    "description": "A dark power has left a visible mark upon you. Undead and fiends hesitate before attacking you (they act last in initiative).",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "sacrifice",
+    "d": 12,
+    "background": "Sacrifice",
+    "description": "You were offered to a dark deity but escaped. You know the deity's rituals and weaknesses.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "abandoned",
+    "d": 13,
+    "background": "Abandoned",
+    "description": "You were left for dead and survived. You have advantage on checks to escape bonds, restraints, and traps.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "fallen",
+    "d": 14,
+    "background": "Fallen",
+    "description": "You were once a servant of light who turned away. Divine entities distrust you but you know their secrets. +1 to divine lore checks.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "attracted",
+    "d": 15,
+    "background": "Attracted",
+    "description": "The supernatural is drawn to you. You can sense nearby supernatural entities within 60 ft.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "ascetic",
+    "d": 16,
+    "background": "Ascetic",
+    "description": "You trained your body and mind through harsh discipline. You need only half normal food and water to survive.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "wolf_child",
+    "d": 17,
+    "background": "Wolf-child",
+    "description": "You were raised by wolves or another predatory beast. You can communicate basic ideas to wolves and canines.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "curator",
+    "d": 18,
+    "background": "Curator",
+    "description": "You maintained a collection of dangerous relics. You can identify magical item properties with a successful Int check.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "chosen",
+    "d": 19,
+    "background": "Chosen",
+    "description": "A dark power has chosen you for a purpose yet unrevealed. Once per session, you may reroll one failed save.",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "born_of_the_demon",
+    "d": 20,
+    "background": "Born of the Demon",
+    "description": "Demonic blood runs in your veins. You are immune to fear effects and resist fire damage (halve fire damage received).",
+    "source": "CS1 Diabolical Backgrounds"
+  },
+  {
+    "id": "freed_slave",
+    "d": 1,
+    "background": "Freed Slave",
+    "description": "You earned your freedom through hard labor or daring escape. You know how to endure pain and hardship without complaint.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "displaced",
+    "d": 2,
+    "background": "Displaced",
+    "description": "War or disaster drove you from your homeland. You are adept at surviving in unfamiliar territory. +1 to survival checks.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "criminal",
+    "d": 3,
+    "background": "Criminal",
+    "description": "You lived outside the law. You know the criminal underworld's codes and can find fences and thieves in any town.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "wanderer",
+    "d": 4,
+    "background": "Wanderer",
+    "description": "You have traveled far and wide, never settling. You know the roads, passes, and hidden trails between distant places.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "farmer",
+    "d": 5,
+    "background": "Farmer",
+    "description": "You worked the land and know the rhythms of the seasons. You can find or grow food in rural areas with ease.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "livestock_breeder",
+    "d": 6,
+    "background": "Livestock Breeder",
+    "description": "You raised and trained animals. You can calm, ride, and care for most domesticated creatures without difficulty.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "hunter",
+    "d": 7,
+    "background": "Hunter",
+    "description": "You tracked and killed game in the wild. +1 to tracking and ranged attack checks in natural environments.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "fisherman",
+    "d": 8,
+    "background": "Fisherman",
+    "description": "You know the sea and its moods. You can navigate coastal waters by stars and current, and never get seasick.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "executor",
+    "d": 9,
+    "background": "Executor",
+    "description": "You carried out sentences as an agent of the law. People fear you on sight, granting +1 to intimidation checks.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "merchant",
+    "d": 10,
+    "background": "Merchant",
+    "description": "You traded goods across long distances. You can appraise items and know current market prices in most regions.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "artisan",
+    "d": 11,
+    "background": "Artisan",
+    "description": "You mastered a craft or trade. Choose a craft; you can produce quality goods and recognize fine workmanship.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "bowmaker",
+    "d": 12,
+    "background": "Bowmaker",
+    "description": "You crafted bows and arrows. You can make functional bows and arrows from raw materials in the field.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "seer_apprentice",
+    "d": 13,
+    "background": "Seer Apprentice",
+    "description": "You studied under a völva or seer. You can read runes and interpret omens. +1 to divination-related checks.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "shipwright",
+    "d": 14,
+    "background": "Shipwright",
+    "description": "You built and repaired longships. You can assess a vessel's seaworthiness and make emergency repairs at sea.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "blacksmith",
+    "d": 15,
+    "background": "Blacksmith",
+    "description": "You worked iron and steel. You can repair metal weapons and armor, and identify quality metalwork.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "far_traveler",
+    "d": 16,
+    "background": "Far Traveler",
+    "description": "You have journeyed to distant lands and know their customs and tongues. You speak one additional language.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "skald",
+    "d": 17,
+    "background": "Skald",
+    "description": "You are a poet and singer of heroic deeds. Your performances earn hospitality among warriors and nobles.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "heroic_lineage",
+    "d": 18,
+    "background": "Heroic Lineage",
+    "description": "You descend from a celebrated hero. Your name opens doors among those who remember the old sagas.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "noble_blood",
+    "d": 19,
+    "background": "Noble Blood",
+    "description": "You come from a jarl's bloodline, whether acknowledged or not. You know the politics and etiquette of the ruling class.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "divine_blood",
+    "d": 20,
+    "background": "Divine Blood",
+    "description": "It is said a god or spirit touched your ancestor. Priests and oracles treat your words with unusual weight.",
+    "source": "CS3 Nordic Backgrounds"
+  },
+  {
+    "id": "agitator",
+    "d": 1,
+    "background": "Agitator",
+    "description": "You stirred up trouble among the common folk for causes just or otherwise. You can incite a crowd with a successful Cha check.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "artist",
+    "d": 2,
+    "background": "Artist",
+    "description": "You created paintings, sculptures, or other works. You can reproduce detailed images from memory and spot forgeries.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "athlete",
+    "d": 3,
+    "background": "Athlete",
+    "description": "You competed in games of strength and speed. +1 to athletic checks involving feats of physical prowess.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "courier",
+    "d": 4,
+    "background": "Courier",
+    "description": "You carried messages across dangerous terrain. You know the fastest routes between major settlements.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "digger",
+    "d": 5,
+    "background": "Digger",
+    "description": "You excavated mines, tombs, or foundations. You can assess tunnel stability and find weak points in stone structures.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "drover",
+    "d": 6,
+    "background": "Drover",
+    "description": "You herded livestock across long distances. You can manage large animals and know the roads between grazing lands.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "exterminator",
+    "d": 7,
+    "background": "Exterminator",
+    "description": "You cleared vermin from buildings and sewers. You know the habits of rats, insects, and other pests, and how to kill them.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "gambler",
+    "d": 8,
+    "background": "Gambler",
+    "description": "You lived by games of chance and skill. You can cheat at cards and dice without being caught on a successful Dex check.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "grave_robber",
+    "d": 9,
+    "background": "Grave Robber",
+    "description": "You looted tombs for a living. You know how to locate burial sites, identify grave goods, and avoid tomb curses.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "lookout",
+    "d": 10,
+    "background": "Lookout",
+    "description": "You watched for trouble from towers, rooftops, or hilltops. +1 to perception checks at range.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "naturalist",
+    "d": 11,
+    "background": "Naturalist",
+    "description": "You studied flora and fauna in the wild. You can identify most plants, animals, and their properties.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "nomad",
+    "d": 12,
+    "background": "Nomad",
+    "description": "You traveled with a wandering people. You can set up or break camp in minutes and navigate by landmarks.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "performer",
+    "d": 13,
+    "background": "Performer",
+    "description": "You entertained crowds as an acrobat, comedian, or stage magician. +1 to performance and sleight-of-hand checks.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "pious",
+    "d": 14,
+    "background": "Pious",
+    "description": "Deep faith defines you, even if you chose no priestly vocation. You can recite scripture and identify religious symbols and rites.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "porter",
+    "d": 15,
+    "background": "Porter",
+    "description": "You hauled heavy loads for merchants and travelers. Your carrying capacity is 2 gear slots higher than normal.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "prisoner",
+    "d": 16,
+    "background": "Prisoner",
+    "description": "You spent time in a dungeon or prison. You can communicate via prisoner code and know how guards think.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "tinkerer",
+    "d": 17,
+    "background": "Tinkerer",
+    "description": "You repaired and modified mechanical objects. You can jury-rig broken devices and disarm mechanical traps.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "trader",
+    "d": 18,
+    "background": "Trader",
+    "description": "You ran a market stall or small shop. You can haggle effectively and know the going rate for common goods.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "translator",
+    "d": 19,
+    "background": "Translator",
+    "description": "You interpreted between peoples who could not understand one another. You speak two additional languages.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "wanderlust",
+    "d": 20,
+    "background": "Wanderlust",
+    "description": "An irresistible urge to see what lies over the horizon drives you. You always know which direction is north and never truly get lost.",
+    "source": "Player's Companion"
+  },
+  {
+    "id": "governess",
+    "d": 1,
+    "background": "Governess",
+    "description": "You raised the children of the wealthy elite. You know the secrets of noble households and speak with authority over the upper class.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "coachman",
+    "d": 2,
+    "background": "Coachman",
+    "description": "You drove carriages through fog-filled nights. You know every road and hidden path in the region and fear no darkness.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "tailor",
+    "d": 3,
+    "background": "Tailor",
+    "description": "You dressed the wealthy and powerful. You can assess someone's social standing by their clothing and create convincing disguises.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "blacksmith_2",
+    "d": 4,
+    "background": "Blacksmith",
+    "description": "You forged iron in a smoky workshop. You can identify metal quality, repair weapons and armor, and work a forge.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "coal_miner",
+    "d": 5,
+    "background": "Coal Miner",
+    "description": "You labored deep underground. You can navigate tunnels by touch alone and sense shifts in air currents that signal danger.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "clerk",
+    "d": 6,
+    "background": "Clerk",
+    "description": "You kept records for merchants or officials. You can forge documents and read coded correspondence with a successful Int check.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "scullery_technician",
+    "d": 7,
+    "background": "Scullery Technician",
+    "description": "You toiled in the kitchens of the great houses. You know poisons that can be slipped into food and can cook a meal from almost nothing.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "chimney_sweep",
+    "d": 8,
+    "background": "Chimney Sweep",
+    "description": "You climbed the dark flues of manor houses. You can squeeze through tight spaces and move silently across rooftops.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "butler",
+    "d": 9,
+    "background": "Butler",
+    "description": "You managed the staff and affairs of a great household. NPCs of servant class defer to your quiet authority.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "flower_seller",
+    "d": 10,
+    "background": "Flower Seller",
+    "description": "You sold blooms on street corners and heard everything. You have contacts in the common folk of any town you visit.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "gaslighter",
+    "d": 11,
+    "background": "Gaslighter",
+    "description": "You maintained the gas lamps of the city. You know the underground pipe network and can sabotage or restore gas lighting.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "milliner",
+    "d": 12,
+    "background": "Milliner",
+    "description": "You crafted hats for the fashionable and affluent. You know every face in high society and can read social dynamics at a glance.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "shipyard_worker",
+    "d": 13,
+    "background": "Shipyard Worker",
+    "description": "You built hulls in the fog. You can assess a vessel's structural integrity and make emergency repairs with basic tools.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "serial_killer",
+    "d": 14,
+    "background": "Serial Killer",
+    "description": "You killed many times before the law caught wind of you. You know how to stage a scene, dispose of evidence, and evade pursuit.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "puppet_maker",
+    "d": 15,
+    "background": "Puppet Maker",
+    "description": "You crafted marionettes and automatons. You can build crude mechanical constructs and understand articulated joints.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "mad_scientist",
+    "d": 16,
+    "background": "Mad Scientist",
+    "description": "You conducted forbidden experiments in a hidden laboratory. You can identify alchemical substances and improvise strange devices.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "occultist",
+    "d": 17,
+    "background": "Occultist",
+    "description": "You studied forbidden lore in secret. You know the true names of three minor demons and can draw a binding circle.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "snake_oil_seller",
+    "d": 18,
+    "background": "Snake Oil Seller",
+    "description": "You sold worthless cures to desperate people. You are a masterful liar; detecting your deceptions requires a DC 15 Wis check.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "undertaker",
+    "d": 19,
+    "background": "Undertaker",
+    "description": "You prepared the dead for burial. You are immune to fear caused by corpses, undead, or death imagery.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  },
+  {
+    "id": "fortune_teller",
+    "d": 20,
+    "background": "Fortune Teller",
+    "description": "You read cards, bones, and stars for paying clients. Once per session, ask the GM one yes-or-no question about the current situation.",
+    "source": "Cursed Classes Gothic Backgrounds"
+  }
+]

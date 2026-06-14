@@ -1,0 +1,1152 @@
+[
+  {
+    "id": "madeera",
+    "name": "Madeera the Covenant",
+    "title": "First Manifestation of Law",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Order",
+    "description": "Madeera was the first manifestation of Law. She carries every law of reality, a dictate called the Covenant, written on her skin in precise symbols.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 28,
+    "image": "madeera.jpg"
+  },
+  {
+    "id": "saint_terragnis",
+    "name": "Saint Terragnis",
+    "title": "Patron of Lawful Humans",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Order",
+    "description": "A legendary knight who is the patron of most lawful humans. She ascended to godhood long ago and is the embodiment of righteousness and justice.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 28,
+    "image": "saint_terragnis.jpg"
+  },
+  {
+    "id": "freya",
+    "name": "Freya",
+    "title": "Lady of Fire",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Life",
+    "description": "Goddess of fertility and love.",
+    "aka": [],
+    "pantheons": [
+      "Norse",
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 38,
+    "image": "freya.jpg"
+  },
+  {
+    "id": "gede",
+    "name": "Gede",
+    "title": "God of Feasts and the Wilds",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Nature",
+    "description": "The god of feasts, mirth, and the wilds. Gede is usually peaceful, but primal storms rage when her anger rises. Many elves and halflings worship her.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 28,
+    "image": "gede.jpg"
+  },
+  {
+    "id": "oghma",
+    "name": "Oghma",
+    "title": "The Binder",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Knowledge",
+    "description": "God of knowledge, speech and writing.",
+    "aka": [
+      "Ord"
+    ],
+    "pantheons": [
+      "Celtic",
+      "Faerûnian",
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 39,
+    "image": "oghma.webp"
+  },
+  {
+    "id": "ord",
+    "name": "Ord",
+    "title": "The Unbending, The Wise, The Secret-Keeper",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Knowledge, Magic",
+    "description": "Ord the Unbending, the Wise, the Secret-Keeper. He is the god of magic, knowledge, secrets, and equilibrium.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 28,
+    "image": "ord.jpg"
+  },
+  {
+    "id": "silvanus",
+    "name": "Silvanus",
+    "title": "The Oakfather",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Nature",
+    "description": "God of wild nature and forests.",
+    "aka": [
+      "Gede"
+    ],
+    "pantheons": [
+      "Celtic",
+      "Faerûnian",
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 39,
+    "image": "silvanus.jpg"
+  },
+  {
+    "id": "gruumsh",
+    "name": "Gruumsh",
+    "title": "The Ruiner",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "War",
+    "description": "Orc god of slaughter, warfare, and destruction.",
+    "aka": [
+      "Rammlat the Pillager",
+      "Ramlaat"
+    ],
+    "pantheons": [
+      "Dawn War",
+      "Exandrian",
+      "Faerûnian",
+      "Greyhawkian",
+      "Orc",
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [
+      "Tor"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 40,
+    "image": "gruumsh.png"
+  },
+  {
+    "id": "kytheros",
+    "name": "Kytheros",
+    "title": "God of Time",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "Knowledge",
+    "description": "The Lord of Time, the one who perceives all possible futures. Kytheros aims for the fulfillment of all destinies as they should be.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Cursed Scroll 1",
+    "page": 17,
+    "image": "kytheros.jpg",
+    "patron_gifts": [
+      {
+        "roll": "2",
+        "effect": "Once per day, force the DM to redo a single roll."
+      },
+      {
+        "roll": "3-7",
+        "effect": "Gain +1 to your AC from a supernatural foresight."
+      },
+      {
+        "roll": "8-9",
+        "effect": "+2 to the Strength, Dexterity, or Wisdom attribute."
+      },
+      {
+        "roll": "10-11",
+        "effect": "Three times per day, add your Wisdom bonus to a roll (roll again if repeated)."
+      },
+      {
+        "roll": "12",
+        "effect": "Choose one option, or 2 points to distribute among the attributes."
+      }
+    ]
+  },
+  {
+    "id": "lolth",
+    "name": "Lolth",
+    "title": "The Spider Queen",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Trickery",
+    "description": "Drow goddess of spiders and deceit.",
+    "aka": [
+      "Memnon"
+    ],
+    "pantheons": [
+      "Dawn War",
+      "Drow",
+      "Exandrian",
+      "Faerûnian",
+      "Greyhawkian",
+      "Shadowdark"
+    ],
+    "servants": [
+      "Belphegor",
+      "Loki"
+    ],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 41,
+    "image": "lolth.png"
+  },
+  {
+    "id": "memnon_core",
+    "name": "Memnon",
+    "title": "First Manifestation of Chaos",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Trickery",
+    "description": "Memnon was the first manifestation of Chaos. He is Madeera's twin, a red-maned, leonine being whose ultimate ambition is to rend the cosmic laws of the Covenant from his sister's skin.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 29,
+    "image": "memnon_core.jpg"
+  },
+  {
+    "id": "ramlaat",
+    "name": "Ramlaat",
+    "title": "The Pillager, The Barbaric, The Horde",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "War",
+    "description": "Ramlaat is the Pillager, the Barbaric, the Horde. Many orcs worship him and live by the Blood Rite, a prophecy that says only the strongest will survive a coming doom.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 29,
+    "image": "ramlaat.jpg"
+  },
+  {
+    "id": "shune",
+    "name": "Shune the Vile",
+    "title": "The Mother Witch",
+    "alignment": "Chaotic",
+    "type": "Deity, Patron",
+    "domain": "Magic",
+    "description": "Shune whispers arcane secrets to sorcerers and witches who call to her in the dark hours. She schemes to displace Ord so she can control the vast flow of magic herself. She communicates with her offspring through the flickering of candle flames and the clinking of dried herbs. Shune seeks hidden secrets and lost legends.",
+    "aka": [
+      "Shune the Malevolent"
+    ],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 29,
+    "image": "shune.png",
+    "patron_gifts": [
+      {
+        "roll": "2",
+        "effect": "1/day, teleport up to Far (visible location) with your movement."
+      },
+      {
+        "roll": "3-7",
+        "effect": "+1 to melee or ranged attacks."
+      },
+      {
+        "roll": "8-9",
+        "effect": "+2 to the Strength or Dexterity attribute."
+      },
+      {
+        "roll": "10-11",
+        "effect": "1/day, force an Adjacent being to test the moral, even if it is immune."
+      },
+      {
+        "roll": "12",
+        "effect": "Choose one option, or 2 points to distribute among the attributes."
+      }
+    ]
+  },
+  {
+    "id": "the_lost",
+    "name": "The Lost",
+    "title": "The Forbidden, The Forgotten",
+    "alignment": "Unknown",
+    "type": "Deity",
+    "domain": "",
+    "description": "Two of The Nine are lost to the ages, their names expunged from history and memory. Yet their whispered legend lives on in ancient texts and forgotten places.",
+    "aka": [],
+    "pantheons": [
+      "Shadowdark"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Shadowdark RPG Core",
+    "page": 29,
+    "image": "the_lost.png"
+  },
+  {
+    "id": "avandra",
+    "name": "Avandra",
+    "title": "The Change Bringer",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Trickery",
+    "description": "Goddess of change, freedom, good fortune, and luck.",
+    "aka": [
+      "Tyche"
+    ],
+    "pantheons": [
+      "Dawn War",
+      "Exandrian",
+      "Greek",
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 36,
+    "image": "avandra.png"
+  },
+  {
+    "id": "berronar_truesilver",
+    "name": "Berronar Truesilver",
+    "title": "The Revered Mother",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Peace",
+    "description": "Dwarven goddess of hearth and home.",
+    "aka": [],
+    "pantheons": [
+      "Dwarven",
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 36,
+    "image": "berronar_truesilver.webp"
+  },
+  {
+    "id": "chauntea",
+    "name": "Chauntea",
+    "title": "The Grain Mother",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Life",
+    "description": "Goddess of agriculture.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 36,
+    "image": "chauntea.jpg"
+  },
+  {
+    "id": "corellon_larethian",
+    "name": "Corellon Larethian",
+    "title": "The Arch Heart",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Light, Magic",
+    "description": "Elven god of art and magic.",
+    "aka": [],
+    "pantheons": [
+      "Dawn War",
+      "Elven",
+      "Exandrian",
+      "Faerûnian",
+      "Greyhawkian"
+    ],
+    "servants": [],
+    "followers": [
+      "Pornicus"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 36,
+    "image": "corellon_larethian.jpg"
+  },
+  {
+    "id": "haela_brightaxe",
+    "name": "Haela Brightaxe",
+    "title": "The Luckmaiden",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Luck",
+    "description": "Dwarven goddess of war-luck. She is known to take great risks in battle, fight without hesitation, and support dwarves who also do so.",
+    "aka": [],
+    "pantheons": [
+      "Dwarven",
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [
+      "Nadja Brüenôrdōttír"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 36,
+    "image": "haela_brightaxe.png"
+  },
+  {
+    "id": "kord",
+    "name": "Kord",
+    "title": "The Storm Lord",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Tempest",
+    "description": "God of battle, competition, athletics, sport, and storms.",
+    "aka": [],
+    "pantheons": [
+      "Dawn War",
+      "Exandrian",
+      "Greyhawkian"
+    ],
+    "servants": [
+      "Thor"
+    ],
+    "followers": [
+      "Moon Blackwell",
+      "Tony Sparx (aka Sparky)"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 36,
+    "image": "kord.jpg"
+  },
+  {
+    "id": "mielikki",
+    "name": "Mielikki",
+    "title": "The Forest Queen",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Nature",
+    "description": "Goddess of forests and nature.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian",
+      "Finnish"
+    ],
+    "servants": [
+      "Gwaeron Windstrom"
+    ],
+    "followers": [
+      "Bob Oakheart",
+      "Idril Taargo"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 37,
+    "image": "mielikki.jpg"
+  },
+  {
+    "id": "selune",
+    "name": "Selûne",
+    "title": "The Moonmaiden",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Moon",
+    "description": "Goddess of the moon. Her teachings of compassion and guidance are popular with those striving under moon light. Aka The Triple Goddess (including Eilistraee and Hecate).",
+    "aka": [
+      "The Triple Goddess"
+    ],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [
+      "Milton Moonbringer"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 37,
+    "image": "selune.png"
+  },
+  {
+    "id": "torm",
+    "name": "Torm",
+    "title": "The Loyal Fury",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "War",
+    "description": "God of courage and self-sacrifice. Torm sees Tyr as a father figure, and Ilmater as a brother in arms.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 37,
+    "image": "torm.png"
+  },
+  {
+    "id": "tymora",
+    "name": "Tymora",
+    "title": "Lady Luck",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Luck",
+    "description": "Goddess of good fortune.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 37,
+    "image": "tymora.jpg"
+  },
+  {
+    "id": "tyr",
+    "name": "Tyr",
+    "title": "The Evenhanded",
+    "alignment": "Lawful",
+    "type": "Deity",
+    "domain": "Order",
+    "description": "God of justice, courage and strategy. An ancient god known on many worlds for bringing justice to the oppressed.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian",
+      "Norse"
+    ],
+    "servants": [
+      "St. Cuthbert",
+      "St. Terragnis"
+    ],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 37,
+    "image": "tyr.jpg"
+  },
+  {
+    "id": "eilistraee",
+    "name": "Eilistraee",
+    "title": "Dark Maiden",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Moon",
+    "description": "Drow goddess of beauty, dance, song, and moonlight. Aka The Triple Goddess.",
+    "aka": [
+      "The Triple Goddess"
+    ],
+    "pantheons": [
+      "Drow",
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [
+      "Tarkina Riverbend"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 38,
+    "image": "eilistraee.webp"
+  },
+  {
+    "id": "eldath",
+    "name": "Eldath",
+    "title": "The Quiet One",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Peace",
+    "description": "Goddess of peace.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 38,
+    "image": "eldath.jpg"
+  },
+  {
+    "id": "erathis",
+    "name": "Erathis",
+    "title": "The Law Bearer",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Order",
+    "description": "Goddess of civilization, peace, and invention.",
+    "aka": [
+      "Athena"
+    ],
+    "pantheons": [
+      "Dawn War",
+      "Greek",
+      "Exandrian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 38,
+    "image": "erathis.jpg"
+  },
+  {
+    "id": "gond",
+    "name": "Gond",
+    "title": "Wonderbringer",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Forge",
+    "description": "God of craft.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 38,
+    "image": "gond.webp"
+  },
+  {
+    "id": "helm",
+    "name": "Helm",
+    "title": "The Watcher",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Light",
+    "description": "God of protection and watchfulness.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 38,
+    "image": "helm.png"
+  },
+  {
+    "id": "jergel",
+    "name": "Jergel",
+    "title": "The Pitiless One",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Death",
+    "description": "Scribe of the dead.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 38,
+    "image": "jergel.jpg"
+  },
+  {
+    "id": "mask",
+    "name": "Mask",
+    "title": "The Lord of All Shadows",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Trickery",
+    "description": "Goddess of thieves.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [
+      "Notinel Not' Shadow"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 39,
+    "image": "mask.jpg"
+  },
+  {
+    "id": "mystra",
+    "name": "Mystra",
+    "title": "The Lady of Mysteries",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Magic",
+    "description": "Goddess of magic.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 39,
+    "image": "mystra.webp"
+  },
+  {
+    "id": "raven_queen",
+    "name": "Raven Queen",
+    "title": "Nickname",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Grave",
+    "description": "Goddess of death, fate, and winter.",
+    "aka": [
+      "Hel"
+    ],
+    "pantheons": [
+      "Faerûnian",
+      "Norse"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 39,
+    "image": "raven_queen.jpg"
+  },
+  {
+    "id": "tempus",
+    "name": "Tempus",
+    "title": "The Foehammer",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "War",
+    "description": "God of war.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 39,
+    "image": "tempus.jpg"
+  },
+  {
+    "id": "waukeen",
+    "name": "Waukeen",
+    "title": "The Coinmaiden",
+    "alignment": "Neutral",
+    "type": "Deity",
+    "domain": "Trickery",
+    "description": "Goddess of trade and merchants.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [
+      "Gnomebody",
+      "Bedivere Darkale",
+      "Gary Glittergold"
+    ],
+    "source": "Death Timer Issue 1",
+    "page": 39,
+    "image": "waukeen.jpg"
+  },
+  {
+    "id": "almazzat",
+    "name": "Almazzat",
+    "title": "The Wolf-Headed Archdemon",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "",
+    "description": "An archdemon with a wolf's head, six eyes, and six horns. Almazzat seeks to take the Sands of Eras from his father, Kytheros.",
+    "aka": [],
+    "pantheons": [],
+    "servants": [],
+    "followers": [],
+    "source": "Cursed Scroll 1",
+    "page": 17,
+    "image": "almazzat.jpg",
+    "patron_gifts": [
+      {
+        "roll": "2",
+        "effect": "1/day, gain Advantage on melee attacks for 3 rounds."
+      },
+      {
+        "roll": "3-7",
+        "effect": "Learn to use 1 melee weapon or +1 on melee attacks."
+      },
+      {
+        "roll": "8-9",
+        "effect": "+2 to Strength or Constitution, or +1 to melee damage."
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain Advantage on initiative rolls (roll again if repeated)."
+      },
+      {
+        "roll": "12",
+        "effect": "Choose one option, or 2 points to distribute among the attributes."
+      }
+    ]
+  },
+  {
+    "id": "asmodeus",
+    "name": "Asmodeus",
+    "title": "The Lord of the Nine Hells",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "Knowledge",
+    "description": "Archdevil god of indulgence, domination and tyranny. One of the most powerful beings in the multiverse, Asmodeus, is not content to just rule the Hells, but seeks to rule over all of existence, as well. He loves tempting mortals through the \"seven deadly sins\" of mankind.",
+    "aka": [
+      "Kytheros"
+    ],
+    "pantheons": [
+      "All"
+    ],
+    "servants": [
+      "Titivillus"
+    ],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 42,
+    "image": "asmodeus.png"
+  },
+  {
+    "id": "belphegor",
+    "name": "Belphegor",
+    "title": "The Dark Prodigy",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "",
+    "description": "Belphegor is the daughter of Asmodeus, and an unpredictable archdevil succubi with her own agenda, known for her subversiveness. The \"Princess of the Nine Hells,\" is one of the most hated by other devil rulers, including her part-time lover, Mammon. She also enjoys toying with mortals.",
+    "aka": [
+      "Almazzat",
+      "Glasya"
+    ],
+    "pantheons": [],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 42,
+    "image": "belphegor.png"
+  },
+  {
+    "id": "beshaba",
+    "name": "Beshaba",
+    "title": "Lady Doom",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Luck",
+    "description": "Goddess of bad luck.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 40,
+    "image": "beshaba.png"
+  },
+  {
+    "id": "hecate",
+    "name": "Hecate",
+    "title": "Dread Goddess of Night",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Moon",
+    "description": "Goddess of magic and the moon. Aka The Triple Goddess (with Eilistraee and Selûne).",
+    "aka": [
+      "The Triple Goddess"
+    ],
+    "pantheons": [
+      "Greek"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 40,
+    "image": "hecate.png"
+  },
+  {
+    "id": "iggwilv",
+    "name": "Iggwilv",
+    "title": "The Witch Queen",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "",
+    "description": "Iggwilv was once a famous wizard called Tasha. The child of Baba Yaga, Iggwilv was the mother of god Iuz, with her demon lover Grazz't. She seeks hidden secrets and lost lore.",
+    "aka": [
+      "Shune the Vile"
+    ],
+    "pantheons": [],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 43,
+    "image": "iggwilv.png"
+  },
+  {
+    "id": "iuz",
+    "name": "Iuz",
+    "title": "The Old, Wicked One",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Death",
+    "description": "God of pain and oppression. Half cambion son of Iggwilv and Grazzt.",
+    "aka": [],
+    "pantheons": [
+      "Greyhawkian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 40,
+    "image": "iuz.png"
+  },
+  {
+    "id": "jubilex",
+    "name": "Jubilex",
+    "title": "Lord of Ooze",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "",
+    "description": "The disgusting Lord of Ooze leaks between the cracks in memory and the darkness between the stars. Jubilex seeks \"the Dissolution\" of all physical form.",
+    "aka": [
+      "Mugdulblub"
+    ],
+    "pantheons": [],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 43,
+    "image": "jubilex.jpg",
+    "patron_gifts": [
+      {
+        "roll": "2",
+        "effect": "Once per day, transform into a crawling puddle of slime for 3 rounds."
+      },
+      {
+        "roll": "3-7",
+        "effect": "Maximize 2 rolls of life dice (previous or future)."
+      },
+      {
+        "roll": "8-9",
+        "effect": "+2 to the Dexterity or Constitution attribute."
+      },
+      {
+        "roll": "10-11",
+        "effect": "Become immune to acid, cold, or poison (roll again upon acquiring all)."
+      },
+      {
+        "roll": "12",
+        "effect": "Choose one option, or 2 points to distribute among the attributes."
+      }
+    ]
+  },
+  {
+    "id": "malar",
+    "name": "Malar",
+    "title": "The Beastlord",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Nature",
+    "description": "God of the hunt. He hunts on the Prime Material Plane.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 41,
+    "image": "malar.webp"
+  },
+  {
+    "id": "myrkul",
+    "name": "Myrkul",
+    "title": "The Lord of Bones",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Death",
+    "description": "God of death.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian"
+    ],
+    "servants": [
+      "Iuz",
+      "Lovitar",
+      "Talona",
+      "Zehir"
+    ],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 41,
+    "image": "myrkul.png"
+  },
+  {
+    "id": "surtur",
+    "name": "Surtur",
+    "title": "Lord of the Fire Giants",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Forge",
+    "description": "God of fire giants.",
+    "aka": [],
+    "pantheons": [
+      "Faerûnian",
+      "Giant",
+      "Greyhawkian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 41,
+    "image": "surtur.png"
+  },
+  {
+    "id": "the_willow_man",
+    "name": "The Willow-Man",
+    "title": "The Ghostly Watcher",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "",
+    "description": "An elongated and ghostly being that wanders through the misty forests and watches everything from the threshold of nightmares. The Willow-Man seeks fear.",
+    "aka": [],
+    "pantheons": [],
+    "servants": [],
+    "followers": [],
+    "source": "Cursed Scroll 1",
+    "page": 17,
+    "image": "the_willow_man.jpg",
+    "patron_gifts": [
+      {
+        "roll": "2",
+        "effect": "1/day, hypnotize a creature of CR 5 or lower for 3 rounds."
+      },
+      {
+        "roll": "3-7",
+        "effect": "Learn to use a longbow or +1 in ranged attacks."
+      },
+      {
+        "roll": "8-9",
+        "effect": "+2 to the Dexterity or Charisma attribute."
+      },
+      {
+        "roll": "10-11",
+        "effect": "Hostile spells that target you are always Difficult to cast."
+      },
+      {
+        "roll": "12",
+        "effect": "Choose one option, or 2 points to distribute among the attributes."
+      }
+    ]
+  },
+  {
+    "id": "tiamat",
+    "name": "Tiamat",
+    "title": "The Scaled Tyrant",
+    "alignment": "Chaotic",
+    "type": "Deity",
+    "domain": "Order",
+    "description": "Dragon goddess of wealth, greed, vengeance, and evil.",
+    "aka": [],
+    "pantheons": [
+      "Exandrian",
+      "Faerûnian"
+    ],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 41,
+    "image": "tiamat.png"
+  },
+  {
+    "id": "titania",
+    "name": "Titania",
+    "title": "Faerie Queen",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "",
+    "description": "The fickle archfey Faerie Queen of the Fey who views all of existence as a whimsical dream with hidden meaning and poignant drama. Titania seeks mischief, beauty, and artistry.",
+    "aka": [],
+    "pantheons": [],
+    "servants": [],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 43,
+    "image": "titania.jpg",
+    "patron_gifts": [
+      {
+        "roll": "2",
+        "effect": "1/day, read the mind of a creature you touch for 3 rounds."
+      },
+      {
+        "roll": "3-7",
+        "effect": "Learn 1 wizard spell, level = 1/2 of your level. Cast it with INT."
+      },
+      {
+        "roll": "8-9",
+        "effect": "+2 to the Dexterity or Intelligence attribute."
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 XP whenever you learn a valuable or significant secret."
+      },
+      {
+        "roll": "12",
+        "effect": "Choose one option, or 2 points to distribute among the attributes."
+      }
+    ]
+  },
+  {
+    "id": "vecna",
+    "name": "Vecna",
+    "title": "The Whispered One",
+    "alignment": "Chaotic",
+    "type": "Patron",
+    "domain": "Magic",
+    "description": "Lich god of evil secrets and necromancy. He often stalks nightmares. He seeks secrets of time, and offers power to those who can get them.",
+    "aka": [
+      "Shune the Vile"
+    ],
+    "pantheons": [
+      "Faerûnian",
+      "Greyhawkian"
+    ],
+    "servants": [
+      "Iggwilv",
+      "the Willowman"
+    ],
+    "followers": [],
+    "source": "Death Timer Issue 1",
+    "page": 43,
+    "image": "vecna.png"
+  }
+]

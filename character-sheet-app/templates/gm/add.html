@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}GM · Add — Shadowdark RPG{% endblock %}
+{% block head %}<link rel="stylesheet" href="/static/css/gm.css">{% endblock %}
+{% block body %}
+<div class="page-wrap gm-add-wrap">
+  <h1 class="page-title">Game Master · Add Homebrew</h1>
+  <p style="color:var(--text-secondary);margin-bottom:1rem;">
+    Custom entries you add here are shared with all users. Only you can edit
+    or delete what you created. Copy any other GM's entry to fork your own
+    editable version.
+  </p>
+
+  <div class="gm-tab-strip" id="gm-tab-strip">
+    <button class="gm-tab active" data-table="monsters">Monsters</button>
+    <button class="gm-tab" data-table="spells">Spells</button>
+    <button class="gm-tab" data-table="weapons">Weapons</button>
+    <button class="gm-tab" data-table="armor">Armor</button>
+    <button class="gm-tab" data-table="gear">Gear</button>
+    <button class="gm-tab" data-table="magic_items">Magic Items</button>
+    <button class="gm-tab" data-table="gems">Gems</button>
+    <button class="gm-tab" data-table="plants_poisons">Plants &amp; Poisons</button>
+    <button class="gm-tab" data-table="gods">Gods</button>
+    <button class="gm-tab" data-table="races">Races</button>
+    <button class="gm-tab" data-table="classes">Classes</button>
+  </div>
+
+  <div class="gm-add-layout">
+    <!-- ENTRIES PANEL (left) -->
+    <div class="gm-entries-panel">
+      <div class="gm-entries-head">
+        <button class="gm-btn primary" id="gm-add-new">+ New entry</button>
+        <input type="search" id="gm-entry-search" class="gm-search" placeholder="Search…">
+      </div>
+      <div class="gm-entries-section">
+        <div class="gm-entries-label">Mine</div>
+        <ul class="gm-entries-list" id="gm-list-mine"></ul>
+      </div>
+      <div class="gm-entries-section">
+        <div class="gm-entries-label">From other GMs</div>
+        <ul class="gm-entries-list" id="gm-list-others"></ul>
+      </div>
+      <div class="gm-entries-section">
+        <div class="gm-entries-label">Core</div>
+        <ul class="gm-entries-list" id="gm-list-core"></ul>
+      </div>
+    </div>
+
+    <!-- EDITOR PANEL (right) -->
+    <div class="gm-editor-panel">
+      <div class="gm-editor-empty" id="gm-editor-empty">
+        Select an entry on the left, or click <strong>+ New entry</strong> to start.
+      </div>
+      <form class="gm-editor-form" id="gm-editor-form" hidden></form>
+    </div>
+  </div>
+</div>
+<script src="/static/js/gm-add.js"></script>
+{% endblock %}

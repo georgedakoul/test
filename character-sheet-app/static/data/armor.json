@@ -1,0 +1,182 @@
+[
+  {
+    "id": "banded",
+    "Armor": "Banded",
+    "Cost": "80 gp",
+    "Gear Slots": 2,
+    "AC": "13 + DEX Mod",
+    "Properties": "No swim",
+    "Effect/Description": "Armor composed of\noverlapping horizontal strips of\nlaminated metal sewn over a\nbacking of chainmail and soft\nleather backing."
+  },
+  {
+    "id": "brigandine",
+    "Armor": "Brigandine",
+    "Cost": "60 g p",
+    "Gear Slots": 1,
+    "AC": "12 + DEX Mod",
+    "Properties": "Disadv on swim",
+    "Effect/Description": "Armor composed of\nhardened animal skins or cloth\nthat is covered with a network of\nriveted oblong steel plates."
+  },
+  {
+    "id": "chainmail",
+    "Armor": "Chainmail",
+    "Cost": "60 g p",
+    "Gear Slots": 2,
+    "AC": "13 + DEX Mod",
+    "Properties": "Disadv on swi m/stealth",
+    "Effect/Description": "Armor composed of\ntiny interlocking metal rings that\ntogether form a dense mesh."
+  },
+  {
+    "id": "hauberk",
+    "Armor": "Hauberk",
+    "Cost": "50 gp",
+    "Gear Slots": 1,
+    "AC": "12 + DEX Mod",
+    "Properties": "Disadv on swi m/stealth",
+    "Effect/Description": "The torso portion of\nchainmail armor. Leaves the limbs\nbare but improves movement."
+  },
+  {
+    "id": "helmet",
+    "Armor": "Helmet",
+    "Cost": "3 gp",
+    "Gear Slots": 1,
+    "AC": 0,
+    "Properties": "Advantage to resist",
+    "Effect/Description": "Armor for the head. Gives\nthe wearer an advantage on any\ncheck to resist concussion, blasts,\nsonic attacks, falling debris, or\nsimilar dangers."
+  },
+  {
+    "id": "hide",
+    "Armor": "Hide",
+    "Cost": "8 gp",
+    "Gear Slots": 1,
+    "AC": "11 + DEX Mod",
+    "Properties": "-1 CHA mod",
+    "Effect/Description": "Armor composed of\nhardened wild animal skins.\nIndicative of barbarian culture."
+  },
+  {
+    "id": "lamellar",
+    "Armor": "Lamellar",
+    "Cost": "115 gp",
+    "Gear Slots": 3,
+    "AC": "13 + DEX Mod",
+    "Properties": null,
+    "Effect/Description": "Armor composed of\nmetal plates laced into overlapping\nhorizontal rows."
+  },
+  {
+    "id": "leather",
+    "Armor": "Leather",
+    "Cost": "10 gp",
+    "Gear Slots": 1,
+    "AC": "11 + DEX Mod",
+    "Properties": null,
+    "Effect/Description": "Armor composed of\nboiled and hardened cow leather.\nThis is the standard armor for\nadventurers everywhere."
+  },
+  {
+    "id": "padded_linen",
+    "Armor": "Padded / Linen",
+    "Cost": "4 gp",
+    "Gear Slots": 1,
+    "AC": "11 + DEX Mod",
+    "Properties": "No swim",
+    "Effect/Description": "Armor made of\nthick cloth layers that provides\nminimal protection. It is common\namong the peasantry and light\ninfantry. If submerged in water or\nexposed to heavy rain, the cloth\nlayers will soak up a lot of water."
+  },
+  {
+    "id": "plate_field",
+    "Armor": "Plate, Field",
+    "Cost": "100 gp",
+    "Gear Slots": 3,
+    "AC": 15,
+    "Properties": "No swim",
+    "Effect/Description": "An incomplete set of\nplate mail armor. The most difficult\nplates to add and/or remove are\ndropped from the set, especially\naround the knees & elbows. It can\nbe put on or taken off in 2 rounds."
+  },
+  {
+    "id": "plate_full",
+    "Armor": "Plate, Full",
+    "Cost": "130 gp",
+    "Gear Slots": 3,
+    "AC": 16,
+    "Properties": "No swim, disadv stealth",
+    "Effect/Description": "Armor composed of\nlaced heavy steel plates. It can be\nput on or taken off in 5 rounds (or 2\nrounds with assistance)."
+  },
+  {
+    "id": "ringmail",
+    "Armor": "Ringmail",
+    "Cost": "30 gp",
+    "Gear Slots": 2,
+    "AC": "12 + DEX Mod",
+    "Properties": "No swim, disadv stealth",
+    "Effect/Description": "Armor composed of\nlarge interlocking metal rings that\ntogether form a dense mesh. It\nis noisy and bulky compared to\nchainmail, limiting movement."
+  },
+  {
+    "id": "scale_mail",
+    "Armor": "Scale Mail",
+    "Cost": "45 g p",
+    "Gear Slots": 2,
+    "AC": "12 + DEX Mod",
+    "Properties": "Disadv stealth",
+    "Effect/Description": "Armor composed\nof hardened metal supporting\na network of small overlapping\narmor plates."
+  },
+  {
+    "id": "shield_buckler",
+    "Armor": "Shield, Buckler",
+    "Cost": "3 gp",
+    "Gear Slots": 1,
+    "AC": "+1",
+    "Properties": "Occupies one hand",
+    "Effect/Description": "A small two-foot\ndiameter shield. It is held in the off\nhand and moved into the path of\nattacks to block them."
+  },
+  {
+    "id": "shield_kite",
+    "Armor": "Shield, Kite",
+    "Cost": "15 gp",
+    "Gear Slots": 2,
+    "AC": "+3",
+    "Properties": "Occupies one hand",
+    "Effect/Description": "A large, almondshaped\nshield rounded at the top\nand curving down to a point or\nrounded point at the bottom. It\nwas designed for use by cavalry\nand grants an additional +1 AC\nwhen mounted."
+  },
+  {
+    "id": "shield_round",
+    "Armor": "Shield, Round",
+    "Cost": "10 gp",
+    "Gear Slots": 1,
+    "AC": "+2",
+    "Properties": "Occupies one hand",
+    "Effect/Description": "A round wooden\nshield with a metal boss in the\ncenter. It protects half of the body\nin combat and attached to the\nwearer’s off hand."
+  },
+  {
+    "id": "studded_leather",
+    "Armor": "Studded Leather",
+    "Cost": "25 gp",
+    "Gear Slots": 1,
+    "AC": "12 + DEX Mod",
+    "Properties": null,
+    "Effect/Description": "Armor\ncomposed of hardened animal\nskins or cloth that is covered with a\nnetwork of riveted metal studs."
+  },
+  {
+    "id": "adamantine",
+    "Armor": "Adamantine",
+    "Cost": "x8",
+    "Gear Slots": "1+",
+    "AC": "2+",
+    "Properties": "Metal only, no swim",
+    "Effect/Description": "Armor made using\ndense magnetic lodestone. Highly\nrevered by Dwarves."
+  },
+  {
+    "id": "bronze",
+    "Armor": "Bronze",
+    "Cost": "half",
+    "Gear Slots": 0,
+    "AC": "1-",
+    "Properties": "Plate only, +1 CHA mod",
+    "Effect/Description": "Armor made from\nlight-weight copper and tin alloy.\nIt bears a strong luster that is\nsocially appealing."
+  },
+  {
+    "id": "mithril",
+    "Armor": "Mithril",
+    "Cost": "x4",
+    "Gear Slots": "1-",
+    "AC": null,
+    "Properties": "Metal only, No penalty stealth/swim",
+    "Effect/Description": "A mythic metal that\nresembles mercury or silver,\nwhile being lighter than steel."
+  }
+]

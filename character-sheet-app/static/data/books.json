@@ -1,0 +1,122 @@
+[
+  {
+    "id": "core",
+    "title": "Shadowdark RPG",
+    "category": "Core",
+    "path": "Shadowdark_RPG.pdf"
+  },
+  {
+    "id": "players-companion",
+    "title": "Player's Companion",
+    "category": "Core",
+    "path": "more/Sribd/Shadowdark-Players-Companion.pdf"
+  },
+  {
+    "id": "players-expansion",
+    "title": "Player's Expansion",
+    "category": "Expansion",
+    "path": "more/Sribd/Player_s_Expansion_for_Shadowdark_RPG.pdf"
+  },
+  {
+    "id": "players-expansion-2",
+    "title": "Player's Expansion 2",
+    "category": "Expansion",
+    "path": "more/Sribd/Player_s_Expansion_2_Shadowdark_RPG.pdf"
+  },
+  {
+    "id": "gm-companion",
+    "title": "Gamemaster Companion",
+    "category": "Core",
+    "path": "more/Sribd/Other/Shadowdark-Gamemaster-Companion-Digital.pdf"
+  },
+  {
+    "id": "expanded-char-options",
+    "title": "Expanded Character Options",
+    "category": "Expansion",
+    "path": "more/Sribd/Other/Expanded-Character-Options.pdf"
+  },
+  {
+    "id": "expanded-equipment",
+    "title": "Expanded Equipment",
+    "category": "Expansion",
+    "path": "more/Sribd/Other/Expanded Equipment.pdf"
+  },
+  {
+    "id": "codex-officium-2",
+    "title": "Codex Officium II — New Classes",
+    "category": "Expansion",
+    "path": "more/Sribd/Other/ShadowDark-RPG-Codex-Officium-II-New-Classes-for-Shadowdark.pdf"
+  },
+  {
+    "id": "cursed-classes",
+    "title": "Cursed Classes",
+    "category": "Expansion",
+    "path": "more/Sribd/Other/ShadowDark-RPG-Cursed-Classes.pdf"
+  },
+  {
+    "id": "monster-overhaul",
+    "title": "The Monster Overhaul",
+    "category": "Bestiary",
+    "path": "more/Sribd/Other/The-Monster-Overhaul.pdf"
+  },
+  {
+    "id": "cursed-scroll-1",
+    "title": "Cursed Scroll 1",
+    "category": "Cursed Scroll",
+    "path": "more/Sribd/Cursed Scroll/Cursed-scroll 1.pdf"
+  },
+  {
+    "id": "cursed-scroll-2",
+    "title": "Cursed Scroll 2 — Red Sands",
+    "category": "Cursed Scroll",
+    "path": "more/Sribd/Cursed Scroll/Cursed-Scroll-2-Red-Sands.pdf"
+  },
+  {
+    "id": "cursed-scroll-3",
+    "title": "Cursed Scroll 3",
+    "category": "Cursed Scroll",
+    "path": "more/Sribd/Cursed Scroll/Cursed-Scroll-3.pdf"
+  },
+  {
+    "id": "cursed-scroll-4",
+    "title": "Cursed Scroll 4 — River of Night",
+    "category": "Cursed Scroll",
+    "path": "more/Sribd/Cursed Scroll/Cursed-Scroll-4-River-of-Night-V1-4-Horizontal-Pages.pdf"
+  },
+  {
+    "id": "cursed-scroll-5",
+    "title": "Cursed Scroll 5",
+    "category": "Cursed Scroll",
+    "path": "more/Sribd/Cursed Scroll/Cursed-Scroll-5.pdf"
+  },
+  {
+    "id": "cursed-scroll-6",
+    "title": "Cursed Scroll 6 — City of Masks",
+    "category": "Cursed Scroll",
+    "path": "more/Sribd/Cursed Scroll/Cursed-Scroll-6-City-of-Masks-V1-1.pdf"
+  },
+  {
+    "id": "shots-in-dark",
+    "title": "Shots in the Dark 1",
+    "category": "Adventure",
+    "path": "more/Sribd/Other/Shots-in-the-Dark-1.pdf"
+  },
+  {
+    "id": "death-timer-1",
+    "title": "Death Timer Issue 1",
+    "category": "Adventure",
+    "path": "more/Sribd/Other/ShadowDark-RPG-Death-Timer-Issue-1-2024-Samskull.pdf"
+  },
+  {
+    "id": "gm-western-reaches",
+    "title": "GM's Guide to Western Reaches",
+    "category": "Setting",
+    "path": "more/Sribd/Other/Game-Master-s-Guide-to-the-Western-Reaches-Preview.pdf"
+  },
+  {
+    "id": "player-western-reaches",
+    "title": "Player's Guide to Western Reaches",
+    "category": "Setting",
+    "path": "more/Sribd/Player-s-Guide-to-the-Western-Reaches-Preview.pdf"
+  }
+]

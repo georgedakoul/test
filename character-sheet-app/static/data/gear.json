@@ -1,0 +1,802 @@
+[
+  {
+    "id": "acid",
+    "Item": "Acid",
+    "Properties": "Burns thru metal",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Glass bottle of volatile acid\nwith a cork stopper. It can be\nthrown in combat (DEX check vs\nEnemy AC), dealing 1d4 damage\nto anyone struck and 1 point of\nsplash damage to anyone at close\ndistance. It can also be carefully\npoured onto a locked object\n(door, chest, etc.) to burn away the\nstructure and give advantage on\nrolls to smash down the door."
+  },
+  {
+    "id": "air_bladder",
+    "Item": "Air Bladder",
+    "Properties": "Breathe underwater",
+    "Gear Slots": 0,
+    "Cost": "5 sp",
+    "Effect": "Soft waterproof\nbladder that can be used to store\nliquid (about 8 ounces) when\ncarried or a pocket of air for\nbreathing underwater (enough for\n5 minutes of air). It is often made\nfrom an actual animal bladder,\ntypically a pig or cow. It can also\nbe filled with poisoned powder\nand squeezed to attack in combat\n(near distance)."
+  },
+  {
+    "id": "alcohol",
+    "Item": "Alcohol",
+    "Properties": "Improves CHA",
+    "Gear Slots": 1.0,
+    "Cost": "1 sp",
+    "Effect": "Brewed drink that can be\nmade from a variety of inputs: rice,\ncorn, honey, barley, wheat, etc. It is\nsold in bottles that contain three\n(3) doses. Once you begin drinking,\nyou must roll 1d4 to resist taking\nan additional dose (and again for\nthe third dose). If you get a 2-4, you\nwill keep drinking until the bottle is\ncompletely empty.\nThe first dose improves your CHA\nmod by 2 points for 1d6 hours. The\nsecond dose has an 80% chance\nof improving your CHA mod by\nanother point. It has a 20% chance\nof making the user agitated and\nremoving the original bonus.\nFor users enjoying a +3 CHA mod, a\nthird dose will cause you to remain\nfriendly but lose control of your\nactions. You will wake up with a\nhangover (-2 INT mod, -2 WIS mod,\n-2 CHA mod) in 1d4+6 hours.\nFor agitated users, a third dose will\ncause you to remain agitated and\nlose control of your actions. You will\nwake up with a hangover as well\n(same penalties) in 1d4+6 hours.\nHowever, you will have likely done a\nfew regrettable things and perhaps\ndamaged some relationships. You\nmay want to inquire about this\nwith others who were present\nduring your drinking."
+  },
+  {
+    "id": "apron_heavy",
+    "Item": "Apron, Heavy",
+    "Properties": "Absorbs splashes",
+    "Gear Slots": 0,
+    "Cost": "5 cp",
+    "Effect": "Heavy cooking or\nblacksmithing apron that provides\nsome protection from heat and\nspills. It will reduce any fire or acid\ndamage dealt from the front by\n1 point per combat round. If it\nreduces three (3) points of damage\nin this way, it must be replaced."
+  },
+  {
+    "id": "arrows_20",
+    "Item": "Arrows (20)",
+    "Properties": "Bow ammo",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Ammunition used by\nshortbows and longbows. Held in a\nquiver."
+  },
+  {
+    "id": "aspergillum",
+    "Item": "Aspergillum",
+    "Properties": "Delivers holy water",
+    "Gear Slots": 1.0,
+    "Cost": "8 gp",
+    "Effect": "Mace-like object\nwith a spherical silver head that\nhas many holes in it. It can be filled\nwith holy water and then used\nas a melee weapon to deliver the\neffect directly to a specific undead.\nIt is also used as a part of church\nprayers and last rites. A hit with\na filled aspergillum in combat\ndeals no physical injuries but will\nincrease the damage from the holy\nwater by 2 extra points."
+  },
+  {
+    "id": "astrolabe",
+    "Item": "Astrolabe",
+    "Properties": "Navigation tool",
+    "Gear Slots": 1.0,
+    "Cost": "400 gp",
+    "Effect": "Complex astronomical\ninstrument used by sea captains to\ndetermine their latitude. It cannot\nbe used by an untrained person.\nIn the hands of an expert, it allows\naccurate naval navigation without\nremaining in sight of the shore."
+  },
+  {
+    "id": "backpack",
+    "Item": "Backpack",
+    "Properties": "Stores items",
+    "Gear Slots": -1.0,
+    "Cost": "2 gp",
+    "Effect": "Burlap backpack that\ngrants an extra gear slot if worn.\nIt can be dropped at any time to\nlighten your load. However, you\nmust specify what is going into the\nbackpack ahead of time. Note that\na carried backpack consumes a\ngear slot."
+  },
+  {
+    "id": "bandages",
+    "Item": "Bandages",
+    "Properties": "Stabilizes wounded",
+    "Gear Slots": 1.0,
+    "Cost": "6 sp",
+    "Effect": "Thick cloth wrappings\nto bind a wound and prevent\nfurther blood loss. Using them in\nan attempt to stabilize someone\nwith zero hit points grants\nadvantage on the check and\nlowers the DC to 12."
+  },
+  {
+    "id": "barding",
+    "Item": "Barding",
+    "Properties": "Armor for mounts",
+    "Gear Slots": 4.0,
+    "Cost": "240 gp",
+    "Effect": "Set of chainmail armor\ndesigned to be placed on a horse.\nIt affords the horse the same\nprotection as chainmail armor in\nmelee. Due to its high cost, barding\nis typically only fielded by the\nwealthiest of knights. It is possible\nto adapt barding to a more\nexotic mount: such as a griffon or\npegasus. However, this will increase\nthe cost dramatically."
+  },
+  {
+    "id": "bedroll",
+    "Item": "Bedroll",
+    "Properties": "Improves resting",
+    "Gear Slots": 1.0,
+    "Cost": "3 sp",
+    "Effect": "Bundle of thick linens that\ncan allow you to sleep comfortably,\neven on a stone floor. Sleeping on\na bedroll grants advantage on any\ninterruption test."
+  },
+  {
+    "id": "basket",
+    "Item": "Basket",
+    "Properties": "Stores items",
+    "Gear Slots": 0,
+    "Cost": "1 sp",
+    "Effect": "Woven basket used to\ncarry a few small items around\ntown or on a short journey. It is\ncommonly used by children and\npeasants. You can place up to 2 free\ngear slots worth of equipment in\nthe basket, but you must dedicate\none hand to carrying it. Consumes\na gear slot if stored."
+  },
+  {
+    "id": "belt_pouch",
+    "Item": "Belt Pouch",
+    "Properties": "stores 100 coins",
+    "Gear Slots": 0,
+    "Cost": "2 gp",
+    "Effect": "Leather pouch worn at\nthe waist, often used to carry loose\ncoins. Using the belt pouch raises\nthe number of weightless coins\nyou can carry by 100."
+  },
+  {
+    "id": "birdcage",
+    "Item": "Birdcage",
+    "Properties": "Stores creatures",
+    "Gear Slots": 1.0,
+    "Cost": "4 gp",
+    "Effect": "Small silver cage\ndesigned to contain one small bird\n(canary, finch, bunting, sparrow,\netc.). It can also be used to contain\nother small creatures, such as\nvermin, faeries, and so on."
+  },
+  {
+    "id": "blindfold",
+    "Item": "Blindfold",
+    "Properties": "Blocks light/gazes",
+    "Gear Slots": 0,
+    "Cost": "3 sp",
+    "Effect": "Simple strip of cloth\ndesigned to be worn around the\nface to prevent the wearer from\nseeing anything. This can be useful\nin preventing captives from seeing\nwhat you don’t want them to see,\nbut it can also be useful in making\nsure that you don’t accidentally\nlock eyes with a nearby medusa.\nThe wearer is considered to be in\ntotal darkness."
+  },
+  {
+    "id": "block_and_tackle",
+    "Item": "Block and Tackle",
+    "Properties": "Lifts heavy objects",
+    "Gear Slots": 1.0,
+    "Cost": "12 gp",
+    "Effect": "System of\npulleys that can be used to make\nit much easier to lift a very heavy\nobject. It allows an individual\nto lift an object weighing up to\n100 times their strength score in\npounds. Multiple characters can\nassist in the lifting process, each\nadding their strength score to the\nmix. Thus, two characters with 10\nand 15 strength scores could work\ntogether to lift a 2,500 lb. statue."
+  },
+  {
+    "id": "body_paint",
+    "Item": "Body paint",
+    "Properties": "Camouflages user",
+    "Gear Slots": 0,
+    "Cost": "8 sp",
+    "Effect": "Vials of earth tone\nbody paint that can be used to\ndecorate the skin of a humanoid.\nUsing them to camouflage\nyourself with grant advantage to\nstealth checks made in natural\nenvironments (caves, forests, etc.)."
+  },
+  {
+    "id": "box_large",
+    "Item": "Box, Large",
+    "Properties": "Stores items",
+    "Gear Slots": 0,
+    "Cost": "7 sp",
+    "Effect": "Large wooden box or\ncrate used to store or ship trade\ngoods. You can place up to 5 free\ngear slots worth of equipment in\nthe box, but you must dedicate\nboth hands to carrying it.\nConsumes 2 gear slots if stored."
+  },
+  {
+    "id": "box_small",
+    "Item": "Box, small",
+    "Properties": "Stores items",
+    "Gear Slots": 0,
+    "Cost": "2 sp",
+    "Effect": "Small carved wooden\nbox used to store personal items.\nYou can place up to 2 free gear\nslots worth of equipment in the\nbox, but you must dedicate one\nhand to carrying it. Unlike a basket,\nthe items are protected from the\nelements (wind, snow, rain, etc.).\nConsumes a gear slot if stored."
+  },
+  {
+    "id": "brand",
+    "Item": "Brand",
+    "Properties": "Burns a sigil",
+    "Gear Slots": 1.0,
+    "Cost": "3 gp",
+    "Effect": "Metal implement shaped\nto burn a particular emblem into\nthe flesh of livestock. It is used\nby herders to mark their animals\nas their property and (hopefully)\ndiscourage rustlers and thieves."
+  },
+  {
+    "id": "bullets_20",
+    "Item": "Bullets (20)",
+    "Properties": "Sling ammo",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Ammunition used by\nslings. Held in a pouch."
+  },
+  {
+    "id": "caltrops",
+    "Item": "Caltrops",
+    "Properties": "Damages enemies",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Sharp iron spikes shaped\nto land with a point facing up\nwhen dropped upon the ground.\nEach bag can be scattered to cover\na near area and deal 1 damage to\nliving creatures passing through\nit. Anyone taking the damage can\nonly move at half-speed for 10\nrounds afterwards."
+  },
+  {
+    "id": "campfire_bundle",
+    "Item": "Campfire Bundle",
+    "Properties": "Creates a campfire",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Bundle of sticks\nbound with cord or twine. Can be\nused to start a campfire without\nusing up 3 torches."
+  },
+  {
+    "id": "candles_5",
+    "Item": "Candles (5)",
+    "Properties": "Creates small light",
+    "Gear Slots": 1.0,
+    "Cost": "5 cp",
+    "Effect": "Sticks of tallow (animal\nfat) burned to provide light within\na close distance. Candles must be\nplaced in a fixed location to burn.\nWhen lit they are unsuitable for\nuse as a carried object."
+  },
+  {
+    "id": "chain_60_ft",
+    "Item": "Chain (60 ft)",
+    "Properties": "Better than rope",
+    "Gear Slots": 2.0,
+    "Cost": "5 gp",
+    "Effect": "Thick iron chain\nused to secure very heavy objects\nor provide an excellent climbing\nsurface. It grants advantage on\nclimbing checks. Breaking the\nchain is a STR check vs DC 18 at\ndisadvantage."
+  },
+  {
+    "id": "chalk_10_pieces",
+    "Item": "Chalk (10 pieces)",
+    "Properties": "Writing implement",
+    "Gear Slots": 0,
+    "Cost": "5 cp",
+    "Effect": "Small sticks of\nchalk can be used to write letters or\ndraw pictograms on stone surfaces.\nChildren can be given chalk to\ndistract them for a period of time."
+  },
+  {
+    "id": "chalk_powder",
+    "Item": "Chalk (powder)",
+    "Properties": "White powder",
+    "Gear Slots": 0,
+    "Cost": "5 cp",
+    "Effect": "Powdered chalk\nstored in a small pouch. It can\nbe spread out on a surface to\nreveal hidden items or catch the\nfootprints of passersby. It will reveal\ninvisible creatures at near distance\nwhen expelled from an air bladder.\nCreative adventurers can think of\nmany other uses."
+  },
+  {
+    "id": "chest_ironbound",
+    "Item": "Chest, Ironbound",
+    "Properties": "Heavy storage",
+    "Gear Slots": 4.0,
+    "Cost": "20 gp",
+    "Effect": "Wooden chest\nwith iron bands to reinforce the\nstructure. You must purchase your\nown lock and install it separately.\nImposes disadvantage on anyone\nthat tries to force their way into it.\nMust be carried with both hands."
+  },
+  {
+    "id": "chest_potion",
+    "Item": "Chest, Potion",
+    "Properties": "Secure storage",
+    "Gear Slots": 3.0,
+    "Cost": "18 gp",
+    "Effect": "Wooden chest for\nstoring potions, vials, and other\nsensitive glass objects. From the\noutside, it appears to be a standard\nchest. The contents are protected\nfrom damage due to impact or\nfalling. You must purchase your\nown lock and install it separately.\nMust be carried with both hands."
+  },
+  {
+    "id": "chest_standard",
+    "Item": "Chest, Standard",
+    "Properties": "Normal storage",
+    "Gear Slots": 3.0,
+    "Cost": "10 gp",
+    "Effect": "Wooden chest\nfor storing dry goods and treasure.\nYou must purchase your own lock\nand install it separately. Must be\ncarried with both hands."
+  },
+  {
+    "id": "chisel",
+    "Item": "Chisel",
+    "Properties": "Carving tool",
+    "Gear Slots": 0,
+    "Cost": "1 gp",
+    "Effect": "Small metal tool designed\nto carefully chip away at stone. It\nis used to create statues and carve\nout fine stonework. Using this tool\ntakes a long time."
+  },
+  {
+    "id": "circlet",
+    "Item": "Circlet",
+    "Properties": "Sign of nobility",
+    "Gear Slots": 0,
+    "Cost": "40 gp",
+    "Effect": "Silver headpiece designed\nto be worn by a mage or minor\nnoble. It is a powerful item that\nconveys status and wealth. It grants\na +1 CHA mod when worn during\ninteractions with civilized folk."
+  },
+  {
+    "id": "clay_jug",
+    "Item": "Clay Jug",
+    "Properties": "Liquid storage",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Clay pottery that holds\nup to seven bottles worth of liquid.\nThere is no lid, but you can seal the\ntop with wax or cork if you have\nthose materials on hand."
+  },
+  {
+    "id": "cloak",
+    "Item": "Cloak",
+    "Properties": "Camouflage",
+    "Gear Slots": 0,
+    "Cost": "7 sp",
+    "Effect": "Simple linen cloak that\nprovides minor protection from the\nelements. Effective at camouflage\nin darkened areas where it can\nconceal glints of metal carried by\nthe wearer. Using it to camouflage\nyourself grants advantage to\nstealth checks made in the dark."
+  },
+  {
+    "id": "crampons",
+    "Item": "Crampons",
+    "Properties": "Climbing boots",
+    "Gear Slots": 1.0,
+    "Cost": "4 gp",
+    "Effect": "Metal fittings that\nattach to your boot for traction\nwhile ice climbing. Crampons can\nmake an inaccessible area open\nfor exploration. When worn, the\nclimber gains a +2 bonus and\nadvantage on all climbing tests.\nHowever, while wearing crampons\nyou can only move at half-speed."
+  },
+  {
+    "id": "crowbar",
+    "Item": "Crowbar",
+    "Properties": "Forces open doors",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Basic metal tool that\nprovides additional leverage to\nforce open a variety of objects:\ndoors, crates, etc. Using it grants\nadvantage on checks to pry open\ncontainers and doors."
+  },
+  {
+    "id": "disguise_kit",
+    "Item": "Disguise Kit",
+    "Properties": "Change appearance",
+    "Gear Slots": 1.0,
+    "Cost": "8 gp",
+    "Effect": "Kit containing a\nvariety of false facial features: nose\nextensions, eyebrows, mustaches,\netc. With a successful CHA check\nvs DC 12, the user can change their\nappearance to the point that they\nbecome unrecognizable."
+  },
+  {
+    "id": "ear_plugs",
+    "Item": "Ear Plugs",
+    "Properties": "Protect ears",
+    "Gear Slots": 0,
+    "Cost": "5 cp",
+    "Effect": "Set of soft wax earplugs\nthat can be used to protect your\nears. Wearing ear plugs will halve\nall sonic damage and completely\nprevent any kind of siren calls or\nsimilar vocal compulsions."
+  },
+  {
+    "id": "fishing_rod_hook",
+    "Item": "Fishing Rod & Hook",
+    "Properties": "Survival tool",
+    "Gear Slots": 1.0,
+    "Cost": "8 sp",
+    "Effect": "Standard\nset of fishing equipment. It is very\nuseful when living off the land.\nAdditionally, you may find it useful\nin reaching out to grab or pull\non distant objects in a dungeon\nenvironment. Clever players can\nfind many uses for a small hook\nthat can be used to tug at items\nfrom a distance."
+  },
+  {
+    "id": "fishing_net",
+    "Item": "Fishing Net",
+    "Properties": "Survival tool",
+    "Gear Slots": 2.0,
+    "Cost": "4 sp",
+    "Effect": "Large net that is cast\nout over a shallow area to catch\nfish. It is too heavy and unwieldy to\nuse in combat. A clever adventurer\ncan think of many alternative ways\nto use this item to their advantage,\nparticularly as a trap component."
+  },
+  {
+    "id": "flask_bottle_vial",
+    "Item": "Flask/Bottle/Vial",
+    "Properties": "Holds liquids",
+    "Gear Slots": 1.0,
+    "Cost": "3 gp",
+    "Effect": "Glass flask holds\nabout 4 ounces of liquid. It can be\nuseful for holding magical potions.\nA bottle is larger and can hold\nabout 8 ounces of liquid, suitable\nfor drinks like alcohol or water. The\nvial is a little smaller than a flask,\nholding about 2 ounces of liquid. It\nmay be smaller but requires more\ndelicate work."
+  },
+  {
+    "id": "flint_steel_kit",
+    "Item": "Flint & steel Kit",
+    "Properties": "Used to start fires",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Small steel tong\nand a piece of flint. By striking\nthem together, the kit can be used\nto start a fire, light a torch, or ignite\na lantern"
+  },
+  {
+    "id": "grappling_hook",
+    "Item": "Grappling Hook",
+    "Properties": "Secures ropes",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Heavy metal\nhook used to secure a tether in an\nunstable location without an easy\ntie down spot. It can be thrown up\nto three times your strength in feet,\nvertically or horizontally. Be sure to\nalso purchase rope to attach to it."
+  },
+  {
+    "id": "hammer",
+    "Item": "Hammer",
+    "Properties": "Secures spikes",
+    "Gear Slots": 1.0,
+    "Cost": "2 sp",
+    "Effect": "Useful tool is designed\nto be used for assembling and/or\ndisassembling wooden furniture.\nClever players will think of many\nother potential uses."
+  },
+  {
+    "id": "handsaw",
+    "Item": "Handsaw",
+    "Properties": "Cuts through",
+    "Gear Slots": 1.0,
+    "Cost": "4 sp",
+    "Effect": "One-handed metal\nsaw designed for cutting small\npieces of wood. It can also be used\nto cut through other materials.\nGnomes are known to use the\nreverberations on a saw’s blade\nto make spooky noises at night.\nConsider yourself warned!"
+  },
+  {
+    "id": "holy_water",
+    "Item": "Holy Water",
+    "Properties": "Damages undead",
+    "Gear Slots": 1.0,
+    "Cost": "5 gp",
+    "Effect": "Flask of water blessed\nby a powerful priest. It can be\nthrown in combat (DEX check vs\nEnemy AC), dealing 1d8+1 damage\nto any undead struck and 1 point of\nsplash damage to any undead at\nclose distance."
+  },
+  {
+    "id": "horse_tack",
+    "Item": "Horse Tack",
+    "Properties": "Used for riding",
+    "Gear Slots": 6.0,
+    "Cost": "12 gp",
+    "Effect": "Standard set of tack\nfor a horse or mule. If you attempt\nto ride an animal bareback for\nmore than a few miles, you may\naccidentally injure the animal."
+  },
+  {
+    "id": "hourglass",
+    "Item": "Hourglass",
+    "Properties": "Tracks time",
+    "Gear Slots": 1.0,
+    "Cost": "90 gp",
+    "Effect": "The best method of\ntracking the passage of time at\nthis point in history. However, very\nfew people need to keep track of\ntime at this level of precision and\nbuilding an hourglass takes a lot of\ntime and craftsmanship. The listed\nprice reflects these factors. If you\nare carrying an hourglass, you can\nalways check the game master’s\ntimer for light sources."
+  },
+  {
+    "id": "ladder",
+    "Item": "Ladder",
+    "Properties": "Climbing tool",
+    "Gear Slots": 5.0,
+    "Cost": "3 sp",
+    "Effect": "Standard 10-foot wooden\nladder. It is much more easily\nclimbed than a simple rope (no\ncheck required) but carrying a\nladder around underground can be\nquite cumbersome. Each rung can\nsupport 500 lbs. before breaking."
+  },
+  {
+    "id": "lantern_beacon",
+    "Item": "Lantern, Beacon",
+    "Properties": "Creates beam",
+    "Gear Slots": 1.0,
+    "Cost": "12 gp",
+    "Effect": "Lantern that\nprovides a directional beam of light\nthat extends out to far distance but\nis only about 5 feet wide. It requires\nlantern oil to function. Each flask\nprovides a real hour of light."
+  },
+  {
+    "id": "lantern_standard",
+    "Item": "Lantern, Standard",
+    "Properties": "Provides light",
+    "Gear Slots": 1.0,
+    "Cost": "5 gp",
+    "Effect": "Lantern that\nprovides light that extends to near\ndistance in all directions. It requires\nlantern oil to function. Each flask\nprovides a real hour of light."
+  },
+  {
+    "id": "lanyard",
+    "Item": "Lanyard",
+    "Properties": "Secures weapon",
+    "Gear Slots": 0,
+    "Cost": "3 sp",
+    "Effect": "Short rope made of handbraided\nthread that you can use to\nsecure your weapon to your wrist.\nWhile wearing the lanyard, you\ncannot be disarmed. However, if\nyou are wearing a lanyard then you\ncannot switch weapons without\nremoving the lanyard, which is a\nfull round action on its own."
+  },
+  {
+    "id": "leather_gloves",
+    "Item": "Leather Gloves",
+    "Properties": "Protects hands",
+    "Gear Slots": 0,
+    "Cost": "1 gp",
+    "Effect": "Nice set of leather\ngloves that prevents your hands\nfrom getting dirty, burned by\nropes, and so on. If you are wearing\ngloves, you get a +1 CHA mod when\ninteracting with nobility."
+  },
+  {
+    "id": "lock_basic",
+    "Item": "Lock, Basic",
+    "Properties": "Secures objects",
+    "Gear Slots": 0,
+    "Cost": "2 gp",
+    "Effect": "Standard lock for a\ndoor or chest. It can be picked\nnormally (DEX check vs DC 12). The\nlist price is for a brand- new lock.\nDon’t be fooled into ripping the\nlocks out of dungeon doors so you\ncan take them back to town for a\nbig score."
+  },
+  {
+    "id": "lock_exceptional",
+    "Item": "Lock, Exceptional",
+    "Properties": "Secures objects",
+    "Gear Slots": 0,
+    "Cost": "14 gp",
+    "Effect": "Exceptional lock for a door or chest. It can be\npicked with great difficulty (DEX\ncheck vs DC 18)."
+  },
+  {
+    "id": "lockpicks",
+    "Item": "Lockpicks",
+    "Properties": "Opens locks",
+    "Gear Slots": 0,
+    "Cost": "5 gp",
+    "Effect": "Small metal tools used\nto pick locks. Using them grants\nadvantage on checks to pick locks.\nIf you fail the check by more than 5,\nthey are broken in the attempt."
+  },
+  {
+    "id": "lodestone",
+    "Item": "Lodestone",
+    "Properties": "Magnetic Rock",
+    "Gear Slots": 0,
+    "Cost": "1 gp",
+    "Effect": "Magnetic rock, small\nenough to conceal within your fist.\nIt can be used to detect magnetic\nactivity, create a primitive compass,\nand so on."
+  },
+  {
+    "id": "manacles",
+    "Item": "Manacles",
+    "Properties": "Secures prisoners",
+    "Gear Slots": 1.0,
+    "Cost": "3 gp",
+    "Effect": "Heavy wroughtiron\nbindings used to restrain a\nprisoner. They can be attached to\na wall or floor anchor with a chain.\nWriggling out of a set of manacles\nis very challenging (DEX check vs\nDC 18)."
+  },
+  {
+    "id": "mirror",
+    "Item": "Mirror",
+    "Properties": "Reflects gazes",
+    "Gear Slots": 0,
+    "Cost": "10 gp",
+    "Effect": "Polished metal mirror that\ncan be used for both personal\nhygiene and taking a peek around\ncorners. If you are not surprised,\nyou can use the mirror to reflect\na gaze attack back on a monster\n(DEX check vs DC 15)."
+  },
+  {
+    "id": "mortar_and_pestle",
+    "Item": "Mortar and Pestle",
+    "Properties": "Used in alchemy",
+    "Gear Slots": 0,
+    "Cost": "5 sp",
+    "Effect": "Ceramic tools used to crush raw components\ninto a powder or paste. Those\ncomponents can then be turned\ninto a usable toxin, drug, or\nalchemical compound by a skilled\npractitioner."
+  },
+  {
+    "id": "musical_instrument",
+    "Item": "Musical Instrument",
+    "Properties": "Entertains others",
+    "Gear Slots": 1.0,
+    "Cost": "24 gp",
+    "Effect": "Range of handheld wind and string\ninstruments: the lyre, the\nmandolin, the flute, etc. It can be\nused to entertain a tired party\nat the end of a rough day on the\ntrail. This cuts rest time in half but\nraises your danger level. It could\nalso be used to distract a crowd\nof party goers (CHA check vs DC\n12). Success means that the crowd\nresponds as you intended. Failure\ncan range from displeasure to\nthrowing rotten fruit."
+  },
+  {
+    "id": "oil_jellied",
+    "Item": "Oil, Jellied",
+    "Properties": "Burns your enemies",
+    "Gear Slots": 1.0,
+    "Cost": "2 gp",
+    "Effect": "Glass bottle containing\nflammable oil blended with a soft\nmedium like sawdust. It can be\nthrown in combat (DEX check vs\nEnemy AC), dealing 1d4 damage\nanyone at close distance, sticking\nto the opponent, and continuing to\nburn for 3 more rounds."
+  },
+  {
+    "id": "oil_lantern_2",
+    "Item": "Oil, Lantern (2)",
+    "Properties": "Used in a lantern",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "A flask of oil used\nto keep a lantern burning for an\nhour of real time. It does not burn\nstrong enough to be a weapon in\ncombat. It can also be used with\na single torch to create a campfire\nduring a rest period."
+  },
+  {
+    "id": "paper_parchment",
+    "Item": "Paper / Parchment",
+    "Properties": "Writing material",
+    "Gear Slots": 0,
+    "Cost": "1 gp",
+    "Effect": "Single sheet\nof paper or parchment used to\ncreate magical scrolls or writing\ncorrespondence."
+  },
+  {
+    "id": "perfume",
+    "Item": "Perfume",
+    "Properties": "Improves odor",
+    "Gear Slots": 0,
+    "Cost": "16 gp",
+    "Effect": "Vial of potent perfume. It\nis appropriate for interacting with\nhigh society or covering up very\nbad smells on your body (+2 CHA\nmod). Perfume can be detected by\na human nose up to near distance\naway if there is no wind. The effect\nfades after 3d6 hours."
+  },
+  {
+    "id": "pickaxe",
+    "Item": "Pickaxe",
+    "Properties": "Digs through rock",
+    "Gear Slots": 1.0,
+    "Cost": "4 gp",
+    "Effect": "Axe with a narrow,\npointed head. It allows you to dig\nthrough rock barriers at double the\nnormal pace. It can also be used to\npry gems and metals out of statues\nor cave walls."
+  },
+  {
+    "id": "pipe",
+    "Item": "Pipe",
+    "Properties": "Used to smoke",
+    "Gear Slots": 0,
+    "Cost": "8 sp",
+    "Effect": "Carved wooden pipe. It is\nused to smoke razorweed to relax."
+  },
+  {
+    "id": "playing_cards",
+    "Item": "Playing Cards",
+    "Properties": "Used to gamble",
+    "Gear Slots": 0,
+    "Cost": "2 sp",
+    "Effect": "Standard deck of\nplaying cards. They are used by\ngamblers everywhere for games of\nchance (opposed INT check)."
+  },
+  {
+    "id": "pole_10_ft",
+    "Item": "Pole (10 ft)",
+    "Properties": "Reaches objects",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Simple 10-foot\nwooden pole about one inch in\ncircumference. It is useful for\npushing objects at a distance,\ntriggering traps, and so on."
+  },
+  {
+    "id": "pot_iron",
+    "Item": "Pot, Iron",
+    "Properties": "Stores items",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Standard cast-iron\ncooking pot. It is useful for both\npreparing food and bashing the\nheads of people who attack you\nwhile you are preparing food (1d3\nas improvised melee weapon). You\ncan place up to 4 free gear slots\nworth of equipment (or liquids)\nin the pot, but you must dedicate\nboth hands to carrying it."
+  },
+  {
+    "id": "quarrels_20",
+    "Item": "Quarrels (20)",
+    "Properties": "Crossbow ammo",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Ammunition used by crossbows. Held in a quiver."
+  },
+  {
+    "id": "quill_pen",
+    "Item": "Quill pen",
+    "Properties": "Used to write",
+    "Gear Slots": 0,
+    "Cost": "7 sp",
+    "Effect": "Standard writing implement. It must be used with\nwriting ink. The quill is required to\nwrite anything: from composing\na letter to a friend to ascribing a\nmagical spell into your spellbook."
+  },
+  {
+    "id": "rations_3",
+    "Item": "Rations (3)",
+    "Properties": "Used during rest",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Single days’ worth of\nlight-weight dried food and water."
+  },
+  {
+    "id": "reed_hollow",
+    "Item": "Reed, Hollow",
+    "Properties": "Breathe underwater",
+    "Gear Slots": 0,
+    "Cost": "5 cp",
+    "Effect": "Long hollow reed\nused to breathe while hiding\nunderwater. Using a hollow reed\ngrants advantage to stealth tests\nmade while moving through water."
+  },
+  {
+    "id": "rockworms",
+    "Item": "Rockworms",
+    "Properties": "Eats thru rock",
+    "Gear Slots": 2.0,
+    "Cost": "18 gp",
+    "Effect": "Set of 4 rockworms.\nThey are typically sold in a small\nwooden cage to prevent injury.\nRockworms are about three inches\nlong and slightly thicker than\nan earthworm. They consume\napproximately their own weight in\nrock per day. This makes them very\nuseful to eat through stone doors\nand similar obstacles, if you have\nthe time to wait for them to do\ntheir work. Always exercise caution\nwhen using rockworms, as they\nmay cause a cave-in."
+  },
+  {
+    "id": "rope_60_ft",
+    "Item": "Rope (60 ft)",
+    "Properties": "Used for climbing",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Thin climbing rope\nused to climb up vertical surfaces.\nIt grants advantage on climbing\nchecks. Breaking the chain is a STR\ncheck vs DC 15 at disadvantage.\nIt can also be cut through with a\nsharp tool or weapon in 1 round."
+  },
+  {
+    "id": "sachet",
+    "Item": "Sachet",
+    "Properties": "Improves odor",
+    "Gear Slots": 0,
+    "Cost": "8 g p",
+    "Effect": "Small lace pouch of\nfragrant herbs that is strapped\nto the wrist. It is less potent than\nperfume (+1 CHA mod), but it\nlasts roughly a week. A sachet is\nappropriate to add to your apparel\nwhen meeting with high society."
+  },
+  {
+    "id": "sack_large",
+    "Item": "Sack, Large",
+    "Properties": "Stores items",
+    "Gear Slots": 1.0,
+    "Cost": "2 sp",
+    "Effect": "Large cloth sack\nmade from burlap. You can place\nup to 3 free gear slots worth\nof equipment in the sack, but\nyou must dedicate one hand to\ncarrying it over your shoulder.\nThe items are protected from the\nelements (wind, snow, rain, etc.).\nConsumes a gear slot if stored."
+  },
+  {
+    "id": "sack_small",
+    "Item": "Sack, small",
+    "Properties": "Stores items",
+    "Gear Slots": 0,
+    "Cost": "S cp",
+    "Effect": "Small cloth sack\nmade from burlap. It can be tied\nto the waist raise the number of\nweightless coins you can carry by\n50. Only two small sacks can be\nused in this manner."
+  },
+  {
+    "id": "scroll_case",
+    "Item": "Scroll case",
+    "Properties": "Stores papers",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Small tube used to\nsafely store up to 10 scrolls. It can\nbe sealed with wax at one end to\nprotect the scrolls from a short\nsubmersion in water."
+  },
+  {
+    "id": "sewing_kit",
+    "Item": "Sewing Kit",
+    "Properties": "Repairs cloth items",
+    "Gear Slots": 0,
+    "Cost": "4 sp",
+    "Effect": "Small cloth pouch that\ncontains three sewing needles,\nfour spools of white thread, and six\nbuttons of carved bone. It grants\nadvantage on checks to repair\nclothing, linen, or similar material."
+  },
+  {
+    "id": "shovel",
+    "Item": "Shovel",
+    "Properties": "Digs through dirt",
+    "Gear Slots": 1.0,
+    "Cost": "7 sp",
+    "Effect": "Wooden shaft with a steel\nshovel head. It allows you to dig\nthrough dirt, debris, or rubble at\ndouble the normal pace. It can\nalso be used to crack heads (1d3 as\nimprovised melee weapon). It can\nalso be used to dig graves."
+  },
+  {
+    "id": "signet_ring",
+    "Item": "Signet Ring",
+    "Properties": "Makes wax seal",
+    "Gear Slots": 0,
+    "Cost": "4 gp",
+    "Effect": "Ring bearing a\nunique insignia that can be used\nto seal written correspondence\nwith wax in a way that confirms\nthe identity of the sender. This is a\nguarantee to the recipient of the\nletter that the contents are secure."
+  },
+  {
+    "id": "sledge",
+    "Item": "Sledge",
+    "Properties": "Smashes things",
+    "Gear Slots": 1.0,
+    "Cost": "8 sp",
+    "Effect": "Heavy hammer used to\nsmash a lock or plant an iron spike.\nIt grants a +2 bonus and advantage\nwhen knocking down a door."
+  },
+  {
+    "id": "smelling_salts",
+    "Item": "Smelling Salts",
+    "Properties": "Wakes unconscious",
+    "Gear Slots": 0,
+    "Cost": "3 gp",
+    "Effect": "Oil of hartshorn is\na crude animal oil obtained from\nthe destruction of male red deer\nbones or horns. Smelling salts\nare obtained by dry distillation\nof oil of hartshorn. These salts\nare exceptionally pungent due\nto their high ammonia content.\nWhen placed under the nose of\nsomeone who is unconscious, it\nwill shock them awake most of the\ntime (80% chance). They will still be\nincapacitated. However, they may\nbe able to communicate important\ninformation even in that state.\nNote: if someone is sleeping due to\nmagical effects, then smelling salts\nwill have no effect."
+  },
+  {
+    "id": "snowshoes",
+    "Item": "Snowshoes",
+    "Properties": "Move through snow",
+    "Gear Slots": 1.0,
+    "Cost": "3 sp",
+    "Effect": "Large wooden-framed\ncloth-webbed shoes that help\ntraverse ground in heavy snow.\nThey give the user the ability to\nignore all movement penalties\ndue to heavy snow. They grant no\nprotection against the cold or wind."
+  },
+  {
+    "id": "songbird",
+    "Item": "Songbird",
+    "Properties": "Makes noise",
+    "Gear Slots": 0,
+    "Cost": "3 sp",
+    "Effect": "Cheerful songbird that\nhas been captured. You will need a\nbirdcage to contain it. The songbird\ncan serve as a sort of clock. As\nminers have discovered, it can also\nserve as an early warning system\nagainst toxic gases. If the bird falls\nsilent, you should probably leave\nthe area."
+  },
+  {
+    "id": "spikes_iron_10",
+    "Item": "Spikes, Iron (10)",
+    "Properties": "Secures ropes",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Heavy steel spike\nwith a hole through the grip. These\ncan be hammered into a stone\nsurface to attach a rope. They can\nalso be used on a door frame to\nprevent the door from opening\n(imposes disadvantage on anyone\ntrying to open it)."
+  },
+  {
+    "id": "spyglass",
+    "Item": "Spyglass",
+    "Properties": "See at a distance",
+    "Gear Slots": 0,
+    "Cost": "800 gp",
+    "Effect": "Long optical device to\nsee objects at a distance. It can be\nused to see up to 5 miles, provided\nthere are no obstructions. It is an\nexcellent tool when engaged in\nscouting expeditions. A spyglass is\nalso a very useful item to give to a\nretainer who is out scouting ahead\nor standing on guard. Spellcasters\ncan use the spyglass to cast spells\non opponents at great distances."
+  },
+  {
+    "id": "tent_large",
+    "Item": "Tent, Large",
+    "Properties": "Shelter for six",
+    "Gear Slots": 2.0,
+    "Cost": "6 gp",
+    "Effect": "Canvas tent that\nprovides basic protection from the\nwind and rain for up to six people.\nIt can hold up to a low or moderate\nsnowfall, but it will collapse under\nheavy snow. Additionally, the tent’s\nlarge size makes it more vulnerable\nto high wind."
+  },
+  {
+    "id": "tent_small",
+    "Item": "Tent, small",
+    "Properties": "Shelter for two",
+    "Gear Slots": 1.0,
+    "Cost": "1 gp",
+    "Effect": "Canvas tent that\nprovides basic protection from the\nwind and rain for up to two people.\nIt is much lower to the ground than\na large tent and can endure higher\nwind speeds. However, it is more\nvulnerable to snow due to the\nweaker supports."
+  },
+  {
+    "id": "tongs",
+    "Item": "Tongs",
+    "Properties": "Picks up items",
+    "Gear Slots": 1.0,
+    "Cost": "8 sp",
+    "Effect": "Broad metal grips that can\nbe used to pick up molten metal\nin a blacksmith forge. You can also\nuse them in a dungeon to handle\nhazardous materials or open doors\nfrom a distance."
+  },
+  {
+    "id": "torch",
+    "Item": "Torch",
+    "Properties": "Provides light",
+    "Gear Slots": 1.0,
+    "Cost": "5 sp",
+    "Effect": "Wooden shaft that can be\nlit to provide light out to a near\ndistance. It lasts for one hour of\nreal time."
+  },
+  {
+    "id": "two_man_saw",
+    "Item": "Two-Man saw",
+    "Properties": "Cuts down trees",
+    "Gear Slots": 3.0,
+    "Cost": "1 gp",
+    "Effect": "Large two-man\nsaw used for cutting heavy timber.\nIt can be used to safely cut down a\nmature tree in about 4 hours."
+  },
+  {
+    "id": "waterskin",
+    "Item": "Waterskin",
+    "Properties": "Holds liquids",
+    "Gear Slots": 0,
+    "Cost": "5 cp",
+    "Effect": "Cured leather sack\nused to store up to 4 bottles worth\nof liquids. Consumes no gear slots\nwhen empty."
+  },
+  {
+    "id": "wax_3_lbs",
+    "Item": "Wax (3 lbs)",
+    "Properties": "Various uses",
+    "Gear Slots": 0,
+    "Cost": "5 cp",
+    "Effect": "Lump of tallow\n(animal fat) used to seal\ncorrespondence with a signet\nring. It can also be used for a wide\nvariety of improvised uses by a\nclever player. You can use wax to\nseal containers against water."
+  },
+  {
+    "id": "whetstone",
+    "Item": "Whetstone",
+    "Properties": "Sharpens weapons",
+    "Gear Slots": 0,
+    "Cost": "1 gp",
+    "Effect": "Small stone that helps\nsharpen metal tools. If you begin\na rest period at full hit points,\nyou can use your time instead\nto sharpen a bladed weapon (+1\nbonus to the next 5 hits). It can\nalso be used to restore old, rusted\nblades back into fighting shape in\nabout 4 hours."
+  },
+  {
+    "id": "whistle",
+    "Item": "Whistle",
+    "Properties": "Makes noise",
+    "Gear Slots": 0,
+    "Cost": "5 sp",
+    "Effect": "Metal object that can be\nused to signal others from up to a\nmile away. Of course, it does not\njust alert your friends. Each blow\non the whistle triggers a check for\nrandom encounter by the game\nmaster. You may be calling down\nan avalanche of pain and suffering\nwith a whistle. Think carefully\nbefore you raise it to your lips."
+  },
+  {
+    "id": "wooden_stakes",
+    "Item": "Wooden Stakes",
+    "Properties": "Kills vampires (?)",
+    "Gear Slots": 1.0,
+    "Cost": "5 cp",
+    "Effect": "Sharpened shaft\nof wood. It is believed that stabbing\na wooden stake into the heart of\na vampire will kill or paralyze it.\nMaybe that is true. Then again, it\nmay just make the vampire angry."
+  },
+  {
+    "id": "writing_ink",
+    "Item": "Writing Ink",
+    "Properties": "Used to write",
+    "Gear Slots": 0,
+    "Cost": "2 gp",
+    "Effect": "This is a vial of carbon\nink, made of charcoal or lampblack\nmixed with a gum. It is\nnecessary to write scrolls, spells, or\nnormal written correspondence.\nEach vial has enough ink for 20\npages of text."
+  }
+]

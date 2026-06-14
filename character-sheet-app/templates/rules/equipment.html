@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Equipment — Shadowdark RPG{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Equipment</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="eq-search" placeholder="Search name, type...">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="weapons">Weapons</button>
+    <button class="filter-btn" data-cat="armor">Armor</button>
+    <button class="filter-btn" data-cat="gear">Gear</button>
+    <button class="filter-btn" data-cat="gems">Gems</button>
+    <button class="filter-btn" data-cat="plants_poisons">Plants & Poisons</button>
+    <button class="filter-btn" data-cat="traps">Traps</button>
+    <button class="filter-btn" data-cat="spell_catalysts">Catalysts</button>
+  </div>
+  <table class="list-table">
+    <thead>
+      <tr>
+        <th data-sort="name">Name <span class="sort-arrow"></span></th>
+        <th data-sort="cost">Cost <span class="sort-arrow"></span></th>
+        <th data-sort="slots">Slots <span class="sort-arrow"></span></th>
+        <th data-sort="properties">Properties <span class="sort-arrow"></span></th>
+      </tr>
+    </thead>
+    <tbody id="eq-body"></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const body   = document.getElementById('eq-body');
+  const search = document.getElementById('eq-search');
+  let combined = [];
+  let sortCol  = 'name', sortAsc = true;
+  let filterCat = 'all';
+
+  const tables = ['weapons','armor','gear','gems','plants_poisons','traps','spell_catalysts'];
+  function normalize(item, cat) {
+    return {
+      name:        item['Weapon'] || item['Armor'] || item['Item'] || item['Valuable'] || item['Catalyst'] || item['Name'] || item.name || '',
+      cost:        item['Cost'] || item['GP (each)'] || item['GP'] || item.cost || '',
+      slots:       item['Gear Slots'] != null ? item['Gear Slots'] : (item.slots || ''),
+      properties:  item['Properties'] || item.properties || '',
+      type:        item['Type'] || item.type || '',
+      description: item['Effect'] || item['Effects'] || item['Effect/Description'] || item['Description'] || item.description || '',
+      damage:      item['Damage'] || '',
+      range:       item['Range'] || '',
+      ac:          item['AC'] || '',
+      _cat: cat
+    };
+  }
+  Promise.all(tables.map(t => fetch(`/api/data/${t}`).then(r=>r.json()).then(d => d.map(i => normalize(i, t)))))
+    .then(results => {
+      combined = results.flat();
+      render();
+    });
+
+  function render() {
+    const q = (search.value || '').toLowerCase();
+    let list = combined.filter(item => {
+      if (filterCat !== 'all' && item._cat !== filterCat) return false;
+      if (q) {
+        const hay = [item.name, item.type, item.properties, item.description, item.damage].filter(Boolean).join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    list.sort((a,b) => {
+      let av = a[sortCol]||'', bv = b[sortCol]||'';
+      if (sortCol === 'cost' || sortCol === 'slots') { av = parseFloat(av)||0; bv = parseFloat(bv)||0; return sortAsc ? av-bv : bv-av; }
+      av = av.toString().toLowerCase(); bv = bv.toString().toLowerCase();
+      return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+
+    body.innerHTML = list.map((item,i) => `
+      <tr class="eq-row" data-idx="${i}">
+        <td>${item.name||''}</td>
+        <td class="muted">${item.cost||''}</td>
+        <td class="muted">${item.slots||''}</td>
+        <td class="muted">${item.properties||''}</td>
+      </tr>
+      <tr class="row-detail" data-detail="${i}">
+        <td colspan="4">${[item.description, item.damage ? 'Damage: '+item.damage : '', item.range ? 'Range: '+item.range : '', item.ac ? 'AC: '+item.ac : ''].filter(Boolean).join(' | ') || 'No description.'}</td>
+      </tr>
+    `).join('');
+
+    body.querySelectorAll('.eq-row').forEach(row => {
+      row.addEventListener('click', () => {
+        body.querySelector(`[data-detail="${row.dataset.idx}"]`).classList.toggle('open');
+      });
+    });
+  }
+
+  search.addEventListener('input', render);
+
+  document.querySelectorAll('[data-cat]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCat = btn.dataset.cat;
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = true; }
+      render();
+    });
+  });
+})();
+</script>
+{% endblock %}

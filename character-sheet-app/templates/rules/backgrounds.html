@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Backgrounds — Shadowdark RPG{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Backgrounds</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="bg-search" placeholder="Search by name...">
+  </div>
+  <table class="list-table" id="bg-table">
+    <thead>
+      <tr>
+        <th data-sort="background">Name <span class="sort-arrow"></span></th>
+        <th data-sort="source">Source <span class="sort-arrow"></span></th>
+        <th style="width:40px;"></th>
+      </tr>
+    </thead>
+    <tbody id="bg-body"></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const body   = document.getElementById('bg-body');
+  const search = document.getElementById('bg-search');
+  let allData  = [];
+  let sortCol  = 'name', sortAsc = true;
+
+  fetch('/api/data/backgrounds').then(r=>r.json()).then(data => {
+    allData = data;
+    render();
+  });
+
+  function render() {
+    const q = (search.value || '').toLowerCase();
+    let list = allData.filter(b => !q || (b.background||b.name||'').toLowerCase().includes(q));
+    list.sort((a,b) => {
+      const av = (a[sortCol]||'').toLowerCase(), bv = (b[sortCol]||'').toLowerCase();
+      return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+
+    body.innerHTML = list.map((b,i) => `
+      <tr data-idx="${i}" class="bg-row">
+        <td>${b.background||b.name||''}</td>
+        <td class="muted">${b.source||''}</td>
+        <td style="text-align:center;color:var(--bronze);font-size:1.2rem;">+</td>
+      </tr>
+      <tr class="row-detail" data-detail="${i}">
+        <td colspan="3">${b.description||'No additional details.'}</td>
+      </tr>
+    `).join('');
+
+    body.querySelectorAll('.bg-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const d = body.querySelector(`[data-detail="${row.dataset.idx}"]`);
+        d.classList.toggle('open');
+      });
+    });
+  }
+
+  search.addEventListener('input', render);
+
+  document.querySelectorAll('[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = true; }
+      render();
+    });
+  });
+})();
+</script>
+{% endblock %}

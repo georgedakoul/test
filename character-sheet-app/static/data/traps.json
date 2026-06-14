@@ -1,0 +1,50 @@
+[
+  {
+    "id": "trap_flashing",
+    "Item": "Trap (flashing)",
+    "Properties": "Blinding trap",
+    "Gear Slots": 1,
+    "GP": "30 gp",
+    "Description": "Trap that uses\nmagnesium to cause temporary\nblindness. It can be set up with\nan INT check vs DC 12 and it is\ntriggered by a tripwire. Anyone\ncaught within near distance of\nthe trap when it is triggered will\nbe blinded for 2d4 rounds. A\nWIS check vs DC 15 reduces the\nduration by half."
+  },
+  {
+    "id": "trap_noxious_gas",
+    "Item": "Trap (noxious gas)",
+    "Properties": "Debilitating trap",
+    "Gear Slots": 1,
+    "GP": "24 gp",
+    "Description": "Trap that uses\na noxious gas to cause choking and\nnausea. It can be set up with an INT\ncheck vs DC 12 and it is triggered\nby a pressure plate. Anyone\ncaught within close distance\nof the trap when it is triggered\nwill be overcome by the gas for\n2d8 rounds (treat as stunned).\nA CON check vs DC 15 reduces\nthe duration by half. The gas will\ndisperse in 3 rounds (or 1 round if\nthere is a strong wind)."
+  },
+  {
+    "id": "trap_oil_spray",
+    "Item": "Trap (oil spray)",
+    "Properties": "Burning trap",
+    "Gear Slots": 1,
+    "GP": "28 gp",
+    "Description": "Trap that sprays\na slippery oil to hinder your\nadversaries. It can be set up with\nan INT check vs DC 12 and it is\ntriggered by a pressure plate.\nThe area within close distance of\nthe trap will be doused with slick\noil when it is triggered. For 2d4\nrounds, anyone moving through\nthe slicked area must make a DEX\ncheck vs DC 18 to avoid slipping\nand falling down. When placed\nin an unsafe area (ex. near a cliff\nedge), users of this trap can cause\npeople to slide to their doom."
+  },
+  {
+    "id": "trap_poison_dart",
+    "Item": "Trap (poison dart)",
+    "Properties": "Poison trap",
+    "Gear Slots": 1,
+    "GP": "34 gp",
+    "Description": "Trap that uses a small poison dart to injure\nyour adversaries. It can be set up\nwith an INT check vs DC 12 and\nit is triggered by a trip wire. The\nperson triggering the trap will be\nstruck by the dart for 1d6 damage.\nA DEX check vs DC 15 reduces the\ndamage by half."
+  },
+  {
+    "id": "trap_snare",
+    "Item": "Trap (snare)",
+    "Properties": "Capturing trap",
+    "Gear Slots": 1,
+    "GP": "2 gp",
+    "Description": "Small twine trap used\nto catch animals. Using a snare\ntrap will grant advantage on a WIS\ncheck vs DC 12 to capture vermin\nor similarly sized creatures (return\nafter a day to resolve). It will also\nresult in an additional check for\nencounters by the game master as\npredators might be attracted."
+  },
+  {
+    "id": "trap_sticky",
+    "Item": "Trap (sticky)",
+    "Properties": "Hindering trap",
+    "Gear Slots": 1,
+    "GP": "18 gp",
+    "Description": "Trap that sprays a\nsticky substance to hinder your\nadversaries. It can be set up with\nan INT check vs DC 12 and it is\ntriggered by a pressure plate.\nWhen triggered, the area within\nclose distance of the trap will be\ncovered in a thick black tar-like\nbinding substance.\nAnyone coated by the substance\nmust make a DEX check vs DC\n15 to take any action, including\nsimple movement. This effect\nendures for 3d8 rounds or until\nthe subject is thoroughly cleaned.\nAnyone moving through the area\nfor 1d4 hours after the trap is\nsprung must make a DEX check vs\nDC 12 to avoid becoming trapped\nthemselves. However, these\nsecondary victims generally do not\nbecome coated in the substance\nand thus avoid the worst effects."
+  }
+]

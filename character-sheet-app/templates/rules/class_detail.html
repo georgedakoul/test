@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% block title %}{{ class_name }} — Shadowdark RPG{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <div id="class-detail">
+    <div class="placeholder-msg">
+      <div class="icon">&#9813;</div>
+      <h2>Loading {{ class_name }}...</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const name = "{{ class_name }}";
+  const wrap = document.getElementById('class-detail');
+
+  Promise.all([
+    fetch('/api/data/classes').then(r=>r.json()),
+    fetch('/api/data/class_talents').then(r=>r.json()),
+    fetch('/api/data/spell_mishape_table').then(r=>r.json()).catch(()=>[])
+  ]).then(([classes, talents, mishaps]) => {
+    const cls = classes.find(c => (c.class||c.name||'').toLowerCase() === name.toLowerCase());
+    if (!cls) { wrap.innerHTML = '<h1 class="page-title">Class Not Found</h1><p><a href="/classes">&larr; Back to Classes</a></p>'; return; }
+
+    const talentEntry = talents.find(t => (t.class||'').toLowerCase() === name.toLowerCase());
+
+    const cname = cls.class || cls.name || name;
+    let html = `<h1 class="page-title">${cname}</h1>`;
+    html += `<p style="color:var(--text-secondary);margin-bottom:1.5rem;">${cls.source || 'Core'}</p>`;
+
+    if (cls.description) html += `<div style="margin-bottom:1.5rem;line-height:1.7;color:var(--text-primary);">${cls.description}</div>`;
+
+    // Stat block
+    const stats = ['hit_points','weapons','armor','abilities'];
+    const hasStats = stats.some(s => cls[s]);
+    if (hasStats) {
+      html += '<div style="margin-bottom:1.5rem;">';
+      if (cls.hit_points) html += `<p><strong style="color:var(--bronze)">Hit Points:</strong> ${cls.hit_points}</p>`;
+      if (cls.weapons)    html += `<p><strong style="color:var(--bronze)">Weapons:</strong> ${cls.weapons}</p>`;
+      if (cls.armor)      html += `<p><strong style="color:var(--bronze)">Armor:</strong> ${cls.armor}</p>`;
+      if (cls.abilities)  html += `<p><strong style="color:var(--bronze)">Abilities:</strong> ${cls.abilities}</p>`;
+      html += '</div>';
+    }
+
+    // Class features
+    if (cls.features && Array.isArray(cls.features)) {
+      html += '<h2 style="color:var(--bronze);margin-bottom:.75rem;">Features</h2>';
+      cls.features.forEach(f => {
+        html += `<div style="margin-bottom:1rem;"><strong style="color:var(--text-primary);">${f.name||''}</strong><br><span style="color:var(--text-secondary);line-height:1.7;">${f.description||''}</span></div>`;
+      });
+    } else if (cls.features) {
+      html += '<h2 style="color:var(--bronze);margin-bottom:.75rem;">Features</h2>';
+      html += `<div style="line-height:1.7;margin-bottom:1.5rem;">${cls.features}</div>`;
+    }
+
+    // ── Mishap-table detection ─────────────────────────────────────────────
+    // Returns an array of mishap class keys ('wizard'|'priest'|'witch') the
+    // class is associated with. Strategy:
+    //   1. The cls.spellcasting field — supports compound like 'priest/wizard'.
+    //      Maps 'seer' → 'wizard' (INT casting).
+    //   2. Scan feature names + descriptions for explicit phrasings like
+    //      "wizard spells", "priest spell list", "Spellcasting: Wisdom", etc.
+    function inferMishapKeys(cls) {
+      const out = new Set();
+      const addByToken = (tok) => {
+        const t = tok.toLowerCase();
+        if (t === 'wizard' || t === 'seer' || t === 'arcane') out.add('wizard');
+        else if (t === 'priest' || t === 'cleric' || t === 'divine') out.add('priest');
+        else if (t === 'witch' || t === 'occult') out.add('witch');
+      };
+      // 1. spellcasting field — split on / , space
+      const sc = String(cls.spellcasting || '').toLowerCase();
+      sc.split(/[\/\s,;]+/).filter(Boolean).forEach(addByToken);
+
+      // 2. feature text scan
+      const feats = Array.isArray(cls.features) ? cls.features : [];
+      const allText = feats.map(f => (f.name || '') + ' ' + (f.description || ''))
+                            .join(' ').toLowerCase();
+      // explicit spell-list mentions
+      if (/\bwizard'?s?\s+spells?(?:\s+list)?\b/.test(allText) || /\bwizard\s+spell\s+list\b/.test(allText)) out.add('wizard');
+      if (/\bpriest'?s?\s+spells?(?:\s+list)?\b/.test(allText) || /\bcleric'?s?\s+spells?\b/.test(allText))   out.add('priest');
+      if (/\bwitch'?s?\s+spells?(?:\s+list)?\b/.test(allText))   out.add('witch');
+      // "Spellcasting: Wisdom/Intelligence/Charisma" in features
+      if (/spellcast\w*[^.]{0,40}\bintelligence\b/.test(allText)) out.add('wizard');
+      if (/spellcast\w*[^.]{0,40}\bwisdom\b/.test(allText))       out.add('priest');
+      if (/spellcast\w*[^.]{0,40}\bcharisma\b/.test(allText))     out.add('witch');
+      // Reverse order — "intelligence-based spellcasting" etc.
+      if (/\bintelligence[^.]{0,40}spellcast\w*/.test(allText))   out.add('wizard');
+      if (/\bwisdom[^.]{0,40}spellcast\w*/.test(allText))         out.add('priest');
+      if (/\bcharisma[^.]{0,40}spellcast\w*/.test(allText))       out.add('witch');
+
+      return Array.from(out);
+    }
+
+    // ── Resolve spells_known_table — look up referenced class if not defined.
+    // Some classes (homebrew, cursed scrolls variants) don't ship their own
+    // table; their description / features say "same as the wizard" etc. In
+    // that case borrow the referenced class's table.
+    function resolveSpellsTable(cls) {
+      if (cls.spells_known_table && cls.spells_known_table.length) {
+        return { table: cls.spells_known_table, borrowedFrom: null };
+      }
+      const text = ((cls.description || '') + ' ' +
+        (Array.isArray(cls.features)
+          ? cls.features.map(f => (f.name||'') + ' ' + (f.description||'')).join(' ')
+          : (cls.features || ''))).toLowerCase();
+
+      // Patterns implying "use the X class's spells known table":
+      //   "same as the wizard"   "same as a wizard"   "same as wizard"
+      //   "wizard's spells known"  "wizard spells known table"
+      //   "spells known table as the wizard"
+      //   "uses the wizard's spells known table"
+      const lookFor = ['wizard', 'priest', 'witch'];
+      let ref = null;
+      for (const k of lookFor) {
+        const re = new RegExp(
+          // any of these phrasings
+          '(?:same\\s+as\\s+(?:the\\s+|an?\\s+)?' + k + '\\b' +
+          '|' + k + "(?:'s)?\\s+spells?\\s+known(?:\\s+table)?" +
+          '|spells?\\s+known(?:\\s+table)?\\s+as\\s+(?:the\\s+|an?\\s+)?' + k + '\\b' +
+          '|uses?\\s+(?:the\\s+)?' + k + "(?:'s)?\\s+spells?\\s+known" +
+          ')',
+          'i'
+        );
+        if (re.test(text)) { ref = k; break; }
+      }
+      if (!ref) return { table: null, borrowedFrom: null };
+      const refClass = (classes || []).find(c => (c.class || c.name || '').toLowerCase() === ref);
+      if (refClass?.spells_known_table?.length) {
+        return { table: refClass.spells_known_table, borrowedFrom: refClass.class || refClass.name };
+      }
+      return { table: null, borrowedFrom: null };
+    }
+
+    const _resolved = resolveSpellsTable(cls);
+    // Inject resolved table back onto cls so all downstream code (the Mishap
+    // section, etc.) sees a class with a table.
+    if (!cls.spells_known_table?.length && _resolved.table) {
+      cls.spells_known_table = _resolved.table;
+      cls._borrowedFrom = _resolved.borrowedFrom;
+    }
+
+    // Spells Known Table (for spellcasters)
+    if (cls.spells_known_table && cls.spells_known_table.length) {
+      html += '<h2 style="color:var(--bronze);margin-bottom:.75rem;">Spells Known</h2>';
+      if (cls._borrowedFrom) {
+        html += `<p style="color:var(--text-muted);font-style:italic;margin-bottom:.5rem;font-size:.9rem;">Uses the ${cls._borrowedFrom}'s spells known table.</p>`;
+      }
+      html += '<table class="list-table"><thead><tr><th>Level</th>';
+      const maxTier = Math.max(...cls.spells_known_table.map(r => {
+        let m = 0;
+        for (let t = 1; t <= 5; t++) if (r['tier'+t]) m = t;
+        return m;
+      }));
+      for (let t = 1; t <= maxTier; t++) html += `<th>Tier ${t}</th>`;
+      html += '</tr></thead><tbody>';
+      cls.spells_known_table.forEach(row => {
+        html += `<tr><td>${row.level}</td>`;
+        for (let t = 1; t <= maxTier; t++) html += `<td>${row['tier'+t] || '—'}</td>`;
+        html += '</tr>';
+      });
+      html += '</tbody></table>';
+
+    }
+
+    // ── Spell Mishap section — appears for any class detected as a spellcaster
+    // Renders one table per detected mishap key (wizard/priest/witch). When a
+    // class has multiple (e.g. Thaumaturge → priest+wizard), a top-level tab
+    // strip switches between them.
+    const detectedKeys = inferMishapKeys(cls);
+    const mishapEntries = detectedKeys
+      .map(k => (mishaps || []).find(e => e.class?.toLowerCase() === k))
+      .filter(Boolean);
+
+    if (mishapEntries.length) {
+      const sectionId = 'mishap-sec-' + Math.random().toString(36).slice(2,7);
+      html += '<h2 style="color:var(--bronze);margin:.75rem 0;">Spell Mishap</h2>';
+      html += `<div id="${sectionId}">`;
+
+      // Top-level class tabs (only when more than one mishap key applies).
+      if (mishapEntries.length > 1) {
+        html += '<div class="mishap-tabs mishap-class-tabs">';
+        mishapEntries.forEach((e, i) => {
+          const label = e.class[0].toUpperCase() + e.class.slice(1);
+          html += `<button type="button" class="mishap-tab${i===0?' active':''}" data-class-idx="${i}">${label}</button>`;
+        });
+        html += '</div>';
+      }
+
+      mishapEntries.forEach((mishapEntry, ci) => {
+        const classHidden = (mishapEntries.length > 1 && ci !== 0);
+        html += `<div class="mishap-class-block" data-class-idx="${ci}" ${classHidden?'hidden':''}>`;
+
+        if (mishapEntry.class === 'priest') {
+          // Priest — penance payout table. No d12 roll.
+          html += `<p style="color:var(--text-secondary);margin-bottom:.5rem;">On a natural 1, you must pay penance before this spell can be recovered. The cost scales with the spell's tier.</p>`;
+          if (mishapEntry.Penance) {
+            html += `<p style="color:var(--text-secondary);font-style:italic;margin-bottom:.5rem;">${mishapEntry.Penance}</p>`;
+          }
+          html += '<table class="list-table"><thead><tr><th style="width:80px;">Tier</th><th>Penance</th></tr></thead><tbody>';
+          (mishapEntry.table||[]).forEach(row => {
+            html += `<tr><td>${row.tier}</td><td>${row.value}</td></tr>`;
+          });
+          html += '</tbody></table>';
+        } else {
+          // Wizard / Witch — d12 mishaps bucketed by tier band; tabs for switching.
+          html += `<p style="color:var(--text-secondary);margin-bottom:.5rem;">On a natural 1 spellcasting check, the spell fails and you roll a d12 on the table for the spell's tier:</p>`;
+          const bands = mishapEntry.table || [];
+          html += `<div class="mishap-tabs mishap-tier-tabs" data-class-idx="${ci}">`;
+          bands.forEach((b, i) => {
+            html += `<button type="button" class="mishap-tab${i===0?' active':''}" data-band-idx="${i}">Tier ${b.tier}</button>`;
+          });
+          html += `</div>`;
+          bands.forEach((b, i) => {
+            html += `<div class="mishap-band" data-class-idx="${ci}" data-band-idx="${i}" ${i===0?'':'hidden'}>`;
+            html += '<table class="list-table"><thead><tr><th style="width:80px;">d12</th><th>Mishap</th></tr></thead><tbody>';
+            (b.effects||[]).forEach(eff => {
+              html += `<tr><td>${eff.die}</td><td><strong style="color:var(--bronze);">${eff.title||''}</strong> ${eff.description||''}</td></tr>`;
+            });
+            html += '</tbody></table></div>';
+          });
+        }
+        html += '</div>'; // mishap-class-block
+      });
+
+      html += '</div>'; // section
+      // Wire tabs after DOM insertion.
+      setTimeout(() => {
+        const sec = document.getElementById(sectionId);
+        if (!sec) return;
+        // Class-level tabs
+        sec.querySelectorAll('.mishap-class-tabs .mishap-tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            const idx = tab.dataset.classIdx;
+            sec.querySelectorAll('.mishap-class-tabs .mishap-tab').forEach(t => t.classList.toggle('active', t === tab));
+            sec.querySelectorAll('.mishap-class-block').forEach(b => {
+              b.hidden = (b.dataset.classIdx !== idx);
+            });
+          });
+        });
+        // Tier-level tabs (scoped per class block)
+        sec.querySelectorAll('.mishap-tier-tabs').forEach(tabBar => {
+          const cIdx = tabBar.dataset.classIdx;
+          tabBar.querySelectorAll('.mishap-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+              const bIdx = tab.dataset.bandIdx;
+              tabBar.querySelectorAll('.mishap-tab').forEach(t => t.classList.toggle('active', t === tab));
+              sec.querySelectorAll(`.mishap-band[data-class-idx="${cIdx}"]`).forEach(b => {
+                b.hidden = (b.dataset.bandIdx !== bIdx);
+              });
+            });
+          });
+        });
+      }, 0);
+    }
+
+    // Talents
+    if (talentEntry && talentEntry.table && talentEntry.table.length) {
+      html += `<h2 style="color:var(--bronze);margin-bottom:.75rem;">Talents (${talentEntry.die || '2d6'})</h2>`;
+      html += '<table class="list-table"><thead><tr><th style="width:80px;">Roll</th><th>Effect</th></tr></thead><tbody>';
+      talentEntry.table.forEach(t => {
+        html += `<tr><td>${t.roll || ''}</td><td>${t.effect || ''}</td></tr>`;
+      });
+      html += '</tbody></table>';
+    }
+
+    html += '<p style="margin-top:2rem;"><a href="/classes">&larr; Back to Classes</a></p>';
+    wrap.innerHTML = html;
+  }).catch(() => { wrap.innerHTML = '<p style="color:var(--text-muted)">Failed to load class data.</p>'; });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,2486 @@
+[
+  {
+    "id": "item",
+    "class": "Fighter",
+    "source": "Shadowdark RPG Core",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain Weapon Mastery with one additional weapon type"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee and ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength, Dexterity, or Constitution stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Choose one kind of armor — you get +1 AC from that armor"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_2",
+    "class": "Priest",
+    "source": "Shadowdark RPG Core",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain advantage on casting one spell you know"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to priest spellcasting checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+2 to Strength or Wisdom stat"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_3",
+    "class": "Thief",
+    "source": "Shadowdark RPG Core",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain advantage on initiative rolls (reroll if duplicate)"
+      },
+      {
+        "roll": "3-5",
+        "effect": "Your Backstab deals +1 dice of damage"
+      },
+      {
+        "roll": "6-9",
+        "effect": "+2 to Strength, Dexterity, or Charisma stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee and ranged attacks"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_4",
+    "class": "Wizard",
+    "source": "Shadowdark RPG Core",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Make 1 random magic item of a type you choose"
+      },
+      {
+        "roll": "3-7",
+        "effect": "+2 to Intelligence stat or +1 to wizard spellcasting checks"
+      },
+      {
+        "roll": "8-9",
+        "effect": "Gain advantage on casting one spell you know"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn one additional wizard spell of any tier you know"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_5",
+    "class": "Witch",
+    "source": "Cursed Scroll 1",
+    "die": "2d6",
+    "note": "Rolling a duplicate 2 grants +1 use per day of a familiar-linked ability.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "1/day, teleport to where your familiar is (uses your movement)"
+      },
+      {
+        "roll": "3-7",
+        "effect": "+2 to Charisma or +1 on witch spellcasting checks"
+      },
+      {
+        "roll": "8-9",
+        "effect": "Gain advantage on casting a spell you know"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn +1 witch spell of any tier you can cast"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_6",
+    "class": "Knight of Saint Ydris",
+    "source": "Cursed Scroll 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Your Demonic Possession damage bonus increases by 1 point"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength, Dexterity, or Constitution stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+2 to Charisma or +1 on witch spellcasting checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_7",
+    "class": "Warlock",
+    "source": "Cursed Scroll 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Roll a Patron Gift from any patron — an inexplicable gift"
+      },
+      {
+        "roll": "3-6",
+        "effect": "Add +1 point to two different stats"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Roll two Patron Gifts and choose one"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_8",
+    "class": "Desert Rider",
+    "source": "Cursed Scroll 2",
+    "die": "2d6",
+    "note": "Duplicate 2 = reroll.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "You can use any rider-bearing creature as your mount"
+      },
+      {
+        "roll": "3-6",
+        "effect": "You gain +1 to attacks or damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength or Dexterity stat, or +1 to melee attacks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional use of your Charge talent each day"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_9",
+    "class": "Pit Fighter",
+    "source": "Cursed Scroll 2",
+    "die": "2d6",
+    "note": "Duplicate 2 = additional use per day.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "1/day, ignore all damage and effects from one attack"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee weapon damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength or Constitution stat, or +1 to melee attacks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Increase the HP you gain from Flourish by 1d6"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_10",
+    "class": "Ras-Godai",
+    "source": "Cursed Scroll 2",
+    "die": "2d6",
+    "note": "Duplicate 2 = reroll.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "You are trained in the use of poisons"
+      },
+      {
+        "roll": "3-6",
+        "effect": "Roll an additional talent on the Black Lotus Talents table"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength or Dexterity stat, or +1 to melee attacks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional use of your Smoke Step talent each day"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ],
+    "subtable": {
+      "name": "Black Lotus Talents",
+      "die": "d12",
+      "entries": [
+        {
+          "roll": "1",
+          "effect": "You deal triple damage with your Assassinate talent"
+        },
+        {
+          "roll": "2",
+          "effect": "1/day, paralyze a target of LV 9 or less you damage with a weapon for 1d4 rounds"
+        },
+        {
+          "roll": "3",
+          "effect": "Advantage on DEX checks to avoid entrapment or injury"
+        },
+        {
+          "roll": "4",
+          "effect": "+1 to AC when wielding a melee weapon in each hand"
+        },
+        {
+          "roll": "5",
+          "effect": "Gain an additional hit die of HP"
+        },
+        {
+          "roll": "6",
+          "effect": "Advantage on DEX checks to hide"
+        },
+        {
+          "roll": "7",
+          "effect": "When enemies who can see you make a morale check, the DC is 18 instead of 15"
+        },
+        {
+          "roll": "8",
+          "effect": "1/day, walk on water as if solid for 1d4 rounds"
+        },
+        {
+          "roll": "9",
+          "effect": "1/day, one creature LV 5 or less in near must pass DC 15 CON or fall asleep"
+        },
+        {
+          "roll": "10",
+          "effect": "1/day, walk on sheer surfaces (walls, ceilings) for 1d4 rounds"
+        },
+        {
+          "roll": "11",
+          "effect": "+1 damage with melee weapons"
+        },
+        {
+          "roll": "12",
+          "effect": "1/day, one creature LV 9 or less in near must pass DC 15 WIS or can't see/hear you for 1d4 rounds"
+        }
+      ]
+    }
+  },
+  {
+    "id": "item_11",
+    "class": "Basilisk Warrior",
+    "source": "Cursed Scroll 4",
+    "die": "2d6",
+    "note": "Duplicate 2 = reroll if you currently have a basilisk.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "You find a basilisk egg; a loyal hatchling emerges in 1d4 days"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to weapon attacks and damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength, Dexterity, or Constitution stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 use per day of Petrifying Gaze"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_12",
+    "class": "Ranger",
+    "source": "Cursed Scroll 4",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "You deal d12 damage with one weapon type you choose"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks and damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength, Dexterity, or Intelligence stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "You gain ADV on Herbalism checks for a remedy you choose"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_13",
+    "class": "Delver",
+    "source": "Cursed Scroll 5",
+    "die": "2d6",
+    "note": "Reroll 10-11 if Scavenger success range is already 3-6.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain 2 gear slots and an additional Trusty Gear"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks and damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength, Dexterity, or Constitution stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Add one more point to your Scavenger success range"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_14",
+    "class": "Wyrdling",
+    "source": "Cursed Scroll 5",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain two new Corruption talents"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to Strength, Dexterity, or Charisma stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Gain a new Corruption talent"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to attacks and damage rolls with your pseudopod"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ],
+    "subtable": {
+      "name": "Corruption",
+      "die": "d10",
+      "entries": [
+        {
+          "roll": "1",
+          "effect": "Mad Certainty — immune to effects targeting your mind or spirit"
+        },
+        {
+          "roll": "2",
+          "effect": "Vicious Pseudopod — pseudopod sprouts barbs; increase damage die by one step"
+        },
+        {
+          "roll": "3",
+          "effect": "Segmented Pseudopod — pseudopod's range increases to double near"
+        },
+        {
+          "roll": "4",
+          "effect": "Fish Gills — you can breathe underwater"
+        },
+        {
+          "roll": "5",
+          "effect": "Dorsal Hump — permanently gain 1d6 HP"
+        },
+        {
+          "roll": "6",
+          "effect": "Thickened Skin — gain +1 to AC"
+        },
+        {
+          "roll": "7",
+          "effect": "Fish Eyes — you cannot be surprised"
+        },
+        {
+          "roll": "8",
+          "effect": "Abominable Hunger — 1/day, regain 2d6 HP by devouring humanoid flesh (+1 use each time rolled)"
+        },
+        {
+          "roll": "9",
+          "effect": "Creepy Stillness — ADV on DEX checks to hide and sneak"
+        },
+        {
+          "roll": "10",
+          "effect": "Evolution — distribute +3 points between stats and HP"
+        }
+      ]
+    }
+  },
+  {
+    "id": "item_15",
+    "class": "Bard",
+    "source": "Cursed Scroll 6",
+    "die": "2d6",
+    "note": "Duplicate 2 = reroll.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "You have advantage on downtime checks (excluding carousing)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee and ranged attacks, or +1 to Fascinate rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 points to distribute to any stats"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Add +2 to your group's carousing event rolls"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_16",
+    "class": "Duelist",
+    "source": "Cursed Scroll 6",
+    "die": "2d6",
+    "note": "Duplicate 2 = +1 use per day.",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "1/day, all attacks that would hit you this round miss instead"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee attacks and damage, or +1 Parry per day"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to Strength, Dexterity, or Charisma stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Deal +1d6 damage when you hit with a Taunt attack"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_17",
+    "class": "Sea Wolf",
+    "source": "Cursed Scroll 3",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "1/day, enter a rage: immune to damage for 3 rounds (reroll if duplicate)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "Your attacks deal +1 damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to STR or CON, or +1 to attack rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Duality — choose 2 different Ancient God effects each day"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_18",
+    "class": "Seer",
+    "source": "Cursed Scroll 3",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn +1 seer spell of any tier you can cast"
+      },
+      {
+        "roll": "3-6",
+        "effect": "Gain an additional use of Omen per day"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to WIS or CHA stat, or +1 to spellcasting checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Increase the Fated bonus die by one step (e.g. d6 → d8)"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_19",
+    "class": "Assassin (CO2)",
+    "source": "Codex Officium II",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Advantage on initiative checks (reroll if duplicate)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to STR, DEX, or INT stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee or ranged damage"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 stat points"
+      }
+    ]
+  },
+  {
+    "id": "item_20",
+    "class": "Crusader",
+    "source": "Codex Officium II",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to spellcasting checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee and ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to STR, CON, or WIS stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee and ranged damage"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 stat points"
+      }
+    ]
+  },
+  {
+    "id": "item_21",
+    "class": "Knight",
+    "source": "Codex Officium II",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to all saving throws"
+      },
+      {
+        "roll": "3-7",
+        "effect": "+1 to melee attacks and damage"
+      },
+      {
+        "roll": "8-11",
+        "effect": "+2 to STR, CON, or CHA stat"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 stat points"
+      }
+    ]
+  },
+  {
+    "id": "item_22",
+    "class": "Thaumaturge",
+    "source": "Codex Officium II",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to spellcasting checks"
+      },
+      {
+        "roll": "3-7",
+        "effect": "+2 to INT or WIS stat"
+      },
+      {
+        "roll": "8-9",
+        "effect": "Gain advantage on casting one spell you know"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn one additional priest or wizard spell of a tier you can cast"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 stat points"
+      }
+    ]
+  },
+  {
+    "id": "item_23",
+    "class": "Troubadour",
+    "source": "Codex Officium II",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to spellcasting checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee and ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to STR, DEX, or INT stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee and ranged damage"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 stat points"
+      }
+    ]
+  },
+  {
+    "id": "item_24",
+    "class": "Revenant",
+    "source": "Codex Officium II",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "If reduced to 0 HP by physical damage, make a CON DC 15 save to go to 1 HP instead (reroll duplicate)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee and ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to STR or CON stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee and ranged damage"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 stat points"
+      }
+    ]
+  },
+  {
+    "id": "item_25",
+    "class": "Lycan",
+    "source": "Cursed Classes",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to attacks with Beastly Claws (reroll if duplicate)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to STR, WIS, or CON stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Increase max Corruption by +2"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_26",
+    "class": "Vampire",
+    "source": "Cursed Classes",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Blood Sucker deals +1 dice of damage"
+      },
+      {
+        "roll": "3-5",
+        "effect": "Learn a level 1 wizard spell"
+      },
+      {
+        "roll": "6-9",
+        "effect": "+2 to DEX, CON, or CHA stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain Weapon Mastery with one weapon type"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_27",
+    "class": "Fae",
+    "source": "Cursed Classes",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Oathbound deals +2 dice of damage"
+      },
+      {
+        "roll": "3-5",
+        "effect": "Learn a spell of a tier lower than half your level"
+      },
+      {
+        "roll": "6-9",
+        "effect": "+2 to INT, DEX, or CHA stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Roll on the talent table for a class of your choice"
+      },
+      {
+        "roll": "12",
+        "effect": "Any class talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_28",
+    "class": "Medium",
+    "source": "Cursed Classes",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain advantage on focus checks (reroll if duplicate)"
+      },
+      {
+        "roll": "3-5",
+        "effect": "Learn a wizard spell of a tier lower than half your level"
+      },
+      {
+        "roll": "6-9",
+        "effect": "+2 to INT, DEX, or CON stat"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Mind Crush gets +1 die of damage"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent or +2 points to distribute to stats"
+      }
+    ]
+  },
+  {
+    "id": "item_29",
+    "class": "Archer",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a longbow or shortbow"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain 3 hit points"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_30",
+    "class": "Assassin (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Your venom deals an extra point of damage"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_31",
+    "class": "Beastmaster",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Animal Kinship checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Your snares deal an extra point of damage"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_32",
+    "class": "Berserker",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Subjugation checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to CHA or CON stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Use Blooded one additional time before resting"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_33",
+    "class": "Brigand",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to stealth checks (in addition to Shadowed)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Thievery checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to Knockout checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_34",
+    "class": "Buccaneer",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Stunt checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to Thievery checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_35",
+    "class": "Burglar",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to stealth checks (in addition to Shadowed)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or INT stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Thievery checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to Palm checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_36",
+    "class": "Charlatan",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Charming checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to Thievery checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_37",
+    "class": "Conjurer",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Scroll Study checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to INT or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_38",
+    "class": "Druid (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Shapeshift into a small creature (bird, rat, cat) for 3 rounds"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to WIS or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Shapeshift into a large creature (+2 AC, 2d6 damage) for 3 rounds"
+      }
+    ]
+  },
+  {
+    "id": "item_39",
+    "class": "Elementalist",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Blast spellcasting checks or +1 damage to your blast"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to INT or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_40",
+    "class": "Enchanter",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Mesmerizing Gaze checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to INT or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_41",
+    "class": "Explorer",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to initiative checks (in addition to Alertness)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or INT stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Pathfinding checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_42",
+    "class": "Gladiator",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to AC when using a shield"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Dirty Tricks checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to shield bash checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_43",
+    "class": "Mage (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain 2 hit points"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to INT or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+2 to spellcasting checks for one of your Signature Spells"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_44",
+    "class": "Mariner",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Automatically succeed at climbing at one higher difficulty level"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or INT stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Permanently gain 2 HP or +1 AC"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_45",
+    "class": "Monk (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 damage to undead touched by your holy symbol"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_46",
+    "class": "Mystic",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Increase your Meditation spellcasting bonus by 1"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to WIS or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_47",
+    "class": "Necromancer",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 bonus on Command Undead checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to INT or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_48",
+    "class": "Noble",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Inherit 200 gp multiplied by your level"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Permanently gain 2 HP or +1 AC"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_49",
+    "class": "Oracle",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Your Possession ability lasts an extra round"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Permanently gain +2 HP or +1 AC"
+      }
+    ]
+  },
+  {
+    "id": "item_50",
+    "class": "Pugilist",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to your Brawl attack and damage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain 3 hit points"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_51",
+    "class": "Ranger (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Automatically succeed at tracking at one higher difficulty level"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain a known priest spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_52",
+    "class": "Rogue",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Thievery checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to Shadowed checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_53",
+    "class": "Savage",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Permanently gain 2 HP or +1 AC"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_54",
+    "class": "Scholar",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Your Leadership grants an extra +1 attack or +1 initiative"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to INT or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain a known wizard spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_55",
+    "class": "Scout",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to initiative checks (in addition to Alertness)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or INT stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Shadowed checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_56",
+    "class": "Shaman (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Spirit Walk checks or extend duration"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to WIS or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_57",
+    "class": "Soldier",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Gain Weapon Focus in an additional weapon"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "12",
+        "effect": "Permanently gain 2 HP or +1 AC"
+      }
+    ]
+  },
+  {
+    "id": "item_58",
+    "class": "Sorcerer (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Reduce your Quick Recovery wait time by 1 round"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to INT or WIS stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain a known wizard spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_59",
+    "class": "Spy",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Charming checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Shadowed checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_60",
+    "class": "Squire",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Permanently gain 2 HP or +1 AC"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Carry one more torch (free gear slot)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_61",
+    "class": "Thug",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Unstoppable checks"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Intimidation checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to Shadowed checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_62",
+    "class": "Urchin",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Permanently gain 2 HP or +1 AC"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to DEX or CHA stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Thievery checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Learn to wear another type of armor or use a new weapon"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_63",
+    "class": "Valkyrie",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Your ravens gain 1 HP, +1 to attacks, and +1 AC"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to STR or DEX stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to attack and damage with a weapon of your choice"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain a known priest spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_64",
+    "class": "Witch (PC)",
+    "source": "Player's Companion",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Your potions restore +1 HP or inflict +1 damage"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+2 to WIS or CON stat"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Permanently cast a spell of your choice with advantage"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain an additional known spell (doesn't count toward limit)"
+      },
+      {
+        "roll": "12",
+        "effect": "Pick a talent or improve a stat by 2 points"
+      }
+    ]
+  },
+  {
+    "id": "item_65",
+    "class": "Barbarian",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee attacks and damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to AC while wearing no armor"
+      },
+      {
+        "roll": "10-11",
+        "effect": "You can use a STR check to intimidate a creature"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_66",
+    "class": "Bard (PE1)",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 to Sonic Blast damage"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Gain one additional academic study from Knowledgeable"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_67",
+    "class": "Commander",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats (reroll 10-11 if repeated)"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Choose one armor type — gain +1 AC from that armor"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain advantage on stat checks with Marshal Presence"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_68",
+    "class": "Druid (PE1)",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to druid potion brewing checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain advantage on brewing one potion you have access to"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_69",
+    "class": "Monk (PE1)",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to unarmed strike attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Select an extra Martial Arts style"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Advantage on STR, DEX, CON, or WIS checks"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_70",
+    "class": "Paladin",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn a level 1 Priest Spell, use CHA or WIS to cast it"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee damage"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee attack rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_71",
+    "class": "Ranger (PE1)",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee or ranged damage rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain advantage on one Herbal Potion check you choose"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_72",
+    "class": "Shaman (PE1)",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to shaman spellcasting checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain advantage on casting one spell you know"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_73",
+    "class": "Sorcerer (PE1)",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "Learn one additional wizard spell of tier 1"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to sorcerer spellcasting checks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "Gain advantage on casting one spell you know"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_74",
+    "class": "Warlock (PE1)",
+    "source": "Player's Expansion 1",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to Eldritch Blast spellcasting checks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee or ranged attacks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Advantage on one stat check of your choice"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_75",
+    "class": "Cursedblade",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to spellcasting checks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee attacks with weapons"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee damage rolls with weapons"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_76",
+    "class": "Elemental Warrior",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to unarmed strike attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to unarmed strike damage rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain advantage on spellcasting checks (reroll if duplicated)"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_77",
+    "class": "Monster Slayer",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to spellcasting checks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee and ranged attack rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee and ranged damage rolls"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_78",
+    "class": "Mystical Archer",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to ranged attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to ranged damage rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to initiative rolls"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_79",
+    "class": "Psychic Infiltrator",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to spellcasting checks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee and ranged attack rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee and ranged damage rolls"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_80",
+    "class": "Samurai",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to ranged attack rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee damage rolls"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_81",
+    "class": "Shadow Stalker",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to spellcasting checks"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee and ranged attack rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to melee and ranged damage rolls"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_82",
+    "class": "Spellsword",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to Spellsword spellcasting checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain advantage on casting one spell you know"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_83",
+    "class": "Swashbuckler",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee and ranged attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee and ranged damage rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+1 to AC (reroll if duplicated)"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_84",
+    "class": "War Mage",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee or ranged attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to War Mage spellcasting checks"
+      },
+      {
+        "roll": "10-11",
+        "effect": "Gain advantage on casting one spell you know"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  },
+  {
+    "id": "item_85",
+    "class": "War Master",
+    "source": "Player's Expansion 2",
+    "die": "2d6",
+    "table": [
+      {
+        "roll": "2",
+        "effect": "+1 AC from the armor you wear"
+      },
+      {
+        "roll": "3-6",
+        "effect": "+1 to melee and ranged attack rolls"
+      },
+      {
+        "roll": "7-9",
+        "effect": "+1 to melee and ranged damage rolls"
+      },
+      {
+        "roll": "10-11",
+        "effect": "+2 points to distribute to stats"
+      },
+      {
+        "roll": "12",
+        "effect": "Choose a talent"
+      }
+    ]
+  }
+]

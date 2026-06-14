@@ -1,0 +1,459 @@
+{% extends "base.html" %}
+{% block title %}Rules Glossary — Shadowdark RPG{% endblock %}
+
+{% block head %}
+<style>
+  /* ── Layout: sidebar left + content right ── */
+  .glossary-layout {
+    display: flex;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* ── Sidebar (desktop) ── */
+  .gloss-sidebar {
+    position: sticky;
+    top: 44px;
+    align-self: flex-start;
+    width: 210px;
+    min-width: 210px;
+    height: calc(100vh - 44px);
+    overflow-y: auto;
+    padding: 1.25rem .75rem 2rem .5rem;
+    border-right: 1px solid var(--border-dim);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-dim) transparent;
+  }
+  .sidebar-title {
+    font-family: var(--font-h);
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--text-muted);
+    margin-bottom: .75rem;
+    padding-left: .5rem;
+  }
+  .sidebar-link {
+    display: block;
+    font-size: .85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: .35rem .5rem;
+    border-radius: 4px;
+    border-left: 2px solid transparent;
+    transition: all .15s;
+  }
+  .sidebar-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-panel-alt);
+  }
+  .sidebar-link.active {
+    color: var(--bronze);
+    border-left-color: var(--bronze);
+    background: var(--bg-panel-alt);
+  }
+
+  /* ── Mobile toggle button ── */
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 52px;
+    left: 8px;
+    z-index: 200;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid var(--border-dim);
+    background: var(--bg-panel);
+    color: var(--bronze);
+    font-size: 1.1rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+
+  /* ── Overlay backdrop (mobile) ── */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 149;
+    background: rgba(0,0,0,.5);
+  }
+
+  /* ── Content area ── */
+  .gloss-body {
+    flex: 1;
+    min-width: 0;
+    padding: 1.5rem 1.5rem 3rem 2rem;
+  }
+
+  /* ── Search bar ── */
+  .glossary-search {
+    position: sticky;
+    top: 44px;
+    z-index: 10;
+    background: var(--bg-chrome);
+    padding: .75rem 0 .75rem;
+    margin-bottom: 1.5rem;
+  }
+  .glossary-search input {
+    width: 100%;
+    max-width: 480px;
+    padding: .6rem 1rem;
+    font-size: 1rem;
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    border: 1px solid var(--border-dim);
+    border-radius: 6px;
+  }
+  .glossary-search input:focus {
+    outline: none;
+    border-color: var(--bronze);
+  }
+
+  /* ── Content sections ── */
+  .cat-section { margin-bottom: 3rem; }
+  .cat-title {
+    font-family: var(--font-h);
+    font-size: 1.6rem;
+    color: var(--bronze);
+    padding-bottom: .4rem;
+    border-bottom: 2px solid var(--bronze);
+    margin-bottom: 1.5rem;
+  }
+  .gloss-entry { margin-bottom: 1.75rem; }
+  .gloss-entry-header {
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+  .gloss-expand-btn {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+    border: 1px solid var(--border-dim);
+    border-radius: 4px;
+    background: var(--bg-panel);
+    color: var(--bronze);
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s;
+    line-height: 1;
+  }
+  .gloss-expand-btn:hover {
+    background: var(--bronze);
+    color: var(--bg-chrome);
+    border-color: var(--bronze);
+  }
+  .gloss-expand-btn.open {
+    background: var(--bronze);
+    color: var(--bg-chrome);
+    border-color: var(--bronze);
+  }
+  .gloss-entry-term {
+    font-family: var(--font-h);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: .3rem;
+  }
+  .gloss-entry-term.clickable { cursor: pointer; }
+  .gloss-entry-term.clickable:hover { color: var(--bronze); }
+  .gloss-entry-def {
+    font-size: .95rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+  .gloss-entry-details {
+    display: none;
+    margin-top: .75rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-dim);
+    border-left: 3px solid var(--bronze);
+    border-radius: 0 6px 6px 0;
+    font-size: .92rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
+  .gloss-entry-details.open { display: block; }
+  .gloss-entry-details p { margin: 0 0 .6rem; }
+  .gloss-entry-details p:last-child { margin-bottom: 0; }
+  .gloss-entry-details ul, .gloss-entry-details ol {
+    margin: .4rem 0 .8rem 1.25rem;
+    padding: 0;
+  }
+  .gloss-entry-details li { margin-bottom: .3rem; }
+  .gloss-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: .75rem 0;
+    font-size: .88rem;
+  }
+  .gloss-table th {
+    text-align: left;
+    padding: .4rem .6rem;
+    background: var(--bg-panel-alt);
+    color: var(--bronze);
+    font-weight: 700;
+    border-bottom: 2px solid var(--bronze);
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .gloss-table td {
+    padding: .35rem .6rem;
+    border-bottom: 1px solid var(--border-dim);
+    color: var(--text-secondary);
+  }
+  .gloss-table tr:last-child td { border-bottom: none; }
+  .gloss-entry-src {
+    font-size: .75rem;
+    color: var(--text-muted);
+    margin-top: .25rem;
+  }
+  .gloss-entry-src strong { color: var(--bronze); font-weight: 600; }
+  .no-results {
+    color: var(--text-muted);
+    padding: 3rem 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  /* ── Mobile: sidebar becomes slide-out drawer ── */
+  @media (max-width: 800px) {
+    .sidebar-toggle { display: flex; }
+
+    .gloss-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 150;
+      height: 100vh;
+      width: 240px;
+      min-width: 240px;
+      background: var(--bg-chrome);
+      border-right: 1px solid var(--border-dim);
+      transform: translateX(-100%);
+      transition: transform .25s ease;
+      padding-top: 1rem;
+    }
+    .gloss-sidebar.open {
+      transform: translateX(0);
+    }
+    .sidebar-overlay.open {
+      display: block;
+    }
+
+    .sidebar-close {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .5rem .75rem .75rem;
+      border-bottom: 1px solid var(--border-dim);
+      margin-bottom: .5rem;
+    }
+    .sidebar-close-label {
+      font-family: var(--font-h);
+      font-size: .9rem;
+      color: var(--text-primary);
+    }
+    .sidebar-close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: .2rem .4rem;
+    }
+    .sidebar-close-btn:hover { color: var(--bronze); }
+
+    .gloss-body { padding: 1rem 1rem 3rem; }
+    .cat-title { font-size: 1.3rem; }
+    .gloss-entry-term { font-size: 1rem; }
+  }
+
+  /* Desktop: hide the close header inside sidebar */
+  @media (min-width: 801px) {
+    .sidebar-close { display: none; }
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<!-- Mobile toggle -->
+<button class="sidebar-toggle" id="sidebar-toggle" title="Categories">&#9776;</button>
+
+<div class="glossary-layout">
+  <!-- Overlay for mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Sidebar -->
+  <nav class="gloss-sidebar" id="gloss-sidebar">
+    <div class="sidebar-close">
+      <span class="sidebar-close-label">Categories</span>
+      <button class="sidebar-close-btn" id="sidebar-close">&times;</button>
+    </div>
+    <div class="sidebar-title">On this page</div>
+    <div id="cat-nav"></div>
+  </nav>
+
+  <!-- Main content -->
+  <div class="gloss-body">
+    <h1 class="page-title">Rules Glossary</h1>
+    <div class="glossary-search">
+      <input type="text" id="gloss-search" placeholder="Search rules...">
+    </div>
+    <div id="gloss-content"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const content   = document.getElementById('gloss-content');
+  const search    = document.getElementById('gloss-search');
+  const catNav    = document.getElementById('cat-nav');
+  const sidebar   = document.getElementById('gloss-sidebar');
+  const overlay   = document.getElementById('sidebar-overlay');
+  const toggleBtn = document.getElementById('sidebar-toggle');
+  const closeBtn  = document.getElementById('sidebar-close');
+  let allData     = [];
+  let categories  = [];
+
+  // ── Sidebar open/close (mobile) ──
+  function openSidebar()  { sidebar.classList.add('open'); overlay.classList.add('open'); }
+  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+
+  toggleBtn.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+
+  // ── Scroll-spy: highlight active category ──
+  let sectionEls = [];
+  function updateSpy() {
+    const scrollY = window.scrollY + 120;
+    let active = '';
+    for (let i = sectionEls.length - 1; i >= 0; i--) {
+      if (sectionEls[i].offsetTop <= scrollY) {
+        active = sectionEls[i].id;
+        break;
+      }
+    }
+    catNav.querySelectorAll('.sidebar-link').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + active);
+    });
+  }
+  window.addEventListener('scroll', updateSpy, { passive: true });
+
+  // ── Load data ──
+  fetch('/api/data/glossary').then(r=>r.json()).then(data => {
+    allData = data;
+    const seen = new Set();
+    data.forEach(g => {
+      if (!seen.has(g.category)) { seen.add(g.category); categories.push(g.category); }
+    });
+
+    // Build sidebar links
+    catNav.innerHTML = categories.map(cat => {
+      const anchor = cat.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+      return `<a class="sidebar-link" href="#cat-${anchor}">${cat}</a>`;
+    }).join('');
+
+    // On mobile, clicking a link closes the drawer
+    catNav.querySelectorAll('.sidebar-link').forEach(a => {
+      a.addEventListener('click', () => { closeSidebar(); });
+    });
+
+    render();
+  });
+
+  function render() {
+    const q = (search.value || '').toLowerCase();
+    const filtered = allData.filter(g => {
+      if (!q) return true;
+      return [g.term, g.definition, g.category, g.source, g.details||''].join(' ').toLowerCase().includes(q);
+    });
+
+    const groups = {};
+    const catOrder = [];
+    filtered.forEach(g => {
+      if (!groups[g.category]) { groups[g.category] = []; catOrder.push(g.category); }
+      groups[g.category].push(g);
+    });
+    for (const cat of catOrder) {
+      groups[cat].sort((a,b) => a.term.toLowerCase().localeCompare(b.term.toLowerCase()));
+    }
+
+    if (!filtered.length) {
+      content.innerHTML = '<div class="no-results">No matching rules found.</div>';
+      sectionEls = [];
+      return;
+    }
+
+    let html = '';
+    catOrder.forEach(cat => {
+      const anchor = cat.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+      html += `<section class="cat-section" id="cat-${anchor}">`;
+      html += `<h2 class="cat-title">${cat}</h2>`;
+      groups[cat].forEach(g => {
+        const srcLabel = g.source !== 'Shadowdark RPG Core' ? g.source : '';
+        const pageLabel = g.page ? `p.${g.page}` : '';
+        const meta = [srcLabel, pageLabel].filter(Boolean).join(', ');
+        const hasDetails = !!g.details;
+        html += `<div class="gloss-entry">`;
+        html += `<div class="gloss-entry-header">`;
+        if (hasDetails) {
+          html += `<button class="gloss-expand-btn" data-id="${g.id}" title="Show full rule">+</button>`;
+        }
+        html += `<div>`;
+        html += `<div class="gloss-entry-term${hasDetails ? ' clickable' : ''}" ${hasDetails ? `data-id="${g.id}"` : ''}>${g.term}</div>`;
+        html += `<div class="gloss-entry-def">${g.definition}</div>`;
+        if (meta) html += `<div class="gloss-entry-src"><strong>Source:</strong> ${meta}</div>`;
+        html += `</div></div>`;
+        if (hasDetails) {
+          html += `<div class="gloss-entry-details" data-details="${g.id}">${g.details}</div>`;
+        }
+        html += `</div>`;
+      });
+      html += `</section>`;
+    });
+
+    content.innerHTML = html;
+    sectionEls = [...document.querySelectorAll('.cat-section')];
+    updateSpy();
+
+    // Wire up expand/collapse for + buttons
+    content.querySelectorAll('.gloss-expand-btn').forEach(btn => {
+      btn.addEventListener('click', () => toggleDetails(btn.dataset.id));
+    });
+    // Also allow clicking the term to expand
+    content.querySelectorAll('.gloss-entry-term.clickable').forEach(term => {
+      term.addEventListener('click', () => toggleDetails(term.dataset.id));
+    });
+  }
+
+  function toggleDetails(id) {
+    const details = content.querySelector(`[data-details="${id}"]`);
+    const btn = content.querySelector(`.gloss-expand-btn[data-id="${id}"]`);
+    if (!details) return;
+    const isOpen = details.classList.toggle('open');
+    if (btn) {
+      btn.textContent = isOpen ? '−' : '+';
+      btn.classList.toggle('open', isOpen);
+    }
+  }
+
+  search.addEventListener('input', render);
+})();
+</script>
+{% endblock %}

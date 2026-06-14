@@ -1,0 +1,517 @@
+/* ════════════════════════════════════════════════════════════════════════════
+   SHADOWDARK COMPANION — Dark / Bronze Theme
+   Shared across all companion site pages (nav, home, rules, library, vtt)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'OldNewspaper';
+  src: url('/static/fonts/OldNewspaper.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Variables (mirrors character-sheet) ──────────────────────────────────── */
+:root {
+  --bg-chrome:      #141210;
+  --bg-chrome-hi:   #1e1a16;
+  --bg-page:        #ddd9d0;
+  --bg-sheet:       #faf8f3;
+
+  --ink:            #130f08;
+  --ink-soft:       #3a2e1a;
+  --ink-muted:      #7a6a50;
+
+  --bronze:         #c8841c;
+  --bronze-mid:     #9a6218;
+  --bronze-dark:    #6a4010;
+  --bronze-deep:    #3a2008;
+
+  --rule-heavy:     #1a1410;
+  --rule-mid:       #7a5a28;
+  --rule-light:     #c8b898;
+
+  --hdr-bg:         #1e1810;
+  --hdr-text:       #f0ece4;
+  --hdr-accent:     #c8841c;
+
+  --bg-panel:       #1a1610;
+  --bg-panel-alt:   #221e16;
+  --bg-input:       #100e0a;
+  --bg-hover:       #2a2418;
+  --bg-card:        #1a1610;
+  --border-strong:  #545454;
+  --border-mid:     #3e3e3e;
+  --border-dim:     #2a2418;
+  --border-subtle:  #342e24;
+  --text-primary:   #f0e8d8;
+  --text-secondary: #b0a080;
+  --text-muted:     #7a6a50;
+  --text-label:     #a09070;
+
+  --font-h: 'OldNewspaper', Georgia, serif;
+  --font-b: 'OldNewspaper', Georgia, serif;
+  --radius: 3px;
+  --trans:  all .15s ease;
+}
+
+/* ── Reset ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { height: 100%; }
+body {
+  min-height: 100%;
+  font-family: var(--font-b);
+  background: var(--bg-chrome);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--bronze); text-decoration: none; }
+a:hover { color: var(--hdr-accent); text-decoration: underline; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   SITE NAV
+   ════════════════════════════════════════════════════════════════════════════ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: .6rem 1.5rem;
+  background: var(--hdr-bg);
+  border-bottom: 2px solid var(--bronze-dark);
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+
+.site-logo {
+  font-family: var(--font-h);
+  font-size: 1.4rem;
+  color: var(--bronze);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.site-logo:hover { color: var(--hdr-accent); text-decoration: none; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+/* Nav link buttons */
+.nav-link {
+  background: none;
+  border: none;
+  font-family: var(--font-b);
+  font-size: .95rem;
+  color: var(--text-secondary);
+  padding: .4rem .75rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: var(--trans);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  text-decoration: none;
+}
+
+/* Dropdown container */
+.nav-item { position: relative; }
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  padding: .35rem 0;
+  z-index: 910;
+}
+.nav-dropdown.dd-wide { min-width: 200px; }
+
+.nav-item.open .nav-dropdown { display: block; }
+
+.dd-link {
+  display: block;
+  padding: .45rem 1rem;
+  color: var(--text-secondary);
+  font-size: .9rem;
+  transition: var(--trans);
+}
+.dd-link:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   HOME / LANDING PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Hero section */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--bronze) 12%, transparent) 0%, transparent 60%),
+    var(--bg-chrome);
+}
+.hero-title {
+  font-family: var(--font-h);
+  font-size: 3rem;
+  color: var(--bronze);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+/* Quick-link cards */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  width: 100%;
+  padding: 0 1rem;
+}
+.ql-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  padding: 1.5rem 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-dim);
+  border-radius: 6px;
+  transition: var(--trans);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+.ql-card:hover {
+  background: var(--bg-hover);
+  border-color: var(--bronze-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  text-decoration: none;
+}
+.ql-icon {
+  font-size: 2rem;
+  color: var(--bronze);
+}
+.ql-label {
+  font-family: var(--font-h);
+  font-size: 1rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.ql-desc {
+  font-size: .8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CONTENT PAGES — shared layout
+   ════════════════════════════════════════════════════════════════════════════ */
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.page-title {
+  font-family: var(--font-h);
+  font-size: 2rem;
+  color: var(--bronze);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--bronze-dark);
+  padding-bottom: .5rem;
+}
+
+/* Search / filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.5rem;
+}
+.filter-input {
+  flex: 1 1 200px;
+  padding: .5rem .75rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-b);
+  font-size: .9rem;
+}
+.filter-input::placeholder { color: var(--text-muted); }
+.filter-input:focus { outline: none; border-color: var(--bronze); }
+
+.filter-btn {
+  padding: .45rem .9rem;
+  background: var(--bg-panel-alt);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-family: var(--font-b);
+  font-size: .85rem;
+  cursor: pointer;
+  transition: var(--trans);
+}
+/* Hover hint: subtle accent tint, NOT the full active fill — so deactivating
+   an .active button (after click) immediately shows the inactive state, even
+   while the mouse is still over it. */
+.filter-btn:hover {
+  background: color-mix(in srgb, var(--bronze) 14%, var(--bg-panel-alt));
+  border-color: var(--bronze);
+  color: var(--text-primary);
+}
+/* Active state: solid fill with parchment text so it reads in every theme/mode. */
+.filter-btn.active,
+.filter-btn.active:hover {
+  background: var(--bronze-dark);
+  border-color: var(--bronze);
+  color: #E9DCC0;          /* parchment cream */
+  font-weight: 600;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CARD GRID — Classes, Species
+   ════════════════════════════════════════════════════════════════════════════ */
+.source-group {
+  margin-bottom: 2rem;
+}
+.source-heading {
+  font-family: var(--font-h);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+  padding-left: .25rem;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.rule-card {
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-dim);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: var(--trans);
+  text-decoration: none;
+  color: var(--text-primary);
+  min-height: 100px;
+}
+.rule-card:hover {
+  border-color: var(--bronze-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  text-decoration: none;
+}
+
+.rule-card-body {
+  flex: 1;
+  padding: .75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.rule-card-name {
+  font-family: var(--font-h);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  letter-spacing: .03em;
+}
+.rule-card-meta {
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-top: .25rem;
+}
+
+.rule-card-img {
+  width: 100px;
+  min-height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  mask-image: linear-gradient(to right, transparent, black 30%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MISHAP TIER TABS — Wizard / Witch class pages
+   ════════════════════════════════════════════════════════════════════════════ */
+.mishap-tabs {
+  display: flex; flex-wrap: wrap; gap: .35rem;
+  margin: .25rem 0 .65rem;
+}
+.mishap-tab {
+  font-family: var(--font-h);
+  font-size: .85rem;
+  padding: .35rem .85rem;
+  background: color-mix(in srgb, var(--bronze) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bronze) 40%, transparent);
+  color: var(--text-primary);
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: .03em;
+  transition: background .12s ease, border-color .12s ease, color .12s ease;
+}
+.mishap-tab:hover {
+  background: color-mix(in srgb, var(--bronze) 24%, transparent);
+  border-color: color-mix(in srgb, var(--bronze) 60%, transparent);
+}
+.mishap-tab.active,
+.mishap-tab.active:hover {
+  background: var(--bronze-dark);
+  border-color: var(--bronze);
+  color: #E9DCC0;
+  font-weight: 600;
+}
+.mishap-band { margin-bottom: 1rem; }
+
+/* Class-level tabs (outer) — slightly bigger so they read as a higher
+   hierarchy than the inner tier-band tabs */
+.mishap-class-tabs .mishap-tab {
+  font-size: .95rem;
+  padding: .45rem 1rem;
+  letter-spacing: .05em;
+}
+.mishap-class-block { margin-bottom: 1.25rem; }
+.mishap-class-tabs { margin-bottom: .85rem; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   LIST TABLE — Backgrounds, Spells, Equipment, Magic Items, Monsters
+   ════════════════════════════════════════════════════════════════════════════ */
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.list-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--hdr-bg);
+  color: var(--hdr-text);
+  font-family: var(--font-h);
+  font-size: .85rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: .5rem .75rem;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 2px solid var(--bronze-dark);
+  white-space: nowrap;
+}
+.list-table thead th:hover { color: var(--bronze); }
+.list-table thead th .sort-arrow { margin-left: .3rem; font-size: .7rem; }
+
+.list-table tbody tr {
+  border-bottom: 1px solid var(--border-dim);
+  cursor: pointer;
+  transition: background .1s;
+}
+.list-table tbody tr:hover { background: var(--bg-hover); }
+.list-table tbody td {
+  padding: .55rem .75rem;
+  font-size: .9rem;
+  color: var(--text-primary);
+  vertical-align: top;
+}
+.list-table tbody td.muted { color: var(--text-muted); }
+
+/* Expandable row detail */
+.row-detail {
+  display: none;
+  padding: .75rem 1rem 1rem 1.5rem;
+  background: var(--bg-panel-alt);
+  border-bottom: 1px solid var(--border-dim);
+  font-size: .88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.row-detail.open { display: table-row; }
+.row-detail td { padding: .75rem 1rem; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   PLACEHOLDER / COMING SOON
+   ════════════════════════════════════════════════════════════════════════════ */
+.placeholder-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  color: var(--text-muted);
+}
+.placeholder-msg .icon { font-size: 3rem; margin-bottom: 1rem; }
+.placeholder-msg h2 {
+  font-family: var(--font-h);
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: .5rem;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   VTT
+   ════════════════════════════════════════════════════════════════════════════ */
+.vtt-frame {
+  width: 100%;
+  height: calc(100vh - 50px);
+  border: none;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .site-nav { padding: .5rem .75rem; gap: .75rem; }
+  .site-logo { font-size: 1.1rem; }
+  .nav-link { font-size: .85rem; padding: .35rem .5rem; }
+
+  .hero { padding: 2.5rem 1rem 2rem; }
+  .hero-title { font-size: 2rem; }
+  .hero-subtitle { font-size: .95rem; }
+
+  .quick-links { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  .ql-card { padding: 1rem .75rem; }
+
+  .page-wrap { padding: 1.25rem .75rem 3rem; }
+  .page-title { font-size: 1.5rem; }
+
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .rule-card-img { width: 70px; }
+
+  .list-table thead th { font-size: .75rem; padding: .4rem .5rem; }
+  .list-table tbody td { font-size: .82rem; padding: .45rem .5rem; }
+}

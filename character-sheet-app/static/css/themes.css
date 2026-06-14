@@ -1,0 +1,325 @@
+/* ════════════════════════════════════════════════════════════════════════════
+   THEME SYSTEM — 4 palettes (Charcoal · Arcane Blue · Forest Green · Crimson
+   Royal), each with a Light and Dark variant. Overrides the :root defaults in
+   style.css and companion.css. Loaded on every page; values driven by
+   data-theme + data-mode on <html>.
+   Structure: shared neutrals per MODE + small per-(theme×mode) ACCENT blocks.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Shared LIGHT neutrals ─────────────────────────────────────────────── */
+html[data-mode="light"] {
+  --bg-chrome:      #ECE8E0;
+  --bg-chrome-hi:   #F5F2EB;
+  --bg-page:        #E2DED5;
+  --bg-sheet:       #FBFAF6;
+
+  --ink:            #1A1714;
+  --ink-soft:       #3A352E;
+  --ink-muted:      #6A6358;
+  --ink-faint:      #9A9286;
+  --ink-red:        #8b1a1a;
+
+  --rule-heavy:     #2A2620;
+  --rule-light:     #D8D2C6;
+
+  --hdr-text:       #F5F2EB;
+
+  --hp-full:        #2a6a2a;
+  --hp-med:         #8a6010;
+  --hp-low:         #8b1a1a;
+
+  --bg-panel:       #FBFAF6;
+  --bg-panel-alt:   #EFECE4;
+  --bg-input:       #FFFFFF;
+  --bg-hover:       #E8E3D8;
+  --bg-card:        #FBFAF6;
+  --border-strong:  #B8B0A2;
+  --border-mid:     #CFC8BA;
+  --border-dim:     #E0DACE;
+  --border-subtle:  #EAE5DA;
+  --text-primary:   #1A1714;
+  --text-secondary: #4A453E;
+  --text-muted:     #7A7264;
+  --text-label:     #6A6358;
+  --text-danger:    #c0392b;
+  --accent-red:     #b3261e;
+  --accent-green:   #2a8b3a;
+  --shadow:         0 2px 12px rgba(0,0,0,.12);
+}
+
+/* ── Shared DARK neutrals ──────────────────────────────────────────────── */
+html[data-mode="dark"] {
+  --bg-chrome:      #141210;
+  --bg-chrome-hi:   #1E1C1A;
+  --bg-page:        #161514;
+  --bg-sheet:       #1C1A17;
+
+  --ink:            #ECE6DA;
+  --ink-soft:       #C8C2B6;
+  --ink-muted:      #9A9286;
+  --ink-faint:      #6A6358;
+  --ink-red:        #e06b5e;
+
+  --rule-heavy:     #0E0D0B;
+  --rule-light:     #3A352E;
+
+  --hdr-text:       #F0ECE4;
+
+  --hp-full:        #4caf50;
+  --hp-med:         #caa030;
+  --hp-low:         #e0574c;
+
+  --bg-panel:       #1A1814;
+  --bg-panel-alt:   #221F1A;
+  --bg-input:       #100E0C;
+  --bg-hover:       #2A2620;
+  --bg-card:        #1A1814;
+  --border-strong:  #555049;
+  --border-mid:     #3E3A34;
+  --border-dim:     #2A2620;
+  --border-subtle:  #342F28;
+  --text-primary:   #F0E8D8;
+  --text-secondary: #B0A890;
+  --text-muted:     #7A7264;
+  --text-label:     #A09878;
+  --text-danger:    #e06b5e;
+  --accent-red:     #d8574c;
+  --accent-green:   #4caf50;
+  --shadow:         0 2px 12px rgba(0,0,0,.6);
+}
+
+/* ── Per-palette ACCENT blocks (override --bronze family, header, mid rule) ─
+   The --bronze* names are the app's accent family; we just retint them.    */
+
+/* Charcoal */
+html[data-theme="charcoal"][data-mode="light"] {
+  --bronze: #3F4246; --bronze-mid: #5A5E63; --bronze-dark: #2A2D31; --bronze-deep: #16181A;
+  --hdr-bg: #2F3236; --hdr-accent: #3F4246; --rule-mid: #8A8E93;
+}
+html[data-theme="charcoal"][data-mode="dark"] {
+  --bronze: #B8BCC2; --bronze-mid: #9398A0; --bronze-dark: #6E747C; --bronze-deep: #4A4F56;
+  --hdr-bg: #2A2D31; --hdr-accent: #B8BCC2; --rule-mid: #5A5E63;
+}
+
+/* Arcane Blue */
+html[data-theme="blue"][data-mode="light"] {
+  --bronze: #2F5D8A; --bronze-mid: #244A6F; --bronze-dark: #1A3550; --bronze-deep: #0F2030;
+  --hdr-bg: #213D57; --hdr-accent: #2F5D8A; --rule-mid: #6F93B3;
+}
+html[data-theme="blue"][data-mode="dark"] {
+  --bronze: #6FA8D8; --bronze-mid: #4F86B8; --bronze-dark: #356488; --bronze-deep: #213D57;
+  --hdr-bg: #1A3550; --hdr-accent: #6FA8D8; --rule-mid: #3F6F93;
+}
+
+/* Forest Green */
+html[data-theme="green"][data-mode="light"] {
+  --bronze: #2F6B3A; --bronze-mid: #24552D; --bronze-dark: #1A3E21; --bronze-deep: #0F2613;
+  --hdr-bg: #21482A; --hdr-accent: #2F6B3A; --rule-mid: #6F9B78;
+}
+html[data-theme="green"][data-mode="dark"] {
+  --bronze: #6FB87A; --bronze-mid: #4F9659; --bronze-dark: #357440; --bronze-deep: #21482A;
+  --hdr-bg: #1A3E21; --hdr-accent: #6FB87A; --rule-mid: #3F7B50;
+}
+
+/* Crimson Royal */
+html[data-theme="crimson"][data-mode="light"] {
+  --bronze: #9A2B2B; --bronze-mid: #7A2121; --bronze-dark: #581818; --bronze-deep: #340E0E;
+  --hdr-bg: #5A1C1C; --hdr-accent: #9A2B2B; --rule-mid: #B37070;
+}
+html[data-theme="crimson"][data-mode="dark"] {
+  --bronze: #D86F6F; --bronze-mid: #B84F4F; --bronze-dark: #883535; --bronze-deep: #5A1C1C;
+  --hdr-bg: #401414; --hdr-accent: #D86F6F; --rule-mid: #934040;
+}
+
+/* ── Nav buttons (Play / Rules / Library) — parchment on the header bar ── */
+.site-nav .nav-link { color: #E9DCC0; }
+.site-nav .nav-link:hover { color: #FBF4E3; }
+/* In light mode the hover background turns light too, which would make the
+   parchment text unreadable — force dark text on hover in light mode. */
+html[data-mode="light"] .site-nav .nav-link:hover { color: var(--ink); }
+
+/* ── Theme controls in the site-nav ───────────────────────────────────── */
+.nav-theme {
+  margin-left: auto;
+  display: flex; align-items: center; gap: .5rem;
+}
+.theme-mode-btn {
+  width: 2rem; height: 2rem; border-radius: 6px;
+  background: transparent; border: 1px solid var(--border-mid);
+  color: var(--bronze); font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.theme-mode-btn:hover { border-color: var(--bronze); background: var(--bg-hover); }
+.theme-select {
+  background: var(--bg-panel); color: var(--text-primary);
+  border: 1px solid var(--border-mid); border-radius: 6px;
+  font-family: var(--font-b); font-size: .8rem;
+  padding: .35rem .5rem; cursor: pointer;
+}
+.theme-select:hover  { border-color: var(--bronze); }
+.theme-select:focus  { outline: none; border-color: var(--bronze); }
+
+@media (max-width: 600px) {
+  .theme-select { max-width: 7.5rem; }
+}
+
+/* ── User chip (signed-in indicator + sign-out) ───────────────────── */
+.user-chip {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .25rem .55rem; border-radius: 999px;
+  background: var(--bg-panel-alt); border: 1px solid var(--border-mid);
+  color: var(--text-primary); font-family: var(--font-b); font-size: .82rem;
+}
+.user-chip[hidden] { display: none; }
+.user-chip-name { font-weight: 700; color: var(--bronze); max-width: 9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.user-chip-signout {
+  background: transparent; border: none; cursor: pointer;
+  color: var(--text-secondary); font-size: .95rem; line-height: 1;
+  padding: .1rem .25rem; border-radius: 4px;
+}
+.user-chip-signout:hover { color: var(--text-danger); background: var(--bg-hover); }
+
+/* ── Settings gear + popover (replaces inline controls at all widths) ── */
+.nav-theme-desktop { display: none; }   /* inline controls fully replaced by the gear */
+
+.nav-gear {
+  width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  /* Fixed parchment cream background so the gear always reads on the dark
+     header bar regardless of theme/mode; dark glyph for contrast on cream. */
+  background: #E9DCC0;
+  border: 1px solid color-mix(in srgb, var(--bronze) 45%, transparent);
+  color: #2A2620; font-size: 1.05rem; line-height: 1;
+  cursor: pointer; padding: 0;
+  transition: background .15s, border-color .15s, transform .25s ease, color .15s;
+}
+.nav-gear:hover {
+  background: #FBF4E3;
+  border-color: var(--bronze);
+  color: var(--bronze);
+  transform: rotate(45deg);
+}
+.nav-gear[aria-expanded="true"] {
+  background: #FBF4E3;
+  border-color: var(--bronze);
+  color: var(--bronze);
+  transform: rotate(60deg);
+}
+
+/* Popover card anchored under the gear */
+.nav-popover {
+  position: absolute;
+  top: calc(100% + 6px); right: .5rem; z-index: 1100;
+  width: 15rem; padding: .35rem;
+  background: var(--bg-panel); color: var(--text-primary);
+  border: 1px solid var(--border-strong); border-top: 3px solid var(--bronze);
+  border-radius: 8px; box-shadow: 0 12px 32px rgba(0,0,0,.4);
+}
+.nav-popover[hidden] { display: none; }
+.np-row {
+  display: flex; align-items: center; gap: .6rem;
+  width: 100%; background: transparent; border: none; cursor: pointer;
+  padding: .55rem .7rem; border-radius: 5px;
+  color: var(--text-primary); font-family: var(--font-b); font-size: .9rem;
+  text-align: left;
+}
+.np-row:hover { background: var(--bg-hover); }
+.np-icon { width: 1.2rem; text-align: center; font-size: 1rem; line-height: 1; }
+.np-label { color: var(--text-primary); }
+.np-row-theme { padding: .5rem .7rem; cursor: default; }
+.np-row-theme:hover { background: transparent; }
+.np-row-theme .np-label { color: var(--text-secondary); font-size: .82rem; }
+.np-swatches { display: flex; gap: .4rem; margin-left: auto; }
+.np-dot {
+  width: 1.15rem; height: 1.15rem; border-radius: 50%;
+  border: 2px solid transparent; cursor: pointer; padding: 0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25);
+  transition: transform .12s, border-color .12s;
+}
+.np-dot:hover { transform: scale(1.15); }
+.np-dot.active { border-color: var(--bronze); transform: scale(1.1); }
+.np-dot[data-theme="charcoal"] { background: #555; }
+html[data-mode="dark"] .np-dot[data-theme="charcoal"] { background: #B8BCC2; }
+.np-dot[data-theme="blue"]     { background: #2F5D8A; }
+html[data-mode="dark"] .np-dot[data-theme="blue"]     { background: #6FA8D8; }
+.np-dot[data-theme="green"]    { background: #2F6B3A; }
+html[data-mode="dark"] .np-dot[data-theme="green"]    { background: #6FB87A; }
+.np-dot[data-theme="crimson"]  { background: #9A2B2B; }
+html[data-mode="dark"] .np-dot[data-theme="crimson"]  { background: #D86F6F; }
+
+/* The site-nav needs position:relative so the popover anchors to it */
+.site-nav { position: relative; }
+
+/* ── Account button (opens the sign-in / sign-up modal) ───────────── */
+.account-btn {
+  width: 2rem; height: 2rem; border-radius: 50%;
+  background: transparent; border: 1px solid var(--border-mid);
+  color: var(--bronze); font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.account-btn:hover { border-color: var(--bronze); background: var(--bg-hover); }
+.account-btn[hidden] { display: none; }
+
+/* ── Auth modal (sign in / sign up) ───────────────────────────────── */
+.auth-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,.55); backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+}
+.auth-overlay[hidden] { display: none; }
+.auth-card {
+  width: min(380px, 100%);
+  background: var(--bg-panel); color: var(--text-primary);
+  border: 1px solid var(--border-strong); border-top: 3px solid var(--bronze);
+  border-radius: 8px; box-shadow: 0 16px 48px rgba(0,0,0,.5);
+  padding: 1.4rem 1.4rem 1.2rem;
+  display: flex; flex-direction: column; gap: .8rem;
+  position: relative;
+}
+.auth-title {
+  margin: 0 0 .3rem;
+  font-family: var(--font-h); font-size: 1.2rem; font-weight: 700;
+  color: var(--bronze); letter-spacing: .04em;
+}
+.auth-close {
+  position: absolute; top: .55rem; right: .55rem;
+  background: none; border: none; color: var(--text-muted);
+  font-size: 1rem; cursor: pointer; padding: .25rem .4rem; border-radius: 4px;
+}
+.auth-close:hover { color: var(--text-primary); background: var(--bg-hover); }
+.auth-label {
+  display: flex; flex-direction: column; gap: .25rem;
+  font-family: var(--font-h); font-size: .72rem; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--text-label);
+}
+/* The `hidden` attribute defaults to display:none, but our display:flex above
+   wins — so explicitly re-hide when the attribute is set. */
+.auth-label[hidden] { display: none; }
+.auth-label input {
+  font-family: var(--font-b); font-size: .95rem;
+  background: var(--bg-input); color: var(--text-primary);
+  border: 1px solid var(--border-mid); border-radius: 5px;
+  padding: .5rem .7rem;
+}
+.auth-label input:focus { outline: none; border-color: var(--bronze); }
+.auth-error {
+  background: rgba(192,57,43,.15); border: 1px solid rgba(192,57,43,.5);
+  color: var(--text-danger); padding: .45rem .7rem; border-radius: 5px;
+  font-size: .82rem;
+}
+.auth-error[hidden] { display: none; }
+.auth-submit {
+  margin-top: .25rem;
+  background: var(--bronze); color: #1a1208; border: 1px solid var(--bronze);
+  font-family: var(--font-h); font-size: .82rem; font-weight: 700;
+  letter-spacing: .06em; padding: .6rem; border-radius: 5px; cursor: pointer;
+  transition: background .12s, border-color .12s;
+}
+.auth-submit:hover { background: var(--bronze-mid); border-color: var(--bronze-mid); }
+.auth-switch {
+  font-size: .82rem; color: var(--text-secondary); text-align: center;
+}
+.auth-switch a { color: var(--bronze); text-decoration: none; font-weight: 700; }
+.auth-switch a:hover { text-decoration: underline; }

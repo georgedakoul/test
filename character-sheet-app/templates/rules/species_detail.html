@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ race_name }} — Shadowdark RPG{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <div id="species-detail">
+    <div class="placeholder-msg">
+      <div class="icon">&#9733;</div>
+      <h2>Loading {{ race_name }}...</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const name = "{{ race_name }}";
+  const wrap = document.getElementById('species-detail');
+
+  fetch('/api/data/races').then(r=>r.json()).then(data => {
+    const race = data.find(r => (r.race||r.name||'').toLowerCase() === name.toLowerCase());
+    if (!race) { wrap.innerHTML = '<h1 class="page-title">Species Not Found</h1><p><a href="/species">&larr; Back to Species</a></p>'; return; }
+    const rname = race.race || race.name || name;
+    let html = `<h1 class="page-title">${rname}</h1>`;
+    html += `<p style="color:var(--text-secondary);margin-bottom:1rem;">${race.source || 'Core'}</p>`;
+    if (race.benefit)     html += `<p style="margin-bottom:1rem;"><strong style="color:var(--bronze)">Benefit:</strong> ${race.benefit}</p>`;
+    if (race.description) html += `<div style="line-height:1.7;margin-bottom:1.5rem;color:var(--text-primary);">${race.description}</div>`;
+    if (race.history)     html += `<h2 style="color:var(--bronze);margin-bottom:.75rem;">History</h2><div style="line-height:1.7;margin-bottom:1.5rem;">${race.history}</div>`;
+
+    html += '<p style="margin-top:2rem;"><a href="/species">&larr; Back to Species</a></p>';
+    wrap.innerHTML = html;
+  }).catch(() => { wrap.innerHTML = '<p style="color:var(--text-muted)">Failed to load species data.</p>'; });
+})();
+</script>
+{% endblock %}

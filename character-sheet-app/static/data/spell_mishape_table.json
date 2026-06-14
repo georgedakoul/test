@@ -1,0 +1,374 @@
+[
+{
+    "id": "item",
+    "class": "wizard",
+    "source": "Shadowdark RPG Core",
+    "roll": "d12",
+    "table": [
+      {
+        "tier": "1-2",
+        "effects": [
+            {
+                "die": "1",
+                "title": "Devastation!",
+                "description": "Roll twice and combine both effects (reroll any further 1s)"
+            },
+            {
+                "die": "2",
+                "title": "Explosion!",
+                "description": "You take 1d8 damage"
+            },
+            {
+                "die": "3",
+                "title": "Refraction!",
+                "description": "You target yourself with the spell"
+            },
+            {
+                "die": "4",
+                "title": "Your hand slipped!",
+                "description": "You target a random ally with the spell"
+            },
+            {
+                "die": "5",
+                "title": "Mind wound!",
+                "description": "You can't cast this spell again for a week"
+            },
+            {
+                "die": "6",
+                "title": "Discorporation!",
+                "description": "One random piece of your gear disappears forever"
+            },
+            {
+                "die": "7",
+                "title": "Spell worm!",
+                "description": "You lose the ability to cast a random spell on each of your turns until you pass a DC 12 Constitution check. You regain the ability to cast those spells after completing a rest"
+            },
+            {
+                "die": "8",
+                "title": "Harmonic failure!",
+                "description": "You lose the ability to cast a random spell until you complete a rest"
+            },
+            {
+                "die": "9",
+                "title": "Poof!",
+                "description": "You suppress all light within a near distance from you, including sunlight and magical light, for 10 rounds"
+            },
+            {
+                "die": "10",
+                "title": "The horror!",
+                "description": "You scream uncontrollably for 3 rounds in Primordial, drawing lots of attention"
+            },
+            {
+                "die": "11",
+                "title": "Energy surge!",
+                "description": "You glow bright purple for 10 rounds, granting enemies advantage on attacks against you"
+            },
+            {
+                "die": "12",
+                "title": "Unstable conduit!",
+                "description": "You have disadvantage on casting spells of the same tier for 10 rounds"
+            }
+            
+        ]
+      },
+      {
+        "tier": "3-4",
+        "effects": [
+            {
+                "die": "1",
+                "title": "Devastation!",
+                "description": "Roll twice and combine both effects (reroll any further 1s)"
+            },
+            {
+                "die": "2",
+                "title": "Blast radius!",
+                "description": "You and all near creatures take 2d6 damage"
+            },
+            {
+                "die": "3",
+                "title": "Duplicate refraction!",
+                "description": "You target yourself and the nearest ally with two identical copies of the spell"
+            },
+            {
+                "die": "4",
+                "title": "You flubbed the incantation!",
+                "description": "You cast a random spell from your known spells at the same targets, even if it would not normally be possible"
+            },
+            {
+                "die": "5",
+                "title": "Ethereal bandersnatch!",
+                "description": "Two random pieces of your gear disappear forever"
+            },
+            {
+                "die": "6",
+                "title": "Arcano-mutagenesis!",
+                "description": "You must pass a DC 12 Constitution check or a random stat drops to 3 (-4) until you successfully complete a rest"
+            },
+            {
+                "die": "7",
+                "title": "Boom!",
+                "description": "You open a 30-foot deep sinkhole in the ground with you at the center. You and all near creatures must pass a DC 15 Dexterity check or fall in"
+            },
+            {
+                "die": "8",
+                "title": "Petrification!",
+                "description": "1d4 of your limbs petrify for the next 24 hours"
+            },
+            {
+                "die": "9",
+                "title": "Stupefaction!",
+                "description": "You lose the ability to cast all spells of the same tier until you complete a rest"
+            },
+            {
+                "die": "10",
+                "title": "It cannot be unseen!",
+                "description": "You must pass a DC 12 Wisdom check or descend into mad raving for 1d10 rounds"
+            },
+            {
+                "die": "11",
+                "title": "Radioactive energies!",
+                "description": "You whirl with repulsive energies, drawing the hostility and attacks of all enemies who can see you for the next 1d4 rounds"
+            },
+            {
+                "die": "12",
+                "title": "Uncontained channeling!",
+                "description": "You have disadvantage on casting spells of the same tier and lower for 10 rounds"
+            }
+        ]
+      },
+      {
+        "tier": "5",
+        "effects": [
+            {
+                "die": "1",
+                "title": "Devastation!",
+                "description": "Roll twice and combine both effects (reroll any further 1s)"
+            },
+            {
+                "die": "2",
+                "title": "Pyroclastic extrusion!",
+                "description": "You deal 3d8 damage to yourself and all creatures within near"
+            },
+            {
+                "die": "3",
+                "title": "Astral incision!",
+                "description": "An otherworldly blade cuts into your memory. You permanently forget one random spell"
+            },
+            {
+                "die": "4",
+                "title": "The grimlow!",
+                "description": "You accidentally summon a hostile grimlow in a space near to you. It persists for 2d4 rounds before disappearing whence it came"
+            },
+            {
+                "die": "5",
+                "title": "Dark plasma aura!",
+                "description": "Attacks against you pass through a vile aura, dealing double damage for the next 2d6 rounds"
+            },
+            {
+                "die": "6",
+                "title": "Gate!",
+                "description": "You open a magic portal to another location, whether on this plane or another. Something dreadful will come through in 1d4 rounds unless you close it with a DC 18 Intelligence check on your turn"
+            },
+            {
+                "die": "7",
+                "title": "Runaway arcana loop!",
+                "description": "Your spell targets a random creature you can see, even if it would not normally be possible. Each subsequent turn, you must pass a spellcasting check for that spell or you cast it on another random creature in the same way (effect ends on success)"
+            },
+            {
+                "die": "8",
+                "title": "Arcane obstruction!",
+                "description": "You lose the ability to cast all spells of a random tier until you complete a rest"
+            },
+            {
+                "die": "9",
+                "title": "What lurks beyond the veil!", 
+                "description": "You must pass a DC 15 Wisdom check or fall into mad raving for 1d4 hours"
+            },
+            {
+                "die": "10",
+                "title": "Ord's balance!",
+                "description": "You must either permanently sacrifice a magic item or the ability to cast a tier 3+ spell you know"
+            },
+            {
+                "die": "11",
+                "title": "Unmitigated chain reaction!",
+                "description": "You have disadvantage on casting all spells for the next 10 rounds"
+            },    
+            {
+                "die": "12",
+                "title": "Shred!",
+                "description": " You tear a large hole in the fabric of the universe close to you; the lightless tear grows larger every round"
+            }
+        ]
+      }
+    ]
+},
+{
+    "id": "item_2",
+    "class": "priest",
+    "source": "Shadowdark RPG Core",
+    "Penance": "Penance requires a holy quest, ritualistic atonement, or a material sacrifice that you donate or destroy.",
+    "table": [
+      {
+        "tier": "1",
+        "value" : "5 gp"
+      },
+      {
+        "tier": "2",
+        "value" : "20 gp"
+      },
+      {
+        "tier": "3",
+        "value" : "40 gp"
+      },
+      {
+        "tier": "4",
+        "value" : "90 gp"
+      },
+      {
+        "tier": "5",
+        "value" : "150 gp"
+    }         
+    ]
+},
+{
+    "id": "item_3",
+    "class": "witch",
+    "source": "Cursed Scroll 1",
+    "roll": "d12",
+    "table": [
+      {
+        "tier": "1-3",
+        "effects": [
+            {
+                "die": "1",
+                "title": "Diabrura!",
+                "description": "Roll twice and combine both effects (roll any additional 1 again)."
+            },
+            {
+                "die": "2",
+                "title": "Define!",
+                "description": "You suffer 1d6 damage for each degree of the magic"
+            },
+            {
+                "die": "3",
+                "title": "Salamander!",
+                "description": " You transform into a small salamander with 1 hit point for 3 rounds. You cannot cast spells in this form."
+            },
+            {
+                "die": "4",
+                "title": "Evil gaze of Shune!",
+                "description": " You cannot cast this spell and another random spell for a week."
+            },
+            {
+                "die": "5",
+                "title": "Thieving fairies!",
+                "description": "You lose a random item from your equipment."
+            },
+            {
+                "die": "6",
+                "title": "Spider webs!",
+                "description": "Mental webs cloud your mind. You cannot cast this spell again for a week."
+            },
+            {
+                "die": "7",
+                "title": "Laughs!",
+                "description": "You fall to the ground in an attack of uncontrollable laughter, unable to do anything but laugh for the next 3 rounds."
+            },
+            {
+                "die": "8",
+                "title": "Doubled trouble!",
+                "description": "You lose the ability to cast a random spell until you complete a rest."
+            },
+            {
+                "die": "9",
+                "title": "Swamp gas!",
+                "description": " Sulfurous gas fills the air in a cube of size near you. All creatures that end their turn in this area become blinded and suffer 1d6 damage. It lasts for 3 rounds."
+            },
+            {
+                "die": "10",
+                "title": "Bat!",
+                "description": " An angry bat appears on your head, flapping its wings and clinging to your face. You are blinded for 3 rounds or until you manage to remove the creature."
+            },
+            {
+                "die": "11",
+                "title": "Salt!",
+                "description": " You are surrounded by a ring of salt and cannot touch it or cross it until something breaks the circle."
+            },
+            {
+                "die": "12",
+                "title": "Siphon!",
+                "description": " You have a disadvantage on casting spells of the same grade or lower for the next 10 rounds."
+            }
+            
+        ]
+      },
+      {
+        "tier": "4-5",
+        "effects": [
+            {
+                "die": "1",
+                "title": "Whirlwind!",
+                "description": "Roll twice and combine both effects (roll again for any additional 1)."
+            },
+            {
+                "die": "2",
+                "title": "Ruin!",
+                "description": "You take 1d8 damage for each grade of the spell."
+            },
+            {
+                "die": "3",
+                "title": "Mental decay!",
+                "description": " You permanently forget a random spell."
+            },
+            {
+                "die": "4",
+                "title": "The Willowman!",
+                "description": "You summon the Willowman (who is furious with you) in a space near you. He remains for 1d6 rounds before disappearing back to where he came from."
+            },
+            {
+                "die": "5",
+                "title": "Cursed imps!",
+                "description": "Imps from hell laugh and surround you, stealing three random pieces of your equipment and flying away."
+            },
+            {
+                "die": "6",
+                "title": "Lightning explosion!",
+                "description": "You deal 3d6 damage to yourself and to all nearby creatures."
+            },
+            {
+                "die": "7",
+                "title": "Cold iron!",
+                "description": "Cold iron stakes are launched from the ethereal realm, piercing you. You take 2d6 damage and are paralyzed for 2 rounds."
+            },
+            {
+                "die": "8",
+                "title": "Mother of Night!",
+                "description": "You displease the Dark Mother and lose the ability to conjure this magic until you redeem yourself before her."
+            },
+            {
+                "die": "9",
+                "title": "Catatonia!",
+                "description": "You face nothingness and cannot take any action for the next hour."
+            },
+            {
+                "die": "10",
+                "title": "Dog tongue!",
+                "description": "Your tongue sticks out whenever you try to cast a spell of a random degree, ruining the magic. This effect lasts until you complete a rest."
+            },
+            {
+                "die": "11",
+                "title": "Nonsense!",
+                "description": "You have Disadvantage when casting any spell for the next 10 rounds."
+            },
+            {
+                "die": "12",
+                "title": "Nemesis!",
+                "description": "Somewhere, a child is born who will grow up to be a powerful sworn enemy against you."
+            }
+        ]
+      }
+    ]
+}
+]
+

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}GM Board — Shadowdark RPG{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/gm.css">
+<link rel="stylesheet" href="/static/css/reference-drawer.css">
+{% endblock %}
+{% block body %}
+<div class="gm-board-wrap">
+  <div class="gm-board-topbar">
+    <a href="/gm-screen" class="gm-back">&larr;</a>
+    <input class="gm-board-name" id="gm-board-name" type="text" placeholder="Board name">
+    <label class="gm-snap-toggle">
+      <input type="checkbox" id="gm-snap-toggle"> <span>Snap to grid</span>
+    </label>
+    <div style="flex:1"></div>
+    <button class="gm-btn" id="gm-open-reference" title="Open game reference" onclick="openReference('weapons')">📖 Reference</button>
+    <button class="gm-btn primary" id="gm-card-add">+ Add card</button>
+  </div>
+  <div class="gm-canvas" id="gm-canvas" tabindex="0"></div>
+</div>
+
+<!-- ── REFERENCE DRAWER — same markup as character sheet ─────────────────── -->
+<div id="drawer-overlay" class="drawer-overlay" onclick="closeReference()"></div>
+<div id="reference-drawer" class="reference-drawer">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Game Reference</h2>
+    <button class="drawer-close" onclick="closeReference()">✕</button>
+  </div>
+  <div class="drawer-tabs" id="drawer-tabs">
+    <button class="dtab active" data-table="weapons">Weapons</button>
+    <button class="dtab" data-table="armor">Armor</button>
+    <button class="dtab" data-table="spells">Spells</button>
+    <button class="dtab" data-table="gear">Gear</button>
+    <button class="dtab" data-table="magic_items">Magic Items</button>
+    <button class="dtab" data-table="gems">Gems</button>
+    <button class="dtab" data-table="plants_poisons">Plants</button>
+    <button class="dtab" data-table="traps">Traps</button>
+    <button class="dtab" data-table="mounts">Mounts</button>
+    <button class="dtab" data-table="spell_catalysts">Catalysts</button>
+  </div>
+  <div class="drawer-search-bar">
+    <input type="text" id="ref-search" placeholder="Search…" oninput="filterReference()">
+    <button id="ref-class-filter" class="ref-class-filter filter-btn" type="button"
+            onclick="toggleClassFilter()" title="Show only items available to your class" hidden>Class only</button>
+  </div>
+
+  <div id="ref-spell-filters" class="ref-filter-bar" hidden>
+    <button class="filter-btn ref-caster-btn active" data-caster="all" type="button">All</button>
+    <button class="filter-btn ref-caster-btn" data-caster="Wizard" type="button">Wizard</button>
+    <button class="filter-btn ref-caster-btn" data-caster="Priest" type="button">Priest</button>
+    <button class="filter-btn ref-caster-btn" data-caster="Witch" type="button">Witch</button>
+  </div>
+  <div id="ref-spell-align-filters" class="ref-filter-bar ref-align-filters" hidden>
+    <span class="ref-filter-label">Alignment:</span>
+    <button class="filter-btn ref-align-btn" data-align="all" type="button">All</button>
+    <button class="filter-btn ref-align-btn" data-align="Lawful" type="button">Lawful</button>
+    <button class="filter-btn ref-align-btn" data-align="Neutral" type="button">Neutral</button>
+    <button class="filter-btn ref-align-btn" data-align="Chaotic" type="button">Chaotic</button>
+  </div>
+
+  <div id="drawer-content" class="drawer-content"></div>
+</div>
+
+<!-- Card add type picker -->
+<div class="gm-modal-backdrop" id="gm-type-picker" hidden>
+  <div class="gm-modal small">
+    <h3 class="gm-modal-title">Choose card type</h3>
+    <div class="gm-type-grid">
+      <button class="gm-type-btn" data-type="note"   ><span class="gm-type-emoji">📝</span>Note</button>
+      <button class="gm-type-btn" data-type="image"  ><span class="gm-type-emoji">🖼️</span>Image</button>
+      <button class="gm-type-btn" data-type="monster"><span class="gm-type-emoji">👹</span>Monster</button>
+      <button class="gm-type-btn" data-type="spell"  ><span class="gm-type-emoji">✨</span>Spell</button>
+      <button class="gm-type-btn" data-type="rule"   ><span class="gm-type-emoji">📜</span>Rule</button>
+      <button class="gm-type-btn" data-type="custom" ><span class="gm-type-emoji">⚙️</span>Custom</button>
+    </div>
+    <div class="gm-modal-actions">
+      <button class="gm-btn" data-act="cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Generic card edit modal -->
+<div class="gm-modal-backdrop" id="gm-card-modal" hidden>
+  <div class="gm-modal" id="gm-card-modal-inner"></div>
+</div>
+
+<script>window.__BOARD_ID = {{ board_id }};</script>
+<!-- Markdown rendering (note/custom cards): marked parses, DOMPurify sanitizes.
+     Bundled locally so the board works offline (Tailscale exit-node use). -->
+<script src="/static/vendor/marked.min.js"></script>
+<script src="/static/vendor/purify.min.js"></script>
+<script src="/static/js/reference-drawer.js"></script>
+<script src="/static/js/gm-board.js"></script>
+{% endblock %}

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadowdark Character Sheet</title>
+<script>
+  /* No-flash theme: set palette + mode before first paint */
+  (function(){var V=['charcoal','blue','green','crimson'];
+   var t=localStorage.getItem('sdTheme'); if(V.indexOf(t)<0)t='charcoal';
+   var m=localStorage.getItem('sdMode')==='dark'?'dark':'light';
+   var r=document.documentElement; r.setAttribute('data-theme',t); r.setAttribute('data-mode',m);})();
+</script>
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/companion.css">
+<link rel="stylesheet" href="/static/css/themes.css">
+<style>
+  /* Override companion nav defaults so it coexists with sheet styles */
+  .site-nav { position: sticky; top: 0; z-index: 950; }
+  .app-nav  { position: sticky; top: 44px; z-index: 940; }
+</style>
+</head>
+<body>
+
+<!-- ── SITE NAV (companion) ───────────────────────────────────────────── -->
+<nav class="site-nav">
+  <a class="site-logo" href="/">Shadowdark</a>
+  <div class="nav-links">
+    <div class="nav-item has-dropdown" data-dropdown="play">
+      <button class="nav-link">Play</button>
+      <div class="nav-dropdown" id="dd-play">
+        <a href="/characters" class="dd-link">My Characters</a>
+        <a href="/characters?new=1" class="dd-link">Create Character</a>
+        <a href="/vtt" class="dd-link">Maps VTT</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown" data-dropdown="rules">
+      <button class="nav-link">Rules</button>
+      <div class="nav-dropdown dd-wide" id="dd-rules">
+        <a href="/rules-glossary" class="dd-link">Rules Glossary</a>
+        <a href="/classes" class="dd-link">Classes</a>
+        <a href="/backgrounds" class="dd-link">Backgrounds</a>
+        <a href="/species" class="dd-link">Species</a>
+        <a href="/spells" class="dd-link">Spells</a>
+        <a href="/equipment" class="dd-link">Equipment</a>
+        <a href="/magic-items" class="dd-link">Magic Items</a>
+        <a href="/monsters" class="dd-link">Monsters</a>
+        <a href="/gods" class="dd-link">Gods &amp; Patrons</a>
+      </div>
+    </div>
+    <a class="nav-link" href="/library">Library</a>
+  </div>
+
+  <!-- THEME + USER CONTROLS -->
+  <div class="nav-theme">
+    <!-- Desktop controls (hidden on phone) -->
+    <div class="nav-theme-desktop">
+      <div class="user-chip" id="user-chip" hidden>
+        <span class="user-chip-name" id="user-chip-name"></span>
+        <button class="user-chip-signout" id="user-chip-signout" type="button" title="Sign out">⎋</button>
+      </div>
+      <button class="account-btn" id="account-btn" type="button" title="Sign in / Create account" hidden>👤</button>
+      <button class="theme-mode-btn" id="theme-mode-btn" type="button" title="Toggle light/dark">🌙</button>
+      <select class="theme-select" id="theme-select" title="Color theme">
+        <option value="charcoal">Charcoal</option>
+        <option value="blue">Arcane Blue</option>
+        <option value="green">Forest Green</option>
+        <option value="crimson">Crimson Royal</option>
+      </select>
+    </div>
+
+    <!-- Settings gear (opens popover with theme + account at any width) -->
+    <button class="nav-gear" id="nav-chip" type="button" aria-haspopup="true" aria-expanded="false" title="Settings">⚙</button>
+    <div class="nav-popover" id="nav-popover" hidden>
+      <button class="np-row np-row-mode" id="np-mode-btn" type="button">
+        <span class="np-icon" id="np-mode-icon">🌙</span>
+        <span class="np-label" id="np-mode-label">Switch to dark</span>
+      </button>
+      <div class="np-row np-row-theme">
+        <span class="np-label">Theme</span>
+        <div class="np-swatches">
+          <button class="np-dot" data-theme="charcoal" type="button" title="Charcoal"></button>
+          <button class="np-dot" data-theme="blue" type="button" title="Arcane Blue"></button>
+          <button class="np-dot" data-theme="green" type="button" title="Forest Green"></button>
+          <button class="np-dot" data-theme="crimson" type="button" title="Crimson Royal"></button>
+        </div>
+      </div>
+      <button class="np-row np-row-account" id="np-acct-btn" type="button">
+        <span class="np-icon">👤</span>
+        <span class="np-label" id="np-acct-label">Sign in</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── AUTH MODAL (sign in / sign up) ─────────────────────────────── -->
+<div id="auth-overlay" class="auth-overlay" hidden>
+  <form id="auth-form" class="auth-card" autocomplete="on">
+    <button type="button" class="auth-close" id="auth-close" title="Close">✕</button>
+    <h2 class="auth-title" id="auth-title">Sign in</h2>
+    <label class="auth-label">Username
+      <input type="text" id="auth-username" autocomplete="username" required>
+    </label>
+    <label class="auth-label">Password
+      <input type="password" id="auth-password" autocomplete="current-password" required>
+    </label>
+    <label class="auth-label" id="auth-verify-row" hidden>Verify password
+      <input type="password" id="auth-verify" autocomplete="new-password">
+    </label>
+    <div class="auth-error" id="auth-error" hidden></div>
+    <button type="submit" class="auth-submit" id="auth-submit">Sign in</button>
+    <div class="auth-switch" id="auth-switch"></div>
+  </form>
+</div>
+
+<!-- ── APP NAV (character sheet) ──────────────────────────────────────── -->
+<nav class="app-nav">
+  <div class="nav-logo" onclick="showList()">⚔ Shadowdark</div>
+  <div class="nav-right" id="nav-right">
+    <span class="save-indicator" id="save-indicator"></span>
+    <button class="btn-icon" id="btn-reference" title="Game reference"   hidden>📖</button>
+    <button class="btn-icon" id="btn-stable"    title="View Stable"     hidden>🐴</button>
+    <button class="btn-icon btn-dice-nav" id="btn-dice-nav" title="Dice Roller (D)">⚄</button>
+    <button class="btn-icon btn-danger" id="btn-delete-char" title="Delete character" hidden>🗑</button>
+    <button class="btn-recently-deleted" id="btn-recently-deleted" hidden>Recently Deleted</button>
+  </div>
+</nav>
+
+<!-- ── LIST VIEW ────────────────────────────────────────────────────────── -->
+<div id="view-list" class="view active">
+  <div class="list-header">
+    <h1 class="list-title">Characters</h1>
+    <div class="list-header-actions">
+      <button class="btn-primary" id="btn-new-char">+ New Character</button>
+    </div>
+  </div>
+  <div id="character-cards" class="character-cards"></div>
+</div>
+
+<!-- ── RECENTLY DELETED OVERLAY ─────────────────────────────────────────── -->
+<div id="recover-overlay" class="recover-overlay" hidden>
+  <div class="recover-modal">
+    <div class="recover-header">
+      <h2 class="recover-title">Recently Deleted</h2>
+      <button class="recover-close" id="recover-close" title="Close">✕</button>
+    </div>
+    <p class="recover-sub">Characters are kept for 7 days, then permanently deleted.</p>
+    <div id="recover-list" class="recover-list"></div>
+  </div>
+</div>
+
+<!-- ── SHEET VIEW ───────────────────────────────────────────────────────── -->
+<div id="view-sheet" class="view">
+  <div class="sheet-back-bar">
+    <button class="btn-back" id="btn-back">← Characters</button>
+    <div class="sheet-char-name" id="sheet-char-name-header"></div>
+  </div>
+
+  <!-- Character Sheet Frame -->
+  <div class="sheet-frame">
+    <div class="sheet-frame-hdr" id="sheet-frame-hdr">
+      <!-- Default header (new characters) -->
+      <div class="sf-default" id="sf-default">
+      </div>
+      <!-- Expanded header (existing characters) -->
+      <div class="sf-expanded" id="sf-expanded" hidden>
+        <div class="sfx-portrait" id="sfx-portrait" title="Click to change portrait" onclick="promptPortrait()">
+          <img id="sfx-portrait-img" class="sfx-portrait-img" src="" alt="" hidden>
+          <span class="sfx-portrait-placeholder">👤</span>
+        </div>
+        <div class="sfx-info">
+          <div class="sfx-name-row">
+            <span class="sfx-name" id="sfx-name"></span>
+            <button class="sfx-manage-btn" id="sfx-manage-btn" title="Manage character identity" onclick="toggleIdentitySlide()">&#9881;</button>
+          </div>
+          <div class="sfx-subtitle">
+            <span class="sfx-race" id="sfx-race"></span>
+            <span class="sfx-class" id="sfx-class"></span>
+            <span class="sfx-align-tag" id="sfx-align-tag"></span>
+          </div>
+          <div class="sfx-level-row">
+            <span class="sfx-level" id="sfx-level"></span>
+            <span class="sfx-title" id="sfx-title"></span>
+          </div>
+          <div class="sfx-detail-tags">
+            <span class="sfx-detail-tag" id="sfx-bg-tag" data-hover="bg"></span>
+            <span class="sfx-detail-tag" id="sfx-deity-tag" data-hover="deity"></span>
+            <button class="btn-long-rest" id="btn-long-rest" onclick="openLongRest()" title="Take a long rest">☽ Long Rest</button>
+          </div>
+          <div class="sfx-hover-card" id="sfx-hover-card" hidden></div>
+        </div>
+      </div>
+
+      <!-- Identity slide panel (toggles from manage button) -->
+      <div class="sfx-slide-backdrop" id="sfx-slide-backdrop" onclick="toggleIdentitySlide()"></div>
+      <div class="sfx-identity-slide" id="sfx-identity-slide"></div>
+    </div>
+
+    <!-- ── Top row: Identity + Abilities side-by-side (desktop) ─────── -->
+    <div id="panels-container" class="panels-container layout-landscape">
+
+      <!-- ══ IDENTITY (always visible, top-left on desktop) ═══════════════ -->
+      <div class="panel" data-panel="identity" id="panel-identity">
+        <div class="panel-header">
+          <span class="panel-title">Identity</span>
+        </div>
+        <div class="panel-body">
+          <div class="identity-top-row">
+            <div class="portrait-wrap" id="portrait-wrap"
+                 title="Click to set portrait URL"
+                 onclick="promptPortrait()">
+              <img id="portrait-img" class="portrait-img" src="" alt="" hidden>
+              <span class="portrait-placeholder">👤</span>
+            </div>
+            <div class="identity-name-col">
+              <label>Name</label>
+              <input type="text" data-field="name" class="input-name" placeholder="Character name…">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Race</label>
+              <select data-field="ancestry" id="race-select">
+                <option value="">Choose race…</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Class</label>
+              <select data-field="class_name" id="class-select">
+                <option value="">Choose class…</option>
+              </select>
+            </div>
+          </div>
+          <div class="level-xp-row">
+            <div class="level-block">
+              <div class="level-label">Level</div>
+              <input class="level-input" type="number" data-field="level" min="1" max="10" value="1">
+            </div>
+            <div class="xp-block">
+              <div class="xp-label">XP / Next Level</div>
+              <div class="xp-row">
+                <input class="xp-input" type="number" data-field="xp" min="0" value="0">
+                <span class="xp-sep">/</span>
+                <input class="xp-target-input" type="number" data-field="xp_target" id="xp-target-field" min="1" value="10" readonly>
+              </div>
+              <div class="xp-bar-wrap"><div class="xp-bar" id="xp-bar"></div></div>
+            </div>
+          </div>
+          <div class="field-full">
+            <label>Title</label>
+            <input type="text" data-field="title" id="title-field" placeholder="—" readonly>
+          </div>
+          <div class="field-group">
+            <label>Alignment</label>
+            <div class="alignment-btns" id="alignment-btns">
+              <button class="align-btn" data-align="Lawful">Lawful</button>
+              <button class="align-btn active" data-align="Neutral">Neutral</button>
+              <button class="align-btn" data-align="Chaotic">Chaotic</button>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Background</label>
+              <div class="custom-picker" id="bg-picker">
+                <button type="button" class="picker-trigger" id="bg-trigger">
+                  <span class="picker-label" id="bg-trigger-label">Choose background…</span>
+                  <span class="picker-caret">▾</span>
+                </button>
+                <input type="hidden" data-field="background" id="bg-value">
+                <div class="picker-list" id="bg-dropdown" hidden></div>
+              </div>
+            </div>
+            <div class="field-group">
+              <label>Deity</label>
+              <div class="custom-picker" id="deity-picker">
+                <button type="button" class="picker-trigger" id="deity-trigger">
+                  <span class="picker-label" id="deity-trigger-label">Choose deity…</span>
+                  <span class="picker-caret">▾</span>
+                </button>
+                <input type="hidden" data-field="deity" id="deity-value">
+                <div class="picker-list" id="deity-dropdown" hidden></div>
+              </div>
+            </div>
+          </div>
+          <div class="field-full">
+            <label>Description</label>
+            <textarea data-field="description" rows="2" placeholder="Appearance, personality…"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ ABILITY SCORES ═══════════════════════════════════════════════ -->
+      <div class="panel" data-panel="abilities">
+        <div class="panel-header">
+          <span class="panel-title">Ability Scores</span>
+        </div>
+        <div class="panel-body">
+          <div class="ability-grid">
+            <div class="ability-block" data-ability="str">
+              <div class="ability-name">STR</div>
+              <input class="ability-score" type="number" data-field="str_score" min="1" max="20" value="10">
+              <div class="ability-mod" id="mod-str">+0</div>
+              <span class="stat-bonus-badge" id="bonus-badge-str" hidden></span>
+              <div class="ability-label">Strength</div>
+            </div>
+            <div class="ability-block" data-ability="int">
+              <div class="ability-name">INT</div>
+              <input class="ability-score" type="number" data-field="int_score" min="1" max="20" value="10">
+              <div class="ability-mod" id="mod-int">+0</div>
+              <span class="stat-bonus-badge" id="bonus-badge-int" hidden></span>
+              <div class="ability-label">Intelligence</div>
+            </div>
+            <div class="ability-block" data-ability="dex">
+              <div class="ability-name">DEX</div>
+              <input class="ability-score" type="number" data-field="dex_score" min="1" max="20" value="10">
+              <div class="ability-mod" id="mod-dex">+0</div>
+              <span class="stat-bonus-badge" id="bonus-badge-dex" hidden></span>
+              <div class="ability-label">Dexterity</div>
+            </div>
+            <div class="ability-block" data-ability="wis">
+              <div class="ability-name">WIS</div>
+              <input class="ability-score" type="number" data-field="wis_score" min="1" max="20" value="10">
+              <div class="ability-mod" id="mod-wis">+0</div>
+              <span class="stat-bonus-badge" id="bonus-badge-wis" hidden></span>
+              <div class="ability-label">Wisdom</div>
+            </div>
+            <div class="ability-block" data-ability="con">
+              <div class="ability-name">CON</div>
+              <input class="ability-score" type="number" data-field="con_score" min="1" max="20" value="10">
+              <div class="ability-mod" id="mod-con">+0</div>
+              <span class="stat-bonus-badge" id="bonus-badge-con" hidden></span>
+              <div class="ability-label">Constitution</div>
+            </div>
+            <div class="ability-block" data-ability="cha">
+              <div class="ability-name">CHA</div>
+              <input class="ability-score" type="number" data-field="cha_score" min="1" max="20" value="10">
+              <div class="ability-mod" id="mod-cha">+0</div>
+              <span class="stat-bonus-badge" id="bonus-badge-cha" hidden></span>
+              <div class="ability-label">Charisma</div>
+            </div>
+          </div>
+          <div class="slots-info" id="slots-info">
+            <span class="slots-label">Gear Slots</span>
+            <span class="slots-value" id="slots-used">0</span>
+            <span class="slots-sep">/</span>
+            <span class="slots-max" id="slots-max">10</span>
+            <span class="slots-note">(= STR score)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ COMBAT ═══════════════════════════════════════════════════════ -->
+      <div class="panel" data-panel="combat">
+        <div class="panel-header">
+          <span class="panel-title">Combat</span>
+        </div>
+        <div class="panel-body">
+          <div class="combat-top">
+            <div class="hp-block">
+              <div class="combat-label">Hit Points</div>
+              <div class="hp-tracker">
+                <button class="hp-btn" id="hp-minus">−</button>
+                <div class="hp-display">
+                  <input class="hp-current" type="number" data-field="hp_current" min="0" value="8">
+                  <span class="hp-sep">/</span>
+                  <input class="hp-max" type="number" data-field="hp_max" min="0" value="8">
+                </div>
+                <button class="hp-btn" id="hp-plus">+</button>
+              </div>
+              <div class="hp-bar-wrap"><div class="hp-bar" id="hp-bar"></div></div>
+              <div class="hp-status" id="hp-status">Full</div>
+            </div>
+            <div class="ac-block">
+              <div class="combat-label"><span>Armor Class</span> <span class="ac-auto-tag" id="ac-auto-tag" hidden>auto</span></div>
+              <input class="ac-input" type="number" data-field="armor_class" min="0" value="10">
+            </div>
+          </div>
+          <div class="field-full attacks-field">
+            <div class="auto-label-row">
+              <label>Attacks</label>
+              <button class="btn-recompute" id="btn-recompute-attacks" onclick="runAutoCompute()" title="Recalculate from wielded weapons">↺</button>
+              <button class="btn-atk-edit" id="btn-atk-edit" onclick="toggleAttacksEdit()" title="Edit manually">✎</button>
+            </div>
+            <div id="attacks-cards" class="attacks-cards"></div>
+            <textarea id="attacks-textarea" data-field="attacks" rows="5" placeholder="Tag ⚔ items in inventory, or type manually…"
+              style="display:none" oninput="renderAttackCards(this.value)"></textarea>
+          </div>
+        </div>
+      </div>
+    </div><!-- /panels-container (stats + combat row) -->
+
+    <!-- ── Tabbed section ─────────────────────────────────────────────── -->
+    <div class="sheet-tabs">
+      <nav class="tab-bar" id="tab-bar">
+        <button class="tab-btn" data-tab="inventory" onclick="switchTab('inventory')">Inventory</button>
+        <button class="tab-btn" data-tab="spells"    onclick="switchTab('spells')">Spells</button>
+        <button class="tab-btn" data-tab="talents"   onclick="switchTab('talents')">Talents</button>
+        <button class="tab-btn" data-tab="features"  onclick="switchTab('features')">Features</button>
+        <button class="tab-btn" data-tab="notes"     onclick="switchTab('notes')">Notes</button>
+        <button class="tab-btn" data-tab="mounts"    onclick="switchTab('mounts')" hidden>Mounts</button>
+      </nav>
+
+      <!-- ── TAB: Inventory ──────────────────────────────────────────── -->
+      <div class="tab-pane" id="tab-inventory">
+        <div class="tab-pane-header">
+          <button class="btn-add btn-ref" onclick="openReference('gear')">📖 Gear</button>
+          <button class="btn-add btn-ref" onclick="openReference('weapons')">⚔ Weapons</button>
+          <button class="btn-add btn-ref" onclick="openReference('armor')">🛡 Armor</button>
+          <button class="btn-add btn-ref" onclick="openAddCurrency()">💰 Gold</button>
+        </div>
+        <div class="currency-inline">
+          <div class="ci-field"><span class="ci-lbl">GP</span><input type="number" data-field="gp" class="ci-inp" min="0" value="0"></div>
+          <div class="ci-field"><span class="ci-lbl">SP</span><input type="number" data-field="sp" class="ci-inp" min="0" value="0"></div>
+          <div class="ci-field"><span class="ci-lbl">CP</span><input type="number" data-field="cp" class="ci-inp" min="0" value="0"></div>
+          <div class="ci-field"><span class="ci-lbl">ETH</span><input type="number" data-field="eth" class="ci-inp" min="0" value="0"></div>
+        </div>
+        <div class="inv-columns">
+          <div class="inv-col" id="gear-col-1"></div>
+          <div class="inv-col" id="gear-col-2"></div>
+          <div class="inv-col inv-free-col" id="free-carry-col">
+            <div class="inv-col-header">Free Carry</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TAB: Spells ─────────────────────────────────────────────── -->
+      <div class="tab-pane" id="tab-spells" hidden>
+        <div class="tab-pane-header">
+          <div class="spell-ab-btns" id="spell-ab-btns">
+            <button class="spell-ab-btn" data-ab="int" onclick="setSpellcastingAbility('int')">INT</button>
+            <button class="spell-ab-btn" data-ab="wis" onclick="setSpellcastingAbility('wis')">WIS</button>
+            <button class="spell-ab-btn" data-ab="cha" onclick="setSpellcastingAbility('cha')">CHA</button>
+          </div>
+          <button class="btn-add btn-ref" onclick="openReference('spells')">📖 Browse Spells</button>
+        </div>
+        <ul class="item-list" id="list-spells"></ul>
+      </div>
+
+      <!-- ── TAB: Talents ────────────────────────────────────────────── -->
+      <div class="tab-pane" id="tab-talents" hidden>
+        <div class="tab-pane-header">
+          <button class="btn-add" onclick="openTalentPicker()">⚄ Roll / Pick</button>
+        </div>
+        <ul class="item-list" id="list-talents"></ul>
+      </div>
+
+      <!-- ── TAB: Features ───────────────────────────────────────────── -->
+      <div class="tab-pane" id="tab-features" hidden>
+        <div class="ts-section" id="class-features-section" hidden>
+          <div class="ts-header">
+            <span class="ts-label">Class Features</span>
+          </div>
+          <ul class="class-features-list" id="class-features-list"></ul>
+        </div>
+        <div class="ts-section" id="race-feature-section" hidden>
+          <div class="ts-header">
+            <span class="ts-label">Race Benefit</span>
+          </div>
+          <ul class="class-features-list" id="race-feature-list"></ul>
+        </div>
+        <div class="ts-section" id="bg-feature-section" hidden>
+          <div class="ts-header">
+            <span class="ts-label">Background</span>
+          </div>
+          <ul class="class-features-list" id="bg-feature-list"></ul>
+        </div>
+        <div class="ts-section" id="languages-section">
+          <div class="ts-header">
+            <span class="ts-label">Languages</span>
+            <button class="btn-add" onclick="openLanguagePicker()">+ Add</button>
+          </div>
+          <ul class="lang-list" id="lang-list"></ul>
+        </div>
+      </div>
+
+      <!-- ── TAB: Notes ──────────────────────────────────────────────── -->
+      <div class="tab-pane" id="tab-notes" hidden>
+        <div class="field-full">
+          <label>Wearing / Equipped</label>
+          <textarea data-field="wearing" rows="2" placeholder="Armour, shield, rings…"></textarea>
+        </div>
+        <div class="field-full">
+          <label>Campaign Notes</label>
+          <textarea data-field="notes" rows="12" placeholder="Session notes, quests, NPCs, lore…"></textarea>
+        </div>
+      </div>
+
+      <!-- ── TAB: Mounts ─────────────────────────────────────────────── -->
+      <div class="tab-pane" id="tab-mounts" hidden>
+        <div class="mount-section" id="mount-section">
+          <div class="mount-section-hdr">🐴 Mounts in Pack</div>
+          <div id="mount-cards"></div>
+        </div>
+      </div>
+    </div><!-- /sheet-tabs -->
+
+  </div><!-- /sheet-frame -->
+</div><!-- /view-sheet -->
+
+<!-- ── REFERENCE DRAWER ─────────────────────────────────────────────────── -->
+<div id="drawer-overlay" class="drawer-overlay" onclick="closeReference()"></div>
+<div id="reference-drawer" class="reference-drawer">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Game Reference</h2>
+    <button class="drawer-close" onclick="closeReference()">✕</button>
+  </div>
+  <div class="drawer-tabs" id="drawer-tabs">
+    <button class="dtab active" data-table="weapons">Weapons</button>
+    <button class="dtab" data-table="armor">Armor</button>
+    <button class="dtab" data-table="spells">Spells</button>
+    <button class="dtab" data-table="gear">Gear</button>
+    <button class="dtab" data-table="magic_items">Magic Items</button>
+    <button class="dtab" data-table="gems">Gems</button>
+    <button class="dtab" data-table="plants_poisons">Plants</button>
+    <button class="dtab" data-table="traps">Traps</button>
+    <button class="dtab" data-table="mounts">Mounts</button>
+    <button class="dtab" data-table="spell_catalysts">Catalysts</button>
+  </div>
+  <div class="drawer-search-bar">
+    <input type="text" id="ref-search" placeholder="Search…" oninput="filterReference()">
+    <button id="ref-class-filter" class="ref-class-filter filter-btn" type="button"
+            onclick="toggleClassFilter()" title="Show only items available to your class" hidden>Class only</button>
+  </div>
+
+  <!-- Per-tab filter chips (currently only the Spells tab uses these) -->
+  <div id="ref-spell-filters" class="ref-filter-bar" hidden>
+    <button class="filter-btn ref-caster-btn active" data-caster="all" type="button">All</button>
+    <button class="filter-btn ref-caster-btn" data-caster="Wizard" type="button">Wizard</button>
+    <button class="filter-btn ref-caster-btn" data-caster="Priest" type="button">Priest</button>
+    <button class="filter-btn ref-caster-btn" data-caster="Witch" type="button">Witch</button>
+  </div>
+  <div id="ref-spell-align-filters" class="ref-filter-bar ref-align-filters" hidden>
+    <span class="ref-filter-label">Alignment:</span>
+    <button class="filter-btn ref-align-btn" data-align="all" type="button">All</button>
+    <button class="filter-btn ref-align-btn" data-align="Lawful" type="button">Lawful</button>
+    <button class="filter-btn ref-align-btn" data-align="Neutral" type="button">Neutral</button>
+    <button class="filter-btn ref-align-btn" data-align="Chaotic" type="button">Chaotic</button>
+  </div>
+
+  <div id="drawer-content" class="drawer-content"></div>
+</div>
+
+<!-- ── DICE ROLLER ────────────────────────────────────────────────────────── -->
+<div id="dice-panel" class="dice-panel">
+  <div class="dice-panel-hdr">
+    <span class="dice-panel-title">⚄ Dice Roller</span>
+    <button class="dice-close-btn" onclick="closeDice()" title="Close">✕</button>
+  </div>
+  <div class="dice-top-row">
+    <div class="dice-stage">
+      <div class="die-wrap" id="die-wrap">
+        <div class="die-face" id="die-face" data-sides="20">
+          <span class="die-num" id="die-num">?</span>
+          <span class="die-sides-label" id="die-sides-label">d20</span>
+        </div>
+      </div>
+      <div class="roll-total" id="roll-total">—</div>
+      <div class="roll-breakdown" id="roll-breakdown"></div>
+    </div>
+    <div class="dice-right-col">
+      <div class="dice-types">
+        <button class="die-type" data-sides="4"   style="--dc:#4ade80">d4</button>
+        <button class="die-type" data-sides="6"   style="--dc:#60a5fa">d6</button>
+        <button class="die-type" data-sides="8"   style="--dc:#34d399">d8</button>
+        <button class="die-type" data-sides="10"  style="--dc:#fb923c">d10</button>
+        <button class="die-type" data-sides="12"  style="--dc:#a78bfa">d12</button>
+        <button class="die-type active" data-sides="20" style="--dc:#f87171">d20</button>
+        <button class="die-type" data-sides="100" style="--dc:#94a3b8">d%</button>
+      </div>
+      <div class="dice-count-area">
+        <span class="dice-ctrl-label">Count</span>
+        <input id="dice-count-input" class="dice-count-input" type="number" value="1" min="1" max="20">
+      </div>
+    </div>
+  </div>
+  <div class="dice-ability-section">
+    <div class="dice-section-label">Ability Check Modifier</div>
+    <div class="dice-ability-grid">
+      <button class="amb" data-ability="str" onclick="setAbilityMod('str')">
+        <span class="amb-name">STR</span><span class="amb-val" id="amb-str">+0</span>
+      </button>
+      <button class="amb" data-ability="dex" onclick="setAbilityMod('dex')">
+        <span class="amb-name">DEX</span><span class="amb-val" id="amb-dex">+0</span>
+      </button>
+      <button class="amb" data-ability="con" onclick="setAbilityMod('con')">
+        <span class="amb-name">CON</span><span class="amb-val" id="amb-con">+0</span>
+      </button>
+      <button class="amb" data-ability="int" onclick="setAbilityMod('int')">
+        <span class="amb-name">INT</span><span class="amb-val" id="amb-int">+0</span>
+      </button>
+      <button class="amb" data-ability="wis" onclick="setAbilityMod('wis')">
+        <span class="amb-name">WIS</span><span class="amb-val" id="amb-wis">+0</span>
+      </button>
+      <button class="amb" data-ability="cha" onclick="setAbilityMod('cha')">
+        <span class="amb-name">CHA</span><span class="amb-val" id="amb-cha">+0</span>
+      </button>
+    </div>
+    <button class="amb-clear" id="amb-clear" onclick="clearAbilityMod()">— No modifier —</button>
+  </div>
+  <div id="spell-dc-row" class="spell-dc-row" hidden>
+    <div class="sdr-name" id="spell-dc-name"></div>
+    <div class="sdr-body">
+      <div class="sdr-col">
+        <div class="sdr-label">Cast Roll</div>
+        <div class="sdr-val" id="spell-cast-roll">—</div>
+      </div>
+      <div class="sdr-sep">✦</div>
+      <div class="sdr-col">
+        <div class="sdr-label">DC</div>
+        <div class="sdr-val" id="spell-dc-val">—</div>
+      </div>
+    </div>
+  </div>
+  <div id="weapon-dmg-row" class="weapon-dmg-row" hidden>
+    <div class="wdr-name" id="wdr-name"></div>
+    <div class="wdr-body">
+      <div class="wdr-col">
+        <div class="wdr-label">Attack</div>
+        <div class="wdr-val" id="wdr-atk">—</div>
+      </div>
+      <div class="wdr-sep">⚔</div>
+      <div class="wdr-col">
+        <div class="wdr-label">Damage</div>
+        <div class="wdr-val" id="wdr-dmg">—</div>
+      </div>
+    </div>
+  </div>
+  <button class="roll-now-btn" id="roll-now-btn" onclick="rollNow()">ROLL</button>
+  <ul class="dice-history" id="dice-history"></ul>
+</div>
+
+<!-- ── STABLE DRAWER ──────────────────────────────────────────────────────── -->
+<div id="stable-overlay" class="drawer-overlay" onclick="closeStable()"></div>
+<div id="stable-drawer" class="stable-drawer">
+  <div class="drawer-header">
+    <h2 class="drawer-title">🐴 Stable</h2>
+    <button class="drawer-close" onclick="closeStable()">✕</button>
+  </div>
+  <div id="stable-content" class="stable-content"></div>
+</div>
+
+<!-- ── LANGUAGE PICKER MODAL ──────────────────────────────────────────────── -->
+<div id="lang-overlay" class="lr-overlay" hidden onclick="closeLanguagePicker()"></div>
+<div id="lang-modal" class="lr-modal talent-modal" hidden>
+  <div class="lr-header">
+    <span class="lr-title" id="lang-modal-title">🗣 Languages</span>
+    <button class="lr-close" onclick="closeLanguagePicker()">✕</button>
+  </div>
+  <div class="talent-modal-body" id="lang-modal-body"></div>
+</div>
+
+<!-- ── LONG REST MODAL ────────────────────────────────────────────────────── -->
+<!-- ── TALENT PICKER MODAL ────────────────────────────────────────────────── -->
+<div id="talent-overlay" class="lr-overlay" hidden onclick="closeTalentPicker()"></div>
+<div id="talent-modal" class="lr-modal talent-modal" hidden>
+  <div class="lr-header">
+    <span class="lr-title" id="talent-modal-title">🎲 Talents</span>
+    <button class="lr-close" onclick="closeTalentPicker()">✕</button>
+  </div>
+  <div class="talent-modal-body" id="talent-modal-body"></div>
+</div>
+
+<div id="long-rest-overlay" class="lr-overlay" hidden onclick="closeLongRest()"></div>
+<div id="long-rest-modal" class="lr-modal" hidden>
+  <div class="lr-header">
+    <span class="lr-title">☽ Long Rest</span>
+    <button class="lr-close" onclick="closeLongRest()">✕</button>
+  </div>
+  <div class="lr-body">
+    <div class="lr-hp-row">
+      <span class="lr-hp-icon">♥</span>
+      <span>Hit points restored to maximum</span>
+    </div>
+    <div class="lr-spells-section" id="lr-spells-section">
+      <div class="lr-spells-label">Restore spells</div>
+      <ul class="lr-spells-list" id="lr-spells-list"></ul>
+    </div>
+  </div>
+  <div class="lr-footer">
+    <button class="lr-cancel" onclick="closeLongRest()">Cancel</button>
+    <button class="lr-confirm" id="lr-confirm-btn" onclick="confirmLongRest()">Take Rest</button>
+  </div>
+</div>
+
+<!-- ── STAT CHOICE MODAL ─────────────────────────────────────────────────── -->
+<div id="stat-choice-overlay" class="lr-overlay" hidden></div>
+<div id="stat-choice-modal" class="lr-modal stat-choice-modal" hidden>
+  <div class="lr-header">
+    <span class="lr-title" id="stat-choice-title">+2 to which stat?</span>
+    <button class="lr-close" onclick="closeStatChoice(null)">✕</button>
+  </div>
+  <div class="stat-choice-body">
+    <div class="stat-choice-desc" id="stat-choice-desc"></div>
+    <div class="stat-choice-buttons" id="stat-choice-buttons"></div>
+    <button class="stat-choice-skip" onclick="closeStatChoice(null)">Skip (no bonus)</button>
+  </div>
+</div>
+
+<!-- ── INV CONTEXT MENU ───────────────────────────────────────────────────── -->
+<div id="inv-ctx-menu" class="inv-ctx-menu" hidden></div>
+
+<!-- ── ITEM HOVER CARD ────────────────────────────────────────────────────── -->
+<div id="item-card" class="item-card"></div>
+
+<!-- ── BACKGROUND DESCRIPTION CARD ──────────────────────────────────────── -->
+<div id="bg-desc-card" class="bg-desc-card"></div>
+
+<!-- ── DEITY DESCRIPTION CARD ─────────────────────────────────────────── -->
+<div id="deity-desc-card" class="deity-desc-card"></div>
+
+<!-- ── TOAST ─────────────────────────────────────────────────────────────── -->
+<div id="toast" class="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script src="/static/js/theme.js"></script>
+<script src="/static/js/auth.js"></script>
+<script src="/static/js/nav-mobile.js"></script>
+<script src="/static/js/app.js"></script>
+
+<!-- Site nav dropdown JS -->
+<script>
+(function() {
+  const items = document.querySelectorAll('.nav-item.has-dropdown');
+  let openDD = null, hoverTimeout = null;
+  function openDropdown(item) { closeAll(); item.classList.add('open'); openDD = item; }
+  function closeAll() { items.forEach(i => i.classList.remove('open')); openDD = null; }
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => { clearTimeout(hoverTimeout); openDropdown(item); });
+    item.addEventListener('mouseleave', () => { hoverTimeout = setTimeout(closeAll, 200); });
+    item.querySelector('.nav-link').addEventListener('click', e => {
+      e.preventDefault();
+      if (item.classList.contains('open')) closeAll(); else openDropdown(item);
+    });
+  });
+  document.addEventListener('click', e => { if (openDD && !e.target.closest('.nav-item.has-dropdown')) closeAll(); });
+})();
+</script>
+</body>
+</html>

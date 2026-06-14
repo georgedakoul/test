@@ -1,0 +1,98 @@
+[
+  {
+    "id": "camel",
+    "Name": "Camel",
+    "Cost": "50 gp",
+    "Spooks?": "Yes",
+    "Rarity": "Common",
+    "properties": null,
+    "Monster sheet": "AC 10, HP 12, ATK 1 hoof +3 (1d6) or 1 spit (near) +0 (1d4), MV double near, S +3, D +0, C +3, I -2,W +1, Ch -3, AL N, LV 2",
+    "Gear Slots": 0,
+    "Description": "A hardy desert beast with a distinctive hump. Can travel for days without water and endure scorching heat.",
+    "Carry Slots": 10
+  },
+  {
+    "id": "camel_silver",
+    "Name": "Camel, silver",
+    "Cost": "200 gp",
+    "Spooks?": "No",
+    "Rarity": "Rare",
+    "properties": null,
+    "Monster sheet": "AC 10, HP 13, ATK 1 hoof +3 (1d6) or 1 spit (near) +0 (1d4), MV double near, S +3, D +0, C +4, I -2, W +1, Ch +0, AL N, LV 2",
+    "Gear Slots": 0,
+    "Description": "A rare albino camel bred for desert royalty. More obedient than its common kin and capable of longer marches.",
+    "Carry Slots": 10
+  },
+  {
+    "id": "donkey",
+    "Name": "Donkey",
+    "Cost": "40 gp",
+    "Spooks?": "Yes",
+    "Rarity": "Common",
+    "properties": null,
+    "Monster sheet": "AC 10, HP 6, ATK 1 hoof +3 (1d4), MV near, S +3, D +0, C +2, I -2, W +1, Ch -2, AL N, LV 1",
+    "Gear Slots": 0,
+    "Description": "A sturdy, dependable pack animal. Slow but sure-footed on rough terrain, ideal for carrying heavy loads.",
+    "Carry Slots": 8
+  },
+  {
+    "id": "elephant",
+    "Name": "Elephant",
+    "Cost": "400 gp",
+    "Spooks?": "No",
+    "Rarity": "Rare",
+    "properties": null,
+    "Monster sheet": "AC 14, HP 34, ATK 2 tusks +6 (1d8), MV near, S +5, D +0, C +3, I -2, W +1, Ch +0, AL N, LV 7 Charge. Move up to double near in straight line and make 1 tusks attack. If hit, x3 damage.",
+    "Gear Slots": 0,
+    "Description": "A massive and intelligent beast capable of carrying several riders and enormous quantities of cargo.",
+    "Carry Slots": 20
+  },
+  {
+    "id": "horse",
+    "Name": "Horse",
+    "Cost": "50 gp",
+    "Spooks?": "Yes",
+    "Rarity": "Common",
+    "properties": "ADV on morale",
+    "Monster sheet": "AC 11, HP 11, ATK 1 hooves +3 (1d6), MV double near, S +3, D +1, C +2, I -3, W +1, Ch -2, AL N, LV 2",
+    "Gear Slots": 0,
+    "Description": "The most common mount across the realm — fast, strong, and bred for long journeys on open roads.",
+    "Carry Slots": 10
+  },
+  {
+    "id": "horse_war",
+    "Name": "Horse, war ",
+    "Cost": "100 gp ",
+    "Spooks?": "No ",
+    "Rarity": "Uncommon ",
+    "properties": "Can wear armor",
+    "Monster sheet": "AC 11, HP 15, ATK 1 hooves +4 (1d6), MV double near, S +3, D +1, C +2, I -3, W +1, Ch -1, AL N, LV 3",
+    "Gear Slots": 0,
+    "Description": "A specially trained battle horse bred to remain calm amid the chaos of combat. Follows voice commands.",
+    "Carry Slots": 12
+  },
+  {
+    "id": "scrag",
+    "Name": "Scrag",
+    "Cost": "150 gp",
+    "Spooks?": "Yes",
+    "Rarity": "Uncommon",
+    "properties": null,
+    "Monster sheet": "AC 12, HP 11, ATK 1 claw +2 (1d6), MV near (climb), S +2, D +2, C +2, I -2, W +1, Ch -3, AL N, LV 2",
+    "Gear Slots": 0,
+    "Description": "A large, lizard-like beast from the underground realms. Preferred by dark elves for its silence and sure footing.",
+    "Carry Slots": 8
+  },
+  {
+    "id": "scrag_war",
+    "Name": "Scrag, war",
+    "Cost": "250 gp",
+    "Spooks?": "No",
+    "Rarity": "Rare",
+    "properties": "Can wear armor",
+    "Monster sheet": "AC 12, HP 15, ATK 1 claw +3 (1d6), MV near (climb), S +3, D +2, C +2, I -2, W +1, Ch -3, AL N, LV 3",
+    "Gear Slots": 0,
+    "Description": "A combat-hardened scrag with reinforced scales. Fierce in battle and utterly fearless by training.",
+    "Carry Slots": 10
+  }
+]

@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block title %}Monsters — Shadowdark RPG{% endblock %}
+
+{% block head %}
+<style>
+  .mon-stat-block {
+    background: var(--bg-panel-alt);
+    border: 1px solid var(--border-dim);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: .5rem 0;
+    line-height: 1.7;
+  }
+  .mon-stat-block .mon-name {
+    font-family: var(--font-h);
+    font-size: 1.2rem;
+    color: var(--bronze);
+    margin-bottom: .25rem;
+  }
+  .mon-stat-block .mon-desc {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: .75rem;
+  }
+  .mon-stat-block .mon-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
+    margin-bottom: .5rem;
+    font-size: .88rem;
+  }
+  .mon-stat-block .mon-stats span {
+    color: var(--text-secondary);
+  }
+  .mon-stat-block .stat-label {
+    color: var(--bronze);
+    font-weight: 700;
+  }
+  .mon-stat-block .mon-mods {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: .5rem;
+    font-size: .85rem;
+    color: var(--text-muted);
+  }
+  .mon-stat-block .mon-mods strong { color: var(--text-secondary); }
+  .mon-ability {
+    margin-top: .4rem;
+    font-size: .88rem;
+    color: var(--text-secondary);
+  }
+  .mon-ability strong {
+    color: var(--text-primary);
+  }
+  .type-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+    margin-bottom: 1rem;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Monsters</h1>
+  <div class="filter-bar">
+    <input class="filter-input" type="text" id="mon-search" placeholder="Search monsters...">
+  </div>
+  <div class="type-filters" id="type-filters"></div>
+  <table class="list-table">
+    <thead>
+      <tr>
+        <th data-sort="level" style="width:45px;">LV</th>
+        <th data-sort="name">Name</th>
+        <th data-sort="type">Type</th>
+        <th data-sort="alignment">AL</th>
+      </tr>
+    </thead>
+    <tbody id="mon-body"></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  const body     = document.getElementById('mon-body');
+  const search   = document.getElementById('mon-search');
+  const typeWrap = document.getElementById('type-filters');
+  let allData    = [];
+  let sortCol    = 'level', sortAsc = true;
+  let filterType = 'all';
+
+  fetch('/api/data/monsters').then(r=>r.json()).then(data => {
+    allData = data;
+
+    // Build type filter buttons
+    const types = [...new Set(data.map(m => m.type))].sort();
+    let btns = '<button class="filter-btn active" data-mtype="all">All</button>';
+    types.forEach(t => { btns += `<button class="filter-btn" data-mtype="${t}">${t}</button>`; });
+    typeWrap.innerHTML = btns;
+
+    typeWrap.querySelectorAll('[data-mtype]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        typeWrap.querySelectorAll('[data-mtype]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterType = btn.dataset.mtype;
+        render();
+      });
+    });
+
+    render();
+  });
+
+  function render() {
+    const q = (search.value || '').toLowerCase();
+    let list = allData.filter(m => {
+      if (filterType !== 'all' && m.type !== filterType) return false;
+      if (q) {
+        const hay = [m.name, m.type, m.family, m.alignment, m.description].filter(Boolean).join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    list.sort((a,b) => {
+      let av = a[sortCol], bv = b[sortCol];
+      if (sortCol === 'level') { av = Number(av)||0; bv = Number(bv)||0; return sortAsc ? av-bv : bv-av; }
+      av = (av||'').toString().toLowerCase(); bv = (bv||'').toString().toLowerCase();
+      return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+
+    body.innerHTML = list.map((m,i) => {
+      const mods = ['str','dex','con','int','wis','cha'].map(s =>
+        `<span><strong>${s.toUpperCase()}</strong> ${m[s]||'+0'}</span>`
+      ).join('');
+
+      const abilities = (m.abilities||[]).map(a =>
+        `<div class="mon-ability"><strong>${a.name}.</strong> ${a.description}</div>`
+      ).join('');
+
+      return `
+      <tr class="mon-row" data-idx="${i}">
+        <td>${m.level != null ? m.level : ''}</td>
+        <td>${m.name||''}</td>
+        <td class="muted">${m.type||''}</td>
+        <td class="muted">${m.alignment||''}</td>
+      </tr>
+      <tr class="row-detail" data-detail="${i}">
+        <td colspan="4">
+          <div class="mon-stat-block">
+            <div class="mon-name">${m.name}</div>
+            <div class="mon-desc">${m.description||''}</div>
+            <div class="mon-stats">
+              <span><span class="stat-label">AC</span> ${m.ac||''}${m.ac_note ? ' ('+m.ac_note+')' : ''}</span>
+              <span><span class="stat-label">HP</span> ${m.hp||''}</span>
+              <span><span class="stat-label">ATK</span> ${m.atk||''}</span>
+              <span><span class="stat-label">MV</span> ${m.mv||''}</span>
+            </div>
+            <div class="mon-mods">${mods}</div>
+            ${abilities}
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+
+    body.querySelectorAll('.mon-row').forEach(row => {
+      row.addEventListener('click', () => {
+        body.querySelector(`[data-detail="${row.dataset.idx}"]`).classList.toggle('open');
+      });
+    });
+  }
+
+  search.addEventListener('input', render);
+
+  document.querySelectorAll('[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = true; }
+      render();
+    });
+  });
+})();
+</script>
+{% endblock %}

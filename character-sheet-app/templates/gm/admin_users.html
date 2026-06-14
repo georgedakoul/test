@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Users — Shadowdark GM{% endblock %}
+{% block body %}
+<div class="page-wrap">
+  <h1 class="page-title">Users</h1>
+  <p style="color:var(--text-secondary);margin-bottom:1.25rem;">
+    Toggle Game Master access for any account. GMs can edit shared homebrew
+    entries and manage their own Game Master Screen boards.
+  </p>
+  <table class="list-table" id="users-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">ID</th>
+        <th>Username</th>
+        <th style="width:140px;">Joined</th>
+        <th style="width:120px;text-align:center;">Game Master</th>
+      </tr>
+    </thead>
+    <tbody id="users-body"></tbody>
+  </table>
+</div>
+
+<script>
+(function(){
+  const body = document.getElementById('users-body');
+  function fmtDate(s) {
+    if (!s) return '—';
+    try { return new Date(s.replace(' ', 'T') + 'Z').toLocaleDateString(); }
+    catch (e) { return s; }
+  }
+  function render(list) {
+    body.innerHTML = list.map(u => `
+      <tr data-uid="${u.id}">
+        <td>${u.id}</td>
+        <td><strong>${escapeHtml(u.username)}</strong></td>
+        <td class="muted">${fmtDate(u.created_at)}</td>
+        <td style="text-align:center;">
+          <label class="gm-toggle">
+            <input type="checkbox" data-gm-toggle="${u.id}" ${u.is_gm ? 'checked' : ''}>
+            <span class="gm-toggle-track"></span>
+          </label>
+        </td>
+      </tr>`).join('');
+    body.querySelectorAll('input[data-gm-toggle]').forEach(cb => {
+      cb.addEventListener('change', async (e) => {
+        const uid = parseInt(cb.dataset.gmToggle);
+        const flag = cb.checked;
+        try {
+          const r = await fetch(`/api/admin/users/${uid}/gm`, {
+            method: 'PUT', headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({ is_gm: flag })
+          });
+          if (!r.ok) {
+            const j = await r.json().catch(()=>({}));
+            cb.checked = !flag;
+            alert(j.error === 'cannot_revoke_last_gm'
+              ? 'You are the only GM. Promote someone else first.'
+              : 'Failed to update.');
+          }
+        } catch (e) {
+          cb.checked = !flag;
+          alert('Network error.');
+        }
+      });
+    });
+  }
+  function escapeHtml(s) {
+    return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  fetch('/api/admin/users').then(r => r.json()).then(render);
+})();
+</script>
+{% endblock %}

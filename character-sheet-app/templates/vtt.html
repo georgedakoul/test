@@ -1,0 +1,1394 @@
+{% extends "base.html" %}
+{% block title %}Maps VTT — Shadowdark RPG{% endblock %}
+
+{% block head %}
+<style>
+body { overflow: hidden; }
+
+#vtt-root {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - var(--nav-h, 48px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #111;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────── */
+#vtt-bar {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .3rem .6rem;
+  background: var(--hdr-bg);
+  border-bottom: 1px solid var(--bronze-dark);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+#vtt-bar.hidden { display: none; }
+
+.vtt-sep { width: 1px; background: var(--border-dim); align-self: stretch; margin: 0 .1rem; }
+
+.vtt-btn {
+  background: var(--bg-chrome);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-b);
+  font-size: .78rem;
+  padding: .28rem .55rem;
+  cursor: pointer;
+  transition: var(--trans);
+  white-space: nowrap;
+  line-height: 1.3;
+}
+.vtt-btn:hover { background: var(--bg-hover); border-color: var(--bronze); }
+.vtt-btn.active {
+  background: var(--bronze-dark);
+  border-color: var(--bronze);
+  color: var(--bronze);
+  font-weight: 600;
+}
+.vtt-btn.danger { }
+.vtt-btn.danger:hover { border-color: #c44; color: #c44; }
+
+.vtt-label {
+  font-family: var(--font-h);
+  font-size: .72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.vtt-select {
+  background: var(--bg-input);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-b);
+  font-size: .78rem;
+  padding: .28rem .4rem;
+  max-width: 160px;
+}
+
+.vtt-num {
+  background: var(--bg-input);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-b);
+  font-size: .78rem;
+  padding: .28rem .3rem;
+  width: 52px;
+  text-align: center;
+}
+
+#vtt-save-lbl {
+  font-family: var(--font-b);
+  font-size: .7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-left: auto;
+  padding-right: .3rem;
+}
+
+/* ── Stage ───────────────────────────────────────────────────────── */
+#vtt-stage {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+#vtt-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  display: block;
+}
+
+/* Tool cursors */
+#vtt-stage.cur-pan    { cursor: grab; }
+#vtt-stage.cur-pan.grabbing { cursor: grabbing; }
+#vtt-stage.cur-fog    { cursor: crosshair; }
+#vtt-stage.cur-free   { cursor: none; }
+#vtt-stage.cur-token  { cursor: cell; }
+#vtt-stage.cur-align  { cursor: crosshair; }
+
+/* Drop overlay */
+#vtt-drop {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-h);
+  font-size: 1.4rem;
+  color: rgba(255,255,255,.3);
+  border: 3px dashed rgba(255,255,255,.2);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s;
+}
+#vtt-drop.show { opacity: 1; }
+
+/* Hint toast */
+#vtt-hint {
+  position: absolute;
+  bottom: .6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.8);
+  color: #ddd;
+  font-family: var(--font-b);
+  font-size: .78rem;
+  padding: .3rem .7rem;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s;
+  white-space: nowrap;
+}
+#vtt-hint.show { opacity: 1; }
+
+/* ── Token popup ─────────────────────────────────────────────────── */
+#tok-popup {
+  position: absolute;
+  background: var(--bg-chrome);
+  border: 1px solid var(--bronze-dark);
+  border-radius: var(--radius);
+  padding: .65rem .75rem;
+  z-index: 60;
+  display: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,.7);
+  min-width: 170px;
+}
+#tok-popup.open { display: block; }
+#tok-popup label {
+  display: block;
+  font-family: var(--font-b);
+  font-size: .75rem;
+  color: var(--text-muted);
+  margin-bottom: .12rem;
+}
+#tok-popup input[type=text] {
+  width: 100%; box-sizing: border-box;
+  background: var(--bg-input);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-b);
+  font-size: .85rem;
+  padding: .25rem .4rem;
+  margin-bottom: .4rem;
+}
+#tok-popup input[type=color] {
+  width: 100%; height: 26px;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-bottom: .45rem;
+  padding: 0;
+}
+.tok-row { display: flex; gap: .35rem; }
+.tok-btn {
+  flex: 1;
+  background: var(--bg-chrome);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-b);
+  font-size: .78rem;
+  padding: .25rem;
+  cursor: pointer;
+}
+.tok-btn:hover { background: var(--bg-hover); }
+.tok-btn.del { color: #c66; border-color: #633; }
+.tok-btn.del:hover { background: #2a1010; }
+
+/* ── Character panel ─────────────────────────────────────────────── */
+#panel-toggle {
+  position: absolute;
+  top: .5rem; right: .5rem;
+  z-index: 50;
+  background: var(--hdr-bg);
+  border: 1px solid var(--bronze-dark);
+  border-radius: var(--radius);
+  color: var(--bronze);
+  font-family: var(--font-h);
+  font-size: .82rem;
+  padding: .38rem .7rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.5);
+  transition: var(--trans);
+}
+#panel-toggle:hover { background: var(--bg-hover); border-color: var(--bronze); }
+
+#char-panel {
+  position: absolute;
+  top: 0; right: 0;
+  width: 420px; height: 100%;
+  background: var(--bg-chrome);
+  border-left: 2px solid var(--bronze-dark);
+  box-shadow: -4px 0 20px rgba(0,0,0,.6);
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform .25s ease;
+}
+#char-panel.open { transform: translateX(0); }
+.cp-head {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .5rem .75rem;
+  background: var(--hdr-bg);
+  border-bottom: 1px solid var(--border-dim);
+  flex-shrink: 0;
+}
+.cp-head select {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-b);
+  font-size: .82rem;
+  padding: .28rem .4rem;
+}
+.cp-close {
+  background: none; border: none;
+  color: var(--text-muted); font-size: 1.2rem;
+  cursor: pointer; padding: .2rem .4rem;
+}
+.cp-close:hover { color: var(--text-primary); }
+#sheet-frame { flex: 1; width: 100%; border: none; background: var(--bg-page); }
+
+@media (max-width: 600px) {
+  #char-panel { width: 100%; }
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div id="vtt-root">
+
+  <!-- GM Toolbar -->
+  <div id="vtt-bar">
+    <span class="vtt-label">Map:</span>
+    <select id="map-sel" class="vtt-select"></select>
+    <button class="vtt-btn" id="btn-new-map">+ New</button>
+    <button class="vtt-btn" id="btn-rename-map" title="Rename">✎</button>
+    <button class="vtt-btn danger" id="btn-del-map" title="Delete">✕</button>
+
+    <div class="vtt-sep"></div>
+
+    <button class="vtt-btn" id="btn-img" title="Upload or set map image">🗺 Image</button>
+    <input id="img-file" type="file" accept="image/*" style="display:none">
+
+    <div class="vtt-sep"></div>
+
+    <span class="vtt-label">Tool:</span>
+    <button class="vtt-btn active" id="tool-pan"  data-tool="pan">✋ Pan</button>
+    <button class="vtt-btn" id="tool-fog-paint" data-tool="fog-paint" title="Grid fog — paint by cell. When Brush is active: sets brush to fog mode">🌫 Fog</button>
+    <button class="vtt-btn" id="tool-fog-erase" data-tool="fog-erase" title="Grid fog — reveal by cell. When Brush is active: sets brush to reveal mode">☀ Reveal</button>
+    <button class="vtt-btn" id="tool-free-fog" data-tool="free-fog" title="Freeform brush — then pick Fog or Reveal above to set mode">🖌 Brush</button>
+    <button class="vtt-btn" id="tool-token"     data-tool="token">⚔ Token</button>
+    <button class="vtt-btn" id="tool-align"     data-tool="align" title="Two-point grid calibration: click two opposite corners of one map square">⊹ Align</button>
+
+    <div class="vtt-sep"></div>
+
+    <span class="vtt-label" id="brush-lbl">Brush:</span>
+    <button class="vtt-btn active" id="brush-s" data-br="0">S</button>
+    <button class="vtt-btn"        id="brush-m" data-br="1">M</button>
+    <button class="vtt-btn"        id="brush-l" data-br="2">L</button>
+
+    <div class="vtt-sep"></div>
+
+    <button class="vtt-btn" id="btn-fog-all"    title="Cover entire map with fog">Fog All</button>
+    <button class="vtt-btn" id="btn-reveal-all" title="Remove all fog">Reveal All</button>
+
+    <div class="vtt-sep"></div>
+
+    <button class="vtt-btn active" id="btn-grid" title="Toggle grid">▦ Grid</button>
+    <span class="vtt-label">px:</span>
+    <input class="vtt-num" id="grid-px" type="number" value="50" min="20" max="200" title="Grid cell size">
+
+    <div class="vtt-sep"></div>
+
+    <button class="vtt-btn" id="btn-fit" title="Fit map to screen">⊡ Fit</button>
+
+    <span id="vtt-save-lbl"></span>
+  </div>
+
+  <!-- Canvas stage -->
+  <div id="vtt-stage" class="cur-pan">
+    <canvas id="vtt-canvas"></canvas>
+    <div id="vtt-drop">Drop map image here</div>
+    <div id="vtt-hint"></div>
+
+    <!-- Token editor popup -->
+    <div id="tok-popup">
+      <label>Label</label>
+      <input type="text" id="tok-label" maxlength="20" placeholder="e.g. Goblin">
+      <label>Color</label>
+      <input type="color" id="tok-color" value="#cc4444">
+      <div class="tok-row">
+        <button class="tok-btn" id="tok-save">Save</button>
+        <button class="tok-btn del" id="tok-del">Delete</button>
+        <button class="tok-btn" id="tok-cancel">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Character panel toggle -->
+    <button id="panel-toggle">⚔ Characters</button>
+
+    <!-- Character panel -->
+    <div id="char-panel">
+      <div class="cp-head">
+        <select id="char-sel"><option value="">Select a character…</option></select>
+        <button class="cp-close" id="cp-close">×</button>
+      </div>
+      <iframe id="sheet-frame"></iframe>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+'use strict';
+
+// ── DOM ───────────────────────────────────────────────────────────────
+const stage   = document.getElementById('vtt-stage');
+const canvas  = document.getElementById('vtt-canvas');
+const ctx     = canvas.getContext('2d');
+const dropEl  = document.getElementById('vtt-drop');
+const hintEl  = document.getElementById('vtt-hint');
+const saveLbl = document.getElementById('vtt-save-lbl');
+const tokPop  = document.getElementById('tok-popup');
+
+// ── State ─────────────────────────────────────────────────────────────
+const S = {
+  isGM: false,
+  // Map list
+  maps: [], mapId: null, mapName: '',
+  // Image
+  img: null, imgUrl: '',
+  // Viewport  (screen = world * zoom + pan)
+  zoom: 1, panX: 0, panY: 0,
+  // Grid
+  gridSize: 50, gridOn: true, gridOffX: 0, gridOffY: 0,
+  // Align tool
+  alignStep: 0, alignPt1: null,
+  // Hover world position (for align crosshair)
+  hovWorld: null,
+  // Fog: Set of "col,row" strings. Default = no fog (map fully visible).
+  fog: new Set(),
+  fogMode: 'paint',   // 'paint' | 'erase' — used by brush tool
+  // Freeform fog (paint-style, above grid)
+  freeStrokes: [],          // [{erase:bool, r:number, pts:[[wx,wy], ...]}, ...]
+  freeCanvas: null, freeCtx: null,   // offscreen render target
+  freePainting: false, lastFreePt: null, currentStroke: null,
+  // Tokens: [{id, col, row, label, color}]
+  tokens: [],
+  // Tool
+  tool: 'pan', brush: 0,
+  // Interaction
+  panStart: null,
+  painting: false, lastPaintCell: null,
+  dragToken: null,
+  editToken: null,
+  hovCell: null,
+  // Save
+  dirty: false, saveTimer: null,
+  lastUpdated: null,
+};
+
+// ── Coord helpers ─────────────────────────────────────────────────────
+const s2w = (sx, sy) => ({ x: (sx - S.panX) / S.zoom,   y: (sy - S.panY) / S.zoom });
+const w2s = (wx, wy) => ({ x: wx * S.zoom   + S.panX,   y: wy * S.zoom   + S.panY });
+const w2g = (wx, wy) => ({
+  col: Math.floor((wx - S.gridOffX) / S.gridSize),
+  row: Math.floor((wy - S.gridOffY) / S.gridSize),
+});
+
+function evXY(e) {
+  const r = canvas.getBoundingClientRect();
+  return { sx: e.clientX - r.left, sy: e.clientY - r.top };
+}
+
+// ── Render ────────────────────────────────────────────────────────────
+function render() {
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // ── World-space layer (map + grid) ──
+  ctx.save();
+  ctx.translate(S.panX, S.panY);
+  ctx.scale(S.zoom, S.zoom);
+
+  if (S.img) {
+    ctx.drawImage(S.img, 0, 0);
+  } else {
+    ctx.fillStyle = '#18140e';
+    ctx.fillRect(-S.panX / S.zoom, -S.panY / S.zoom, W / S.zoom, H / S.zoom);
+    ctx.fillStyle = 'rgba(255,255,255,.12)';
+    ctx.font = '22px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Upload a map image to begin', (W / S.zoom) / 2, (H / S.zoom) / 2);
+  }
+
+  if (S.gridOn) drawGrid(W, H);
+
+  ctx.restore();
+
+  // ── Unified fog layer (grid + brush, world space, single composite) ──
+  if (S.freeCanvas) {
+    ctx.save();
+    ctx.translate(S.panX, S.panY);
+    ctx.scale(S.zoom, S.zoom);
+    ctx.globalAlpha = S.isGM ? 0.65 : 1.0;
+    ctx.drawImage(S.freeCanvas, 0, 0);
+    ctx.globalAlpha = 1;
+    ctx.restore();
+  }
+
+  // ── Token + brush preview layer ──
+  ctx.save();
+  ctx.translate(S.panX, S.panY);
+  ctx.scale(S.zoom, S.zoom);
+  drawTokens();
+  if (S.hovCell && (S.tool === 'fog-paint' || S.tool === 'fog-erase')) {
+    drawBrushPreview(S.hovCell.col, S.hovCell.row);
+  }
+  if (S.hovWorld && S.tool === 'free-fog') {
+    drawFreeBrushPreview();
+  }
+  if (S.tool === 'align') drawAlignPreview();
+  ctx.restore();
+}
+
+function drawGrid(W, H) {
+  const gs = S.gridSize;
+  const ox = S.gridOffX, oy = S.gridOffY;
+  const c0 = Math.floor((-S.panX / S.zoom - ox) / gs) - 1;
+  const r0 = Math.floor((-S.panY / S.zoom - oy) / gs) - 1;
+  const c1 = Math.ceil((W - S.panX) / S.zoom / gs) + 1;
+  const r1 = Math.ceil((H - S.panY) / S.zoom / gs) + 1;
+  ctx.strokeStyle = 'rgba(255,255,255,.18)';
+  ctx.lineWidth = 1 / S.zoom;
+  ctx.beginPath();
+  for (let c = c0; c <= c1; c++) {
+    const x = c * gs + ox;
+    ctx.moveTo(x, r0 * gs + oy);
+    ctx.lineTo(x, r1 * gs + oy);
+  }
+  for (let r = r0; r <= r1; r++) {
+    const y = r * gs + oy;
+    ctx.moveTo(c0 * gs + ox, y);
+    ctx.lineTo(c1 * gs + ox, y);
+  }
+  ctx.stroke();
+}
+
+function drawFog_DEPRECATED() {
+  // (no longer used — fog now composites onto the unified canvas)
+  const alpha = S.isGM ? 0.62 : 1.0;
+  ctx.fillStyle = `rgba(8,4,0,${alpha})`;
+  const gs = S.gridSize;
+  for (const key of S.fog) {
+    const [col, row] = key.split(',').map(Number);
+    const sp = w2s(col * gs + S.gridOffX, row * gs + S.gridOffY);
+    const size = gs * S.zoom + 1;
+    ctx.fillRect(Math.floor(sp.x), Math.floor(sp.y), Math.ceil(size), Math.ceil(size));
+  }
+}
+
+function drawTokens() {
+  const gs = S.gridSize;
+  const radius = gs * 0.38;
+  const fs = Math.max(7, Math.min(13, gs * 0.28));
+  for (const t of S.tokens) {
+    const cx = t.col * gs + gs / 2 + S.gridOffX;
+    const cy = t.row * gs + gs / 2 + S.gridOffY;
+    // Glow
+    ctx.shadowColor = 'rgba(0,0,0,.8)';
+    ctx.shadowBlur  = 10 / S.zoom;
+    // Circle
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.fillStyle = t.color || '#cc4444';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,.9)';
+    ctx.lineWidth = 2 / S.zoom;
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    // Label (up to 3 chars)
+    if (t.label) {
+      const text = t.label.substring(0, 3);
+      ctx.font = `bold ${fs}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.strokeStyle = 'rgba(0,0,0,.9)';
+      ctx.lineWidth = 3 / S.zoom;
+      ctx.strokeText(text, cx, cy);
+      ctx.fillStyle = '#fff';
+      ctx.fillText(text, cx, cy);
+    }
+  }
+}
+
+function drawBrushPreview(col, row) {
+  const r  = S.brush;
+  const gs = S.gridSize;
+  ctx.strokeStyle = S.tool === 'fog-paint'
+    ? 'rgba(120,160,255,.85)'
+    : 'rgba(255,220,80,.85)';
+  ctx.lineWidth = 2 / S.zoom;
+  ctx.setLineDash([4 / S.zoom, 3 / S.zoom]);
+  ctx.strokeRect((col - r) * gs + S.gridOffX, (row - r) * gs + S.gridOffY, (r * 2 + 1) * gs, (r * 2 + 1) * gs);
+  ctx.setLineDash([]);
+}
+
+function drawAlignPreview() {
+  if (!S.hovWorld) return;
+  const { wx, wy } = S.hovWorld;
+  const arm = 10 / S.zoom;
+
+  // Crosshair at current mouse position
+  ctx.strokeStyle = 'rgba(100,220,255,.9)';
+  ctx.lineWidth = 1.5 / S.zoom;
+  ctx.beginPath();
+  ctx.moveTo(wx - arm, wy); ctx.lineTo(wx + arm, wy);
+  ctx.moveTo(wx, wy - arm); ctx.lineTo(wx, wy + arm);
+  ctx.stroke();
+  // Dot
+  ctx.beginPath();
+  ctx.arc(wx, wy, 3 / S.zoom, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(100,220,255,.9)';
+  ctx.fill();
+
+  if (S.alignStep === 1 && S.alignPt1) {
+    const { wx: ax, wy: ay } = S.alignPt1;
+    // First point marker (gold)
+    ctx.strokeStyle = 'rgba(255,200,60,.95)';
+    ctx.lineWidth = 2 / S.zoom;
+    ctx.beginPath();
+    ctx.moveTo(ax - arm, ay); ctx.lineTo(ax + arm, ay);
+    ctx.moveTo(ax, ay - arm); ctx.lineTo(ax, ay + arm);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(ax, ay, 4 / S.zoom, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,200,60,.95)';
+    ctx.fill();
+    // Dashed rectangle from pt1 to mouse
+    const x = Math.min(ax, wx), y = Math.min(ay, wy);
+    const w = Math.abs(wx - ax),  h = Math.abs(wy - ay);
+    ctx.strokeStyle = 'rgba(100,220,255,.7)';
+    ctx.lineWidth = 1.5 / S.zoom;
+    ctx.setLineDash([6 / S.zoom, 4 / S.zoom]);
+    ctx.strokeRect(x, y, w, h);
+    ctx.setLineDash([]);
+    // Size label
+    const size = Math.round((w + h) / 2);
+    ctx.font = `${11 / S.zoom}px sans-serif`;
+    ctx.fillStyle = 'rgba(100,220,255,.95)';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText(`~${size}px`, wx + 6 / S.zoom, wy - 4 / S.zoom);
+  }
+}
+
+// ── Freeform brush (pixel-perfect, world space, above grid) ───────────
+function freeBrushRadius() {
+  // Radius in WORLD pixels — scales with map, independent of grid
+  return S.gridSize * [0.4, 1.0, 2.5][S.brush];
+}
+
+function ensureFreeCanvas() {
+  // Build offscreen canvas matching map size (or 4000² fallback)
+  const w = S.img ? S.img.width  : 4000;
+  const h = S.img ? S.img.height : 4000;
+  if (S.freeCanvas && S.freeCanvas.width === w && S.freeCanvas.height === h) return false;
+  S.freeCanvas = document.createElement('canvas');
+  S.freeCanvas.width  = w;
+  S.freeCanvas.height = h;
+  S.freeCtx = S.freeCanvas.getContext('2d');
+  return true; // created
+}
+
+// Unified fog: paint grid cells + replay brush strokes onto the offscreen canvas
+function rebuildFogCanvas() {
+  ensureFreeCanvas();
+  const fc = S.freeCtx;
+  fc.clearRect(0, 0, S.freeCanvas.width, S.freeCanvas.height);
+  // 1. Grid fog cells (opaque black, world-space)
+  fc.globalCompositeOperation = 'source-over';
+  fc.fillStyle = 'rgba(8,4,0,1)';
+  const gs = S.gridSize;
+  for (const key of S.fog) {
+    const [col, row] = key.split(',').map(Number);
+    fc.fillRect(col * gs + S.gridOffX, row * gs + S.gridOffY, gs, gs);
+  }
+  // 2. Brush strokes on top (paint or erase — erase punches through grid fog too)
+  for (const s of S.freeStrokes) {
+    let prev = null;
+    for (const p of s.pts) {
+      if (prev) paintFreeSegment(prev[0], prev[1], p[0], p[1], s.r, s.erase);
+      else      paintFreeDab(p[0], p[1], s.r, s.erase);
+      prev = p;
+    }
+  }
+}
+
+function paintFreeDab(wx, wy, r, erase) {
+  S.freeCtx.globalCompositeOperation = erase ? 'destination-out' : 'source-over';
+  S.freeCtx.beginPath();
+  S.freeCtx.arc(wx, wy, r, 0, Math.PI * 2);
+  S.freeCtx.fillStyle = 'rgba(8,4,0,1)';
+  S.freeCtx.fill();
+  S.freeCtx.globalCompositeOperation = 'source-over';
+}
+
+function paintFreeSegment(x0, y0, x1, y1, r, erase) {
+  // Interpolate so a fast drag still produces a continuous stroke
+  const dist = Math.hypot(x1 - x0, y1 - y0);
+  const step = Math.max(1, r * 0.35);
+  const n    = Math.max(1, Math.ceil(dist / step));
+  for (let i = 1; i <= n; i++) {
+    const t = i / n;
+    paintFreeDab(x0 + (x1 - x0) * t, y0 + (y1 - y0) * t, r, erase);
+  }
+}
+
+function applyFreeAt(sx, sy, erase) {
+  if (ensureFreeCanvas()) rebuildFogCanvas();
+  const { x: wx, y: wy } = s2w(sx, sy);
+  const r  = freeBrushRadius();
+  const lp = S.lastFreePt;
+  if (lp) paintFreeSegment(lp[0], lp[1], wx, wy, r, erase);
+  else    paintFreeDab(wx, wy, r, erase);
+  // Subsample points for storage
+  if (!lp || Math.hypot(wx - lp[0], wy - lp[1]) >= r * 0.35) {
+    if (S.currentStroke) S.currentStroke.pts.push([Math.round(wx), Math.round(wy)]);
+    S.lastFreePt = [wx, wy];
+  }
+  render();
+}
+
+function drawFreeBrushPreview() {
+  const { wx, wy } = S.hovWorld;
+  const r = freeBrushRadius();
+  ctx.beginPath();
+  ctx.arc(wx, wy, r, 0, Math.PI * 2);
+  ctx.strokeStyle = S.fogMode === 'erase' ? 'rgba(255,220,80,.9)' : 'rgba(120,160,255,.9)';
+  ctx.lineWidth = 2 / S.zoom;
+  ctx.setLineDash([5 / S.zoom, 4 / S.zoom]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  // Centre crosshair
+  ctx.beginPath();
+  ctx.arc(wx, wy, 2 / S.zoom, 0, Math.PI * 2);
+  ctx.fillStyle = S.fogMode === 'erase' ? 'rgba(255,220,80,1)' : 'rgba(120,160,255,1)';
+  ctx.fill();
+}
+
+// ── Fog painting ──────────────────────────────────────────────────────
+function lerpCells(c0, r0, c1, r1) {
+  const steps = Math.max(Math.abs(c1 - c0), Math.abs(r1 - r0), 1);
+  const pts = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    pts.push([Math.round(c0 + (c1 - c0) * t), Math.round(r0 + (r1 - r0) * t)]);
+  }
+  return pts;
+}
+
+function applyFogAt(sx, sy, erase) {
+  if (ensureFreeCanvas()) rebuildFogCanvas();
+  const { x: wx, y: wy } = s2w(sx, sy);
+  const { col, row } = w2g(wx, wy);
+  const lp = S.lastPaintCell;
+  const pts = lp ? lerpCells(lp.col, lp.row, col, row) : [[col, row]];
+  S.lastPaintCell = { col, row };
+  const r  = S.brush;
+  const gs = S.gridSize;
+  const fc = S.freeCtx;
+  fc.globalCompositeOperation = 'source-over';
+  fc.fillStyle = 'rgba(8,4,0,1)';
+  let changed = false;
+  for (const [cc, cr] of pts) {
+    for (let dc = -r; dc <= r; dc++) {
+      for (let dr = -r; dr <= r; dr++) {
+        const cellC = cc + dc, cellR = cr + dr;
+        const key = `${cellC},${cellR}`;
+        if (erase ? S.fog.has(key) : !S.fog.has(key)) {
+          erase ? S.fog.delete(key) : S.fog.add(key);
+          const x = cellC * gs + S.gridOffX;
+          const y = cellR * gs + S.gridOffY;
+          if (erase) fc.clearRect(x, y, gs, gs);
+          else       fc.fillRect(x, y, gs, gs);
+          changed = true;
+        }
+      }
+    }
+  }
+  if (changed) { render(); scheduleSave(); }
+}
+
+// ── Tokens ────────────────────────────────────────────────────────────
+function tokenAt(sx, sy) {
+  const { x: wx, y: wy } = s2w(sx, sy);
+  const r2 = (S.gridSize * 0.38) ** 2;
+  for (let i = S.tokens.length - 1; i >= 0; i--) {
+    const t = S.tokens[i];
+    const cx = t.col * S.gridSize + S.gridSize / 2 + S.gridOffX;
+    const cy = t.row * S.gridSize + S.gridSize / 2 + S.gridOffY;
+    if ((wx - cx) ** 2 + (wy - cy) ** 2 <= r2) return t;
+  }
+  return null;
+}
+
+function openTokPopup(tok, sx, sy) {
+  S.editToken = tok;
+  document.getElementById('tok-label').value = tok.label || '';
+  document.getElementById('tok-color').value = tok.color || '#cc4444';
+  const stageR = stage.getBoundingClientRect();
+  tokPop.style.left = Math.min(sx + 8, stageR.width  - 200) + 'px';
+  tokPop.style.top  = Math.min(sy + 8, stageR.height - 130) + 'px';
+  tokPop.classList.add('open');
+}
+function closeTokPopup() { tokPop.classList.remove('open'); S.editToken = null; }
+
+document.getElementById('tok-save').addEventListener('click', () => {
+  if (!S.editToken) return;
+  S.editToken.label = document.getElementById('tok-label').value.trim();
+  S.editToken.color = document.getElementById('tok-color').value;
+  closeTokPopup(); render(); scheduleSave();
+});
+document.getElementById('tok-del').addEventListener('click', () => {
+  if (!S.editToken) return;
+  S.tokens = S.tokens.filter(t => t !== S.editToken);
+  closeTokPopup(); render(); scheduleSave();
+});
+document.getElementById('tok-cancel').addEventListener('click', closeTokPopup);
+
+// ── Mouse events ──────────────────────────────────────────────────────
+canvas.addEventListener('mousedown', e => {
+  e.preventDefault();
+  closeTokPopup();
+  const { sx, sy } = evXY(e);
+
+  // Middle-click or pan tool: start panning
+  if (e.button === 1 || (e.button === 0 && S.tool === 'pan')) {
+    S.panStart = { mx: sx, my: sy, px: S.panX, py: S.panY };
+    stage.classList.add('grabbing');
+    return;
+  }
+
+  if (e.button !== 0) return;
+
+  if (S.tool === 'fog-paint' || S.tool === 'fog-erase') {
+    S.painting = true;
+    S.lastPaintCell = null;
+    applyFogAt(sx, sy, S.tool === 'fog-erase');
+    return;
+  }
+
+  if (S.tool === 'free-fog') {
+    const erase = S.fogMode === 'erase';
+    S.freePainting = true;
+    S.lastFreePt = null;
+    S.currentStroke = { erase, r: freeBrushRadius(), pts: [] };
+    applyFreeAt(sx, sy, erase);
+    return;
+  }
+
+  if (S.tool === 'token') {
+    const hit = tokenAt(sx, sy);
+    if (hit) {
+      S.dragToken = hit;
+      stage.classList.add('grabbing');
+    } else {
+      const { x: wx, y: wy } = s2w(sx, sy);
+      const { col, row } = w2g(wx, wy);
+      const tok = { id: 'tok_' + Date.now(), col, row, label: 'New', color: '#cc4444' };
+      S.tokens.push(tok);
+      render(); scheduleSave();
+      openTokPopup(tok, sx, sy);
+    }
+    return;
+  }
+
+  if (S.tool === 'align') {
+    const { x: wx, y: wy } = s2w(sx, sy);
+    if (S.alignStep === 0) {
+      S.alignPt1 = { wx, wy };
+      S.alignStep = 1;
+      toast('Step 2 — click the BOTTOM-RIGHT corner of that same square');
+    } else {
+      const dx = Math.abs(wx - S.alignPt1.wx);
+      const dy = Math.abs(wy - S.alignPt1.wy);
+      const newSize = Math.round((dx + dy) / 2);
+      if (newSize < 10) {
+        toast('Points too close — click corners further apart and try again');
+        S.alignStep = 0; S.alignPt1 = null;
+      } else {
+        S.gridSize  = newSize;
+        S.gridOffX  = ((S.alignPt1.wx % newSize) + newSize) % newSize;
+        S.gridOffY  = ((S.alignPt1.wy % newSize) + newSize) % newSize;
+        document.getElementById('grid-px').value = newSize;
+        S.alignStep = 0; S.alignPt1 = null;
+        rebuildFogCanvas();
+        setTool('pan');
+        scheduleSave();
+        toast(`Grid aligned — ${newSize}px cells`);
+      }
+    }
+    render(); return;
+  }
+});
+
+canvas.addEventListener('mousemove', e => {
+  const { sx, sy } = evXY(e);
+  const { x: wx, y: wy } = s2w(sx, sy);
+  S.hovCell  = w2g(wx, wy);
+  S.hovWorld = { wx, wy };
+
+  if (S.panStart) {
+    S.panX = S.panStart.px + (sx - S.panStart.mx);
+    S.panY = S.panStart.py + (sy - S.panStart.my);
+    render(); return;
+  }
+  if (S.painting)     { applyFogAt(sx, sy, S.tool === 'fog-erase'); return; }
+  if (S.freePainting) { applyFreeAt(sx, sy, S.fogMode === 'erase'); return; }
+  if (S.dragToken) {
+    const { col, row } = w2g(wx, wy);
+    if (S.dragToken.col !== col || S.dragToken.row !== row) {
+      S.dragToken.col = col; S.dragToken.row = row;
+      render(); scheduleSave();
+    }
+    return;
+  }
+  if (S.tool === 'fog-paint' || S.tool === 'fog-erase' ||
+      S.tool === 'free-fog'  || S.tool === 'align') render();
+});
+
+canvas.addEventListener('mouseup', () => {
+  S.panStart = null; S.painting = false; S.lastPaintCell = null;
+  S.dragToken = null; stage.classList.remove('grabbing');
+  if (S.freePainting) {
+    S.freePainting = false; S.lastFreePt = null;
+    if (S.currentStroke && S.currentStroke.pts.length) {
+      S.freeStrokes.push(S.currentStroke);
+      scheduleSave();
+    }
+    S.currentStroke = null;
+  }
+});
+
+canvas.addEventListener('mouseleave', () => {
+  S.hovCell = null; S.hovWorld = null;
+  if (S.tool === 'fog-paint' || S.tool === 'fog-erase' ||
+      S.tool === 'free-fog'  || S.tool === 'align') render();
+});
+
+// Double-click token to edit
+canvas.addEventListener('dblclick', e => {
+  if (S.tool !== 'token') return;
+  const { sx, sy } = evXY(e);
+  const hit = tokenAt(sx, sy);
+  if (hit) openTokPopup(hit, sx, sy);
+});
+
+// Right-click token to edit (any tool)
+canvas.addEventListener('contextmenu', e => {
+  e.preventDefault();
+  const { sx, sy } = evXY(e);
+  const hit = tokenAt(sx, sy);
+  if (hit) openTokPopup(hit, sx, sy);
+});
+
+// Wheel zoom (cursor-centered)
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  const { sx, sy } = evXY(e);
+  const factor = e.deltaY < 0 ? 1.12 : (1 / 1.12);
+  const newZ = Math.max(0.1, Math.min(8, S.zoom * factor));
+  S.panX = sx - (sx - S.panX) * (newZ / S.zoom);
+  S.panY = sy - (sy - S.panY) * (newZ / S.zoom);
+  S.zoom = newZ;
+  render();
+}, { passive: false });
+
+// Touch pan (single-finger only; pinch would need more work)
+let touchStart = null;
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault();
+  if (e.touches.length === 1) {
+    const t = e.touches[0];
+    const r = canvas.getBoundingClientRect();
+    touchStart = { mx: t.clientX - r.left, my: t.clientY - r.top, px: S.panX, py: S.panY };
+  }
+}, { passive: false });
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  if (e.touches.length === 1 && touchStart) {
+    const t = e.touches[0];
+    const r = canvas.getBoundingClientRect();
+    S.panX = touchStart.px + (t.clientX - r.left - touchStart.mx);
+    S.panY = touchStart.py + (t.clientY - r.top  - touchStart.my);
+    render();
+  }
+}, { passive: false });
+canvas.addEventListener('touchend', () => { touchStart = null; });
+
+// ── Viewport helpers ──────────────────────────────────────────────────
+function fitMap() {
+  const W = canvas.width, H = canvas.height;
+  if (!S.img) { S.zoom = 1; S.panX = 0; S.panY = 0; render(); return; }
+  S.zoom = Math.min(W / S.img.width, H / S.img.height, 2);
+  S.panX = (W - S.img.width  * S.zoom) / 2;
+  S.panY = (H - S.img.height * S.zoom) / 2;
+  render();
+}
+
+function resizeCanvas() {
+  canvas.width  = stage.clientWidth;
+  canvas.height = stage.clientHeight;
+  render();
+}
+
+// ── Save / Load ───────────────────────────────────────────────────────
+function buildSavePayload() {
+  return {
+    fog_cells: Array.from(S.fog).map(k => k.split(',').map(Number)),
+    free_fog:  S.freeStrokes,
+    tokens:    S.tokens.map(({ id, col, row, label, color }) => ({ id, col, row, label, color })),
+    grid_size: S.gridSize, grid_on: S.gridOn,
+    grid_off_x: S.gridOffX, grid_off_y: S.gridOffY,
+    img_url: S.imgUrl,
+  };
+}
+
+function scheduleSave() {
+  if (!S.isGM) return;
+  S.dirty = true;
+  saveLbl.textContent = 'Unsaved…';
+  clearTimeout(S.saveTimer);
+  S.saveTimer = setTimeout(doSave, 800);
+}
+
+async function doSave() {
+  if (!S.isGM) return;
+  // No auto-create: GM must explicitly create a map via "New Map" first
+  if (!S.mapId) { saveLbl.textContent = ''; return; }
+  const payload = buildSavePayload();
+  try {
+    saveLbl.textContent = 'Saving…';
+    const r = await fetch(`/api/vtt/maps/${S.mapId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (r.ok) {
+      const d = await r.json();
+      S.lastUpdated = d.updated_at;
+      S.dirty = false;
+      saveLbl.textContent = 'Saved ✓';
+      setTimeout(() => { if (!S.dirty) saveLbl.textContent = ''; }, 2000);
+    } else {
+      saveLbl.textContent = 'Save failed ✗';
+    }
+  } catch { saveLbl.textContent = 'Save failed ✗'; }
+}
+
+// Save immediately on page unload so refresh never loses work
+window.addEventListener('beforeunload', () => {
+  if (!S.dirty || !S.mapId || !S.isGM) return;
+  clearTimeout(S.saveTimer);
+  navigator.sendBeacon(
+    `/api/vtt/maps/${S.mapId}/beacon`,
+    new Blob([JSON.stringify(buildSavePayload())], { type: 'application/json' })
+  );
+});
+
+async function loadMap(mid) {
+  try {
+    const r = await fetch(`/api/vtt/maps/${mid}`);
+    if (!r.ok) return;
+    const d = await r.json();
+    S.mapId = d.id; S.mapName = d.name; S.lastUpdated = d.updated_at;
+    applyMapData(d);
+    history.replaceState(null, '', `/vtt?map=${mid}`);
+    rebuildMapSel();
+  } catch { }
+}
+
+function applyMapData(d) {
+  S.gridSize = d.grid_size || 50;
+  S.gridOn   = !!d.grid_on;
+  S.gridOffX = d.grid_off_x || 0;
+  S.gridOffY = d.grid_off_y || 0;
+  document.getElementById('grid-px').value = S.gridSize;
+  document.getElementById('btn-grid').classList.toggle('active', S.gridOn);
+
+  S.fog = new Set();
+  for (const [c, r] of (d.fog_cells || [])) S.fog.add(`${c},${r}`);
+
+  S.freeStrokes = d.free_fog || [];
+  // Build unified fog canvas (grid cells + brush strokes). Will rebuild again when img loads.
+  S.freeCanvas = null; S.freeCtx = null;
+  rebuildFogCanvas();
+
+  S.tokens = (d.tokens || []).map(t => ({ ...t }));
+
+  const url = d.img_url || '';
+  if (url && url !== S.imgUrl) {
+    loadImg(url);
+  } else if (!url && S.imgUrl) {
+    S.img = null; S.imgUrl = ''; render();
+  } else {
+    render();
+  }
+}
+
+function loadImg(url) {
+  S.imgUrl = url;
+  const img = new Image();
+  img.onload  = () => {
+    S.img = img;
+    // Resize unified fog canvas to image dims and repaint everything
+    S.freeCanvas = null; S.freeCtx = null;
+    rebuildFogCanvas();
+    fitMap();
+  };
+  img.onerror = () => { S.img = null; render(); };
+  img.src = url;
+}
+
+// ── Player polling ────────────────────────────────────────────────────
+async function pollFog() {
+  if (!S.mapId || S.isGM) return;
+  try {
+    const r = await fetch(`/api/vtt/maps/${S.mapId}`);
+    if (!r.ok) return;
+    const d = await r.json();
+    if (d.updated_at !== S.lastUpdated) {
+      applyMapData(d); S.lastUpdated = d.updated_at;
+    }
+  } catch { }
+}
+
+// ── Map management ────────────────────────────────────────────────────
+async function fetchMaps() {
+  try {
+    const r = await fetch('/api/vtt/maps');
+    if (!r.ok) return;
+    S.maps = await r.json();
+    rebuildMapSel();
+    // Auto-load from URL param first, then first map
+    const urlId = parseInt(new URLSearchParams(location.search).get('map'));
+    if (urlId && S.maps.find(m => m.id === urlId)) {
+      await loadMap(urlId);
+    } else if (S.maps.length) {
+      await loadMap(S.maps[0].id);
+    }
+  } catch { }
+}
+
+function rebuildMapSel() {
+  const sel = document.getElementById('map-sel');
+  sel.innerHTML = '';
+  if (!S.maps.length) {
+    sel.innerHTML = '<option value="">— No maps —</option>';
+    return;
+  }
+  for (const m of S.maps) {
+    const o = document.createElement('option');
+    o.value = m.id; o.textContent = m.name;
+    if (m.id === S.mapId) o.selected = true;
+    sel.appendChild(o);
+  }
+}
+
+// ── Toolbar wiring ────────────────────────────────────────────────────
+function setTool(tool) {
+  S.tool = tool;
+  S.alignStep = 0; S.alignPt1 = null;
+  ['pan', 'fog-paint', 'fog-erase', 'free-fog', 'token', 'align'].forEach(id => {
+    document.getElementById('tool-' + id).classList.toggle('active', id === tool);
+  });
+  // When brush is active, also light up fog/reveal to show current mode
+  if (tool === 'free-fog') {
+    document.getElementById('tool-fog-paint').classList.toggle('active', S.fogMode === 'paint');
+    document.getElementById('tool-fog-erase').classList.toggle('active', S.fogMode === 'erase');
+  }
+  const isFree = tool === 'free-fog';
+  stage.className = 'cur-' + (isFree ? 'free' : tool.startsWith('fog') ? 'fog' : tool === 'align' ? 'align' : tool.split('-')[0]);
+  const showBrush = tool === 'fog-paint' || tool === 'fog-erase' || isFree;
+  document.getElementById('brush-lbl').hidden = !showBrush;
+  ['brush-s', 'brush-m', 'brush-l'].forEach(id => { document.getElementById(id).hidden = !showBrush; });
+  if (tool === 'align') toast('Step 1 — click the TOP-LEFT corner of any grid square on the map');
+}
+
+function setBrush(br) {
+  S.brush = br;
+  ['brush-s', 'brush-m', 'brush-l'].forEach((id, i) => {
+    document.getElementById(id).classList.toggle('active', i === br);
+  });
+}
+
+['pan', 'free-fog', 'token', 'align'].forEach(t => {
+  document.getElementById('tool-' + t).addEventListener('click', () => setTool(t));
+});
+// Fog / Reveal: grid tools normally; mode-setter when brush is active
+document.getElementById('tool-fog-paint').addEventListener('click', () => {
+  if (S.tool === 'free-fog') {
+    S.fogMode = 'paint';
+    document.getElementById('tool-fog-paint').classList.add('active');
+    document.getElementById('tool-fog-erase').classList.remove('active');
+    render();
+  } else {
+    setTool('fog-paint');
+  }
+});
+document.getElementById('tool-fog-erase').addEventListener('click', () => {
+  if (S.tool === 'free-fog') {
+    S.fogMode = 'erase';
+    document.getElementById('tool-fog-erase').classList.add('active');
+    document.getElementById('tool-fog-paint').classList.remove('active');
+    render();
+  } else {
+    setTool('fog-erase');
+  }
+});
+['brush-s', 'brush-m', 'brush-l'].forEach((id, i) => {
+  document.getElementById(id).addEventListener('click', () => setBrush(i));
+});
+
+document.getElementById('btn-grid').addEventListener('click', () => {
+  S.gridOn = !S.gridOn;
+  document.getElementById('btn-grid').classList.toggle('active', S.gridOn);
+  render(); scheduleSave();
+});
+document.getElementById('grid-px').addEventListener('change', e => {
+  const v = parseInt(e.target.value);
+  if (v >= 20 && v <= 200) { S.gridSize = v; rebuildFogCanvas(); render(); scheduleSave(); }
+});
+document.getElementById('btn-fit').addEventListener('click', fitMap);
+
+document.getElementById('btn-fog-all').addEventListener('click', () => {
+  if (!S.img) { toast('Load a map image first'); return; }
+  S.fog.clear();
+  const cols = Math.ceil(S.img.width  / S.gridSize) + 1;
+  const rows = Math.ceil(S.img.height / S.gridSize) + 1;
+  for (let c = 0; c < cols; c++)
+    for (let r = 0; r < rows; r++)
+      S.fog.add(`${c},${r}`);
+  rebuildFogCanvas(); render(); scheduleSave();
+  toast(`Fogged ${S.fog.size} cells`);
+});
+
+document.getElementById('btn-reveal-all').addEventListener('click', () => {
+  S.fog.clear();
+  S.freeStrokes = [];
+  rebuildFogCanvas(); render(); scheduleSave();
+  toast('All fog removed');
+});
+
+// Map selector
+document.getElementById('map-sel').addEventListener('change', async e => {
+  const mid = parseInt(e.target.value);
+  if (mid) await loadMap(mid);
+});
+
+document.getElementById('btn-new-map').addEventListener('click', async () => {
+  const name = prompt('Map name:', 'New Map');
+  if (!name) return;
+  try {
+    const r = await fetch('/api/vtt/maps', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name }),
+    });
+    const d = await r.json();
+    S.maps.unshift(d);
+    S.mapId = d.id; S.mapName = d.name; S.fog.clear(); S.tokens = [];
+    S.freeStrokes = [];
+    S.freeCanvas = null; S.freeCtx = null;
+    S.img = null; S.imgUrl = '';
+    rebuildMapSel(); render();
+    history.replaceState(null, '', `/vtt?map=${d.id}`);
+    toast(`Created "${d.name}"`);
+  } catch { }
+});
+
+document.getElementById('btn-rename-map').addEventListener('click', async () => {
+  if (!S.mapId) return;
+  const name = prompt('Rename map:', S.mapName);
+  if (!name || name === S.mapName) return;
+  try {
+    await fetch(`/api/vtt/maps/${S.mapId}`, {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name }),
+    });
+    S.mapName = name;
+    const m = S.maps.find(x => x.id === S.mapId);
+    if (m) m.name = name;
+    rebuildMapSel();
+  } catch { }
+});
+
+document.getElementById('btn-del-map').addEventListener('click', async () => {
+  if (!S.mapId || !confirm(`Delete "${S.mapName}"? This cannot be undone.`)) return;
+  try {
+    await fetch(`/api/vtt/maps/${S.mapId}`, { method: 'DELETE' });
+    S.maps = S.maps.filter(m => m.id !== S.mapId);
+    S.mapId = null; S.fog.clear(); S.tokens = []; S.img = null; S.imgUrl = '';
+    if (S.maps.length) await loadMap(S.maps[0].id);
+    else { rebuildMapSel(); render(); history.replaceState(null, '', '/vtt'); }
+  } catch { }
+});
+
+// Image upload helpers
+
+async function autoCreateMap() {
+  // Create a default map if the GM hasn't made one yet
+  if (S.mapId) return true;
+  try {
+    const r = await fetch('/api/vtt/maps', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: 'New Map' }),
+    });
+    if (!r.ok) { toast('Could not create map — are you signed in as GM?'); return false; }
+    const d = await r.json();
+    S.maps.unshift(d);
+    S.mapId = d.id; S.mapName = d.name;
+    rebuildMapSel();
+    history.replaceState(null, '', `/vtt?map=${d.id}`);
+    return true;
+  } catch { toast('Could not create map'); return false; }
+}
+
+async function uploadFile(file) {
+  if (!file) return;
+  if (!file.type.startsWith('image/')) { toast('Not an image file'); return; }
+  if (!S.isGM)  { toast('Sign in as GM to upload images'); return; }
+  if (!S.mapId) { toast('Create a map first (click "+ New" in the toolbar)'); return; }
+
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('map_id', S.mapId);
+  saveLbl.textContent = 'Uploading…';
+  try {
+    const r = await fetch('/api/gm/upload-image', { method: 'POST', body: fd });
+    const body = await r.json().catch(() => ({}));
+    console.log('[VTT upload]', r.status, body);
+    if (!r.ok) {
+      const err = body.error || '';
+      toast(r.status === 401 ? 'Sign in as GM to upload images'
+          : err === 'too_large' ? 'Image too large'
+          : err === 'bad_type'  ? 'Unsupported file type (PNG/JPG/WEBP/GIF only)'
+          : err === 'no_file'   ? 'Upload failed — no file received'
+          : err === 'no_map_id' ? 'Create a map first'
+          : `Upload failed (${r.status}: ${err || 'unknown'})`);
+      saveLbl.textContent = ''; return;
+    }
+    if (body.url) {
+      // The image blob is already in the DB at this point — just load it for display.
+      // Also write img_url through the regular save path so the map row knows its image URL.
+      loadImg(body.url);
+      S.dirty = true;
+      await doSave();
+      toast('Map image saved');
+    } else toast('Upload failed — no URL returned');
+  } catch (e) { console.error(e); toast('Upload error — check your connection'); }
+  saveLbl.textContent = '';
+}
+
+document.getElementById('btn-img').addEventListener('click', () => {
+  if (!S.isGM)  { toast('Sign in as GM to upload images'); return; }
+  if (!S.mapId) { toast('Create a map first (click "+ New" in the toolbar)'); return; }
+  document.getElementById('img-file').click();
+});
+document.getElementById('img-file').addEventListener('change', e => {
+  uploadFile(e.target.files[0]); e.target.value = '';
+});
+
+// Drag-and-drop (counter avoids flicker when crossing child elements)
+let dragCount = 0;
+stage.addEventListener('dragenter', e => { e.preventDefault(); dragCount++; dropEl.classList.add('show'); });
+stage.addEventListener('dragover',  e => { e.preventDefault(); });
+stage.addEventListener('dragleave', () => { if (--dragCount <= 0) { dragCount = 0; dropEl.classList.remove('show'); } });
+stage.addEventListener('drop', e => {
+  e.preventDefault(); dragCount = 0; dropEl.classList.remove('show');
+  if (!S.mapId) { toast('Create a map first (click "+ New" in the toolbar)'); return; }
+  uploadFile(e.dataTransfer.files[0]);
+});
+
+// ── Character panel ───────────────────────────────────────────────────
+const charPanel  = document.getElementById('char-panel');
+const charSel    = document.getElementById('char-sel');
+const sheetFrame = document.getElementById('sheet-frame');
+
+document.getElementById('panel-toggle').addEventListener('click', () =>
+  charPanel.classList.toggle('open'));
+document.getElementById('cp-close').addEventListener('click', () =>
+  charPanel.classList.remove('open'));
+charSel.addEventListener('change', () => {
+  sheetFrame.src = charSel.value ? '/characters?id=' + charSel.value : '';
+});
+
+// ── Toast hint ────────────────────────────────────────────────────────
+let hintTimer;
+function toast(msg) {
+  hintEl.textContent = msg;
+  hintEl.classList.add('show');
+  clearTimeout(hintTimer);
+  hintTimer = setTimeout(() => hintEl.classList.remove('show'), 2600);
+}
+
+// ── Init ──────────────────────────────────────────────────────────────
+async function init() {
+  resizeCanvas();
+  new ResizeObserver(resizeCanvas).observe(stage);
+
+  // Auth check
+  try {
+    const r = await fetch('/api/auth/me');
+    const d = await r.json();
+    S.isGM = !!(d.user && d.user.is_gm);
+  } catch { }
+
+  const bar = document.getElementById('vtt-bar');
+  if (S.isGM) {
+    bar.classList.remove('hidden');
+    setTool('pan');
+    setBrush(0);
+  } else {
+    bar.classList.add('hidden');
+    // Players: poll every 5 s for fog/token updates
+    setInterval(pollFog, 5000);
+  }
+
+  // Load character list
+  try {
+    const r = await fetch('/api/characters');
+    const chars = await r.json();
+    chars.forEach(c => {
+      const o = document.createElement('option');
+      o.value = c.id;
+      o.textContent = `${c.name} (${c.class_name || '—'} ${c.level})`;
+      charSel.appendChild(o);
+    });
+  } catch { }
+
+  await fetchMaps();
+  render();
+}
+
+init();
+})();
+</script>
+{% endblock %}

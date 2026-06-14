@@ -1,0 +1,1640 @@
+[
+  {
+    "id": "item",
+    "class": "Fighter",
+    "source": "Shadowdark RPG Core",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Squire",
+        "chaotic": "Knave",
+        "neutral": "Warrior"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Cavalier",
+        "chaotic": "Bandit",
+        "neutral": "Barbarian"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Knight",
+        "chaotic": "Slayer",
+        "neutral": "Battlerager"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Thane",
+        "chaotic": "Reaver",
+        "neutral": "Warchief"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Lord/Lady",
+        "chaotic": "Warlord",
+        "neutral": "Chieftain"
+      }
+    ]
+  },
+  {
+    "id": "item_2",
+    "class": "Priest",
+    "source": "Shadowdark RPG Core",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Acolyte",
+        "chaotic": "Initiate",
+        "neutral": "Seeker"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Crusader",
+        "chaotic": "Zealot",
+        "neutral": "Invoker"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Templar",
+        "chaotic": "Cultist",
+        "neutral": "Haruspex"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Champion",
+        "chaotic": "Scourge",
+        "neutral": "Mystic"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Paladin",
+        "chaotic": "Chaos Knight",
+        "neutral": "Oracle"
+      }
+    ]
+  },
+  {
+    "id": "item_3",
+    "class": "Thief",
+    "source": "Shadowdark RPG Core",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Footpad",
+        "chaotic": "Thug",
+        "neutral": "Robber"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Burglar",
+        "chaotic": "Cutthroat",
+        "neutral": "Outlaw"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Rook",
+        "chaotic": "Shadow",
+        "neutral": "Rogue"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Underboss",
+        "chaotic": "Assassin",
+        "neutral": "Renegade"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Boss",
+        "chaotic": "Wraith",
+        "neutral": "Bandit King/Queen"
+      }
+    ]
+  },
+  {
+    "id": "item_4",
+    "class": "Wizard",
+    "source": "Shadowdark RPG Core",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Apprentice",
+        "chaotic": "Adept",
+        "neutral": "Shaman"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Conjurer",
+        "chaotic": "Channeler",
+        "neutral": "Seer"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Arcanist",
+        "chaotic": "Witch/Warlock",
+        "neutral": "Warden"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Mage",
+        "chaotic": "Diabolist",
+        "neutral": "Sage"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Archmage",
+        "chaotic": "Sorcerer",
+        "neutral": "Druid"
+      }
+    ]
+  },
+  {
+    "id": "item_5",
+    "class": "Witch",
+    "source": "Cursed Scroll 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Seer",
+        "chaotic": "Whisperer",
+        "neutral": "Shaman"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Diviner",
+        "chaotic": "Cursed",
+        "neutral": "Conjurer"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Prophet",
+        "chaotic": "Megera/Ancient",
+        "neutral": "Clairvoyant"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "The Wise One",
+        "chaotic": "Old Woman/Uncle",
+        "neutral": "Medium"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Father",
+        "chaotic": "Father",
+        "neutral": "Father"
+      }
+    ]
+  },
+  {
+    "id": "item_6",
+    "class": "Knight of Saint Ydris",
+    "source": "Cursed Scroll 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Referee",
+        "chaotic": "Traitor",
+        "neutral": "Brother/Sister"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Executor",
+        "chaotic": "Fallen",
+        "neutral": "Exorcist"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Marshal Knight",
+        "chaotic": "Perjurer",
+        "neutral": "Reverend Knight"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Judge",
+        "chaotic": "Black Guard",
+        "neutral": "Inquisitor"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Avenger",
+        "chaotic": "Demon Lord",
+        "neutral": "Grand Inquisitor"
+      }
+    ]
+  },
+  {
+    "id": "item_7",
+    "class": "Warlock",
+    "source": "Cursed Scroll 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Favored",
+        "chaotic": "Marked",
+        "neutral": "Chosen"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Herald",
+        "chaotic": "Fanatic",
+        "neutral": "Channeler"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Eminent",
+        "chaotic": "Occultist",
+        "neutral": "Prophesied"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Exalted",
+        "chaotic": "Champion",
+        "neutral": "Transcendent"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Incarnation",
+        "chaotic": "Precursor",
+        "neutral": "Avatar"
+      }
+    ]
+  },
+  {
+    "id": "item_8",
+    "class": "Desert Rider",
+    "source": "Cursed Scroll 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Outrider",
+        "chaotic": "Bandit",
+        "neutral": "Rat"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Sandrunner",
+        "chaotic": "Robber",
+        "neutral": "Fox"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Trailblazer",
+        "chaotic": "Raider",
+        "neutral": "Wolf"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Swift Wind",
+        "chaotic": "Scourge",
+        "neutral": "Tiger"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Stormrunner",
+        "chaotic": "Bandit King/Queen",
+        "neutral": "Dragon"
+      }
+    ]
+  },
+  {
+    "id": "item_9",
+    "class": "Pit Fighter",
+    "source": "Cursed Scroll 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Rookie",
+        "chaotic": "Ruffian",
+        "neutral": "Underdog"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Gladiator",
+        "chaotic": "Brawler",
+        "neutral": "Dark Horse"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Hero",
+        "chaotic": "Heel",
+        "neutral": "Wild Card"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Champion",
+        "chaotic": "Villain",
+        "neutral": "Victor"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Legend",
+        "chaotic": "Legend",
+        "neutral": "Legend"
+      }
+    ]
+  },
+  {
+    "id": "item_10",
+    "class": "Ras-Godai",
+    "source": "Cursed Scroll 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Acolyte",
+        "chaotic": "Acolyte",
+        "neutral": "Acolyte"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Mirror Path",
+        "chaotic": "Shadow Path",
+        "neutral": "Fire Path"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Monk",
+        "chaotic": "Monk",
+        "neutral": "Monk"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Master",
+        "chaotic": "Assassin",
+        "neutral": "Demon Blade"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "White Lotus",
+        "chaotic": "Black Lotus",
+        "neutral": "Red Lotus"
+      }
+    ]
+  },
+  {
+    "id": "item_11",
+    "class": "Basilisk Warrior",
+    "source": "Cursed Scroll 4",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Stone Warrior",
+        "chaotic": "Stone Warrior",
+        "neutral": "Stone Warrior"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Strong Stone",
+        "chaotic": "Sharp Stone",
+        "neutral": "Silent Stone"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Protector",
+        "chaotic": "Slayer",
+        "neutral": "Watcher"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Sun Serpent",
+        "chaotic": "Moon Serpent",
+        "neutral": "Sky Serpent"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Amber Basilisk",
+        "chaotic": "Obsidian Basilisk",
+        "neutral": "Sapphire Basilisk"
+      }
+    ]
+  },
+  {
+    "id": "item_12",
+    "class": "Ranger",
+    "source": "Cursed Scroll 4",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Wanderer",
+        "chaotic": "Hood",
+        "neutral": "Stranger"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Strider",
+        "chaotic": "Outlaw",
+        "neutral": "Wayfarer"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Warden",
+        "chaotic": "Fugitive",
+        "neutral": "Outlander"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Guardian",
+        "chaotic": "Exile",
+        "neutral": "Recluse"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Sentinel",
+        "chaotic": "Pariah",
+        "neutral": "Hermit"
+      }
+    ]
+  },
+  {
+    "id": "item_13",
+    "class": "Delver",
+    "source": "Cursed Scroll 5",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Explorer",
+        "chaotic": "Intruder",
+        "neutral": "Investigator"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Researcher",
+        "chaotic": "Opportunist",
+        "neutral": "Observer"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Antiquarian",
+        "chaotic": "Larcenist",
+        "neutral": "Pathfinder"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Archaeologist",
+        "chaotic": "Tomb Robber",
+        "neutral": "Trailblazer"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Professor",
+        "chaotic": "Defiler",
+        "neutral": "Pioneer"
+      }
+    ]
+  },
+  {
+    "id": "item_14",
+    "class": "Wyrdling",
+    "source": "Cursed Scroll 5",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Chosen One",
+        "chaotic": "Chosen One",
+        "neutral": "Chosen One"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Cursed",
+        "chaotic": "Blessed",
+        "neutral": "Seeker"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Haunted",
+        "chaotic": "Consecrated",
+        "neutral": "Listener"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Tortured",
+        "chaotic": "Revered",
+        "neutral": "Watcher"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Crazed One",
+        "chaotic": "Exalted One",
+        "neutral": "Learned One"
+      }
+    ]
+  },
+  {
+    "id": "item_15",
+    "class": "Bard",
+    "source": "Cursed Scroll 6",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Storyteller",
+        "chaotic": "Guttersnipe",
+        "neutral": "Seeker"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Balladeer",
+        "chaotic": "Charlatan",
+        "neutral": "Witness"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Philosopher",
+        "chaotic": "Satirist",
+        "neutral": "Speaker"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Poet",
+        "chaotic": "Silvertongue",
+        "neutral": "Voice"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Master Poet",
+        "chaotic": "Doomspeaker",
+        "neutral": "Truthbearer"
+      }
+    ]
+  },
+  {
+    "id": "item_16",
+    "class": "Duelist",
+    "source": "Cursed Scroll 6",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Fencer",
+        "chaotic": "Ruffian",
+        "neutral": "Student"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Defender",
+        "chaotic": "Heckler",
+        "neutral": "Challenger"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Mongoose",
+        "chaotic": "Viper",
+        "neutral": "Mouser"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Wolf",
+        "chaotic": "Cobra",
+        "neutral": "Panther"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Swordmaster",
+        "chaotic": "Swordmaster",
+        "neutral": "Swordmaster"
+      }
+    ]
+  },
+  {
+    "id": "item_17",
+    "class": "Sea Wolf",
+    "source": "Cursed Scroll 3",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Free Folk",
+        "chaotic": "Scum",
+        "neutral": "Wanderer"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Esquire",
+        "chaotic": "Raider",
+        "neutral": "Explorer"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Thane",
+        "chaotic": "Plunderer",
+        "neutral": "Adventurer"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Jarl",
+        "chaotic": "Conqueror",
+        "neutral": "Renowned"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "King/Queen",
+        "chaotic": "Usurper",
+        "neutral": "Legendary"
+      }
+    ]
+  },
+  {
+    "id": "item_18",
+    "class": "Seer",
+    "source": "Cursed Scroll 3",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Guide",
+        "chaotic": "Hedge Witch",
+        "neutral": "Diviner"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Enchanter",
+        "chaotic": "Whisperer",
+        "neutral": "Chanter"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Rune Reader",
+        "chaotic": "Bone Reader",
+        "neutral": "Star Reader"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "The Wise",
+        "chaotic": "The Feared",
+        "neutral": "The Blessed"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Seer of Odin",
+        "chaotic": "Seer of Loki",
+        "neutral": "Seer of Freya"
+      }
+    ]
+  },
+  {
+    "id": "item_19",
+    "class": "Barbarian",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Nomad",
+        "chaotic": "Savage",
+        "neutral": "Brute"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Trekker",
+        "chaotic": "Raider",
+        "neutral": "Ironhide"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Vanquisher",
+        "chaotic": "Plunderer",
+        "neutral": "Berserker"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Conqueror",
+        "chaotic": "Marauder",
+        "neutral": "Hellion"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Chieftain",
+        "chaotic": "Battlelord",
+        "neutral": "Destroyer"
+      }
+    ]
+  },
+  {
+    "id": "item_20",
+    "class": "Bard (PE1)",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Poet",
+        "chaotic": "Hustler",
+        "neutral": "Rhymer"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Lyrist",
+        "chaotic": "Rhymester",
+        "neutral": "Sonneteer"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Minstrel",
+        "chaotic": "Warbler",
+        "neutral": "Troubadour"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Muse",
+        "chaotic": "Chanter",
+        "neutral": "Jongleur"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Balladeer",
+        "chaotic": "Diva",
+        "neutral": "Skald"
+      }
+    ]
+  },
+  {
+    "id": "item_21",
+    "class": "Commander",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Lieutenant",
+        "chaotic": "Militant",
+        "neutral": "Private"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Captain",
+        "chaotic": "Leader",
+        "neutral": "Corporal"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Major",
+        "chaotic": "Boss",
+        "neutral": "Sergeant"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Colonel",
+        "chaotic": "Baron",
+        "neutral": "Marshal"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "General",
+        "chaotic": "Warlord",
+        "neutral": "Specialist"
+      }
+    ]
+  },
+  {
+    "id": "item_22",
+    "class": "Druid (PE1)",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Herbalist",
+        "chaotic": "Drugger",
+        "neutral": "Hippy"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Soothsayer",
+        "chaotic": "Pusher",
+        "neutral": "Mystic"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Spiritualist",
+        "chaotic": "Peddler",
+        "neutral": "Healer"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Botanist",
+        "chaotic": "Chemist",
+        "neutral": "Pharmacist"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Apothecary",
+        "chaotic": "Alchemist",
+        "neutral": "Seer"
+      }
+    ]
+  },
+  {
+    "id": "item_23",
+    "class": "Monk (PE1)",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Initiate",
+        "chaotic": "Slugger",
+        "neutral": "Bruiser"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Disciple",
+        "chaotic": "Scrapper",
+        "neutral": "Fighter"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Boxer",
+        "chaotic": "Combatant",
+        "neutral": "Duelist"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Apostle",
+        "chaotic": "Ninja",
+        "neutral": "Mercenary"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Master",
+        "chaotic": "Shinobi",
+        "neutral": "Martial Artist"
+      }
+    ]
+  },
+  {
+    "id": "item_24",
+    "class": "Paladin",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Partisan",
+        "chaotic": "Blaggard",
+        "neutral": "Knave"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Devotee",
+        "chaotic": "Heretic",
+        "neutral": "Votary"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Protector",
+        "chaotic": "Enforcer",
+        "neutral": "Haruspex"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Hero",
+        "chaotic": "Sycophant",
+        "neutral": "Inquisitor"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Saviour",
+        "chaotic": "Myrmidon",
+        "neutral": "Paragon"
+      }
+    ]
+  },
+  {
+    "id": "item_25",
+    "class": "Ranger (PE1)",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Rover",
+        "chaotic": "Drifter",
+        "neutral": "Wanderer"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Scout",
+        "chaotic": "Runner",
+        "neutral": "Tracker"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Guide",
+        "chaotic": "Rebel",
+        "neutral": "Wayfinder"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Strider",
+        "chaotic": "Outsider",
+        "neutral": "Guardian"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Pathfinder",
+        "chaotic": "Renegade",
+        "neutral": "Lord"
+      }
+    ]
+  },
+  {
+    "id": "item_26",
+    "class": "Shaman (PE1)",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Spiritualist",
+        "chaotic": "Incantor",
+        "neutral": "Medium"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Healer",
+        "chaotic": "Conjurer",
+        "neutral": "Diviner"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Enchanter",
+        "chaotic": "Occultist",
+        "neutral": "Doctor"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Seer",
+        "chaotic": "Voodooist",
+        "neutral": "Exorcist"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Oracle",
+        "chaotic": "Jinx",
+        "neutral": "Mystic"
+      }
+    ]
+  },
+  {
+    "id": "item_27",
+    "class": "Sorcerer (PE1)",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Magician",
+        "chaotic": "Charmer",
+        "neutral": "Spellwright"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Illusionist",
+        "chaotic": "Enchanter",
+        "neutral": "Invoker"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Mage",
+        "chaotic": "Spellbinder",
+        "neutral": "Magus"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Thaumaturgist",
+        "chaotic": "Shadowmancer",
+        "neutral": "Elementalist"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Eldermancer",
+        "chaotic": "Diabolist",
+        "neutral": "Dreamweaver"
+      }
+    ]
+  },
+  {
+    "id": "item_28",
+    "class": "Warlock (PE1)",
+    "source": "Player's Expansion 1",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Medium",
+        "chaotic": "Profaner",
+        "neutral": "Accursed"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Pactbinder",
+        "chaotic": "Hexer",
+        "neutral": "Nightshroud"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Spiritcaller",
+        "chaotic": "Despoiler",
+        "neutral": "Voidspeaker"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Riftlock",
+        "chaotic": "Doomseer",
+        "neutral": "Veilwalker"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Nethermancer",
+        "chaotic": "Grimspeaker",
+        "neutral": "Voidwalker"
+      }
+    ]
+  },
+  {
+    "id": "item_29",
+    "class": "Cursedblade",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Angel",
+        "chaotic": "Baron/Baroness",
+        "neutral": "Fallen"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Archangel",
+        "chaotic": "Count/Countess",
+        "neutral": "Messenger"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Throne",
+        "chaotic": "Duke/Duchess",
+        "neutral": "Watcher"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Cherubim",
+        "chaotic": "Prince/Princess",
+        "neutral": "Nephilim"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Seraphim",
+        "chaotic": "King/Queen",
+        "neutral": "Archon"
+      }
+    ]
+  },
+  {
+    "id": "item_30",
+    "class": "Elemental Warrior",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Gaia",
+        "chaotic": "Tellus",
+        "neutral": "Terran"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Aquan",
+        "chaotic": "Tainted",
+        "neutral": "Balancer"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Aura",
+        "chaotic": "Tempest",
+        "neutral": "Drafter"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Smelter",
+        "chaotic": "Inferno",
+        "neutral": "Blazer"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Celestial",
+        "chaotic": "Primordial",
+        "neutral": "Cosmic"
+      }
+    ]
+  },
+  {
+    "id": "item_31",
+    "class": "Monster Slayer",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Seeker",
+        "chaotic": "Butcher",
+        "neutral": "Tracker"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Tracer",
+        "chaotic": "Slaughterer",
+        "neutral": "Stalker"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Hunter/Huntress",
+        "chaotic": "Executioner",
+        "neutral": "Sleuth"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Nimrod",
+        "chaotic": "Terminator",
+        "neutral": "Skinner"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Slayer",
+        "chaotic": "Predator",
+        "neutral": "Orion"
+      }
+    ]
+  },
+  {
+    "id": "item_32",
+    "class": "Mystical Archer",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Toxotes",
+        "chaotic": "Archer",
+        "neutral": "Ivar"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Lucznik",
+        "chaotic": "Piercer",
+        "neutral": "Bersagliere"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Arqueiro",
+        "chaotic": "Sharpshooter",
+        "neutral": "Kyudo"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Bogenschutz",
+        "chaotic": "Sniper",
+        "neutral": "Sheshou"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Sagittarii",
+        "chaotic": "Deadeye",
+        "neutral": "Iuchnik"
+      }
+    ]
+  },
+  {
+    "id": "item_33",
+    "class": "Psychic Infiltrator",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Spy",
+        "chaotic": "Prowler",
+        "neutral": "Monitor"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Agent",
+        "chaotic": "Deceiver",
+        "neutral": "Investigator"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Operative",
+        "chaotic": "Manipulator",
+        "neutral": "Spook"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Infiltrator",
+        "chaotic": "Subversive",
+        "neutral": "Sleeper"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Spymaster",
+        "chaotic": "Shadow",
+        "neutral": "Neutralizer"
+      }
+    ]
+  },
+  {
+    "id": "item_34",
+    "class": "Samurai",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Ashigaru",
+        "chaotic": "Shatei",
+        "neutral": "Ronin"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Goshi",
+        "chaotic": "Kyodai",
+        "neutral": "Ronin"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Gokenin",
+        "chaotic": "Shateigashira",
+        "neutral": "Ronin"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Hatamoto",
+        "chaotic": "Wakagashira",
+        "neutral": "Ronin"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Daimyo",
+        "chaotic": "Oyabun",
+        "neutral": "Ronin"
+      }
+    ]
+  },
+  {
+    "id": "item_35",
+    "class": "Shadow Stalker",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Stalker",
+        "chaotic": "Lurker",
+        "neutral": "Shadow"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Umbra",
+        "chaotic": "Prowler",
+        "neutral": "Murker"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Spook",
+        "chaotic": "Darkling",
+        "neutral": "Skulker"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Ghost",
+        "chaotic": "Shade",
+        "neutral": "Mystery"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Phantom",
+        "chaotic": "Grim",
+        "neutral": "Wraith"
+      }
+    ]
+  },
+  {
+    "id": "item_36",
+    "class": "Spellsword",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Spellblade",
+        "chaotic": "Arcaneblade",
+        "neutral": "Spellknife"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Spellsword",
+        "chaotic": "Arcanesword",
+        "neutral": "Mysticblade"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Mageblade",
+        "chaotic": "Voodooblade",
+        "neutral": "Songcutter"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Songblade",
+        "chaotic": "Doomsword",
+        "neutral": "Mysticsword"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Mysticmaestro",
+        "chaotic": "Deathdancer",
+        "neutral": "Songsword"
+      }
+    ]
+  },
+  {
+    "id": "item_37",
+    "class": "Swashbuckler",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Flamboyant",
+        "chaotic": "Daredevil",
+        "neutral": "Scoundrel"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Exhibitionist",
+        "chaotic": "Desperado",
+        "neutral": "Vigilante"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Picaroon",
+        "chaotic": "Raider",
+        "neutral": "Freebooter"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Buccaneer",
+        "chaotic": "Privateer",
+        "neutral": "Duelist"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Swashbuckler",
+        "chaotic": "Pirate",
+        "neutral": "Corsair"
+      }
+    ]
+  },
+  {
+    "id": "item_38",
+    "class": "War Mage",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Spellweaver",
+        "chaotic": "Ritualist",
+        "neutral": "Magician"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Battlemage",
+        "chaotic": "Spellblaster",
+        "neutral": "Spellcaster"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Gish",
+        "chaotic": "Doomcaster",
+        "neutral": "Spellbinder"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Magewright",
+        "chaotic": "Warmancer",
+        "neutral": "Tactician"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Warcaster",
+        "chaotic": "Necromancer",
+        "neutral": "Battleblaster"
+      }
+    ]
+  },
+  {
+    "id": "item_39",
+    "class": "War Master",
+    "source": "Player's Expansion 2",
+    "titles": [
+      {
+        "level_min": 1,
+        "level_max": 2,
+        "lawful": "Combatmaster",
+        "chaotic": "Warmaster",
+        "neutral": "Weaponmaster"
+      },
+      {
+        "level_min": 3,
+        "level_max": 4,
+        "lawful": "Champion",
+        "chaotic": "Dominator",
+        "neutral": "Legionnaire"
+      },
+      {
+        "level_min": 5,
+        "level_max": 6,
+        "lawful": "Paragon",
+        "chaotic": "Despoiler",
+        "neutral": "Vanquisher"
+      },
+      {
+        "level_min": 7,
+        "level_max": 8,
+        "lawful": "Lionheart",
+        "chaotic": "Oppressor",
+        "neutral": "Tactician"
+      },
+      {
+        "level_min": 9,
+        "level_max": 10,
+        "lawful": "Commander",
+        "chaotic": "Tyrant",
+        "neutral": "Overlord"
+      }
+    ]
+  }
+]
